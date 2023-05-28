@@ -811,34 +811,44 @@ def bag_full_check(cla):
     try:
         import cv2
         import numpy as np
-        from function import imgs_set_
+        import pyautogui
+        from function import imgs_set_, click_pos_2
         from potion import maul_potion
         from realtime import boonhae_
         from massenger import line_to_me
 
-        go_ = False
+        v_.bag_full_open_count += 1
 
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\impossibletoattack.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("point : impossibletoattack", imgs_)
-            go_ = True
-        else:
+        if v_.bag_full_open_count == 5:
+
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_full_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(800, 45, 870, 70, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("point : bag_full_1", imgs_)
-                go_ = True
-        if go_ == True:
-            line_to_me(cla, "가방 꽉 찼다 확인해줘라")
-            boonhae_(cla)
-            maul_potion(cla)
-        else:
-            print("가방 꽉 차지 않았다.")
+                bag_open(cla)
+                pyautogui.moveTo(imgs_.x - 100, imgs_.y + 200, 0.1)
+                time.sleep(1)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\impossibletoattack.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("point : impossibletoattack", imgs_)
+                    line_to_me(cla, "가방 꽉 찼다 확인해줘라")
+                    boonhae_(cla)
+                    maul_potion(cla)
+
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(935, 100, cla)
+        if v_.bag_full_open_count > 99:
+            v_.bag_full_open_count = 0
+
 
     except Exception as e:
         print(e)
@@ -1832,7 +1842,7 @@ def my_gold_check(cla):
                 imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(935, 100, cla)
-            if v_.bag_open_count == 100:
+            if v_.bag_open_count > 99:
                 v_.bag_open_count = 0
 
 

@@ -26,7 +26,7 @@ def go_test():
     import requests
     import git
 
-    cla = "two"
+    cla = "one"
 
     # cla = "two"
 
@@ -37,8 +37,14 @@ def go_test():
 
     print("여긴 테스트")
 
-    my_repo = git.Repo()
-    my_repo.remotes.origin.pull()
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\maul_eye_check.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 0, 55, 80, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("눈알 있다.", imgs_)
+    else:
+        print("눈알 없다.")
 
 
     # sell_potion_start(cla)

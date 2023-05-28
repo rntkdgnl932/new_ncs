@@ -164,44 +164,72 @@ def in_world(cla):
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(1)
 
+                # maul_ = False
+                # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_3.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
+                # if imgs_ is not None and imgs_ != False:
+                #     print("world_ready_3", imgs_)
+                #     maul_ = True
+                #
+                # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_4.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
+                # if imgs_ is not None and imgs_ != False:
+                #     print("world_ready_4", imgs_)
+                #     maul_ = True
+
                 maul_ = False
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_3.PNG"
+
+                maul_list = ["maul_", "maul_a", "maul_b", "maul_c"]
+                for i in range(len(maul_list)):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\maul\\" + maul_list[i] + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print(maul_list[i], imgs_)
+                        maul_ = True
+                if maul_ == False:
+                    # click_pos_2(230, 90, cla)
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\maul\\jabhwa_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("여긴 마을!!!!!!!!!!!!!")
+                        click_pos_2(230, 90, cla)
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\maul_eye_check.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
+                imgs_ = imgs_set_(0, 0, 55, 80, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("world_ready_3", imgs_)
-                    maul_ = True
-
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_4.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("world_ready_4", imgs_)
-                    maul_ = True
-
-                if maul_ == True:
-                    click_pos_2(230, 90, cla)
-
+                    print("눈알 있다.", imgs_)
                 else:
-                    world_check = False
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 70, 40, 110, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("world_ready_1", imgs_)
-                        world_check = True
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_2.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 70, 40, 110, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("world_ready_2", imgs_)
-                        world_check = True
-                    if world_check == True:
-                        click_pos_2(110, 160, cla)
+                    click_pos_2(30, 55, cla)
+
+                world_check = False
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 0, 40, 110, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("world_ready_1", imgs_)
+                    world_check = True
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 70, 40, 110, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("world_ready_2", imgs_)
+                    world_check = True
+                if world_check == True:
+                    click_pos_2(110, 160, cla)
+            time.sleep(0.3)
+
 
     except Exception as e:
         print(e)
