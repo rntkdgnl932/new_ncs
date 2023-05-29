@@ -861,6 +861,7 @@ def bag_open(cla):
         from massenger import line_to_me
 
         go_ = False
+        print("가방열기")
 
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -872,6 +873,7 @@ def bag_open(cla):
             while go_ is False:
                 out_result = out_check(cla)
                 if out_result == True:
+                    print("가방 바바깥 화면이다")
                     click_pos_2(840, 60, cla)
                     time.sleep(0.5)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"

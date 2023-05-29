@@ -37,15 +37,26 @@ def go_test():
 
     print("여긴 테스트")
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\maul_eye_check.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 0, 55, 80, cla, img, 0.8)
+    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("눈알 있다.", imgs_)
-    else:
-        print("눈알 없다.")
+        print("juljun_potion 일딴 물약 있다", imgs_)
 
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_potion_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("화면에 물약 존재한다", imgs_)
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_potion_3.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("화면에 물약 존재한다", imgs_)
 
     # sell_potion_start(cla)
 
