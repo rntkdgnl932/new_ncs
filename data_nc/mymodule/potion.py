@@ -13,9 +13,11 @@ def potion_check(cla):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, imgs_set_, click_pos_2, in_number_check, change_number
+        from function import text_check_get, int_put_, imgs_set_, click_pos_2, in_number_check, change_number, image_processing, get_region
         from action import dead_die_before, bag_open
         from realtime import soojib
+        import pyautogui
+        import pytesseract
 
         if cla == "one":
             potion = v_.mypotion_1
@@ -29,8 +31,10 @@ def potion_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("화면에 물약 존재한다", imgs_)
 
-
-            potion_ready = text_check_get(730, 1004, 759, 1016, cla)
+            # img = pyautogui.screenshot(region=(get_region(730, 1004, 759, 1016, cla)))
+            # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+            # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+            potion_ready = text_check_get(730, 1004, 759, 1018, cla)
             print("전체4자리 potion_?", potion_ready)
             result_num_in = in_number_check(cla, potion_ready)
             if result_num_in == True:
@@ -54,7 +58,10 @@ def potion_check(cla):
                 else:
                     print("potion => 숫자 아님")
             else:
-                potion_ready = text_check_get(733, 1004, 758, 1016, cla)
+                # img = pyautogui.screenshot(region=(get_region(733, 1004, 758, 1016, cla)))
+                # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+                # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+                potion_ready = text_check_get(733, 1004, 758, 1018, cla)
                 print("전체4자리 potion_2?", potion_ready)
                 result_num_in = in_number_check(cla, potion_ready)
                 if result_num_in == True:
@@ -78,7 +85,10 @@ def potion_check(cla):
                     else:
                         print("potion => 숫자 아님")
                 else:
-                    potion_ready = text_check_get(730, 1004, 752, 1016, cla)
+                    # img = pyautogui.screenshot(region=(get_region(730, 1004, 752, 1016, cla)))
+                    # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+                    # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+                    potion_ready = text_check_get(730, 1004, 752, 1018, cla)
                     print("앞3자리 potion_?", potion_ready)
                     result_num_in = in_number_check(cla, potion_ready)
                     if result_num_in == True:
@@ -102,7 +112,10 @@ def potion_check(cla):
                         else:
                             print("potion => 숫자 아님")
                     else:
-                        potion_ready = text_check_get(738, 1004, 759, 1016, cla)
+                        # img = pyautogui.screenshot(region=(get_region(738, 1004, 759, 1016, cla)))
+                        # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+                        # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+                        potion_ready = text_check_get(738, 1004, 759, 1018, cla)
                         print("뒷3자리 potion_??", potion_ready)
                         result_num_in = in_number_check(cla, potion_ready)
                         if result_num_in == True:

@@ -81,9 +81,9 @@ def jadong_play(cla, result_schedule_):
             print("사냥터 진입하러 가자")
             # 자동사냥 진입
             clean_screen(cla)
-            result_maul = in_maul_check(cla)
-            if result_maul == True:
-                maul_potion(cla)
+            # result_maul = in_maul_check(cla)
+            # if result_maul == True:
+            #     maul_potion(cla)
             in_world(cla)
             in_spot(cla, result_schedule_)
             go_to_spot(cla, "jadong")
@@ -226,8 +226,21 @@ def in_world(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("world_ready_2", imgs_)
                     world_check = True
-                if world_check == True:
-                    click_pos_2(110, 160, cla)
+                world_check_count = 0
+                while world_check is True:
+                    world_check_count += 1
+                    if world_check_count > 10:
+                        world_check = False
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(450, 990, 510, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("월드맵에 들어옴", imgs_)
+                        world_check = False
+                    else:
+                        click_pos_2(110, 160, cla)
+                    time.sleep(0.3)
             time.sleep(0.3)
 
 

@@ -31,10 +31,7 @@ def sub_quest_grow(cla):
         result_dead = dead_die(cla)
         print("죽었당!!!!!!!!!!!!!!!!!!!!?????????????", result_dead)
         if result_dead == True:
-            if v_.force_sub_quest == True:
-                v_.force_sub_quest = False
-            else:
-                myQuest_play_add(cla, "서브퀘스트")
+            myQuest_play_add(cla, "서브퀘스트")
 
         if sub_quest == False:
 
@@ -189,7 +186,20 @@ def quest_get(cla):
                         in_quest_1 = True
                         in_quest_2 = False
                         # 처음부터 없을 경우 생각하기
+                        in_quest_2_count = 0
                         while in_quest_2 is False:
+                            in_quest_2_count += 1
+                            if in_quest_2_count > 20:
+                                in_quest_2 = True
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(550, 140, 620, 970, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x - 20, imgs_.y + 5, cla)
+                                time.sleep(0.5)
+
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\soolock_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -335,8 +345,39 @@ def quest_check(cla):
 
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import go_quest_ing_
+        from get_item import guild_jilyung
         import numpy as np
         import cv2
+
+        # 길드 지령..
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+
+            jilyung_is_ = False
+            jilyung_is_count = 0
+            while jilyung_is_ is False:
+                jilyung_is_count += 1
+                if jilyung_is_count > 5:
+                    jilyung_is_ = True
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    guild_jilyung(cla)
+                    jilyung_is_ = True
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.4)
 
         # 퀘스트 수락
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\quest_soolock_2.PNG"
@@ -351,30 +392,14 @@ def quest_check(cla):
                 talgut_board_(cla)
 
 
-        # # 퀘스트 완료
-        # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\quest_complete_2.PNG"
-        # img_array = np.fromfile(full_path, np.uint8)
-        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        # imgs_ = imgs_set_(800, 90, 960, 900, cla, img, 0.83)
-        # if imgs_ is not None and imgs_ != False:
-        #     print("quest_complete_2", imgs_)
-        #     click_pos_reg(imgs_.x, imgs_.y, cla)
-        #     result_ = go_quest_ing_(cla)
-        #     if result_ == False:
-        #         talgut_board_(cla)
 
         # 퀘스트 완료
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\quest_complete_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(800, 90, 960, 900, cla, img, 0.83)
-        if imgs_ is not None and imgs_ != False:
-            print("quest_complete_1", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            talgut_board_(cla)
-            if result_ == False:
-                talgut_board_(cla)
-        else:
+        is_daily = False
+        is_daily_count = 0
+        while is_daily is False:
+            is_daily_count += 1
+            if is_daily_count > 5:
+                is_daily = True
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\quest_complete_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -382,9 +407,20 @@ def quest_check(cla):
             if imgs_ is not None and imgs_ != False:
                 print("quest_complete_2", imgs_)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                talgut_board_(cla)
-                if result_ == False:
-                    talgut_board_(cla)
+
+            else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\quest_complete_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 90, 960, 900, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("quest_complete_1", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    is_daily = True
+                    result_ = go_quest_ing_(cla)
+                    if result_ == False:
+                        talgut_board_(cla)
 
         # 붕붕 날아다니자
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\flying_.PNG"
@@ -480,6 +516,7 @@ def talgut_board_(cla):
         from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
         from jadong_crow import go_to_spot
         from schedule import myQuest_play_add
+        from get_item import guild_jilyung
         import numpy as np
         import cv2
         import pyautogui
@@ -560,7 +597,36 @@ def talgut_board_(cla):
                     break
         if jilyung == True:
             print("지령 관련 퀘스트 여긴 서브퀘스트")
-            myQuest_play_add(cla, "서브퀘스트")
+            # 길드 지령..
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+
+                jilyung_is_ = False
+                jilyung_is_count = 0
+                while jilyung_is_ is False:
+                    jilyung_is_count += 1
+                    if jilyung_is_count > 5:
+                        jilyung_is_ = True
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        guild_jilyung(cla)
+                        jilyung_is_ = True
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.4)
+            # myQuest_play_add(cla, "서브퀘스트")
         if sojin_ == True:
             in_quest_title = False
             in_quest_title_count = 0
@@ -716,12 +782,12 @@ def talgut_board_check(cla):
         global sub_quest_count
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
+        from get_item import guild_jilyung
         import numpy as np
         import cv2
         import pyautogui
 
         # 길드 지령..
-        from get_item import guild_jilyung
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

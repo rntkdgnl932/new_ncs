@@ -11,7 +11,7 @@ import variable as v_
 
 def go_test():
     from datetime import date, timedelta, datetime
-    from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2
+    from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change
     from get_item import get_items, get_upjuk
     from jadong_crow import jadong_play
@@ -25,6 +25,8 @@ def go_test():
     from sell_potion import sell_potion_start
     import requests
     import git
+    import pyautogui
+    import pytesseract
 
     cla = "one"
 
@@ -37,26 +39,46 @@ def go_test():
 
     print("여긴 테스트")
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\daily_check_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
+    imgs_ = imgs_set_(160, 990, 220, 1015, cla, img, 0.83)
     if imgs_ is not None and imgs_ != False:
-        print("juljun_potion 일딴 물약 있다", imgs_)
+        print("daily_check_1", imgs_)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_potion_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("화면에 물약 존재한다", imgs_)
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\daily_check_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        for i in pyautogui.locateAllOnScreen(img, region=(160 + plus, 230, 60, 750), confidence=0.8):
+            last_x = i.left
+            if cla == "two":
+                last_x = last_x - 960
+            last_y = i.top
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_potion_3.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("화면에 물약 존재한다", imgs_)
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\daily_check_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(last_x - 7, last_y - 7, last_x + 43, last_y + 18, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                level_check = text_check_get(last_x - 7, last_y - 7, last_x + 43, last_y + 18, cla)
+                result_lev = int_put_(level_check)
+                if int(result_lev) < 40:
+                    print("result_lev", result_lev)
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\soolock.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(640, 970, 770, 1020, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+    # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
+    # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+    # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+    # # potion_ready = text_check_get(730, 1004, 759, 1016, cla)
+    # print("전체4자리 potion_?1111111111111111111", potion_ready)
+    #
+    # potion_ready = text_check_get(170, 235, 220, 260, cla)
+    # print("전체4자리 potion_?222222222222222", potion_ready)
 
     # sell_potion_start(cla)
 
