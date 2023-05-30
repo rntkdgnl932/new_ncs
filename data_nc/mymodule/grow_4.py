@@ -224,33 +224,85 @@ def quest_get(cla):
                         click_pos_2(60, 220, cla)
                         click_pos_2(60, 220, cla)
                         time.sleep(1)
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\give_up_1.PNG"
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\daily_check_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        for i in pyautogui.locateAllOnScreen(img, region=(560 + plus, 150, 630, 330), confidence=0.8):
+                        for i in pyautogui.locateAllOnScreen(img, region=(160 + plus, 230, 60, 750), confidence=0.8):
                             last_x = i.left
                             if cla == "two":
                                 last_x = last_x - 960
                             last_y = i.top
 
-                            click_pos_reg(last_x, last_y, cla)
+                            print("check point!!!!!!!!!!!!!", last_x, last_y)
 
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\give_up_2.PNG"
+                            click_pos_2(last_x + 200, last_y, cla)
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\daily_check_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(850, 120, 950, 200, cla, img, 0.8)
+                            imgs_ = imgs_set_(last_x - 7, last_y - 7, last_x + 43, last_y + 18, cla, img, 0.83)
                             if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.3)
-                                for z in range(3):
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\y_1.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        break
-                                    time.sleep(0.3)
+                                level_check = text_check_get(last_x - 7, last_y - 7, last_x + 43, last_y + 18, cla)
+                                result_lev = int_put_(level_check)
+                                num_bool = result_lev.isdigit()
+                                if num_bool == True:
+                                    if int(result_lev) < 40 and int(result_lev) != 4 and int(result_lev) != 5 and int(
+                                            result_lev) != 6 and int(result_lev) != 7:
+                                        print("result_lev", result_lev)
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\soolock.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(640, 970, 770, 1020, cla, img, 0.83)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    else:
+                                        print("result_lev", result_lev)
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\give_up_2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(850, 120, 950, 200, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            time.sleep(0.3)
+                                            for z in range(3):
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\y_1.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                    break
+                                                time.sleep(0.3)
+                                else:
+                                    print("요구레벨이 숫자 아니라고 읽음", result_lev)
+                        # time.sleep(1)
+                        # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\give_up_1.PNG"
+                        # img_array = np.fromfile(full_path, np.uint8)
+                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        # for i in pyautogui.locateAllOnScreen(img, region=(560 + plus, 150, 630, 330), confidence=0.8):
+                        #     last_x = i.left
+                        #     if cla == "two":
+                        #         last_x = last_x - 960
+                        #     last_y = i.top
+                        #
+                        #     click_pos_reg(last_x, last_y, cla)
+                        #
+                        #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\give_up_2.PNG"
+                        #     img_array = np.fromfile(full_path, np.uint8)
+                        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        #     imgs_ = imgs_set_(850, 120, 950, 200, cla, img, 0.8)
+                        #     if imgs_ is not None and imgs_ != False:
+                        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                        #         time.sleep(0.3)
+                        #         for z in range(3):
+                        #             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\y_1.PNG"
+                        #             img_array = np.fromfile(full_path, np.uint8)
+                        #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        #             imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+                        #             if imgs_ is not None and imgs_ != False:
+                        #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                        #                 break
+                        #             time.sleep(0.3)
                         # 아빌리우스
                         click_pos_2(60, 260, cla)
                         click_pos_2(60, 260, cla)
