@@ -1719,53 +1719,61 @@ def character_change(cla, character_id):
                 imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     # 좌표
-                    if int(character_id) == 1:
-                        click_pos_2(60, 180, cla)
-                    if int(character_id) == 2:
-                        click_pos_2(55, 280, cla)
-                    time.sleep(0.2)
+                    x_reg = imgs_.x
+                    y_reg = imgs_.y
 
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.1)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    last_change = False
+                    last_change_count = 0
+                    while last_change is False:
+                        last_change_count += 1
+                        if last_change_count > 10:
+                            last_change = True
+                        print("진입")
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(20, 990, 150, 1040, cla, img, 0.8)
+                        if imgs_ is None:
+                            # 진입여부 파악
+                            in_game = False
+                            in_game_count = 0
+                            while in_game is False:
+                                in_game_count += 1
+                                if in_game_count > 40:
+                                    in_game = True
+                                    line_to_me(cla, "게임화면 진입에 문제가 있다.")
+                                result_out = out_check(cla)
+                                if result_out == True:
+                                    cha_select = True
+                                    in_game = True
 
-                    time.sleep(1)
+                                    # 현재 진입한 캐릭터 번호(id)
 
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(20, 990, 150, 1040, cla, img, 0.8)
-                    if imgs_ is None:
-                        # 진입여부 파악
-                        in_game = False
-                        in_game_count = 0
-                        while in_game is False:
-                            in_game_count += 1
-                            if in_game_count > 40:
-                                in_game = True
-                                line_to_me(cla, "게임화면 진입에 문제가 있다.")
-                            result_out = out_check(cla)
-                            if result_out == True:
-                                cha_select = True
-                                in_game = True
+                                    dir_path = "C:\\my_games\\nightcrow"
+                                    if cla == 'one':
+                                        file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
+                                    if cla == 'two':
+                                        file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
 
-                                # 현재 진입한 캐릭터 번호(id)
-
-
-
-                                dir_path = "C:\\my_games\\nightcrow"
-                                if cla == 'one':
-                                    file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
-                                if cla == 'two':
-                                    file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
-
-                                with open(file_path, "w", encoding='utf-8-sig') as file:
-                                    file.write(str(character_id))
+                                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                                        file.write(str(character_id))
 
 
-                            else:
-                                print("진입중")
-                            time.sleep(0.5)
+                                else:
+                                    print("진입중")
+                                time.sleep(0.5)
+                        else:
+                            if int(character_id) == 1:
+                                click_pos_2(60, 180, cla)
+                            if int(character_id) == 2:
+                                click_pos_2(55, 280, cla)
+                            time.sleep(0.2)
+
+                            click_pos_reg(x_reg, y_reg, cla)
+                        time.sleep(0.5)
+
+
+
             else:
                 # 추후 대기중 화면 설정하기
                 # 대기중 화면이 아닐때

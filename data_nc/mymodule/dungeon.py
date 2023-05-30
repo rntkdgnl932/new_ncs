@@ -674,7 +674,7 @@ def juljun_attack(cla, dun_):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.8)
+                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
                     print("마을이면 스케쥴 진행 ㄱㄱ", imgs_)
                     in_maul_ = True
@@ -953,6 +953,15 @@ def juljun_attack(cla, dun_):
                                         else:
                                             # 마을인지 보기
                                             print("마을인지 파악")
+
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                time.sleep(0.3)
+
                                             result_maul_in = in_maul_check(cla)
                                             if result_maul_in == True:
                                                 continue_juljun = True
@@ -1000,6 +1009,7 @@ def drag_maul_potion_(cla, dun_):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
         from potion import maul_potion
+        from action import in_maul_check, out_check, clean_screen
 
         print("drag_potion")
 
@@ -1016,18 +1026,45 @@ def drag_maul_potion_(cla, dun_):
 
 
         go_maul_ = False
+        go_maul_count = 0
         while go_maul_ is False:
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
-            if imgs_ is not None and imgs_ != False:
-                print("동굴 절전모드 포션 구하러 가는 길")
-                print(dun_, imgs_)
+            go_maul_count += 1
+            if go_maul_count > 10:
+                go_maul_ = True
+            result_maul = in_maul_check(cla)
+            if result_maul == True:
+                go_maul_= True
                 maul_potion(cla)
 
+
             else:
-                drag_pos(360, 550, 600, 550, cla)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("juljun_dungeon...", imgs_)
+                    drag_pos(360, 550, 600, 550, cla)
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+                    if imgs_ is not None and imgs_ != False:
+                        go_maul_ = True
+                        print("동굴 절전모드 포션 구하러 가는 길")
+                        print(dun_, imgs_)
+                        maul_potion(cla)
+                    else:
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            print("마을이동서 클릭")
+                            click_pos_2(290, 990, cla)
+                        else:
+                            clean_screen(cla)
+
+
+            time.sleep(1)
 
     except Exception as e:
         print(e)

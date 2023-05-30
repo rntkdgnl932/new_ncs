@@ -25,7 +25,7 @@ def get_region(start_x, start_y, end_x, end_y, cla):
 
     # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int(), abc)
 
-    value = (start_x + random_int() + coordinate, start_y, end_x - start_x + random_int() + coordinate, end_y - start_y)
+    value = (start_x + coordinate, start_y, end_x - start_x, end_y - start_y)
     return value
 
 # 이미지 특정 색상 제외함

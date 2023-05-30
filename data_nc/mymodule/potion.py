@@ -197,11 +197,13 @@ def maul_potion(cla):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg, in_number_check
+        from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg, in_number_check, get_region, image_processing
         from action import out_check, clean_screen, bag_open, maul_check, dead_die_before
         from realtime import soojib, moogi_, jaelyo_, boonhae_
         from schedule import myQuest_play_add
         from get_item import get_items
+        import pyautogui
+        import pytesseract
 
         get_items(cla)
         soojib(cla)
@@ -225,7 +227,7 @@ def maul_potion(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.8)
+                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
                     print("janhwa_1", imgs_)
                 else:
@@ -267,7 +269,7 @@ def maul_potion(cla):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.8)
+            imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
                 print("janhwa_1^_^", imgs_)
                 jab_1 = True
@@ -300,6 +302,8 @@ def maul_potion(cla):
                         # click_pos_2(230, 90, cla)
             time.sleep(1)
 
+
+        # 잡화 상인 진입
         jab_2 = False
         while jab_2 is False:
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_2.PNG"
@@ -327,7 +331,7 @@ def maul_potion(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("small_potion", imgs_)
                     jab_2 = True
-                    click_pos_reg(imgs_.x + 70, imgs_.y, cla)
+                    # click_pos_reg(imgs_.x + 70, imgs_.y, cla)
             else:
                 jab_1_count += 1
                 time.sleep(2)
@@ -336,39 +340,12 @@ def maul_potion(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.8)
+                    imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         print("janhwa_11", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
-        jab_3 = False
-        while jab_3 is False:
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_buy.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
-            if imgs_ is not None and imgs_ != False:
-                print("potion_buy", imgs_)
-                click_pos_2(560, 550, cla)
-                jab_3 = True
-                time.sleep(0.5)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.2)
-                click_pos_2(410, 745, cla)
-                time.sleep(1.2)
-            else:
-                jab_1_count += 1
 
-                time.sleep(1)
-                if jab_1_count > 5:
-                    jab_1_count = 0
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\small_potion.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.83)
-                    if imgs_ is not None and imgs_ != False:
-                        print("small_potion", imgs_)
-                        jab_3 = True
-                        click_pos_reg(imgs_.x + 70, imgs_.y, cla)
+
 
 
         # 랜덤이동서
@@ -377,17 +354,19 @@ def maul_potion(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(680, 110, 920, 1000, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("already_in___1", imgs_)
-
-            if cla == "one":
-                move_ = text_check_get(imgs_.x - 10, imgs_.y + 10, imgs_.x + 30, imgs_.y + 30, cla)
+            x_reg = imgs_.x
             if cla == "two":
-                move_ = text_check_get(imgs_.x - 10 - 960, imgs_.y + 10, imgs_.x + 30 - 960, imgs_.y + 30, cla)
-            print("how many 1?", move_)
+                x_reg = x_reg - 960
+            y_reg = imgs_.y
+
+            img = pyautogui.screenshot(region=(get_region(x_reg - 2, y_reg + 13, x_reg + 28, y_reg + 33, cla)))
+            white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+            move_ = pytesseract.image_to_string(white_img, lang=None)
+            print("how many random_move?", move_)
 
             move_bool = in_number_check(cla, move_)
             if move_bool == True:
-                print("int_put_(move_) 1?", int(int_put_(move_)))
+                print("int_put_(random_move) 1?", int(int_put_(move_)))
                 random_move = int(int_put_(move_))
                 if random_move < 100:
                     jab_3 = False
@@ -459,14 +438,19 @@ def maul_potion(cla):
         if imgs_ is not None and imgs_ != False:
             print("already_in___2", imgs_)
 
-            if cla == "one":
-                move_ = text_check_get(imgs_.x - 10, imgs_.y + 10, imgs_.x + 30, imgs_.y + 30, cla)
+            x_reg = imgs_.x
             if cla == "two":
-                move_ = text_check_get(imgs_.x - 10 - 960, imgs_.y + 10, imgs_.x + 30 - 960, imgs_.y + 30, cla)
-            print("how many 2?", move_)
+                x_reg = x_reg - 960
+            y_reg = imgs_.y
+
+            img = pyautogui.screenshot(region=(get_region(x_reg - 2, y_reg + 13, x_reg + 28, y_reg + 33, cla)))
+            white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+            move_ = pytesseract.image_to_string(white_img, lang=None)
+            print("how many maul_move_?", move_)
+
             move_bool = in_number_check(cla, move_)
             if move_bool == True:
-                print("int_put_(move_) 2?", int(int_put_(move_)))
+                print("int_put_(maul_move_) 2?", int(int_put_(move_)))
                 maul_move_ = int(int_put_(move_))
                 if maul_move_ < 100:
                     jab_3 = False
@@ -528,6 +512,203 @@ def maul_potion(cla):
                                 jab_3 = True
                             print("soongan", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+        # 돌격 포션
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\dolgyuck_potion.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(680, 110, 920, 1000, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("dolgyuck_potion", imgs_)
+
+            x_reg = imgs_.x
+            if cla == "two":
+                x_reg = x_reg - 960
+            y_reg = imgs_.y
+
+            img = pyautogui.screenshot(region=(get_region(x_reg - 1, y_reg + 13, x_reg + 29, y_reg + 33, cla)))
+            white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+            move_ = pytesseract.image_to_string(white_img, lang=None)
+            print("how many dolgyuck_potion?", move_)
+
+            move_bool = in_number_check(cla, move_)
+            if move_bool == True:
+                print("int_put_(dolgyuck_potion) 2?", int(int_put_(move_)))
+                maul_move_ = int(int_put_(move_))
+                if maul_move_ < 100:
+                    jab_3 = False
+                    click_count = 0
+                    while jab_3 is False:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_buy.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            print("potion_buy", imgs_)
+                            click_pos_2(450, 620, cla)
+                            jab_3 = True
+                            time.sleep(0.5)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            click_pos_2(410, 745, cla)
+                            time.sleep(1.2)
+                        else:
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\dolgyuck.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                            if imgs_ is not None and imgs_ != False:
+                                click_count += 1
+                                if click_count > 4:
+                                    print("돈 없다. 강제노역이당 흑흑")
+                                    v_.force_sub_quest = True
+                                    jab_3 = True
+                                print("soongan", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                jab_3 = False
+                click_count = 0
+                while jab_3 is False:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_buy.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("potion_buy", imgs_)
+                        click_pos_2(510, 580, cla)
+                        jab_3 = True
+                        time.sleep(0.5)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        click_pos_2(410, 745, cla)
+                        time.sleep(1.2)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\dolgyuck.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            click_count += 1
+                            if click_count > 4:
+                                print("돈 없다. 강제노역이당 흑흑")
+                                v_.force_sub_quest = True
+                                jab_3 = True
+                            print("soongan", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+        # 필승 포션
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\pilseong_potion.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(680, 110, 920, 1000, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("pilseong_potion", imgs_)
+
+            x_reg = imgs_.x
+            if cla == "two":
+                x_reg = x_reg - 960
+            y_reg = imgs_.y
+
+            img = pyautogui.screenshot(region=(get_region(x_reg - 4, y_reg + 12, x_reg + 26, y_reg + 32, cla)))
+            white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+            move_ = pytesseract.image_to_string(white_img, lang=None)
+            print("how many pilseong_potion?", move_)
+
+            move_bool = in_number_check(cla, move_)
+            if move_bool == True:
+                print("int_put_(pilseong_potion) 2?", int(int_put_(move_)))
+                maul_move_ = int(int_put_(move_))
+                if maul_move_ < 100:
+                    jab_3 = False
+                    click_count = 0
+                    while jab_3 is False:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_buy.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            print("potion_buy", imgs_)
+                            click_pos_2(450, 620, cla)
+                            jab_3 = True
+                            time.sleep(0.5)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            click_pos_2(410, 745, cla)
+                            time.sleep(1.2)
+                        else:
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\pilseong.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                            if imgs_ is not None and imgs_ != False:
+                                click_count += 1
+                                if click_count > 4:
+                                    print("돈 없다. 강제노역이당 흑흑")
+                                    v_.force_sub_quest = True
+                                    jab_3 = True
+                                print("soongan", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                jab_3 = False
+                click_count = 0
+                while jab_3 is False:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_buy.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("potion_buy", imgs_)
+                        click_pos_2(510, 580, cla)
+                        jab_3 = True
+                        time.sleep(0.5)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        click_pos_2(410, 745, cla)
+                        time.sleep(1.2)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\pilseong.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            click_count += 1
+                            if click_count > 4:
+                                print("돈 없다. 강제노역이당 흑흑")
+                                v_.force_sub_quest = True
+                                jab_3 = True
+                            print("soongan", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+        # 스몰 포션 사기기
+        jab_3 = False
+        while jab_3 is False:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_buy.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("potion_buy", imgs_)
+                click_pos_2(560, 550, cla)
+                jab_3 = True
+                time.sleep(0.5)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.2)
+                click_pos_2(410, 745, cla)
+                time.sleep(1.2)
+            else:
+                jab_1_count += 1
+                if jab_1_count > 5:
+                    jab_1_count = 0
+                    jab_3 = True
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\small_potion.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("small_potion", imgs_)
+                    click_pos_reg(imgs_.x + 70, imgs_.y, cla)
+            time.sleep(0.5)
 
 
         jab_3 = False

@@ -9,7 +9,6 @@ import variable as v_
 
 fly_ = 0
 sub_quest = False
-sub_quest_count = 0
 
 def sub_quest_grow(cla):
     try:
@@ -511,7 +510,6 @@ def talgut_ing_(cla):
 
 def talgut_board_(cla):
     try:
-        global sub_quest_count
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
         from jadong_crow import go_to_spot
@@ -523,41 +521,50 @@ def talgut_board_(cla):
 
         # 탈것
         go_ = False
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_1.PNG"
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\quest_click.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
+        imgs_ = imgs_set_(680, 120, 720, 220, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             go_ = True
-            sub_quest_count = 0
+            v_.sub_quest_count = 0
             click_pos_reg(imgs_.x, imgs_.y, cla)
         else:
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_2.PNG"
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 go_ = True
-                sub_quest_count = 0
+                v_.sub_quest_count = 0
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_3.PNG"
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     go_ = True
-                    sub_quest_count = 0
+                    v_.sub_quest_count = 0
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\talgut_4.PNG"
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         go_ = True
-                        sub_quest_count = 0
+                        v_.sub_quest_count = 0
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\talgut_4.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            go_ = True
+                            v_.sub_quest_count = 0
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
         sojin_ = False
         jilyung = False
         for i in range(10):
@@ -738,15 +745,15 @@ def talgut_board_(cla):
                 time.sleep(0.2)
                 click_pos_2(700, 110, cla)
 
-            print("sub_quest_count", sub_quest_count)
-            sub_quest_count += 1
-            if sub_quest_count > 1:
+            print("v_.sub_quest_count", v_.sub_quest_count)
+            v_.sub_quest_count += 1
+            if v_.sub_quest_count > 1:
                 result_ = go_quest_ing_(cla)
                 if result_ == False:
 
                     result_auto = go_auto_ing_(cla)
                     if result_auto == True:
-                        sub_quest_count = 0
+                        v_.sub_quest_count = 0
                         quest_get(cla)
             else:
                 click_pos_2(700, 155, cla)
@@ -779,7 +786,6 @@ def talgut_board_(cla):
 
 def talgut_board_check(cla):
     try:
-        global sub_quest_count
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
         from get_item import guild_jilyung
@@ -819,41 +825,50 @@ def talgut_board_check(cla):
 
         # 탈것
         go_ = False
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_1.PNG"
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\quest_click.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
+        imgs_ = imgs_set_(680, 120, 720, 220, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             go_ = True
-            sub_quest_count = 0
+            v_.sub_quest_count = 0
             click_pos_reg(imgs_.x, imgs_.y, cla)
         else:
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_2.PNG"
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 go_ = True
-                sub_quest_count = 0
+                v_.sub_quest_count = 0
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_3.PNG"
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     go_ = True
-                    sub_quest_count = 0
+                    v_.sub_quest_count = 0
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\talgut_4.PNG"
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\talgut_3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         go_ = True
-                        sub_quest_count = 0
+                        v_.sub_quest_count = 0
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\talgut_4.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            go_ = True
+                            v_.sub_quest_count = 0
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
         return go_
