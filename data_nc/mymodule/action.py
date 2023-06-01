@@ -1756,8 +1756,21 @@ def character_change(cla, character_id):
                                     if cla == 'two':
                                         file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
 
-                                    with open(file_path, "w", encoding='utf-8-sig') as file:
-                                        file.write(str(character_id))
+                                    is_out = False
+                                    is_out_count = 0
+                                    while is_out is False:
+                                        is_out_count += 1
+                                        if is_out_count > 15:
+                                            is_out = True
+                                        with open(file_path, "r", encoding='utf-8-sig') as file:
+                                            read_id = file.read()
+
+                                        if str(character_id) == str(read_id):
+                                            is_out = True
+                                        else:
+                                            with open(file_path, "w", encoding='utf-8-sig') as file:
+                                                file.write(str(character_id))
+                                        time.sleep(0.3)
 
 
                                 else:
