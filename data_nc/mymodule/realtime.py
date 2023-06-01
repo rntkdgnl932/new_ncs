@@ -868,7 +868,7 @@ def jaelyo_(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
-                            time.sleep(2)
+                            time.sleep(3)
 
 
             else:
