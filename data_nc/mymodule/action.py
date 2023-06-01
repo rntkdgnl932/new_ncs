@@ -1744,6 +1744,7 @@ def character_change(cla, character_id):
                                     line_to_me(cla, "게임화면 진입에 문제가 있다.")
                                 result_out = out_check(cla)
                                 if result_out == True:
+                                    last_change = True
                                     cha_select = True
                                     in_game = True
 
