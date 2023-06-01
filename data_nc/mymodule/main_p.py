@@ -715,6 +715,66 @@ class FirstTab(QWidget):
         character_.clicked.connect(self.onActivated_character)
         self.com_group3.setLayout(vbox3)
 
+        #self.one_cla_id_now = QLabel("       현재 내 아이디 : " + thismyid_one + "\n\n")
+
+        # 일일퀘스트 요구 레벨(나의 레벨)
+        read_level = '35'
+
+        dir_path = "C:\\my_games\\nightcrow\\mysettings\\my_level"
+        one_file_path = dir_path + "\\one_character.txt"
+        two_file_path = dir_path + "\\two_character.txt"
+
+        isreadlevel = False
+        while isreadlevel is False:
+            if os.path.isdir(dir_path) == True:
+                print('디렉토리 존재함')
+                isreadlevel = True
+                one_re_ = False
+                two_re_ = False
+                while one_re_ is False:
+                    if os.path.isfile(one_file_path) == True:
+                        one_re_ = True
+                        with open(one_file_path, "r", encoding='utf-8-sig') as file:
+                            one_read_level = file.read()
+                    else:
+                        with open(one_file_path, "w", encoding='utf-8-sig') as file:
+                            file.write(read_level)
+                while two_re_ is False:
+                    if os.path.isfile(two_file_path) == True:
+                        two_re_ = True
+                        with open(two_file_path, "r", encoding='utf-8-sig') as file:
+                            two_read_level = file.read()
+                    else:
+                        with open(two_file_path, "w", encoding='utf-8-sig') as file:
+                            file.write(read_level)
+
+            else:
+                print('디렉토리 존재하지 않음')
+                os.makedirs(dir_path)
+                with open(one_file_path, "w", encoding='utf-8-sig') as file:
+                    file.write(read_level)
+                with open(two_file_path, "w", encoding='utf-8-sig') as file:
+                    file.write(read_level)
+
+
+
+
+        self.com_group3_level = QGroupBox('일퀘요구레벨')
+        self.one_require_level = QLabel("1배럭 요구레벨 : " + str(one_read_level))
+        self.two_require_level = QLabel("2배럭 요구레벨 : " + str(two_read_level))
+        self.require_level_in = QLineEdit(self)
+        vbox_level = QVBoxLayout()
+        vbox_level.addWidget(self.one_require_level)
+        vbox_level.addWidget(self.two_require_level)
+        vbox_level.addWidget(self.require_level_in)
+        one_character_level = QPushButton('one_character_save')
+        one_character_level.clicked.connect(self.onActivated_one_character_level)
+        two_character_level = QPushButton('two_character_save')
+        two_character_level.clicked.connect(self.onActivated_two_character_level)
+        vbox_level.addWidget(one_character_level)
+        vbox_level.addWidget(two_character_level)
+        self.com_group3_level.setLayout(vbox_level)
+
         # 초기화 시간 수정
         self.com_group33 = QGroupBox('초기화 시간 수정')
         cb33 = QComboBox()
@@ -949,6 +1009,11 @@ class FirstTab(QWidget):
         Vbox33.addLayout(hbox33)
         Vbox33.addWidget(self.com_group34)
 
+
+        CharacterAndLevel = QVBoxLayout()
+        CharacterAndLevel.addWidget(self.com_group3)
+        CharacterAndLevel.addWidget(self.com_group3_level)
+
         Vbox2 = QVBoxLayout()
         Vbox2.addLayout(hbox5)
         Vbox2.addLayout(hbox3)
@@ -958,7 +1023,7 @@ class FirstTab(QWidget):
         hbox2.addLayout(first_vbox_1)
         hbox2.addLayout(Vbox33)
         # hbox2.addWidget(self.com_group34)
-        hbox2.addWidget(self.com_group3)
+        hbox2.addLayout(CharacterAndLevel)
         hbox2.addLayout(Vbox2)
 
         vbox = QVBoxLayout()
@@ -1209,6 +1274,28 @@ class FirstTab(QWidget):
         else:
             onCharacter = 0
             print("캐릭터를 선택해 주세요.")
+
+    def onActivated_one_character_level(self, text):
+        character_level_ = self.require_level_in.text()  # line_edit text 값 가져오기
+        print(character_level_)
+
+        character_level_result = "1배럭 요구레벨 : " + character_level_
+        self.one_require_level.setText(character_level_result)
+        dir_path = "C:\\my_games\\nightcrow"
+        file_path = dir_path + "\\mysettings\\my_level\\one_character.txt"
+        with open(file_path, "w", encoding='utf-8-sig') as file:
+            file.write(character_level_)
+
+    def onActivated_two_character_level(self, text):
+        character_level_ = self.require_level_in.text()  # line_edit text 값 가져오기
+        print(character_level_)
+
+        character_level_result = "2배럭 요구레벨 : " + character_level_
+        self.two_require_level.setText(character_level_result)
+        dir_path = "C:\\my_games\\nightcrow"
+        file_path = dir_path + "\\mysettings\\my_level\\two_character.txt"
+        with open(file_path, "w", encoding='utf-8-sig') as file:
+            file.write(character_level_)
 
     def onActivated_time(self, text):
         global onRefresh_time
@@ -2808,7 +2895,7 @@ class game_Playing(QThread):
                                         sub_quest_grow(v_.now_cla)
                                         # 자체에 스케쥴 완료 있음
                                     if result_schedule_ == "일일퀘스트":
-                                        select_daily_quest_grow(v_.now_cla)
+                                        select_daily_quest_grow(v_.now_cla, character_id)
                                         # 자체에 스케쥴 완료 있음
 
 

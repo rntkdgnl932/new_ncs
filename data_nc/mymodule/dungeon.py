@@ -683,6 +683,23 @@ def juljun_attack(cla, dun_):
                     if result_maul == True:
                         click_pos_2(230, 90, v_.now_cla)
                         in_maul_ = True
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 640, 490, 670, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            in_maul_ = True
+                            print("거점이다. 동굴 끝난듯 하다.", imgs_)
+                            drag_pos(360, 550, 600, 550, cla)
+                            time.sleep(1)
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
                 if in_maul_ == True:
                     print("절전모드 잠시 중지...")
                     continue_juljun = True

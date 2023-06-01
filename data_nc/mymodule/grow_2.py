@@ -25,83 +25,93 @@ def main_quest_grow(cla):
         result_dead = dead_die(cla)
         if result_dead == True:
             myQuest_play_add(cla, "메인퀘스트")
-
-        result_potion = potion_check(cla)
-        print("내 물약 갯수? ", result_potion)
-
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
-        if imgs_ is not None and imgs_ != False:
-            click_pos_2(935, 100, cla)
-
-        result_ = go_quest_ing_(cla)
-        if result_ == False:
-
-            result_auto = go_auto_ing_(cla)
-            if result_auto == True:
-                talgut_board_(cla)
-
-            talgut_ing_(cla)
-
-            quest_check(cla)
-
-            # skip
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_1.PNG"
+        else:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\youjuk_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(800, 45, 960, 130, cla, img, 0.83)
+            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
             if imgs_ is not None and imgs_ != False:
-                print("skip_1", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+                print("youjuk_1 => 유적까지 퀘스트 완료", imgs_)
+                line_to_me(cla, "유적이다. 준비끝...")
+                myQuest_play_add(cla, "메인퀘스트")
             else:
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_3.PNG"
+
+                result_potion = potion_check(cla)
+                print("내 물약 갯수? ", result_potion)
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(800, 45, 960, 130, cla, img, 0.83)
+                imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
                 if imgs_ is not None and imgs_ != False:
-                    print("skip_3", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    click_pos_2(935, 100, cla)
 
-            # skip
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(580, 880, 680, 920, cla, img, 0.83)
-            if imgs_ is not None and imgs_ != False:
-                print("skip_2", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+                result_ = go_quest_ing_(cla)
+                if result_ == False:
+
+                    result_auto = go_auto_ing_(cla)
+                    if result_auto == True:
+                        talgut_board_(cla)
+
+                    talgut_ing_(cla)
+
+                    quest_check(cla)
+
+                    # skip
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(800, 45, 960, 130, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("skip_1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(800, 45, 960, 130, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            print("skip_3", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    # skip
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(580, 880, 680, 920, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("skip_2", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
 
 
-            # 아이템 장착
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\fit_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(660, 760, 750, 830, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                print("fit_1", imgs_)
-                click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
-                time.sleep(0.5)
-                item_open(cla)
+                    # 아이템 장착
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\fit_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(660, 760, 750, 830, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("fit_1", imgs_)
+                        click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
+                        time.sleep(0.5)
+                        item_open(cla)
 
-            # 확인 버튼
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(490, 620, 620, 660, cla, img, 0.83)
-            if imgs_ is not None and imgs_ != False:
-                print("confirm_1", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-
-
+                    # 확인 버튼
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(490, 620, 620, 660, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("confirm_1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
-        else:
-            print("진행중")
-            quest_check(cla)
+
+
+                else:
+                    print("진행중")
+                    quest_check(cla)
 
     except Exception as e:
         print(e)
