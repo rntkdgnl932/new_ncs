@@ -1279,23 +1279,34 @@ class FirstTab(QWidget):
         character_level_ = self.require_level_in.text()  # line_edit text 값 가져오기
         print(character_level_)
 
-        character_level_result = "1배럭 요구레벨 : " + character_level_
-        self.one_require_level.setText(character_level_result)
-        dir_path = "C:\\my_games\\nightcrow"
-        file_path = dir_path + "\\mysettings\\my_level\\one_character.txt"
-        with open(file_path, "w", encoding='utf-8-sig') as file:
-            file.write(character_level_)
+        result_number_check = character_level_.isdigit()
+        if result_number_check == True:
+            character_level_result = "1배럭 요구레벨 : " + character_level_
+            self.one_require_level.setText(character_level_result)
+            dir_path = "C:\\my_games\\nightcrow"
+            file_path = dir_path + "\\mysettings\\my_level\\one_character.txt"
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                file.write(character_level_)
+        else:
+            pyautogui.alert(button='넵', text='숫자만 입력해 주세요', title='일일퀘스트 요구 레벨')
+
+
 
     def onActivated_two_character_level(self, text):
         character_level_ = self.require_level_in.text()  # line_edit text 값 가져오기
         print(character_level_)
 
-        character_level_result = "2배럭 요구레벨 : " + character_level_
-        self.two_require_level.setText(character_level_result)
-        dir_path = "C:\\my_games\\nightcrow"
-        file_path = dir_path + "\\mysettings\\my_level\\two_character.txt"
-        with open(file_path, "w", encoding='utf-8-sig') as file:
-            file.write(character_level_)
+        result_number_check = character_level_.isdigit()
+        if result_number_check == True:
+            character_level_result = "2배럭 요구레벨 : " + character_level_
+            self.two_require_level.setText(character_level_result)
+            dir_path = "C:\\my_games\\nightcrow"
+            file_path = dir_path + "\\mysettings\\my_level\\two_character.txt"
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                file.write(character_level_)
+        else:
+            pyautogui.alert(button='넵', text='숫자만 입력해 주세요', title='일일퀘스트 요구 레벨')
+
 
     def onActivated_time(self, text):
         global onRefresh_time
@@ -2782,6 +2793,16 @@ class game_Playing(QThread):
                             if dongool_check != "dongool":
                                 print("동굴 던전이 아니니 절전모드는 해제하겠다.")
                                 drag_pos(360, 550, 600, 550, v_.now_cla)
+                            else:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(40, 40, 200, 80, v_.now_cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("dongool_2", imgs_)
+                                else:
+                                    print("동굴 던전이 아니니 해제하겠다.")
+                                    drag_pos(360, 550, 600, 550, v_.now_cla)
 
                         # 먼저 캐릭터 변환할 것인지 물어보기
                         if result_schedule_ == "캐릭터바꾸기":
