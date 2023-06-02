@@ -424,6 +424,7 @@ def get_event(cla):
                             get_season_start_count += 1
                             if get_season_start_count > 10:
                                 get_season_start = True
+
                             a = b
                             b = a + 55
                             if b < 750:
