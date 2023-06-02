@@ -508,6 +508,12 @@ def now_playing(cla, dun_):
                                                     click_pos_2(930, 60, cla)
                                                 else:
                                                     go_ice_3 = True
+                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        click_pos_2(935, 100, cla)
                                     else:
                                         click_pos_2(535, 470, cla)
                                     time.sleep(0.2)
