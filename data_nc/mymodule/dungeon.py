@@ -654,7 +654,7 @@ def juljun_attack(cla, dun_):
         from datetime import date, timedelta, datetime
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos, change_number
         from massenger import line_to_me
-        from action import in_number_check, bag_open, maul_check, in_maul_check
+        from action import in_number_check, bag_open, maul_check, in_maul_check, clean_screen
 
 
         continue_juljun = False
@@ -904,9 +904,11 @@ def juljun_attack(cla, dun_):
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
+                                        print("동굴던전 : 랜덤이동 보여서 클릭")
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                         fast_random_move_ = True
                                     else:
+                                        print("동굴던전 : 랜덤이동 보여서 클릭 후 다시 절전모드 클릭")
                                         click_pos_2(345, 995, cla)
                                         # 이동 했으면 다시 사냥 시작 후 절전모드 하기
                                     time.sleep(0.1)
@@ -960,12 +962,14 @@ def juljun_attack(cla, dun_):
 
 
                                                 juljun_ready = True
+                                                print("동굴던전 : 공격하기 클릭후 절전모드 진입")
                                                 click_pos_2(930, 850, cla)
                                                 time.sleep(1)
                                                 # 절전모드로 다시 진입하기
                                                 click_pos_2(25, 970, cla)
                                             else:
                                                 # 절전모드로 다시 진입하기
+                                                print("동굴던전 : 공격중이라 절전모드 바로 진입")
                                                 click_pos_2(25, 970, cla)
                                         else:
                                             # 마을인지 보기
@@ -988,7 +992,9 @@ def juljun_attack(cla, dun_):
                                         last_juljun_count += 1
                                         if last_juljun_count > 10:
                                             last_juljun = True
+                                            continue_juljun = True
                                             line_to_me(cla, "동굴던전 진입 오류")
+                                            clean_screen(cla)
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
