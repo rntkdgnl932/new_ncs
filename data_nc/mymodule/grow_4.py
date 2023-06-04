@@ -467,6 +467,21 @@ def quest_check(cla):
                     imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\chogwa.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(390, 70, 470, 120, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("초과가 보여")
+                            jilyung_is_ = True
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\quest_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(680, 170, 720, 220, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                v_.sub_quest_count = 0
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
                 time.sleep(0.4)
 
         # # 퀘스트 수락
@@ -618,6 +633,8 @@ def talgut_board_check(cla):
         import cv2
         import pyautogui
 
+        go_ = False
+
         # 가방 열려있는지 체크 후 닫기
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -664,18 +681,33 @@ def talgut_board_check(cla):
                     imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\chogwa.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(390, 70, 470, 120, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("초과가 보여")
+                            jilyung_is_ = True
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\quest_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(680, 170, 720, 220, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                v_.sub_quest_count = 0
+                                go_ = True
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.4)
 
         # 탈것
-        go_ = False
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\quest_click.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(680, 125, 720, 220, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            go_ = True
-            v_.sub_quest_count = 0
-            click_pos_reg(imgs_.x, imgs_.y, cla)
+        if go_ == False:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\quest_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 130, 720, 220, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                go_ = True
+                v_.sub_quest_count = 0
+                click_pos_reg(imgs_.x, imgs_.y, cla)
 
         sojin_ = False
         jilyung = False
@@ -744,6 +776,20 @@ def talgut_board_check(cla):
                         imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\chogwa.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(390, 70, 470, 120, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("초과가 보여")
+                                jilyung_is_ = True
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\quest_click.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(680, 170, 720, 220, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    v_.sub_quest_count = 0
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.4)
             # myQuest_play_add(cla, "일일퀘스트")
         if sojin_ == True:

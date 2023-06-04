@@ -39,73 +39,18 @@ def go_test():
 
     print("여긴 테스트")
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\maul_move_.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(680, 115, 915, 990, cla, img, 0.9)
+    imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("maul_move_?", imgs_)
-
-        x_reg = imgs_.x
-        if cla == "two":
-            x_reg = x_reg - 960
-        y_reg = imgs_.y
-
-        img = pyautogui.screenshot(region=(get_region(x_reg - 2, y_reg + 13, x_reg + 28, y_reg + 33, cla)))
-        white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-        potion_ready = pytesseract.image_to_string(white_img, lang=None)
-        print("maul_move_", potion_ready)
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\random_move.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(680, 115, 915, 990, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("random_move?", imgs_)
-
-        x_reg = imgs_.x
-        if cla == "two":
-            x_reg = x_reg - 960
-        y_reg = imgs_.y
-
-        img = pyautogui.screenshot(region=(get_region(x_reg - 2, y_reg + 13, x_reg + 28, y_reg + 33, cla)))
-        white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-        potion_ready = pytesseract.image_to_string(white_img, lang=None)
-        print("random_move", potion_ready)
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\dolgyuck_potion.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(680, 115, 915, 990, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("dolgyuck_potion?", imgs_)
-
-        x_reg = imgs_.x
-        if cla == "two":
-            x_reg = x_reg - 960
-        y_reg = imgs_.y
-
-        img = pyautogui.screenshot(region=(get_region(x_reg - 1, y_reg + 13, x_reg + 29, y_reg + 33, cla)))
-        white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-        potion_ready = pytesseract.image_to_string(white_img, lang=None)
-        print("dolgyuck_potion", potion_ready)
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\pilseong_potion.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(680, 115, 915, 990, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("pilseong_potion?", imgs_)
-
-        x_reg = imgs_.x
-        if cla == "two":
-            x_reg = x_reg - 960
-        y_reg = imgs_.y
-
-        img = pyautogui.screenshot(region=(get_region(x_reg -4, y_reg + 12, x_reg + 26, y_reg + 32, cla)))
-        white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-        potion_ready = pytesseract.image_to_string(white_img, lang=None)
-        print("pilseong_potion", potion_ready)
+        click_pos_reg(imgs_.x, imgs_.y, cla)
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\chogwa.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(390, 70, 470, 120, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("초과가 보여")
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
