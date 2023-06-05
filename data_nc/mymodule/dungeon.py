@@ -141,6 +141,15 @@ def dungeon_play(cla, result_schedule_):
                                     if imgs_ is not None and imgs_ != False:
                                         dungeon_clear = True
 
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(30, 140, 260, 230, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("not_open 보여", imgs_)
+                                        line_to_me(cla, "번영 아직 오픈 못했다.")
+                                        dungeon_clear = True
+
                                     if dungeon_clear == False:
                                         click_pos_2(80, 110, cla)
                                         time.sleep(0.2)
@@ -151,6 +160,15 @@ def dungeon_play(cla, result_schedule_):
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
+                                        dungeon_clear = True
+
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(30, 240, 260, 330, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("not_open 보여", imgs_)
+                                        line_to_me(cla, "수련 아직 오픈 못했다.")
                                         dungeon_clear = True
 
                                     if dungeon_clear == False:
@@ -165,6 +183,15 @@ def dungeon_play(cla, result_schedule_):
                                     if imgs_ is not None and imgs_ != False:
                                         dungeon_clear = True
 
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(30, 340, 260, 430, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("not_open 보여", imgs_)
+                                        line_to_me(cla, "신전 아직 오픈 못했다.")
+                                        dungeon_clear = True
+
                                     if dungeon_clear == False:
                                         click_pos_2(80, 110, cla)
                                         time.sleep(0.2)
@@ -175,6 +202,15 @@ def dungeon_play(cla, result_schedule_):
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(30, 460, 120, 500, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
+                                        dungeon_clear = True
+
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(30, 440, 260, 530, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("not_open 보여", imgs_)
+                                        line_to_me(cla, "유적 아직 오픈 못했다.")
                                         dungeon_clear = True
 
                                     if dungeon_clear == False:
@@ -190,6 +226,15 @@ def dungeon_play(cla, result_schedule_):
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(30, 160, 120, 200, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
+                                        dungeon_clear = True
+
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(30, 140, 260, 230, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("not_open 보여", imgs_)
+                                        line_to_me(cla, "동굴 아직 오픈 못했다.")
                                         dungeon_clear = True
 
                                     if dungeon_clear == False:

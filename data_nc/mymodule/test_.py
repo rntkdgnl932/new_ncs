@@ -39,18 +39,14 @@ def go_test():
 
     print("여긴 테스트")
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+    imgs_ = imgs_set_(30, 440, 260, 530, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        click_pos_reg(imgs_.x, imgs_.y, cla)
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\chogwa.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(390, 70, 470, 120, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("초과가 보여")
+        print("not_open 보여", imgs_)
+    else:
+        print("not open 안 보여")
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
