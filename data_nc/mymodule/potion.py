@@ -378,7 +378,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
                         if imgs_ is not None and imgs_ != False:
                             print("potion_buy", imgs_)
-                            for z in range(3):
+                            for z in range(2):
                                 click_pos_2(450, 620, cla)
                             jab_3 = True
                             time.sleep(0.5)
@@ -410,7 +410,7 @@ def maul_potion(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("potion_buy", imgs_)
                         #,click_pos_2(510, 580, cla)
-                        for z in range(5):
+                        for z in range(1):
                             click_pos_2(450, 620, cla)
                         jab_3 = True
                         time.sleep(0.5)
@@ -499,7 +499,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
                         if imgs_ is not None and imgs_ != False:
                             print("potion_buy", imgs_)
-                            for z in range(3):
+                            for z in range(2):
                                 click_pos_2(450, 620, cla)
                             jab_3 = True
                             time.sleep(0.5)
@@ -531,7 +531,7 @@ def maul_potion(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("potion_buy", imgs_)
                         # click_pos_2(510, 580, cla)
-                        for z in range(5):
+                        for z in range(1):
                             click_pos_2(450, 620, cla)
                         jab_3 = True
                         time.sleep(0.5)
@@ -619,7 +619,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
                         if imgs_ is not None and imgs_ != False:
                             print("potion_buy", imgs_)
-                            for z in range(3):
+                            for z in range(2):
                                 click_pos_2(450, 620, cla)
                             jab_3 = True
                             time.sleep(0.5)
@@ -651,7 +651,7 @@ def maul_potion(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("potion_buy", imgs_)
                         # click_pos_2(510, 580, cla)
-                        for z in range(5):
+                        for z in range(1):
                             click_pos_2(450, 620, cla)
                         jab_3 = True
                         time.sleep(0.5)
@@ -738,7 +738,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
                         if imgs_ is not None and imgs_ != False:
                             print("potion_buy", imgs_)
-                            for z in range(3):
+                            for z in range(2):
                                 click_pos_2(450, 620, cla)
                             jab_3 = True
                             time.sleep(0.5)
@@ -770,7 +770,7 @@ def maul_potion(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("potion_buy", imgs_)
                         #click_pos_2(510, 580, cla)
-                        for z in range(5):
+                        for z in range(1):
                             click_pos_2(450, 620, cla)
                         jab_3 = True
                         time.sleep(0.5)
