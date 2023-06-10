@@ -109,7 +109,11 @@ def dungeon_play(cla, result_schedule_):
 
                     # 던전 진입하기
                     in_dungeon_title = False
+                    in_dungeon_title_count = 0
                     while in_dungeon_title is False:
+                        in_dungeon_title_count += 1
+                        if in_dungeon_title_count > 10:
+                            in_dungeon_title = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -480,13 +484,23 @@ def now_playing(cla, dun_):
                 print("던전 중 실수로 다른 퀘스트 클릭한 경우", imgs_)
                 click_pos_2(410, 640, cla)
 
-            if dun_ == "수련":
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("메뉴 닫자", imgs_)
+                click_pos_2(930, 60, cla)
+                time.sleep(0.1)
+
+            if dun_ != "동굴":
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
                 if imgs_ is not None and imgs_ != False:
-                    print("가방 닫자")
+                    print("10초 뒤 가방 닫자")
+                    time.sleep(10)
                     click_pos_2(935, 100, cla)
 
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_1.PNG"

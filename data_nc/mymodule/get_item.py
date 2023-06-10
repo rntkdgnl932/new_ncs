@@ -1054,7 +1054,7 @@ def guild_jilyung(cla, data):
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\1000.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.8)
+                                imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -1066,7 +1066,7 @@ def guild_jilyung(cla, data):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\500.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.8)
+                                    imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
@@ -1199,7 +1199,7 @@ def guild_jilyung(cla, data):
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\1000.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.8)
+                                imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -1211,7 +1211,7 @@ def guild_jilyung(cla, data):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\500.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.8)
+                                    imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
@@ -1316,6 +1316,7 @@ def guild_jilyung(cla, data):
                                             click_pos_reg(imgs_.x, imgs_.y, cla)
                                             break
                                         time.sleep(0.2)
+                                    click_pos_2(845, 1015, cla)
                                 else:
                                     click_pos_2(930, 60, cla)
                                     is_soolock = True
@@ -1331,7 +1332,7 @@ def guild_jilyung(cla, data):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\1000.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(790, 570, 890, 610, cla, img, 0.8)
+                                    imgs_ = imgs_set_(790, 570, 890, 610, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
@@ -1343,7 +1344,7 @@ def guild_jilyung(cla, data):
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\500.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(790, 570, 890, 610, cla, img, 0.8)
+                                        imgs_ = imgs_set_(790, 570, 890, 610, cla, img, 0.9)
                                         if imgs_ is not None and imgs_ != False:
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
