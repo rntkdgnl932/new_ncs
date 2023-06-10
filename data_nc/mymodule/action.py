@@ -968,6 +968,28 @@ def bag_open(cla):
     except Exception as e:
         print(e)
 
+def gyucjunji_check(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_, click_pos_2, imgs_set_
+
+        go_ = False
+
+        # 룩 서버는 투합의 방호
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\toohab_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("toohab_1")
+            go_ = True
+
+
+        return go_
+    except Exception as e:
+        print(e)
+
 def maul_check(cla):
     try:
         import cv2

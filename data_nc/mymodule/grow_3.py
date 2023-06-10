@@ -367,7 +367,7 @@ def quest_check(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    guild_jilyung(cla)
+                    guild_jilyung(cla, "jadong")
                     jilyung_is_ = True
                 else:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
@@ -637,7 +637,7 @@ def talgut_board_(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        guild_jilyung(cla)
+                        guild_jilyung(cla, "jadong")
                         jilyung_is_ = True
                     else:
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
@@ -842,7 +842,7 @@ def talgut_board_check(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    guild_jilyung(cla)
+                    guild_jilyung(cla, "jadong")
                     jilyung_is_ = True
                 else:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"

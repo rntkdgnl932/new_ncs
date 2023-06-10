@@ -11,7 +11,7 @@ import variable as v_
 
 def go_test():
     from datetime import date, timedelta, datetime
-    from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number
+    from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change
     from get_item import get_items, get_upjuk
     from jadong_crow import jadong_play
@@ -39,14 +39,102 @@ def go_test():
 
     print("여긴 테스트")
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
+    # 물약 파악
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(30, 440, 260, 530, cla, img, 0.8)
+    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("not_open 보여", imgs_)
-    else:
-        print("not open 안 보여")
+        print("gyuc_juljun_mode juljun_potion 일딴 물약 있다", imgs_)
+        x_reg = imgs_.x
+        y_reg = imgs_.y
+        if cla == "two":
+            x_reg = x_reg - 960
+
+        # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
+        potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
+        print("전체4자리 potion_?", potion_ready)
+        result_num_in = in_number_check(cla, potion_ready)
+        if result_num_in == True:
+            potion_ = change_number(potion_ready)
+            potion = int_put_(potion_)
+            potion_bloon = potion.isdigit()
+            if potion_bloon == True:
+                potion = int(potion)
+                print("potion?", potion)
+                if cla == "one":
+                    v_.mypotion_1 = potion
+                else:
+                    v_.mypotion_2 = potion
+
+                if potion < 50:
+                    v_.potion_count += 1
+                    if v_.potion_count > 3:
+                        v_.potion_count = 0
+                        # maul_potion(cla)
+                        drag_maul_potion_(cla)
+                        continue_juljun = True
+
+                else:
+                    v_.potion_count = 0
+            else:
+                print("potion => 숫자 아님")
+        else:
+            # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
+            potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
+            print("앞3자리 potion_2?", potion_ready)
+            result_num_in = in_number_check(cla, potion_ready)
+            if result_num_in == True:
+                potion_ = change_number(potion_ready)
+                potion = int_put_(potion_)
+                potion_bloon = potion.isdigit()
+                if potion_bloon == True:
+                    potion = int(potion)
+                    print("potion?", potion)
+                    if cla == "one":
+                        v_.mypotion_1 = potion
+                    else:
+                        v_.mypotion_2 = potion
+
+                    if potion < 10:
+                        v_.potion_count += 1
+                        if v_.potion_count > 5:
+                            v_.potion_count = 0
+                            # maul_potion(cla)
+                            drag_maul_potion_(cla)
+                            continue_juljun = True
+                    else:
+                        v_.potion_count = 0
+                else:
+                    print("potion => 숫자 아님")
+            else:
+                # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
+                potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
+                print("뒷3자리 potion_3 =>", potion_ready)
+                result_num_in = in_number_check(cla, potion_ready)
+                if result_num_in == True:
+                    potion_ = change_number(potion_ready)
+                    potion = int_put_(potion_)
+                    potion_bloon = potion.isdigit()
+                    if potion_bloon == True:
+                        potion = int(potion)
+                        print("potion?", potion)
+                        if cla == "one":
+                            v_.mypotion_1 = potion
+                        else:
+                            v_.mypotion_2 = potion
+
+                        if potion < 50:
+                            v_.potion_count += 1
+                            if v_.potion_count > 5:
+                                v_.potion_count = 0
+                                # maul_potion(cla)
+                                drag_maul_potion_(cla)
+                                continue_juljun = True
+                        else:
+                            v_.potion_count = 0
+                    else:
+                        print("potion => 숫자 아님")
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))

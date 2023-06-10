@@ -48,6 +48,7 @@ from grow_3 import sub_quest_grow
 from grow_4 import select_daily_quest_grow
 from dungeon import dungeon_play
 from jadong_crow import jadong_play
+from gyucjunji import gyucjunji_play
 from get_item import get_items, get_item_checking, guild_jilyung
 from potion import maul_potion
 from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check
@@ -844,7 +845,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트', '각종템받기', '거래소등록']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트_1', '일일퀘스트_2', '일일퀘스트_3', '각종템받기', '거래소등록', '격전지사냥']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -2790,19 +2791,20 @@ class game_Playing(QThread):
                         imgs_ = imgs_set_(400, 120, 600, 160, v_.now_cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             isjuljun = True
-                            if dongool_check != "dongool":
-                                print("동굴 던전이 아니니 절전모드는 해제하겠다.")
-                                drag_pos(360, 550, 600, 550, v_.now_cla)
-                            else:
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
+                            if dongool_check == "dongool" or result_schedule_ == "격전지사냥":
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(40, 40, 200, 80, v_.now_cla, img, 0.8)
+                                imgs_ = imgs_set_(450, 640, 540, 710, v_.now_cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("dongool_2", imgs_)
+                                    print("사냥중", imgs_)
                                 else:
-                                    print("동굴 던전이 아니니 해제하겠다.")
+                                    print("던전 사냥중이 아니니 해제하겠다.")
                                     drag_pos(360, 550, 600, 550, v_.now_cla)
+
+                            else:
+                                print("던전이 아니니 절전모드는 해제 하겠다.")
+                                drag_pos(360, 550, 600, 550, v_.now_cla)
 
                         # 먼저 캐릭터 변환할 것인지 물어보기
                         if result_schedule_ == "캐릭터바꾸기":
@@ -2846,7 +2848,7 @@ class game_Playing(QThread):
                             get_item_checking(v_.now_cla)
 
                             # 길드지령 있을 경우 선택하기
-                            guild_jilyung(v_.now_cla)
+                            # guild_jilyung(v_.now_cla)
 
                             # 최초1회만...
                             if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":
@@ -2893,6 +2895,10 @@ class game_Playing(QThread):
 
                                     if dungeon_[0] == "사냥":
                                         jadong_play(v_.now_cla, result_schedule_)
+
+                                    if dungeon_[0] == "일일퀘스트":
+                                        select_daily_quest_grow(v_.now_cla, character_id, dungeon_[0])
+                                        # 자체에 스케쥴 완료 있음
                                 else:
                                     if result_schedule_ == "튜토육성":
                                         tuto_grow(v_.now_cla)
@@ -2916,7 +2922,12 @@ class game_Playing(QThread):
                                         sub_quest_grow(v_.now_cla)
                                         # 자체에 스케쥴 완료 있음
                                     if result_schedule_ == "일일퀘스트":
-                                        select_daily_quest_grow(v_.now_cla, character_id)
+
+                                        daily_step = '1'
+                                        select_daily_quest_grow(v_.now_cla, character_id, daily_step)
+                                        # 자체에 스케쥴 완료 있음
+                                    if result_schedule_ == "격전지사냥":
+                                        gyucjunji_play(v_.now_cla)
                                         # 자체에 스케쥴 완료 있음
 
 
