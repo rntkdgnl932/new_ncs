@@ -410,7 +410,11 @@ def get_event(cla):
                 a = 0
                 b = 340
                 get_season = False
+                get_season_count = 0
                 while get_season is False:
+                    get_season_count += 0
+                    if get_season_count > 5:
+                        get_season = True
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\event_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
