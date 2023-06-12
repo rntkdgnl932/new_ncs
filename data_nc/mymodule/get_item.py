@@ -445,6 +445,8 @@ def get_event(cla):
                                     get_season_last_count = 0
                                     while get_season_last is False:
                                         get_season_last_count += 1
+                                        if get_season_last_count > 5:
+                                            get_season_last = True
 
 
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
