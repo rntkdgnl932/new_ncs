@@ -1297,7 +1297,11 @@ def clean_screen(cla):
             print("setting_1", imgs_)
             click_pos_2(930, 60, cla)
 
+        clean_out_count = 0
         while out_ is False:
+            clean_out_count += 1
+            if clean_out_count > 5:
+                out_ = True
 
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\setting_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)

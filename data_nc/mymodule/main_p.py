@@ -2543,9 +2543,6 @@ class Test_check(QThread):
 
         print("여긴 테스트 모드(ver " + version + ")")
         go_test()
-        print("v_.....1", v_.what_cla)
-        v_.what_cla = "one클라"
-        print("v_.....2", v_.what_cla)
 
 
 
