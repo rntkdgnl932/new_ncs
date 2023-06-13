@@ -120,7 +120,9 @@ class MyApp(QDialog):
 
         self.setLayout(vbox)
 
-        self.setWindowTitle("나이트크로우(ver " + version + ")")
+
+        self.my_title()
+
         # 풀버젼
         # pyinstaller --hidden-import PyQt5 --hidden-import requests --hidden-import chardet --add-data="C:\\my_games\\nightcrow\\data_nc\\imgs;./imgs" --add-data="C:\\my_games\\nightcrow\\data_nc\\mymodule;./mymodule" --add-data="C:\\my_games\\nightcrow\\data_nc\\jadong;./jadong" --add-data="C:\\my_games\\nightcrow\\mysettings;./mysettings" -i="nightcrow.ico" --add-data="nightcrow.ico;./" --icon="nightcrow.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
         # 업데이트버젼
@@ -128,7 +130,8 @@ class MyApp(QDialog):
 
         self.setGeometry(1000, 300, 900, 600)
         self.show()
-
+    def my_title(self):
+        self.setWindowTitle("나이트크로우(ver " + version + ")")
 
 class ThirdTab(QWidget):
 
@@ -617,10 +620,10 @@ class FirstTab(QWidget):
         sche_down_modify = QPushButton('down')
         sche_down_modify.clicked.connect(self.sche_down_modify)
         # 스케쥴 변경 확인
-        sche_add1 = QPushButton('one실행', self)
-        sche_add1.clicked.connect(self.mySchedule_start1)
-        sche_add2 = QPushButton('two실행', self)
-        sche_add2.clicked.connect(self.mySchedule_start2)
+        self.sche_add1 = QPushButton('one 대기중', self)
+        self.sche_add1.clicked.connect(self.mySchedule_start1)
+        self.sche_add2 = QPushButton('two 대기중', self)
+        self.sche_add2.clicked.connect(self.mySchedule_start2)
 
         # 테스트 버튼
         self.mytestin = QPushButton('테스뚜')
@@ -978,8 +981,8 @@ class FirstTab(QWidget):
         hbox7.addWidget(sche_up_modify)
         hbox7.addWidget(sche_down_modify)
         hbox7.addStretch(4)
-        hbox7.addWidget(sche_add1)
-        hbox7.addWidget(sche_add2)
+        hbox7.addWidget(self.sche_add1)
+        hbox7.addWidget(self.sche_add2)
         hbox7.addStretch(8)
         hbox7.addLayout(hbox1)
 
@@ -2475,6 +2478,10 @@ class FirstTab(QWidget):
 
     def mySchedule_start1(self):
         try:
+            self.sche_add1.setText("one 실행중")
+            self.sche_add2.setText("two")
+            self.sche_add1.setDisabled(True)
+            self.sche_add2.setDisabled(True)
             start_onecla = game_Playing_onecla(self)
             start_onecla.start()
 
@@ -2484,6 +2491,10 @@ class FirstTab(QWidget):
 
     def mySchedule_start2(self):
         try:
+            self.sche_add1.setText("one")
+            self.sche_add2.setText("two 실행중")
+            self.sche_add1.setDisabled(True)
+            self.sche_add2.setDisabled(True)
             start_twocla = game_Playing_twocla(self)
             start_twocla.start()
 
@@ -2497,6 +2508,8 @@ class FirstTab(QWidget):
     def mytestin_(self):
         try:
             x = Test_check(self)
+            self.mytestin.setText("GootEvening")
+            self.mytestin.setDisabled(True)
             x.start()
         except Exception as e:
             print(e)
@@ -2529,8 +2542,12 @@ class Test_check(QThread):
 
 
         print("여긴 테스트 모드(ver " + version + ")")
-
         go_test()
+        print("v_.....1", v_.what_cla)
+        v_.what_cla = "one클라"
+        print("v_.....2", v_.what_cla)
+
+
 
 
 
