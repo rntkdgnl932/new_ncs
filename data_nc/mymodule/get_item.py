@@ -471,7 +471,7 @@ def get_event(cla):
                                             else:
                                                 if get_season_last_count > 3:
                                                     drag_pos(500, 600, 500, 300, cla)
-                                                if get_season_last_count > 7:
+                                                if get_season_last_count > 5:
                                                     get_season_last = True
                                                 print("1")
                                         time.sleep(0.3)
@@ -479,16 +479,63 @@ def get_event(cla):
                                     drag_pos(140, 660, 140, 430, cla)
                                     time.sleep(0.5)
                             else:
-                                print("3")
-                                get_season_start = True
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\event_1.PNG"
+                                drag_pos(140, 660, 140, 430, cla)
+                                time.sleep(0.5)
+
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(400, 300, 550, 350, cla, img, 0.8)
+                                imgs_ = imgs_set_(200, 340, 250, 760, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(870, 335, cla)
+                                    click_pos_reg(imgs_.x - 50, imgs_.y + 15, cla)
+                                    time.sleep(0.4)
+
+                                    get_season_last = False
+                                    get_season_last_count = 0
+                                    while get_season_last is False:
+                                        get_season_last_count += 1
+                                        if get_season_last_count > 5:
+                                            get_season_last = True
+
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(280, 460, 880, 720, cla, img, 0.9)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
+                                            time.sleep(0.2)
+                                            click_pos_2(860, 410, cla)
+                                            time.sleep(0.3)
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(760, 400, 870, 500, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
+                                                time.sleep(0.2)
+                                                click_pos_2(860, 410, cla)
+                                                time.sleep(0.3)
+                                            else:
+                                                if get_season_last_count > 3:
+                                                    drag_pos(500, 600, 500, 300, cla)
+                                                if get_season_last_count > 5:
+                                                    get_season_last = True
+                                                print("11")
+                                        time.sleep(0.3)
+
                                 else:
-                                    clean_screen(cla)
+
+                                    print("3")
+                                    get_season_start = True
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\event_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 300, 550, 350, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_2(870, 335, cla)
+                                    else:
+                                        clean_screen(cla)
                             time.sleep(1)
                     else:
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
