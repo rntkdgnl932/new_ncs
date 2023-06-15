@@ -475,6 +475,9 @@ def get_event(cla):
                                                     get_season_last = True
                                                 print("1")
                                         time.sleep(0.3)
+                                else:
+                                    drag_pos(140, 660, 140, 430, cla)
+                                    time.sleep(0.5)
                             else:
                                 print("3")
                                 get_season_start = True
