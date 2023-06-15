@@ -13,7 +13,7 @@ def go_test():
     from datetime import date, timedelta, datetime
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change
-    from get_item import get_items, get_upjuk, get_event
+    from get_item import get_items, get_upjuk, get_event, get_season_pass
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_
     import numpy as np
@@ -28,7 +28,7 @@ def go_test():
     import pyautogui
     import pytesseract
 
-    cla = "two"
+    cla = "one"
 
     # cla = "two"
 
@@ -41,7 +41,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    get_event(cla)
+    get_season_pass(cla)
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))

@@ -295,6 +295,8 @@ def get_season_pass(cla):
                                     click_pos_reg(imgs_.x - 50, imgs_.y + 15, cla)
                                     time.sleep(0.4)
                                     click_pos_2(830, 695, cla)
+                                    time.sleep(0.1)
+                                    click_pos_2(830, 695, cla)
                                     time.sleep(0.3)
 
 
