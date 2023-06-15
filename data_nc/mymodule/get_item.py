@@ -429,9 +429,11 @@ def get_event(cla):
                             if get_season_start_count > 10:
                                 get_season_start = True
 
-                            a = b
-                            b = a + 55
+
                             if b < 750:
+
+                                a = b
+                                b = a + 55
 
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -475,9 +477,6 @@ def get_event(cla):
                                                     get_season_last = True
                                                 print("1")
                                         time.sleep(0.3)
-                                else:
-                                    drag_pos(140, 660, 140, 430, cla)
-                                    time.sleep(0.5)
                             else:
                                 drag_pos(140, 660, 140, 430, cla)
                                 time.sleep(0.5)

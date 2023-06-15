@@ -2508,8 +2508,8 @@ class FirstTab(QWidget):
     def mytestin_(self):
         try:
             x = Test_check(self)
-            self.mytestin.setText("GootEvening")
-            self.mytestin.setDisabled(True)
+            # self.mytestin.setText("GootEvening")
+            # self.mytestin.setDisabled(True)
             x.start()
         except Exception as e:
             print(e)
