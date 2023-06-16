@@ -251,6 +251,20 @@ def dungeon_play(cla, result_schedule_):
 
                                     if dungeon_clear == False:
                                         click_pos_2(200, 200, cla)
+                                        
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기# 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+                                # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
+
+                                        
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\already_in.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

@@ -1107,11 +1107,19 @@ def menu_open(cla):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, imgs_set_
         from get_item import get_items
+        from schedule import myQuest_play_check
+        from massenger import line_to_me
 
         go_ = False
 
         menu_ready_ = False
+        menu_ready_count = 0
         while menu_ready_ is False:
+            menu_ready_count += 1
+            if menu_ready_count > 10:
+                menu_ready_ = True
+                line_to_me(cla, "씨팔, 메뉴 여는데 문제 있다.")
+
             print("menu_open의 out_check")
             out_result = out_check(cla)
             if out_result == True:
@@ -1133,6 +1141,20 @@ def menu_open(cla):
             else:
                 print("menu open clean_screen")
                 clean_screen(cla)
+
+                print("캐릭터 화면인지 체크")
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(20, 990, 150, 1040, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+
+                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    print("menu_open : result_schedule", result_schedule)
+                    character_id = result_schedule[0][1]
+
+                    character_change(cla, character_id)
 
 
 
@@ -1432,6 +1454,7 @@ def out_check(cla):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_
+        from schedule import myQuest_play_check
 
         out_ = False
 
@@ -1439,6 +1462,7 @@ def out_check(cla):
         re_2 = go_quest_ing_(cla)
         if re_1 == True or re_2 == True:
             out_ = True
+
 
         return out_
     except Exception as e:

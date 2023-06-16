@@ -157,7 +157,11 @@ def quest_get(cla, character_id, step):
             read_level = file.read()
 
         in_quest_1 = False
+        in_quest_1_count = 0
         while in_quest_1 is False:
+            in_quest_1_count += 1
+            if in_quest_1_count > 10:
+                in_quest_1 = True
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\quest_.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -400,7 +404,11 @@ def quest_get(cla, character_id, step):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
 
                         in_quest_2 = False
+                        in_quest_2_count = 0
                         while in_quest_2 is False:
+                            in_quest_2_count += 1
+                            if in_quest_2_count > 10:
+                                in_quest_2 = True
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\quest_.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
