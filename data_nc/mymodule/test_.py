@@ -41,7 +41,13 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    get_season_pass(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(110, 400, 200, 690, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("point : moo_2", imgs_)
+        click_pos_reg(imgs_.x + 100, imgs_.y + 20, cla)
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
