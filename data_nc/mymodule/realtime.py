@@ -69,6 +69,8 @@ def moogi_(cla):
                     moo_1 = True
                     print("point : moo_1", imgs_)
                     click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                    x_re = imgs_.x
+                    y_re = imgs_.y
 
                     moo_2 = False
                     while moo_2 is False:
@@ -115,6 +117,7 @@ def moogi_(cla):
 
 
                         else:
+                            click_pos_reg(x_re, y_re, cla)
                             print("진행중")
                         time.sleep(0.3)
                     click_pos_2(930, 60, cla)
