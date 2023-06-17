@@ -73,7 +73,7 @@ def moogi_(cla):
                     moo_2 = False
                     while moo_2 is False:
                         moo_count += 1
-                        if moo_count > 4:
+                        if moo_count > 5:
                             moo_2 = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\moogi_sooglyun_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
