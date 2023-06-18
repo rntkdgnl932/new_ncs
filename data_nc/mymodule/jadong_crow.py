@@ -209,7 +209,13 @@ def in_world(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("눈알 있다.", imgs_)
                 else:
-                    click_pos_2(30, 55, cla)
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\close_eye_check.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 55, 80, cla, img, 0.84)
+                    if imgs_ is not None and imgs_ != False:
+                        print("눈알 없다.", imgs_)
+                        click_pos_2(30, 55, cla)
 
                 world_check = False
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_ready_1.PNG"
