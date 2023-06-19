@@ -2346,7 +2346,8 @@ class FirstTab(QWidget):
                                     print("dunjeon_spl_[0]", dunjeon_spl_[0])
                                     print("dunjeon_spl_[1]", dunjeon_spl_[1])
 
-                                    if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    if dunjeon_spl_[1] == "신전":
                                         reset_schedule_ += complete_[j] + ":"
                                     else:
                                         reset_schedule_ += '대기중:'
@@ -2366,7 +2367,8 @@ class FirstTab(QWidget):
                                     print("dunjeon_spl_[0]", dunjeon_spl_[0])
                                     print("dunjeon_spl_[1]", dunjeon_spl_[1])
 
-                                    if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    if dunjeon_spl_[1] == "신전":
                                         reset_schedule_ += complete_[j] + "\n"
                                     else:
                                         reset_schedule_ += "대기중\n"
@@ -2432,7 +2434,8 @@ class FirstTab(QWidget):
                                 print("dunjeon_spl_[0]", dunjeon_spl_[0])
                                 print("dunjeon_spl_[1]", dunjeon_spl_[1])
 
-                                if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                if dunjeon_spl_[1] == "신전":
                                     reset_schedule_ += complete_[j] + ":"
                                 else:
                                     reset_schedule_ += '대기중:'
@@ -2452,7 +2455,8 @@ class FirstTab(QWidget):
                                 print("dunjeon_spl_[0]", dunjeon_spl_[0])
                                 print("dunjeon_spl_[1]", dunjeon_spl_[1])
 
-                                if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                if dunjeon_spl_[1] == "신전":
                                     reset_schedule_ += complete_[j] + "\n"
                                 else:
                                     reset_schedule_ += "대기중\n"

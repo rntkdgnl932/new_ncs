@@ -269,6 +269,9 @@ def dungeon_play(cla, result_schedule_):
                                 imgs_ = imgs_set_(200, 80, 700, 120, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
                                     print("chogwa_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", imgs_)
+                                    in_dungeon__ = True
+                                    dungeon_clear = True
+                                    complete_ = True
                                     # dungeon_clear = True
                                     # click_pos_2(930, 60, cla)
 
@@ -344,6 +347,9 @@ def dungeon_play(cla, result_schedule_):
                             imgs_ = imgs_set_(200, 80, 700, 120, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 print("chogwa_!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", imgs_)
+                                in_dungeon__ = True
+                                dungeon_clear = True
+                                complete_ = True
                                 # dungeon_clear = True
                                 # click_pos_2(930, 60, cla)
 
