@@ -2614,12 +2614,9 @@ def pause_ing(cla):
 #             return 0
 
 class Monitoring_one(QThread):
-    # def __init__(self, parent):
-    #     super().__init__(parent)
-    #     self.parent = parent
-
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
 
     def run(self):
         try:
