@@ -2655,8 +2655,8 @@ class game_Playing_onecla(QThread):
             m_ = Monitoring_one(self)
             m_.start()
 
-            self.x_ = game_Playing()
-            self.x_.start()
+            x_ = game_Playing(self)
+            x_.start()
 
             # result_ = login_start_ready(howcla)
             # if result_ == True:
