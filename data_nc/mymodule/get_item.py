@@ -603,7 +603,11 @@ def get_upjuk(cla):
                     click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
 
                     sungjang = False
+                    sungjang_count = 0
                     while sungjang is False:
+                        sungjang_count += 1
+                        if sungjang_count > 5:
+                            sungjang = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\upjuk_sungjang.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -613,7 +617,11 @@ def get_upjuk(cla):
                             time.sleep(0.2)
                             sungjang = True
                             back_ = False
+                            back_count = 0
                             while back_ is False:
+                                back_count += 1
+                                if back_count > 10:
+                                    back_ = True
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\upjuk_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -623,6 +631,7 @@ def get_upjuk(cla):
                                     back_ = True
                                 else:
                                     click_pos_2(30, 55, cla)
+                                time.sleep(0.2)
                 # 협동
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -632,7 +641,11 @@ def get_upjuk(cla):
                     print("협동", imgs_)
                     click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
                     sungjang = False
+                    sungjang_count = 0
                     while sungjang is False:
+                        sungjang_count += 1
+                        if sungjang_count > 5:
+                            sungjang = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\upjuk_hyubdong.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -642,7 +655,11 @@ def get_upjuk(cla):
                             time.sleep(0.2)
                             sungjang = True
                             back_ = False
+                            back_count = 0
                             while back_ is False:
+                                back_count += 1
+                                if back_count > 10:
+                                    back_ = True
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\upjuk_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -652,6 +669,7 @@ def get_upjuk(cla):
                                     back_ = True
                                 else:
                                     click_pos_2(30, 55, cla)
+                                time.sleep(0.2)
                 # 장비
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -661,7 +679,11 @@ def get_upjuk(cla):
                     print("장비", imgs_)
                     click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
                     sungjang = False
+                    sungjang_count = 0
                     while sungjang is False:
+                        sungjang_count += 1
+                        if sungjang_count > 5:
+                            sungjang = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\upjuk_jangbi.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -671,7 +693,11 @@ def get_upjuk(cla):
                             time.sleep(0.2)
                             sungjang = True
                             back_ = False
+                            back_count = 0
                             while back_ is False:
+                                back_count += 1
+                                if back_count > 10:
+                                    back_ = True
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\upjuk_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -681,6 +707,7 @@ def get_upjuk(cla):
                                     back_ = True
                                 else:
                                     click_pos_2(30, 55, cla)
+                                time.sleep(0.2)
                 # 모험
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -690,7 +717,11 @@ def get_upjuk(cla):
                     print("모험", imgs_)
                     click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
                     sungjang = False
+                    sungjang_count = 0
                     while sungjang is False:
+                        sungjang_count += 1
+                        if sungjang_count > 5:
+                            sungjang = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\upjuk_mohum.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -700,7 +731,11 @@ def get_upjuk(cla):
                             time.sleep(0.2)
                             sungjang = True
                             back_ = False
+                            back_count = 0
                             while back_ is False:
+                                back_count += 1
+                                if back_count > 10:
+                                    back_ = True
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\upjuk_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -710,9 +745,14 @@ def get_upjuk(cla):
                                     back_ = True
                                 else:
                                     click_pos_2(30, 55, cla)
+                                time.sleep(0.2)
                 # 주요 업적
                 last_upjuk_ = False
+                last_upjuk_count = 0
                 while last_upjuk_ is False:
+                    last_upjuk_count += 1
+                    if last_upjuk_count > 10:
+                        last_upjuk_ = True
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -725,6 +765,7 @@ def get_upjuk(cla):
                     else:
                         last_upjuk_ = True
                         clean_screen(cla)
+                    time.sleep(0.2)
 
 
             else:
