@@ -870,7 +870,12 @@ def bag_open(cla):
         if imgs_ is not None and imgs_ != False:
             go_ = True
         else:
-            while go_ is False:
+            go_count = 0
+            is_go = False
+            while is_go is False:
+                go_count += 1
+                if go_count > 5:
+                    is_go = True
                 out_result = out_check(cla)
                 if out_result == True:
                     print("가방 바바깥 화면이다")
