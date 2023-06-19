@@ -2652,11 +2652,13 @@ class game_Playing_onecla(QThread):
             v_.now_cla = 'one'
             v_.global_howcla = 'onecla'
 
-            m_ = Monitoring_one()
+            m_ = Monitoring_one(self)
             m_.start()
 
-            x_ = game_Playing()
-            x_.start()
+            print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+
+            self.x_ = game_Playing()
+            self.x_.start()
 
             # result_ = login_start_ready(howcla)
             # if result_ == True:
