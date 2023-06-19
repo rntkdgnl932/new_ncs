@@ -2647,6 +2647,7 @@ class game_Playing_onecla(QThread):
 
     def run(self):
         try:
+            print("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
             howcla = 'onecla'
 
             v_.now_cla = 'one'
