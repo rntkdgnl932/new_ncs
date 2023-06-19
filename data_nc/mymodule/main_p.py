@@ -2630,9 +2630,11 @@ class Monitoring_one(QThread):
             return 0
 
 class Monitoring_two(QThread):
-    def __init__(self, parent):
-        super().__init__(parent)
-        self.parent = parent
+    # def __init__(self, parent):
+    #     super().__init__(parent)
+    #     self.parent = parent
+    def __init__(self):
+        super().__init__()
 
     def run(self):
         try:
@@ -2650,7 +2652,6 @@ class game_Playing_onecla(QThread):
 
     def run(self):
         try:
-            print("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
             howcla = 'onecla'
 
             v_.now_cla = 'one'
@@ -2659,7 +2660,6 @@ class game_Playing_onecla(QThread):
             self.m_ = Monitoring_one()
             self.m_.start()
 
-            print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
 
             self.x_ = game_Playing()
             self.x_.start()
@@ -2695,8 +2695,8 @@ class game_Playing_twocla(QThread):
             v_.now_cla = 'two'
             v_.global_howcla = 'twocla'
 
-            m_ = Monitoring_two(self)
-            m_.start()
+            self.m_ = Monitoring_two()
+            self.m_.start()
 
             self.x_ = game_Playing()
             self.x_.start()
