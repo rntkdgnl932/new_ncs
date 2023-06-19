@@ -2478,6 +2478,7 @@ class FirstTab(QWidget):
 
     def mySchedule_start1(self):
         try:
+            print("ppppppppppppppppppppppppppppppppppppppppppp")
             self.sche_add1.setText("one 실행중")
             self.sche_add2.setText("two")
             self.sche_add1.setDisabled(True)
