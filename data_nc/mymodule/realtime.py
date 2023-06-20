@@ -126,6 +126,14 @@ def moogi_(cla):
                             else:
                                 print("moogi_gold 없다.")
 
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\moogi_sooglyun_4.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(490, 590, 615, 625, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    moo_2 = True
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
