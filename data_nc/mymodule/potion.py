@@ -345,6 +345,7 @@ def maul_potion(cla):
 
         # 잡화 상인 진입
         jab_2 = False
+        jab_2_count = 0
         while jab_2 is False:
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -374,6 +375,7 @@ def maul_potion(cla):
                     # click_pos_reg(imgs_.x + 70, imgs_.y, cla)
             else:
                 jab_1_count += 1
+                jab_2_count += 1
                 time.sleep(2)
                 if jab_1_count > 5:
                     jab_1_count = 0
@@ -384,6 +386,9 @@ def maul_potion(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("janhwa_11", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                if jab_2_count > 10:
+                    click_pos_2(295, 995, cla)
+
 
 
 
