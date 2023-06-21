@@ -330,7 +330,7 @@ def maul_potion(cla):
                     clean_screen(cla)
 
                     if jab_1_count > 5:
-                        jab_1_count =
+                        jab_1_count = 0
 
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
