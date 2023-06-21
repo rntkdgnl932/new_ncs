@@ -387,6 +387,7 @@ def maul_potion(cla):
                         print("janhwa_11", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                 if jab_2_count > 10:
+                    jab_2_count = 0
                     click_pos_2(295, 995, cla)
 
 
