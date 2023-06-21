@@ -897,7 +897,11 @@ def maul_potion(cla):
 
         jab_3 = False
         print("potion_jab_3")
+        jab_3_count = 0
         while jab_3 is False:
+            jab_3_count += 1
+            if jab_3_count > 7:
+                jab_3 = True
             out_result = out_check(cla)
             if out_result == True:
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"

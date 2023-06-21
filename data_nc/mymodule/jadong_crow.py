@@ -99,7 +99,11 @@ def in_world(cla):
         from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
 
         in_worldmap = False
+        in_worldmap_count = 0
         while in_worldmap is False:
+            in_worldmap_count += 1
+            if in_worldmap_count > 7:
+                in_worldmap = True
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -358,7 +362,12 @@ def in_spot(cla, result_schedule_):
                                             in_worldmap = True
                                             print("완벽", result_[1])
                                             in_spot_start = False
+                                            in_spot_start_count = 0
                                             while in_spot_start is False:
+                                                in_spot_start_count += 1
+                                                if in_spot_start_count > 7:
+                                                    in_spot_start = True
+
                                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\confirm_1.PNG"
                                                 img_array = np.fromfile(full_path, np.uint8)
                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
