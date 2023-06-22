@@ -27,6 +27,7 @@ def go_test():
     import git
     import pyautogui
     import pytesseract
+    import random
 
     cla = "one"
 
@@ -41,7 +42,9 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    moogi_(cla)
+    result_x = random.randint(350, 600)
+    result_y = random.randint(510, 690)
+    print(result_x, result_y)
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))

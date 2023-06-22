@@ -74,3 +74,6 @@ sub_quest_count = 0
 # 가방 열어 골드 파악하는거 서브퀘스트일때 and 300초마다
 bag_open_count = 0
 bag_full_open_count = 0
+
+# 동굴 죽음 카운터
+dongool_dead_count = 0

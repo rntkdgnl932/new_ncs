@@ -662,7 +662,7 @@ def in_spot_to_walking(cla):
             spot_walking_count += 1
             if spot_walking_count > 15:
                 spot_walking = True
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\in_spot_walking.PNG"
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\in_spot_walking_3.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(300, 500, 600, 700, cla, img, 0.8)
@@ -670,7 +670,7 @@ def in_spot_to_walking(cla):
                 print("in_spot_walking~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.5)
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\in_spot_walking.PNG"
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\in_spot_walking_3.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(400, 60, 600, 700, cla, img, 0.8)
