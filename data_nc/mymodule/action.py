@@ -878,7 +878,18 @@ def bag_open(cla):
                     is_go = True
                 out_result = out_check(cla)
                 if out_result == True:
+
                     print("가방 바바깥 화면이다")
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("menu_open 되어있음", imgs_)
+                        click_pos_2(930, 60, cla)
+                        time.sleep(0.3)
+
                     click_pos_2(840, 60, cla)
                     time.sleep(0.5)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"

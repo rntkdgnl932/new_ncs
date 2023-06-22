@@ -1250,6 +1250,14 @@ def juljun_attack(cla, dun_):
 
                                                 if juljun_ready == False:
                                                     # 가방 닫기
+                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        print("menu_open 되어있음", imgs_)
+                                                        click_pos_2(930, 60, cla)
+                                                        time.sleep(0.1)
                                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
                                                     img_array = np.fromfile(full_path, np.uint8)
                                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
