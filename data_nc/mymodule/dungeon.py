@@ -679,7 +679,7 @@ def now_playing(cla, dun_, nowstep):
                                                     last_move = False
                                                     last_move_count = 0
                                                     while last_move is False:
-                                                        if last_move_count > 20:
+                                                        if last_move_count > 10:
                                                             last_move = True
                                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\in_spot_walking_2.PNG"
                                                         img_array = np.fromfile(full_path, np.uint8)
@@ -706,7 +706,6 @@ def now_playing(cla, dun_, nowstep):
 
                                                         if last_move == True:
                                                             print("도착!!")
-                                                            click_pos_2(930, 850, cla)
                                                         else:
                                                             # 죽었을 경우...카운트 +1
                                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
