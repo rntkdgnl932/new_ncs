@@ -1183,7 +1183,7 @@ def clean_screen(cla):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2
+        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
         from schedule import myQuest_play_add
 
         print("<< clean_screen >>")
@@ -1220,6 +1220,27 @@ def clean_screen(cla):
             print("none?", v_.now_ing_schedule)
 
 
+        # 절전 해제
+
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("juljun_mode : 거점일 경우 해제", imgs_)
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(450, 640, 490, 670, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                drag_pos(360, 550, 600, 550, cla)
+
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_ready.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(440, 660, 500, 710, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                drag_pos(360, 550, 600, 550, cla)
 
 
         # skip
