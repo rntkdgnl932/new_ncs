@@ -961,7 +961,7 @@ def guild_check(cla):
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_giboo.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(440, 330, 510, 380, cla, img, 0.8)
+                                imgs_ = imgs_set_(440, 300, 510, 380, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     giboo_ = True
                                     for i in range(5):
@@ -1005,7 +1005,7 @@ def guild_check(cla):
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_giboo.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(440, 330, 510, 380, cla, img, 0.8)
+                                imgs_ = imgs_set_(440, 300, 510, 380, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     giboo_ = True
                                     for i in range(3):
