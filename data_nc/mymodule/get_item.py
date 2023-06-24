@@ -923,13 +923,14 @@ def guild_check(cla):
                     imgs_ = imgs_set_(110, 80, 150, 115, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                        time.sleep(1)
 
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_information.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 900, 600, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            time.sleep(0.2)
+                            time.sleep(0.3)
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
