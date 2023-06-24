@@ -1001,7 +1001,7 @@ def guild_check(cla):
                                 giboo_count += 1
                                 if giboo_count > 7:
                                     giboo_ = True
-
+                                # 위치 바뀜
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_giboo.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
