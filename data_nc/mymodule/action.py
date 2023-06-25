@@ -899,6 +899,9 @@ def bag_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             print("가방 열었다다")
                             go_ = True
+                        else:
+                            click_pos_2(840, 60, cla)
+                        time.sleep(0.5)
                     time.sleep(0.5)
 
                 else:
