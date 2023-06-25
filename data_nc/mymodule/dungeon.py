@@ -50,7 +50,7 @@ def dungeon_play(cla, result_schedule_):
                 in_dungeon__count = 0
                 in_dungeon__ = True
 
-            print("던전체크")
+            print("던전체크", in_dungeon__count)
 
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\different.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -460,7 +460,7 @@ def dungeon_play(cla, result_schedule_):
                             complete_ = True
                             print("던전클리어", result_schedule_)
                             time.sleep(0.2)
-
+            time.sleep(1)
         return complete_
     except Exception as e:
         print(e)
