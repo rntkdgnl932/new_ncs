@@ -876,38 +876,46 @@ def bag_open(cla):
                 go_count += 1
                 if go_count > 5:
                     is_go = True
-                out_result = out_check(cla)
-                if out_result == True:
 
-
-
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("menu_open 되어있음", imgs_)
-                        click_pos_2(930, 60, cla)
-                        time.sleep(0.7)
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
-                    if imgs_ is not None and imgs_ != False:
-                        print("가방 열었다다")
-                        is_go = True
-                        go_ = True
-                    else:
-                        click_pos_2(840, 60, cla)
-                        print("가방 열었다다다")
-                        is_go = True
-                        go_ = True
-                    time.sleep(0.5)
-
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("가방이 열렸드아아아아아")
+                    is_go = True
+                    go_ = True
                 else:
-                    print("bag open clean_screen")
-                    clean_screen(cla)
-                time.sleep(0.2)
+                    out_result = out_check(cla)
+                    if out_result == True:
+
+
+
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("menu_open 되어있음", imgs_)
+                            click_pos_2(930, 60, cla)
+                            time.sleep(0.7)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            print("가방 열었다다")
+                            is_go = True
+                            go_ = True
+                        else:
+                            click_pos_2(840, 60, cla)
+                            print("가방 열즈아아아아아아아아아")
+                        time.sleep(0.5)
+
+                    else:
+                        print("bag open clean_screen")
+                        clean_screen(cla)
+                    time.sleep(0.2)
 
         if go_ == True:
             # 골드 파악 후 강제노역 시키기
