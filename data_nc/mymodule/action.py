@@ -901,6 +901,8 @@ def bag_open(cla):
                             go_ = True
                         else:
                             click_pos_2(840, 60, cla)
+                            print("가방 열었다다다")
+                            go_ = True
                         time.sleep(0.5)
                     time.sleep(0.5)
 
