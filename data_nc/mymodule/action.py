@@ -626,6 +626,11 @@ def item_open(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
+                bag_open(cla)
+                time.sleep(0.2)
+                click_pos_2(935, 265, cla)
+                time.sleep(0.5)
+
             # 골드상자
             x_reg = 0
             y_reg = 0
