@@ -455,6 +455,22 @@ def dungeon_play(cla, result_schedule_):
 
 
                             time.sleep(1)
+                            # 진입할때까지 있어보자 3초?
+                            three_second = False
+                            three_second_count = 0
+                            while three_second is False:
+                                three_second_count += 1
+                                if three_second_count > 10:
+                                    three_second = True
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+                                if imgs_ is not None and imgs_ != False:
+                                    three_second = True
+                                    print("던전 진입 완료", dungeon_name)
+                                time.sleep(0.5)
+
                         else:
                             in_dungeon__ = True
                             complete_ = True
@@ -887,7 +903,7 @@ def dongool_move(cla, nowstep):
                                                     v_.dongool_dead_count += 1
                                                     print("v_.dongool_dead_count (1)", v_.dongool_dead_count)
                                                     dead_die(cla)
-                                                    if v_.dongool_dead_count > 5:
+                                                    if v_.dongool_dead_count > 3:
                                                         v_.dongool_dead_count = 0
                                                         complete_ = True
                                             time.sleep(0.5)
@@ -905,7 +921,7 @@ def dongool_move(cla, nowstep):
                                                     v_.dongool_dead_count += 1
                                                     print("v_.dongool_dead_count (2)", v_.dongool_dead_count)
                                                     dead_die(cla)
-                                                    if v_.dongool_dead_count > 5:
+                                                    if v_.dongool_dead_count > 3:
                                                         v_.dongool_dead_count = 0
                                                         complete_ = True
                         else:
@@ -953,7 +969,7 @@ def dongool_move(cla, nowstep):
                     v_.dongool_dead_count += 1
                     print("v_.dongool_dead_count (3)", v_.dongool_dead_count)
                     dead_die(cla)
-                    if v_.dongool_dead_count > 5:
+                    if v_.dongool_dead_count > 3:
                         v_.dongool_dead_count = 0
                         complete_ = True
                 else:
@@ -961,7 +977,7 @@ def dongool_move(cla, nowstep):
                     if result_maul_ == True:
                         v_.dongool_dead_count += 1
                         print("v_.dongool_dead_count(4)", v_.dongool_dead_count)
-                        if v_.dongool_dead_count > 5:
+                        if v_.dongool_dead_count > 3:
                             v_.dongool_dead_count = 0
                             complete_ = True
 
@@ -1058,7 +1074,7 @@ def juljun_attack(cla, dun_, nowstep):
                     elif dun_ == "동굴":
                         dungeon_name = "dongool_1"
 
-                    print("절전모드 피격시 옮기기 모드")
+                    print("절전모드 피격시 옮기기 모드...동굴에서 죽은 횟수", v_.dongool_dead_count)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1390,12 +1406,12 @@ def juljun_attack(cla, dun_, nowstep):
                         imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             dead_die(cla)
-                        # 동굴에서 5번 이상 죽으면 그날 마무리
-                        if v_.dongool_dead_count > 5:
+                        # 동굴에서 3번 이상 죽으면 그날 마무리
+                        if v_.dongool_dead_count > 3:
                             v_.dongool_dead_count = 0
                             myQuest_play_add(cla, v_.now_ing_schedule)
 
-                            
+
                         # else:
                         #
                         #
