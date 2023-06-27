@@ -628,8 +628,6 @@ def item_open(cla):
 
                 bag_open(cla)
                 time.sleep(0.2)
-                click_pos_2(935, 265, cla)
-                time.sleep(0.5)
 
             # 골드상자
             x_reg = 0

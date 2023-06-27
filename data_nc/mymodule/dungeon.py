@@ -866,7 +866,7 @@ def dongool_move(cla, nowstep):
                                         last_move = False
                                         last_move_count = 0
                                         while last_move is False:
-                                            if last_move_count > 7:
+                                            if last_move_count > 5:
                                                 last_move = True
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\in_spot_walking_2.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
@@ -885,6 +885,7 @@ def dongool_move(cla, nowstep):
                                                 imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
                                                 if imgs_ is not None and imgs_ != False:
                                                     v_.dongool_dead_count += 1
+                                                    print("v_.dongool_dead_count (1)", v_.dongool_dead_count)
                                                     dead_die(cla)
                                                     if v_.dongool_dead_count > 5:
                                                         v_.dongool_dead_count = 0
@@ -902,6 +903,7 @@ def dongool_move(cla, nowstep):
                                                 imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
                                                 if imgs_ is not None and imgs_ != False:
                                                     v_.dongool_dead_count += 1
+                                                    print("v_.dongool_dead_count (2)", v_.dongool_dead_count)
                                                     dead_die(cla)
                                                     if v_.dongool_dead_count > 5:
                                                         v_.dongool_dead_count = 0
@@ -949,6 +951,7 @@ def dongool_move(cla, nowstep):
                 imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     v_.dongool_dead_count += 1
+                    print("v_.dongool_dead_count (3)", v_.dongool_dead_count)
                     dead_die(cla)
                     if v_.dongool_dead_count > 5:
                         v_.dongool_dead_count = 0
@@ -957,6 +960,7 @@ def dongool_move(cla, nowstep):
                     result_maul_ = in_maul_check
                     if result_maul_ == True:
                         v_.dongool_dead_count += 1
+                        print("v_.dongool_dead_count(4)", v_.dongool_dead_count)
                         if v_.dongool_dead_count > 5:
                             v_.dongool_dead_count = 0
                             complete_ = True
@@ -1365,9 +1369,10 @@ def juljun_attack(cla, dun_, nowstep):
                     else:
                         nowtime_ = datetime.today().strftime("%Y년%m월%d일 %H시%M분%S초")
                         # print("현재시간", nowtime_)
-                        print("한대 맞은 듯...랜덤 이동 보이면 바로 이동하기!!")
+
                         line_to_me(cla, str(nowtime_) + "에 어떤 놈이 공격했다")
                         v_.dongool_dead_count += 1
+                        print("한대 맞은 듯...랜덤 이동 보이면 바로 이동하기!!", v_.dongool_dead_count)
                         if v_.dongool_dead_count > 5:
                             continue_juljun = True
 
