@@ -1060,6 +1060,10 @@ def juljun_attack(cla, dun_, nowstep):
                 if in_maul_ == True:
                     print("절전모드 잠시 중지...")
                     continue_juljun = True
+                    v_.dongool_dead_count += 1
+                    if v_.dongool_dead_count > 4:
+                        v_.dongool_dead_count = 0
+                        myQuest_play_add(cla, v_.now_ing_schedule)
                 else:
 
 
