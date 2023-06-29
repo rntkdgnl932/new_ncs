@@ -1594,7 +1594,7 @@ def clean_screen(cla):
                     print("pvp_1", imgs_)
                     click_pos_2(930, 60, cla)
             else:
-
+                print("클린 스크린 바깥 화면이 아니다.")
                 # skip
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
