@@ -57,7 +57,7 @@ def go_test():
     else:
         print("가방이 안보여>????", imgs_)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title2.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabag_title2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
     imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.8)
