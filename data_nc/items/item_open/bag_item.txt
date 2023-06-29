@@ -3,6 +3,10 @@ sub_box_1
 hagb_soolyunsoopbox
 soolyun_jaelyobox
 youngbyungbox
+youngwang
 nc_box_1
 soolyun
 bunyuong
+dongool_1
+moolja_1
+yongbyungdan

@@ -190,6 +190,7 @@ def item_open(cla):
         global item_count
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import bag_open, clean_screen, menu_open
+        from realtime import boonhae_
 
         import os
         import numpy as np
@@ -200,6 +201,37 @@ def item_open(cla):
 
             click_pos_2(935, 265, cla)
             time.sleep(0.2)
+
+            # 이벤트 아이템
+
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\event\\event_fly.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(1)
+
+                tal_3 = False
+                while tal_3 is False:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\glider.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(50, 40, 130, 75, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        talgut_ing_(cla)
+                        tal_3 = True
+                    else:
+                        menu_open(cla)
+                        click_pos_2(885, 260, cla)
+                        time.sleep(1)
+
+                bag_open(cla)
+                time.sleep(0.2)
+                click_pos_2(935, 265, cla)
+                time.sleep(0.2)
 
             # 스킬북
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\skillbook_1.PNG"
@@ -220,6 +252,153 @@ def item_open(cla):
                 time.sleep(0.1)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
+            # 상자
+
+            dir_path = "C:\\my_games\\nightcrow\\data_nc"
+            file_path = dir_path + "\\items\\item_open\\bag_item.txt"
+            ###
+            if os.path.isfile(file_path) == True:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
+                    box_ = file.read().splitlines()
+                    print("box_", box_)
+            ###
+            for i in range(len(box_)):
+                x_reg = 0
+                y_reg = 0
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\" + box_[i] + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    print("상자 있", box_[i])
+                    tal_1 = False
+                    while tal_1 is False:
+                        item_count += 1
+                        print("item_count3", item_count)
+                        if item_count > 5:
+                            item_count = 0
+                            tal_1 = True
+
+                        time.sleep(0.3)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\get_clear.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 450, 550, 550, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            tal_1 = True
+
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\ganghwa.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("ganghwa.PNG 111111111111111111111111111111111111111111111111", box_[i])
+                            tal_1 = True
+                            bag_open(cla)
+                            time.sleep(0.2)
+                            click_pos_2(935, 265, cla)
+                            time.sleep(0.2)
+
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\max.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 500, 700, 700, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("max.PNG")
+                            time.sleep(0.2)
+                            click_pos_2(585, 460, cla)
+                            time.sleep(0.1)
+                            click_pos_2(585, 460, cla)
+
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.1)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.3)
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                tal_1 = True
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+                                click_pos_2(935, 265, cla)
+                        else:
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\" + box_[i] + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("상자 있...", box_[i])
+                                x_reg = imgs_.x
+                                y_reg = imgs_.y
+
+                                click_pos_reg(x_reg, y_reg, cla)
+                                time.sleep(0.1)
+                                click_pos_reg(x_reg, y_reg, cla)
+                                time.sleep(0.3)
+
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\umsik_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(330, 400, 630, 550, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.3)
+
+                                # 여기 크로우 11회 선택하기 누르기
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\crow_box_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 400, 500, 500, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.3)
+
+                                # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\confirm_1.PNG"
+                                # img_array = np.fromfile(full_path, np.uint8)
+                                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                # imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
+                                # if imgs_ is not None and imgs_ != False:
+                                #     tal_1 = True
+                                #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                #     time.sleep(0.2)
+                                #     click_pos_2(935, 265, cla)
+                            else:
+                                click_pos_2(935, 265, cla)
+                                if x_reg != 0:
+                                    # click_pos_reg(x_reg, y_reg, cla)
+                                    time.sleep(0.3)
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\confirm_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        tal_1 = True
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.2)
+                                        click_pos_2(935, 265, cla)
+
+                        time.sleep(0.3)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\get_clear.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 450, 550, 550, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            tal_1 = True
+                else:
+                    print("상자 없")
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 980, 570, 1030, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                bag_open(cla)
+                time.sleep(0.2)
             # 탈것_1
             dir_path = "C:\\my_games\\nightcrow\\data_nc"
             file_path = dir_path + "\\items\\item_open\\talgut.txt"
@@ -228,6 +407,8 @@ def item_open(cla):
                 with open(file_path, "r", encoding='utf-8-sig') as file:
                     box_ = file.read().splitlines()
                     print("box_", box_)
+            ###
+
             ###
             print("탈것 시작")
             for i in range(len(box_)):
@@ -513,7 +694,7 @@ def item_open(cla):
                     while tal_1 is False:
                         item_count += 1
                         print("item_count3", item_count)
-                        if item_count > 3:
+                        if item_count > 5:
                             item_count = 0
                             tal_1 = True
 
@@ -572,6 +753,11 @@ def item_open(cla):
                                 x_reg = imgs_.x
                                 y_reg = imgs_.y
 
+                                click_pos_reg(x_reg, y_reg, cla)
+                                time.sleep(0.1)
+                                click_pos_reg(x_reg, y_reg, cla)
+                                time.sleep(0.3)
+
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\umsik_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -581,10 +767,16 @@ def item_open(cla):
                                     time.sleep(0.3)
 
 
-                                click_pos_reg(x_reg, y_reg, cla)
-                                time.sleep(0.1)
-                                click_pos_reg(x_reg, y_reg, cla)
-                                time.sleep(0.3)
+                                # 여기 크로우 11회 선택하기 누르기
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\crow_box_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 400, 500, 500, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.3)
+
+
                                 # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\confirm_1.PNG"
                                 # img_array = np.fromfile(full_path, np.uint8)
                                 # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -617,6 +809,8 @@ def item_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             tal_1 = True
+                    if box_[i] == "moolja_1":
+                        boonhae_(cla)
                 else:
                     print("상자 없")
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
@@ -703,6 +897,9 @@ def item_open(cla):
 
             else:
                 print("골드 상자 없")
+
+
+
         # 튜토육성 체크 후 클린스크린
         print("item_open_cleanscreen 1")
         clean_screen(cla)

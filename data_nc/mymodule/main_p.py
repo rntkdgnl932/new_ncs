@@ -53,6 +53,8 @@ from get_item import get_items, get_item_checking, guild_jilyung
 from potion import maul_potion
 from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check
 
+from one_event import daily_one
+
 import variable as v_
 
 sys.setrecursionlimit(10 ** 7)
@@ -2876,6 +2878,9 @@ class game_Playing(QThread):
                             # 최초1회만...
                             if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":
                                 if v_.just_one == False:
+
+                                    v_.just_one = True
+
                                     # print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
                                     # v_.just_one = True
                                     print("마을일경우 물약 등 체크하기")
@@ -2891,7 +2896,9 @@ class game_Playing(QThread):
                                         if result_maul == True:
                                             click_pos_2(230, 90, v_.now_cla)
                                             maul_potion(v_.now_cla)
-
+                                            time.sleep(1)
+                                    # 아래는 특별 이벤트 진행하기
+                                    daily_one(cla)
 
                             if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
                                 # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
