@@ -44,9 +44,18 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    daily_one(cla)
+    # daily_one(cla)
+    #
+    # get_items(cla)
 
-    get_items(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+    if imgs_ is not None and imgs_ != False:
+        print("clean screen 가방 닫자")
+    else:
+        print("가방이 안보여>????")
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
