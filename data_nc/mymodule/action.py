@@ -1620,6 +1620,12 @@ def clean_screen(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("clean screen 가방 닫자")
                     click_pos_2(935, 100, cla)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabag_title2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("clean screen 가방 닫자2")
 
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
