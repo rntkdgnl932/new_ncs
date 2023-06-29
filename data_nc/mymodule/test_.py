@@ -57,15 +57,6 @@ def go_test():
     else:
         print("가방이 안보여>????", imgs_)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabag_title2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
-    if imgs_ is not None and imgs_ != False:
-        print("clean screen 가방 닫자2", imgs_)
-    else:
-        print("가방이 안보여>????222", imgs_)
-
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
     # potion_ready = pytesseract.image_to_string(white_img, lang=None)
