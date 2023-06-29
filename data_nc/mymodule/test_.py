@@ -48,7 +48,7 @@ def go_test():
 
     get_items(cla)
 
-    
+
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))

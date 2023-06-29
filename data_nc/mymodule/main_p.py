@@ -2897,8 +2897,7 @@ class game_Playing(QThread):
                                             click_pos_2(230, 90, v_.now_cla)
                                             maul_potion(v_.now_cla)
                                             time.sleep(1)
-                                    # 아래는 특별 이벤트 진행하기
-                                    daily_one(cla)
+
 
                             if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
                                 # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
@@ -2934,6 +2933,10 @@ class game_Playing(QThread):
                                         tuto_grow(v_.now_cla)
                                         # tuto_grow에 스케쥴 완료 있음
                                     if result_schedule_ == "각종템받기":
+
+                                        # 아래는 특별 이벤트 진행하기
+                                        daily_one(v_.now_cla)
+
                                         get_items(v_.now_cla)
                                         # 자체에 스케쥴 완료 있음
                                         if v_.just_one == False:

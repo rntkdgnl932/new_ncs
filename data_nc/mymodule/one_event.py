@@ -241,7 +241,7 @@ def daily_one(cla):
 
         print("소환 이벤트 탈것 소환")
         # 소환 이벤트 탈것것 소환
-        go_even = False
+        go_event = False
         go_event_count = 0
         while go_event is False:
             go_event_count += 1
