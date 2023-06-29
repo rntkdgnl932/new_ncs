@@ -64,7 +64,7 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("clean screen 가방 닫자2")
     else:
-        print("가방이 안보여>????222")
+        print("가방이 안보여>????222", imgs_)
 
     # img = pyautogui.screenshot(region=(get_region(170, 235, 220, 260, cla)))
     # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
