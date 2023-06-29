@@ -52,6 +52,9 @@ def daily_one(cla):
                     click_pos_2(215, 110, cla)
                     time.sleep(0.5)
 
+
+
+
                 # 일반 이벤트 메뉴 클릭
                 click_pos_2(100, 155, cla)
                 time.sleep(0.5)
@@ -198,7 +201,7 @@ def daily_one(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\event\\poomjul.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(440, 200, 300, 300, cla, img, 0.83)
+                imgs_ = imgs_set_(440, 200, 500, 300, cla, img, 0.83)
                 if imgs_ is not None and imgs_ != False:
                     print("무기외형 품절2", imgs_)
                 else:
@@ -216,7 +219,7 @@ def daily_one(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\event\\poomjul.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(640, 200, 300, 300, cla, img, 0.83)
+                imgs_ = imgs_set_(640, 200, 700, 300, cla, img, 0.83)
                 if imgs_ is not None and imgs_ != False:
                     print("무기외형 품절3", imgs_)
                     go_event = True
@@ -301,7 +304,7 @@ def daily_one(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\event\\poomjul.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(440, 430, 300, 500, cla, img, 0.83)
+                imgs_ = imgs_set_(440, 430, 500, 500, cla, img, 0.83)
                 if imgs_ is not None and imgs_ != False:
                     print("탈것 품절2", imgs_)
                 else:
@@ -319,7 +322,7 @@ def daily_one(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\event\\poomjul.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(640, 430, 300, 500, cla, img, 0.83)
+                imgs_ = imgs_set_(640, 430, 700, 500, cla, img, 0.83)
                 if imgs_ is not None and imgs_ != False:
                     print("탈것 품절3", imgs_)
                     go_event = True
