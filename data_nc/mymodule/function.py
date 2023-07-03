@@ -21,6 +21,8 @@ def get_region(start_x, start_y, end_x, end_y, cla):
         coordinate = 0
     if cla == 'two':
         coordinate = 960
+    if cla == 'three':
+        coordinate = 960 + 960
 
 
     # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int(), abc)
@@ -176,6 +178,8 @@ def imgs_set(a, b, c, d, cla, img):
             plus = 0
         if cla == 'two':
             plus = 960
+        if cla == 'three':
+            plus = 960 + 960
         result = pyautogui.locateCenterOnScreen(img, region=(a + plus, b, c - a + 10 , d - b + 10),
                                                confidence=0.7)
         return result
@@ -189,6 +193,8 @@ def imgs_set_(a, b, c, d, cla, img, data):
             plus = 0
         if cla == 'two':
             plus = 960
+        if cla == 'three':
+            plus = 960 + 960
         result = pyautogui.locateCenterOnScreen(img, region=(a + plus, b, c - a + 10 , d - b + 10),
                                                confidence=data)
         return result
@@ -227,6 +233,8 @@ def click_pos_2(pos_1, pos_2, cla):
             coordinate = 0
         if cla == 'two':
             coordinate = 960
+        if cla == 'three':
+            coordinate = 960 + 960
 
         xy_ = pyautogui.position()
 
@@ -262,6 +270,8 @@ def click_pos_reg(pos_1, pos_2, cla):
         if cla == 'one':
             coordinate = 0
         if cla == 'two':
+            coordinate = 0
+        if cla == 'three':
             coordinate = 0
 
         xy_ = pyautogui.position()
@@ -300,6 +310,8 @@ def drag_pos(pos_1, pos_2, pos_3, pos_4, cla):
             coordinate = 0
         if cla == 'two':
             coordinate = 960
+        if cla == 'three':
+            coordinate = 960 + 960
         pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int(), 0.5)
         pyautogui.dragTo(pos_3 + random_int() + coordinate, pos_4 + random_int(), 1)
         time.sleep(0.3)
@@ -313,6 +325,8 @@ def drag_pos_reg(pos_1, pos_2, pos_3, pos_4, cla):
         if cla == 'one':
             coordinate = 0
         if cla == 'two':
+            coordinate = 0
+        if cla == 'three':
             coordinate = 0
         pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int(), 0.5)
         pyautogui.dragTo(pos_3 + random_int() + coordinate, pos_4 + random_int(), 1)
@@ -351,6 +365,8 @@ def text_check_get(posX1, posY1, posX2, posY2, cla):
             coordinate = 0
         if cla == 'two':
             coordinate = 960
+        if cla == 'three':
+            coordinate = 960 + 960
         pos = (posX1 + coordinate, posY1, posX2 - posX1, posY2 - posY1)
         pyautogui.screenshot("asd.png", region=pos)
         pic = cv2.imread("asd.png", cv2.IMREAD_COLOR)  # 사진을 컬러로 읽어오기
@@ -376,6 +392,8 @@ def text_check_get_2(posX1, posY1, posX2, posY2, cla):
             coordinate = 0
         if cla == 'two':
             coordinate = 960
+        if cla == 'three':
+            coordinate = 960 + 960
         isClick = False
         pos = (posX1 + coordinate, posY1, posX2 - posX1, posY2 - posY1)
         pyautogui.screenshot("asd.png", region=pos)
@@ -407,6 +425,8 @@ def text_check_get_3(posX1, posY1, posX2, posY2, color, cla):
             coordinate = 0
         if cla == 'two':
             coordinate = 960
+        if cla == 'three':
+            coordinate = 960 + 960
         pos = (posX1 + coordinate, posY1, posX2 - posX1, posY2 - posY1)
         pyautogui.screenshot("asd.png", region=pos)
         pic = cv2.imread("asd.png", cv2.IMREAD_COLOR)  # 사진을 컬러로 읽어오기
@@ -450,6 +470,8 @@ def text_check_get_4(posX1, posY1, posX2, posY2, color, cla):
             coordinate = 0
         if cla == 'two':
             coordinate = 960
+        if cla == 'three':
+            coordinate = 960 + 960
         pos = (posX1 + coordinate, posY1, posX2 - posX1, posY2 - posY1)
         pyautogui.screenshot("asd.png", region=pos)
         pic = cv2.imread("asd.png")

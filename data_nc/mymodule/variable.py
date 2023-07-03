@@ -31,6 +31,11 @@ mymoney_2 = 0
 mypower_2 = 0
 mypotion_2 = 9999
 myId_2 = 0
+
+
+# 3번
+mypotion_3 = 9999
+
 # 현재실행중인 클라우드
 now_cla = 'none'
 global_howcla = 'none'

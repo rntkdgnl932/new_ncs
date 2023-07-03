@@ -1137,6 +1137,8 @@ def bag_open(cla):
                         x_reg = imgs_.x + 10
                     if cla == "two":
                         x_reg = imgs_.x + 10 - 960
+                    if cla == "three":
+                        x_reg = imgs_.x + 10 - 960 - 960
 
                     my_money = text_check_get(x_reg, 880, 892, 900, cla)
                     # my_money = text_check_get(830, 880, 892, 900, cla)
@@ -1396,7 +1398,7 @@ def clean_screen(cla):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
-        from schedule import myQuest_play_add
+        from schedule import myQuest_play_add, myQuest_play_check
 
         print("<< clean_screen >>")
 
@@ -1595,6 +1597,38 @@ def clean_screen(cla):
                     click_pos_2(930, 60, cla)
             else:
                 print("클린 스크린 바깥 화면이 아니다.")
+                # 더 이상 보지 않음
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\anymore_not_look.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(80, 680, 280, 780, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("anymore_not_look", imgs_)
+                    click_pos_2(110, 710, cla)
+                    time.sleep(0.3)
+                    click_pos_2(110, 710, cla)
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\logout.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(40, 980, 160, 1030, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("logout 보여", imgs_)
+                    click_pos_2(110, 710, cla)
+                    time.sleep(0.3)
+                    click_pos_2(110, 710, cla)
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(20, 990, 150, 1040, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    print("clean_screen : 캐릭터 선택화면이 보여 result_schedule", result_schedule)
+                    character_id = result_schedule[0][1]
+
+                    character_change(cla, character_id)
+
                 # skip
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -2062,6 +2096,8 @@ def character_change(cla, character_id):
                                         file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
                                     if cla == 'two':
                                         file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
+                                    if cla == 'three':
+                                        file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
 
                                     is_out = False
                                     is_out_count = 0

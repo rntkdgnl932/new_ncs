@@ -140,6 +140,8 @@ def quest_get(cla, character_id, step):
             plus = 0
         if cla == 'two':
             plus = 960
+        if cla == 'three':
+            plus = 960 + 960
 
         step = int(step)
 
@@ -196,6 +198,8 @@ def quest_get(cla, character_id, step):
                                 last_x = i.left
                                 if cla == "two":
                                     last_x = last_x - 960
+                                if cla == "three":
+                                    last_x = last_x - 960 - 960
                                 last_y = i.top
 
                                 print("check point!!!!!!!!!!!!!", last_x, last_y)
@@ -256,6 +260,8 @@ def quest_get(cla, character_id, step):
                                 last_x = i.left
                                 if cla == "two":
                                     last_x = last_x - 960
+                                if cla == "three":
+                                    last_x = last_x - 960 - 960
                                 last_y = i.top
 
                                 print("check point!!!!!!!!!!!!!", last_x, last_y)
@@ -344,6 +350,8 @@ def quest_get(cla, character_id, step):
                                 last_x = i.left
                                 if cla == "two":
                                     last_x = last_x - 960
+                                if cla == "three":
+                                    last_x = last_x - 960 - 960
                                 last_y = i.top
 
                                 print("check point!!!!!!!!!!!!!", last_x, last_y)

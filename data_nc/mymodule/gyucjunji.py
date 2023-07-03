@@ -562,6 +562,8 @@ def juljun_attack(cla):
                             y_reg = imgs_.y
                             if cla == "two":
                                 x_reg = x_reg - 960
+                            if cla == "three":
+                                x_reg = x_reg - 960 - 960
 
                             # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
                             potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
@@ -576,8 +578,10 @@ def juljun_attack(cla):
                                     print("potion?", potion)
                                     if cla == "one":
                                         v_.mypotion_1 = potion
-                                    else:
+                                    if cla == "two":
                                         v_.mypotion_2 = potion
+                                    if cla == "three":
+                                        v_.mypotion_3 = potion
 
                                     if potion < 50:
                                         v_.potion_count += 1
@@ -605,9 +609,10 @@ def juljun_attack(cla):
                                         print("potion?", potion)
                                         if cla == "one":
                                             v_.mypotion_1 = potion
-                                        else:
+                                        if cla == "two":
                                             v_.mypotion_2 = potion
-
+                                        if cla == "three":
+                                            v_.mypotion_3 = potion
                                         if potion < 10:
                                             v_.potion_count += 1
                                             if v_.potion_count > 5:
@@ -633,8 +638,10 @@ def juljun_attack(cla):
                                             print("potion?", potion)
                                             if cla == "one":
                                                 v_.mypotion_1 = potion
-                                            else:
+                                            if cla == "two":
                                                 v_.mypotion_2 = potion
+                                            if cla == "three":
+                                                v_.mypotion_3 = potion
 
                                             if potion < 50:
                                                 v_.potion_count += 1
