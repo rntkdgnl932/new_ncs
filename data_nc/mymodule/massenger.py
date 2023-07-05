@@ -249,14 +249,14 @@ def line_monitor(game, cla):
                 ms_ = str(game) + str(" 꺼진것 같다")
                 line_to_me(cla, ms_)
 
-            #나가기 버튼
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set(400, 980, 570, 1030, cla, img)
-            if imgs_ is not None and imgs_ != False:
-                print("monitoring catch exit")
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+            # #나가기 버튼
+            # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
+            # img_array = np.fromfile(full_path, np.uint8)
+            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            # imgs_ = imgs_set(400, 980, 570, 1030, cla, img)
+            # if imgs_ is not None and imgs_ != False:
+            #     print("monitoring catch exit")
+            #     click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
 
@@ -268,6 +268,7 @@ def line_monitor(game, cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set(300, 450, 700, 550, cla, img)
             if imgs_ is not None:
+                # jangsigan = True
                 ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다")
                 line_to_me(cla, ms_)
 
