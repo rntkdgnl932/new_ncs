@@ -287,6 +287,18 @@ def item_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             tal_1 = True
+                            time.sleep(0.3)
+                            for i in range(10):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\get_clear.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(450, 450, 550, 550, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.1)
+                                else:
+                                    break
+                                time.sleep(0.2)
 
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\ganghwa.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -306,14 +318,30 @@ def item_open(cla):
                         imgs_ = imgs_set_(500, 500, 700, 700, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("max.PNG")
+                            x_max = imgs_.x
+                            y_max = imgs_.y
                             time.sleep(0.2)
-                            click_pos_2(585, 460, cla)
-                            time.sleep(0.1)
-                            click_pos_2(585, 460, cla)
 
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            # 선택
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\jangsigoo.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 350, 630, 560, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("jangsigoo.PNG")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.1)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                click_pos_2(585, 460, cla)
+                                time.sleep(0.1)
+                                click_pos_2(585, 460, cla)
                             time.sleep(0.1)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            click_pos_reg(x_max, y_max, cla)
+                            time.sleep(0.1)
+                            click_pos_reg(x_max, y_max, cla)
                             time.sleep(0.3)
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\confirm_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
