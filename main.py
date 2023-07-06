@@ -27,6 +27,9 @@ import pytesseract
 # from pytesseract import image_to_string #
 import pyautogui
 import clipboard
+
+import serial
+
 # import keyboard
 # 패키지 다운 불필요
 import tkinter

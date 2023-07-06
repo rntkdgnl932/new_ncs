@@ -8,7 +8,7 @@ a = Analysis(
     ['main.py'],
     pathex=['C:\\Users\\1_S_3\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\cv2'],
     binaries=[],
-    datas=[('nightcrow.ico', './')],
+    datas=[('C:\\\\my_games\\\\nightcrow\\\\data_nc', './data_nc'), ('nightcrow.ico', './')],
     hiddenimports=['PyQt5', 'requests', 'chardet'],
     hookspath=[],
     hooksconfig={},

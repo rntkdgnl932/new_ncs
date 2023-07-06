@@ -46,15 +46,18 @@ global_howcla = 'none'
 
 dir_path = "C:\\my_games\\nightcrow\\data_nc"
 file_path = dir_path + "\\mymodule\\version.txt"
-file_path2 = dir_path + "\\mymodule\\comport.txt"
+file_path2 = "C:\\my_games\\mouse\\port.txt"
 
 with open(file_path, "r", encoding='utf-8-sig') as file:
     version_ = file.read()
     print("version???", version_)
 
 with open(file_path2, "r", encoding='utf-8-sig') as file:
-    COM_ = file.read()
+    read_port = file.read().splitlines()
+    COM_ = read_port[0]
+    speed_ = int(read_port[1])
     print("COM???", COM_)
+    print("speed_???", speed_)
 
 this_game = "나이트크로우"
 

@@ -276,7 +276,7 @@ def win_left_move(cla):
         import serial
 
         arduino_port = v_.COM_
-        baudrate = 9600
+        baudrate = v_.speed_
 
         print("win_left_move", cla)
 
@@ -301,7 +301,7 @@ def win_right_move(cla):
         import serial
 
         arduino_port = v_.COM_
-        baudrate = 9600
+        baudrate = v_.speed_
 
         print("win_right_move", cla)
 
@@ -326,7 +326,7 @@ def click_pos_2(pos_1, pos_2, cla):
         import pyautogui
 
         arduino_port = v_.COM_
-        baudrate = 9600
+        baudrate = v_.speed_
 
         coordinate = 0
         if cla == 'one':
@@ -396,7 +396,7 @@ def click_pos_reg(pos_1, pos_2, cla):
         import pyautogui
 
         arduino_port = v_.COM_
-        baudrate = 9600
+        baudrate = v_.speed_
 
         coordinate = 0
         if cla == 'one':
@@ -463,7 +463,7 @@ def mouse_move_cpp(pos_1, pos_2, cla):
         import pyautogui
 
         arduino_port = v_.COM_
-        baudrate = 9600
+        baudrate = v_.speed_
 
         coordinate = 0
         if cla == 'one':
@@ -529,7 +529,7 @@ def mouse_move_cpp(pos_1, pos_2, cla):
         import pyautogui
 
         arduino_port = v_.COM_
-        baudrate = 9600
+        baudrate = v_.speed_
 
         coordinate = 0
         if cla == 'one':
@@ -595,7 +595,7 @@ def drag_pos_Press():
         import pyautogui
 
         arduino_port = v_.COM_
-        baudrate = 9600
+        baudrate = v_.speed_
 
         ser = serial.Serial(arduino_port, baudrate)
 
@@ -619,7 +619,7 @@ def drag_pos_Release():
         import pyautogui
 
         arduino_port = v_.COM_
-        baudrate = 9600
+        baudrate = v_.speed_
 
         ser = serial.Serial(arduino_port, baudrate)
         # 마우스 떼기
