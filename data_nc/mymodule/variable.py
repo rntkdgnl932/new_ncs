@@ -92,5 +92,5 @@ bag_full_open_count = 0
 dongool_dead_count = 0
 
 # 마우스 셋팅 관련
-mouse_speed = 10
+mouse_speed = 20
 mouse_pm = 3
