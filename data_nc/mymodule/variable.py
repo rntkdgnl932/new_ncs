@@ -93,4 +93,4 @@ dongool_dead_count = 0
 
 # 마우스 셋팅 관련
 mouse_speed = 20
-mouse_pm = 3
+mouse_pm = 5
