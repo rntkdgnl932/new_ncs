@@ -351,7 +351,7 @@ def click_pos_2(pos_1, pos_2, cla):
         move_count = 0
         while move_ is False:
             move_count += 1
-            if move_count > 200:
+            if move_count > 300:
                 move_ = True
 
             k_reg = v_.mouse_speed
@@ -375,11 +375,17 @@ def click_pos_2(pos_1, pos_2, cla):
             ser.write(data.encode())
             received_data = ser.readline().decode().strip()
 
-            if received_data == '0' or (-c_reg < moveX < c_reg and -c_reg < moveY < c_reg):
+            if -c_reg < moveX < c_reg and -c_reg < moveY < c_reg:
                 moveZ = 2
                 move_ = True
                 data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
                 ser.write(data.encode())
+
+            # if received_data == '0' or (-c_reg < moveX < c_reg and -c_reg < moveY < c_reg):
+            #     moveZ = 2
+            #     move_ = True
+            #     data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
+            #     ser.write(data.encode())
             x_reg = pos_1 + coordinate - pyautogui.position()[0]
             y_reg = pos_2 - pyautogui.position()[1]
 
@@ -422,7 +428,7 @@ def click_pos_reg(pos_1, pos_2, cla):
         move_count = 0
         while move_ is False:
             move_count += 1
-            if move_count > 200:
+            if move_count > 300:
                 move_ = True
 
             k_reg = v_.mouse_speed
