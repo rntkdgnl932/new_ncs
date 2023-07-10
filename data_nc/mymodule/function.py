@@ -392,13 +392,24 @@ def click_pos_2(pos_1, pos_2, cla):
             received_data = ser.readline().decode().strip()
 
             if -c_reg < moveX < c_reg and -c_reg < moveY < c_reg:
-                print("move_count", move_count)
-                print("moveX", moveX)
-                print("moveY", moveY)
-                moveZ = 2
-                move_ = True
-                data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
-                ser.write(data.encode())
+
+
+                x_reg = pos_1 + coordinate - pyautogui.position()[0]
+                y_reg = pos_2 - pyautogui.position()[1]
+                if -c_reg < x_reg < c_reg and -c_reg < y_reg < c_reg:
+                    print("move_count", move_count)
+                    print("moveX", moveX)
+                    print("moveY", moveY)
+                    print("x_reg", x_reg)
+                    print("y_reg", y_reg)
+                    moveZ = 2
+                    move_ = True
+                    data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
+                    ser.write(data.encode())
+                else:
+                    print("아직 오차 범위 밖이다...", move_count)
+                    print("x_reg", x_reg)
+                    print("y_reg", y_reg)
 
 
 
