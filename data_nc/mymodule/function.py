@@ -391,6 +391,8 @@ def click_pos_2(pos_1, pos_2, cla):
             #     ser.write(data.encode())
             x_reg = pos_1 + coordinate - pyautogui.position()[0]
             y_reg = pos_2 - pyautogui.position()[1]
+            if move_count > 280:
+                print("y_reg", y_reg)
 
 
 
