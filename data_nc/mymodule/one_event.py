@@ -153,7 +153,7 @@ def daily_one(cla):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\event\\sangjum_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(50, 40, 140, 75, cla, img, 0.83)
+            imgs_ = imgs_set_(40, 40, 140, 90, cla, img, 0.83)
             if imgs_ is not None and imgs_ != False:
                 # 이벤트 메뉴 있는지 확인 후 없다면 클릭
                 event_menu_bool = False
