@@ -357,7 +357,11 @@ def click_pos_2(pos_1, pos_2, cla):
                 print("move_count", move_count)
                 move_ = True
 
-
+            # 이동 시킬 포인트 계산
+            x_reg = pos_1 + coordinate - pyautogui.position()[0]
+            y_reg = pos_2 - pyautogui.position()[1]
+            if move_count > 280:
+                print("이동 시킬 포인트 계산 y_reg", y_reg)
 
             if -c_reg < x_reg < c_reg:
                 moveX = x_reg
@@ -369,9 +373,15 @@ def click_pos_2(pos_1, pos_2, cla):
             if -c_reg < y_reg < c_reg:
                 moveY = y_reg
             elif y_reg > 0:
+                if  y_reg == k_reg:
+                    moveY = y_reg
+                else:
                 moveY = min(k_reg, y_reg)
             else:
                 moveY = max(-k_reg, y_reg)
+
+            # 이동 시킬 포인트 결과값
+            print("이동 시킬 포인트 결과값 moveY", moveY)
 
             data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
             ser.write(data.encode())
@@ -391,11 +401,12 @@ def click_pos_2(pos_1, pos_2, cla):
             #     move_ = True
             #     data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
             #     ser.write(data.encode())
-            x_reg = pos_1 + coordinate - pyautogui.position()[0]
-            y_reg = pos_2 - pyautogui.position()[1]
-            if move_count > 280:
-                print("y_reg", y_reg)
-                print("moveY", moveY)
+
+            # x_reg = pos_1 + coordinate - pyautogui.position()[0]
+            # y_reg = pos_2 - pyautogui.position()[1]
+            # if move_count > 280:
+            #     print("y_reg", y_reg)
+            #     print("moveY", moveY)
 
 
 

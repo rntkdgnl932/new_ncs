@@ -46,6 +46,9 @@ def go_test():
 
     click_pos_2(1888, 57, "one")
 
+    # moveY = max(-4, -20)
+    # print("moveY", moveY)
+
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
