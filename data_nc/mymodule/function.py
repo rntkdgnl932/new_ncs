@@ -377,6 +377,7 @@ def click_pos_2(pos_1, pos_2, cla):
             received_data = ser.readline().decode().strip()
 
             if -c_reg < moveX < c_reg and -c_reg < moveY < c_reg:
+                print("move_count", move_count)
                 print("moveX", moveX)
                 print("moveY", moveY)
                 moveZ = 2
