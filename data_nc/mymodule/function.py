@@ -373,12 +373,15 @@ def click_pos_2(pos_1, pos_2, cla):
             if -c_reg < y_reg < c_reg:
                 moveY = y_reg
             elif y_reg > 0:
-                if  y_reg == k_reg:
+                if y_reg == k_reg:
                     moveY = y_reg
                 else:
-                moveY = min(k_reg, y_reg)
+                    moveY = min(k_reg, y_reg)
             else:
-                moveY = max(-k_reg, y_reg)
+                if y_reg == -k_reg:
+                    moveY = y_reg
+                else:
+                    moveY = max(-k_reg, y_reg)
 
             # 이동 시킬 포인트 결과값
             print("이동 시킬 포인트 결과값 moveY", moveY)
