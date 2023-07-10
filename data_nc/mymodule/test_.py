@@ -31,7 +31,7 @@ def go_test():
     import random
     from one_event import daily_one
 
-    cla = "one"
+    cla = "two"
 
     # cla = "two"
 
@@ -51,6 +51,7 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("exit_1", imgs_)
         click_pos_reg(imgs_.x, imgs_.y, cla)
+
 
 
 
