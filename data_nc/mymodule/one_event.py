@@ -241,7 +241,7 @@ def daily_one(cla):
             else:
                 menu_open(cla)
                 click_pos_2(750, 60, cla)
-
+            time.sleep(1)
         print("소환 이벤트 탈것 소환")
         # 소환 이벤트 탈것것 소환
         go_event = False
