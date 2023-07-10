@@ -346,6 +346,8 @@ def click_pos_2(pos_1, pos_2, cla):
         y_reg = pos_2 - y_current
 
         moveZ = 1
+        k_reg = v_.mouse_speed
+        c_reg = v_.mouse_pm
 
         move_ = False
         move_count = 0
@@ -355,8 +357,7 @@ def click_pos_2(pos_1, pos_2, cla):
                 print("move_count", move_count)
                 move_ = True
 
-            k_reg = v_.mouse_speed
-            c_reg = v_.mouse_pm
+
 
             if -c_reg < x_reg < c_reg:
                 moveX = x_reg
