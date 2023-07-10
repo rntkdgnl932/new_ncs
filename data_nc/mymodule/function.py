@@ -355,8 +355,8 @@ def click_pos_2(pos_1, pos_2, cla):
             # 이동 시킬 포인트 계산
             x_reg = pos_1 + coordinate - pyautogui.position()[0]
             y_reg = pos_2 - pyautogui.position()[1]
-            # if move_count > 280:
-            #     print("이동 시킬 포인트 계산 y_reg", y_reg)
+            if move_count > 280:
+                print("이동 시킬 포인트 계산 y_reg", y_reg)
 
             if -c_reg < x_reg < c_reg:
                 moveX = x_reg
@@ -385,7 +385,7 @@ def click_pos_2(pos_1, pos_2, cla):
                     moveY = max(-k_reg, y_reg)
 
             # 이동 시킬 포인트 결과값
-            # print("이동 시킬 포인트 결과값 moveY", moveY)
+            print("이동 시킬 포인트 결과값 moveY", moveY)
 
             data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
             ser.write(data.encode())
