@@ -394,6 +394,7 @@ def click_pos_2(pos_1, pos_2, cla):
             y_reg = pos_2 - pyautogui.position()[1]
             if move_count > 280:
                 print("y_reg", y_reg)
+                print("moveY", moveY)
 
 
 
