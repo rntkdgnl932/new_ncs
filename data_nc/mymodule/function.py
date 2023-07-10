@@ -324,7 +324,7 @@ def click_pos_2(pos_1, pos_2, cla):
     try:
         import serial
         import pyautogui
-
+        print("test")
         arduino_port = v_.COM_
         baudrate = v_.speed_
 
