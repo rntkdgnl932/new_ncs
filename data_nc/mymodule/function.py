@@ -355,8 +355,8 @@ def click_pos_2(pos_1, pos_2, cla):
             # 이동 시킬 포인트 계산
             x_reg = pos_1 + coordinate - pyautogui.position()[0]
             y_reg = pos_2 - pyautogui.position()[1]
-            if move_count > 280:
-                print("이동 시킬 포인트 계산 y_reg", y_reg)
+            # if move_count > 280:
+            #     print("이동 시킬 포인트 계산 y_reg", y_reg)
 
             if -c_reg < x_reg < c_reg:
                 moveX = x_reg
@@ -384,32 +384,30 @@ def click_pos_2(pos_1, pos_2, cla):
                 else:
                     moveY = max(-k_reg, y_reg)
 
-            # 이동 시킬 포인트 결과값
-            print("이동 시킬 포인트 결과값 moveY", moveY)
+            # # 이동 시킬 포인트 결과값
+            # print("이동 시킬 포인트 결과값 moveY", moveY)
 
             data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
             ser.write(data.encode())
             received_data = ser.readline().decode().strip()
 
             if -c_reg < moveX < c_reg and -c_reg < moveY < c_reg:
-
-
                 x_reg = pos_1 + coordinate - pyautogui.position()[0]
                 y_reg = pos_2 - pyautogui.position()[1]
                 if -c_reg < x_reg < c_reg and -c_reg < y_reg < c_reg:
-                    print("move_count", move_count)
-                    print("moveX", moveX)
-                    print("moveY", moveY)
-                    print("x_reg", x_reg)
-                    print("y_reg", y_reg)
+                    # print("move_count", move_count)
+                    # print("moveX", moveX)
+                    # print("moveY", moveY)
+                    # print("x_reg", x_reg)
+                    # print("y_reg", y_reg)
                     moveZ = 2
                     move_ = True
                     data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
                     ser.write(data.encode())
-                else:
-                    print("아직 오차 범위 밖이다...", move_count)
-                    print("x_reg", x_reg)
-                    print("y_reg", y_reg)
+                # else:
+                #     print("아직 오차 범위 밖이다...", move_count)
+                #     print("x_reg", x_reg)
+                #     print("y_reg", y_reg)
 
 
 
@@ -490,10 +488,13 @@ def click_pos_reg(pos_1, pos_2, cla):
             received_data = ser.readline().decode().strip()
 
             if received_data == '0' or (-c_reg < moveX < c_reg and -c_reg < moveY < c_reg):
-                moveZ = 2
-                move_ = True
-                data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
-                ser.write(data.encode())
+                x_reg = pos_1 + coordinate - pyautogui.position()[0]
+                y_reg = pos_2 - pyautogui.position()[1]
+                if -c_reg < x_reg < c_reg and -c_reg < y_reg < c_reg:
+                    moveZ = 2
+                    move_ = True
+                    data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
+                    ser.write(data.encode())
 
 
         ser.close()
@@ -636,9 +637,13 @@ def mouse_move_cpp(pos_1, pos_2, cla):
             received_data = ser.readline().decode().strip()
 
             if -c_reg < moveX < c_reg and -c_reg < moveY < c_reg:
-                move_ = True
-                data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
-                ser.write(data.encode())
+                x_reg = pos_1 + coordinate - pyautogui.position()[0]
+                y_reg = pos_2 - pyautogui.position()[1]
+                if -c_reg < x_reg < c_reg and -c_reg < y_reg < c_reg:
+                    move_ = True
+                    data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
+                    ser.write(data.encode())
+
 
         ser.close()
 
