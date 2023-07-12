@@ -73,8 +73,7 @@ def dead_die_before(cla):
         if imgs_ is not None and imgs_ != False:
             print("dead_die_2", imgs_)
 
-
-
+            v_.dongool_dead_count += 1
 
             if v_.force_sub_quest == False:
 
