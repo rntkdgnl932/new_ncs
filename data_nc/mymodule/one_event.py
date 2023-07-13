@@ -11,6 +11,14 @@ import variable as v_
 
 def daily_one(cla):
     try:
+        print("one_event_없음")
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def daily_one_ex(cla):
+    try:
 
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import out_check, clean_screen, bag_open, menu_open
