@@ -622,10 +622,14 @@ class FirstTab(QWidget):
         sche_down_modify = QPushButton('down')
         sche_down_modify.clicked.connect(self.sche_down_modify)
         # 스케쥴 변경 확인
-        self.sche_add1 = QPushButton('one 대기중', self)
+        self.sche_add1 = QPushButton('1', self)
         self.sche_add1.clicked.connect(self.mySchedule_start1)
-        self.sche_add2 = QPushButton('two 대기중', self)
+        self.sche_add2 = QPushButton('2', self)
         self.sche_add2.clicked.connect(self.mySchedule_start2)
+        self.sche_add3 = QPushButton('3', self)
+        self.sche_add3.clicked.connect(self.mySchedule_start3)
+        self.sche_add4 = QPushButton('4', self)
+        self.sche_add4.clicked.connect(self.mySchedule_start4)
 
         # 테스트 버튼
         self.mytestin = QPushButton('테스뚜')
@@ -979,22 +983,38 @@ class FirstTab(QWidget):
         hbox1.addWidget(self.clear)
         hbox1.addWidget(self.all_clear)
 
+        go_cla_1 = QHBoxLayout()
+        go_cla_1.addWidget(self.sche_add1)
+        go_cla_1.addWidget(self.sche_add2)
+
+        go_cla_2 = QHBoxLayout()
+        go_cla_2.addWidget(self.sche_add3)
+        go_cla_2.addWidget(self.sche_add4)
+
+        go_cla_end = QVBoxLayout()
+        go_cla_end.addLayout(go_cla_1)
+        go_cla_end.addLayout(go_cla_2)
+
         hbox7 = QHBoxLayout()
         hbox7.addWidget(sche_up_modify)
         hbox7.addWidget(sche_down_modify)
         hbox7.addStretch(4)
-        hbox7.addWidget(self.sche_add1)
-        hbox7.addWidget(self.sche_add2)
-        hbox7.addStretch(8)
+        hbox7.addLayout(go_cla_end)
+        # hbox7.addWidget(self.sche_add1)
+        # hbox7.addWidget(self.sche_add2)
+        # hbox7.addWidget(self.sche_add3)
+        # hbox7.addWidget(self.sche_add4)
+        hbox7.addStretch(4)
         hbox7.addLayout(hbox1)
 
+        # 던전
         hbox3 = QHBoxLayout()
         hbox3.addWidget(self.com_group4)
-
+        # 자동 사냥터
         hbox4 = QHBoxLayout()
         hbox4.addWidget(self.com_group5)
 
-
+        # 육성, 퀘스트, 거래소 등록
         hbox5 = QHBoxLayout()
         hbox5.addWidget(self.com_group6)
 
@@ -2485,9 +2505,13 @@ class FirstTab(QWidget):
     def mySchedule_start1(self):
         try:
             self.sche_add1.setText("one 실행중")
-            self.sche_add2.setText("two")
+            self.sche_add2.setText("")
+            self.sche_add3.setText("")
+            self.sche_add4.setText("")
             self.sche_add1.setDisabled(True)
             self.sche_add2.setDisabled(True)
+            self.sche_add3.setDisabled(True)
+            self.sche_add4.setDisabled(True)
             start_onecla = game_Playing_onecla(self)
             start_onecla.start()
 
@@ -2497,10 +2521,46 @@ class FirstTab(QWidget):
 
     def mySchedule_start2(self):
         try:
-            self.sche_add1.setText("one")
+            self.sche_add1.setText("")
             self.sche_add2.setText("two 실행중")
+            self.sche_add3.setText("")
+            self.sche_add4.setText("")
             self.sche_add1.setDisabled(True)
             self.sche_add2.setDisabled(True)
+            self.sche_add3.setDisabled(True)
+            self.sche_add4.setDisabled(True)
+            start_twocla = game_Playing_twocla(self)
+            start_twocla.start()
+
+        except Exception as e:
+            print(e)
+            return 0
+    def mySchedule_start3(self):
+        try:
+            self.sche_add1.setText("")
+            self.sche_add2.setText("")
+            self.sche_add3.setText("three 실행중")
+            self.sche_add4.setText("")
+            self.sche_add1.setDisabled(True)
+            self.sche_add2.setDisabled(True)
+            self.sche_add3.setDisabled(True)
+            self.sche_add4.setDisabled(True)
+            start_twocla = game_Playing_twocla(self)
+            start_twocla.start()
+
+        except Exception as e:
+            print(e)
+            return 0
+    def mySchedule_start4(self):
+        try:
+            self.sche_add1.setText("")
+            self.sche_add2.setText("")
+            self.sche_add3.setText("")
+            self.sche_add4.setText("four 실행중")
+            self.sche_add1.setDisabled(True)
+            self.sche_add2.setDisabled(True)
+            self.sche_add3.setDisabled(True)
+            self.sche_add4.setDisabled(True)
             start_twocla = game_Playing_twocla(self)
             start_twocla.start()
 
@@ -2649,6 +2709,35 @@ class Monitoring_two(QThread):
             print(e)
             return 0
 
+class Monitoring_three(QThread):
+    # def __init__(self, parent):
+    #     super().__init__(parent)
+    #     self.parent = parent
+    def __init__(self):
+        super().__init__()
+
+    def run(self):
+        try:
+            print("monitoring start")
+            line_monitor("nightcrow", "three")
+        except Exception as e:
+            print(e)
+            return 0
+
+class Monitoring_four(QThread):
+    # def __init__(self, parent):
+    #     super().__init__(parent)
+    #     self.parent = parent
+    def __init__(self):
+        super().__init__()
+
+    def run(self):
+        try:
+            print("monitoring start")
+            line_monitor("nightcrow", "four")
+        except Exception as e:
+            print(e)
+            return 0
 
 class game_Playing_onecla(QThread):
     def __init__(self, parent):
@@ -2705,25 +2794,53 @@ class game_Playing_twocla(QThread):
 
             self.x_ = game_Playing()
             self.x_.start()
-
-            # result_ = login_start_ready(howcla)
-            # if result_ == True:
-            #     print("이제 시작 했다 다 죽었다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", howcla)
-            #
-            #     v_.now_cla = 'one'
-            #     v_.global_howcla = 'onetwocla'
-            #     self.x_ = game_Playing()
-            #     self.x_.start()
-            #
-            #     self.y_ = BackGroundPotion()
-            #     self.y_.start()
-            # else:
-            #     print("아직 2클라 덜 돌아갔다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            print('return!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         except Exception as e:
             print(e)
             return 0
 
+class game_Playing_threecla(QThread):
+
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+
+    def run(self):
+        try:
+            howcla = 'twocla'
+
+            v_.now_cla = 'three'
+            v_.global_howcla = 'twocla'
+
+            self.m_ = Monitoring_three()
+            self.m_.start()
+
+            self.x_ = game_Playing()
+            self.x_.start()
+        except Exception as e:
+            print(e)
+            return 0
+
+class game_Playing_fourcla(QThread):
+
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+
+    def run(self):
+        try:
+            howcla = 'twocla'
+
+            v_.now_cla = 'four'
+            v_.global_howcla = 'twocla'
+
+            self.m_ = Monitoring_four()
+            self.m_.start()
+
+            self.x_ = game_Playing()
+            self.x_.start()
+        except Exception as e:
+            print(e)
+            return 0
 
 # 실제 게임 플레이 부분 #################################################################
 ################################################
