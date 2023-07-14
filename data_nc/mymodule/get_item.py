@@ -845,9 +845,9 @@ def sinnyum_junseong(cla):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(460, 380, 495, 415, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(520, 700, cla)
+                                    click_pos_2(520, 725, cla)
                                     time.sleep(0.1)
-                                    click_pos_2(520, 700, cla)
+                                    click_pos_2(520, 725, cla)
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
