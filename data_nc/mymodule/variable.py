@@ -35,6 +35,10 @@ myId_2 = 0
 
 # 3번
 mypotion_3 = 9999
+myId_3 = 0
+# 4번
+mypotion_4 = 9999
+myId_4 = 0
 
 # 현재실행중인 클라우드
 now_cla = 'none'

@@ -142,6 +142,8 @@ def quest_get(cla, character_id, step):
             plus = 960
         if cla == 'three':
             plus = 960 + 960
+        if cla == 'four':
+            plus = 960 + 960 + 960
 
         step = int(step)
 

@@ -65,6 +65,7 @@ thisRow = 0
 thisCol = 0
 table_datas = ""
 #  onCollection= False
+onCla = 'none'
 onCharacter = 0
 onRefresh_time = 0
 onDunjeon = "none"
@@ -564,7 +565,7 @@ class FirstTab(QWidget):
         # self.game.start()
 
     def initUI(self):
-        global rowcount, colcount, onCharacter, onDunjeon, onDunjeon_level, onMaul, onHunt, isgloballoop
+        global rowcount, colcount, onCharacter, onDunjeon, onDunjeon_level, onMaul, onHunt, isgloballoop, onCla
 
         dir_path = "C:\\my_games\\nightcrow"
         file_path = dir_path + "\\mysettings\\myschedule\\schedule.txt"
@@ -716,10 +717,14 @@ class FirstTab(QWidget):
 
         # 캐릭터 아이디
         self.com_group3 = QGroupBox('캐릭터 선택')
+        cb_cla = QComboBox()
+        list_cla = ['클라 선택', 'One', 'Two', 'Three', 'Four']
+        cb_cla.addItems(list_cla)
         cb3 = QComboBox()
         list3 = ['캐릭터 선택', '1', '2', '3', '4', '5']
         cb3.addItems(list3)
         vbox3 = QVBoxLayout()
+        vbox3.addWidget(cb_cla)
         vbox3.addWidget(cb3)
         character_ = QPushButton('캐릭터 선택')
         character_.clicked.connect(self.onActivated_character)
@@ -959,6 +964,7 @@ class FirstTab(QWidget):
 
         sub_h.activated[str].connect(self.onActivated_slelect_spot)  # 요건 함수
         sub_q.activated[str].connect(self.onActivated_slelect_gold)  # 요건 함수
+        cb_cla.activated[str].connect(self.onActivated_cla)  # 요건 함수
         cb3.activated[str].connect(self.onActivated_character)  # 요건 함수
         cb33.activated[str].connect(self.onActivated_time)  # 요건 함수
         cb4.activated[str].connect(self.onActivated_dunjeon)  # 요건 함수
@@ -1292,6 +1298,14 @@ class FirstTab(QWidget):
         self.tgl.setChecked(v_.onCollection)
         #self.set_rand_int()
 
+    def onActivated_cla(self, text):
+        global onCla
+        if text != 0 and text != '클라 선택':
+            onCla = text
+            print('onCla', onCla)
+        else:
+            onCla = 'none'
+            print("클라를 선택해 주세요.")
     def onActivated_character(self, text):
         global onCharacter
         if text != 0 and text != '캐릭터 선택':
@@ -1435,7 +1449,12 @@ class FirstTab(QWidget):
         elif onCharacter != 0 and onDunjeon != '던전 선택':
             print('char_', char_)
             print('dun_', dun_)
-            data = "One:" + char_ + ":" + dun_ + ":대기중:" + "Two:" + char_ + ":" + dun_ + ":대기중\n"
+
+            if onCla == "One" or onCla == "Two":
+                data = "One:" + char_ + ":" + dun_ + ":대기중:" + "Two:" + char_ + ":" + dun_ + ":대기중\n"
+            elif onCla == "Three" or onCla == "Four":
+                data = "Three:" + char_ + ":" + dun_ + ":대기중:" + "Four:" + char_ + ":" + dun_ + ":대기중\n"
+
             print(data)
             self.onActivated_dunjeon_add2(data)
         #     result = self.mySchedule_add(data)
@@ -1476,7 +1495,12 @@ class FirstTab(QWidget):
         elif onCharacter != 0 and onHunt != '< 아빌리우스 >':
             print('char_', char_)
             print('dun_', hun_)
-            data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
+
+            if onCla == "One" or onCla == "Two":
+                data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
+            elif onCla == "Three" or onCla == "Four":
+                data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
+
             print(data)
             self.onActivated_hunt_add2(data)
     def onActivated_hunt_add_2(self):
@@ -1490,7 +1514,12 @@ class FirstTab(QWidget):
         elif onCharacter != 0 and onHunt2 != '< 바스티움 >':
             print('char_', char_)
             print('dun_', hun_)
-            data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
+
+            if onCla == "One" or onCla == "Two":
+                data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
+            elif onCla == "Three" or onCla == "Four":
+                data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
+
             print(data)
             self.onActivated_hunt_add2(data)
     def onActivated_hunt_add_3(self):
@@ -1504,7 +1533,12 @@ class FirstTab(QWidget):
         elif onCharacter != 0 and onHunt != '< 첼라노 >':
             print('char_', char_)
             print('dun_', hun_)
-            data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
+
+            if onCla == "One" or onCla == "Two":
+                data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
+            elif onCla == "Three" or onCla == "Four":
+                data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
+
             print(data)
             self.onActivated_hunt_add2(data)
 
@@ -1542,7 +1576,10 @@ class FirstTab(QWidget):
         elif onCharacter != 0 and onMaul != '마을 의뢰 장소 선택':
             print('char_', char_)
             print('maul_', maul_)
-            data = "One:" + char_ + ":" + maul_ + ":대기중:" + "Two:" + char_ + ":" + maul_ + ":대기중\n"
+            if onCla == "One" or onCla == "Two":
+                data = "One:" + char_ + ":" + maul_ + ":대기중:" + "Two:" + char_ + ":" + maul_ + ":대기중\n"
+            elif onCla == "Three" or onCla == "Four":
+                data = "Three:" + char_ + ":" + maul_ + ":대기중:" + "Four:" + char_ + ":" + maul_ + ":대기중\n"
             print(data)
             self.onActivated_maul_add2(data)
         #     result = self.mySchedule_add(data)
@@ -1696,12 +1733,12 @@ class FirstTab(QWidget):
             for i in range(len(lines)):
                 complete_ = lines[i].split(":")
                 for j in range(len(complete_)):
-                    if cla == 'one':
+                    if cla == 'one' or cla == 'three':
                         if j < 3:
                             cla_schedule += complete_[j] + ":"
                         if j == 3:
                             cla_schedule += complete_[3] + "\n"
-                    if cla == 'two':
+                    if cla == 'two' or cla == 'four':
                         if 3 < j < 7:
                             cla_schedule += complete_[j] + ":"
                         if j == 7:
@@ -1731,9 +1768,9 @@ class FirstTab(QWidget):
             for i in range(len(lines)):
                 complete_ = lines[i].split(":")
                 for j in range(len(complete_)):
-                    if cla == 'one' and i == start_ and j == 3:
+                    if (cla == 'one' or cla == 'three') and i == start_ and j == 3:
                         cla_schedule += complete_[j].replace("대기중", "진행중:")
-                    elif cla == 'two' and i == start_ and j == 7:
+                    elif (cla == 'two' or cla == 'four') and i == start_ and j == 7:
                         cla_schedule += complete_[j].replace("대기중", "진행중\n")
                     else:
                         if j == 7:
@@ -2643,11 +2680,11 @@ def pause_ing(cla):
     try:
         print("pause")
         go_ = False
-        if cla == 'one':
+        if cla == 'one' or cla == 'three':
             if int(v_.myId_1) >= 0 and int(v_.mylevel_1) > 0 and int(v_.mypower_1) > 0 and int(
                     v_.mymoney_1) > 0 and v_.one_cla_ing != 'none' and int(v_.one_cla_count) > 0:
                 go_ = True
-        if cla == 'two':
+        if cla == 'two' or cla == 'four':
             if int(v_.myId_2) >= 0 and int(v_.mylevel_2) > 0 and int(v_.mypower_2) > 0 and int(
                     v_.mymoney_2) > 0 and v_.two_cla_ing != 'none' and int(v_.two_cla_count) > 0:
                 go_ = True
@@ -2965,9 +3002,9 @@ class game_Playing(QThread):
 
                                 # 현재 진행중인 스케쥴 내 캐릭터 id와 기존 캐릭터 id 비교해서 다르면 캐릭터 바꾸기
                                 dir_path = "C:\\my_games\\nightcrow"
-                                if v_.now_cla == 'one':
+                                if v_.now_cla == 'one' or v_.now_cla == 'three':
                                     file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
-                                if v_.now_cla == 'two':
+                                if v_.now_cla == 'two' or v_.now_cla == ' four':
                                     file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
 
                                 if os.path.isfile(file_path) == True:

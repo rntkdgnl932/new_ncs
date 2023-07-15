@@ -1154,6 +1154,8 @@ def juljun_attack(cla, dun_, nowstep):
                                             v_.mypotion_2 = potion
                                         if cla == "three":
                                             v_.mypotion_3 = potion
+                                        if cla == "four":
+                                            v_.mypotion_4 = potion
 
                                         if potion < 50:
                                             v_.potion_count += 1
@@ -1185,6 +1187,8 @@ def juljun_attack(cla, dun_, nowstep):
                                                 v_.mypotion_2 = potion
                                             if cla == "three":
                                                 v_.mypotion_3 = potion
+                                            if cla == "four":
+                                                v_.mypotion_4 = potion
 
                                             if potion < 10:
                                                 v_.potion_count += 1
@@ -1215,6 +1219,8 @@ def juljun_attack(cla, dun_, nowstep):
                                                     v_.mypotion_2 = potion
                                                 if cla == "three":
                                                     v_.mypotion_3 = potion
+                                                if cla == "four":
+                                                    v_.mypotion_4 = potion
 
                                                 if potion < 50:
                                                     v_.potion_count += 1
@@ -1306,6 +1312,8 @@ def juljun_attack(cla, dun_, nowstep):
                                             v_.mypotion_2 = potion
                                         if cla == "three":
                                             v_.mypotion_3 = potion
+                                        if cla == "four":
+                                            v_.mypotion_4 = potion
 
                                         if potion < 50:
                                             v_.potion_count += 1
@@ -1337,6 +1345,8 @@ def juljun_attack(cla, dun_, nowstep):
                                                 v_.mypotion_2 = potion
                                             if cla == "three":
                                                 v_.mypotion_3 = potion
+                                            if cla == "four":
+                                                v_.mypotion_4 = potion
 
                                             if potion < 10:
                                                 v_.potion_count += 1
@@ -1368,6 +1378,8 @@ def juljun_attack(cla, dun_, nowstep):
                                                     v_.mypotion_2 = potion
                                                 if cla == "three":
                                                     v_.mypotion_3 = potion
+                                                if cla == "four":
+                                                    v_.mypotion_4 = potion
 
                                                 if potion < 50:
                                                     v_.potion_count += 1

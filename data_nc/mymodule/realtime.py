@@ -27,7 +27,7 @@ def mystatus_check():
         if cla == 'two':
             plus = 960
 
-
+        #???
 
         dead_die_before(cla)
 

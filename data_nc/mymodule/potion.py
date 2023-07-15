@@ -22,8 +22,12 @@ def potion_check(cla):
 
         if cla == "one":
             potion = v_.mypotion_1
-        else:
+        if cla == "two":
             potion = v_.mypotion_2
+        if cla == "three":
+            potion = v_.mypotion_3
+        if cla == "four":
+            potion = v_.mypotion_4
 
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_potion.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -46,8 +50,12 @@ def potion_check(cla):
                     print("potion?", potion)
                     if cla == "one":
                         v_.mypotion_1 = potion
-                    else:
+                    if cla == "two":
                         v_.mypotion_2 = potion
+                    if cla == "three":
+                        v_.mypotion_3 = potion
+                    if cla == "four":
+                        v_.mypotion_4 = potion
 
                     if potion < 10:
                         v_.potion_count += 1
@@ -73,8 +81,12 @@ def potion_check(cla):
                         print("potion?", potion)
                         if cla == "one":
                             v_.mypotion_1 = potion
-                        else:
+                        if cla == "two":
                             v_.mypotion_2 = potion
+                        if cla == "three":
+                            v_.mypotion_3 = potion
+                        if cla == "four":
+                            v_.mypotion_4 = potion
 
                         if potion < 10:
                             v_.potion_count += 1
@@ -100,8 +112,12 @@ def potion_check(cla):
                             print("potion?", potion)
                             if cla == "one":
                                 v_.mypotion_1 = potion
-                            else:
+                            if cla == "two":
                                 v_.mypotion_2 = potion
+                            if cla == "three":
+                                v_.mypotion_3 = potion
+                            if cla == "four":
+                                v_.mypotion_4 = potion
 
                             if potion < 10:
                                 v_.potion_count += 1
@@ -127,8 +143,12 @@ def potion_check(cla):
                                 print("potion?", potion)
                                 if cla == "one":
                                     v_.mypotion_1 = potion
-                                else:
+                                if cla == "two":
                                     v_.mypotion_2 = potion
+                                if cla == "three":
+                                    v_.mypotion_3 = potion
+                                if cla == "four":
+                                    v_.mypotion_4 = potion
 
                                 if potion < 100:
                                     v_.potion_count += 1

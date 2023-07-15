@@ -1166,6 +1166,8 @@ def bag_open(cla):
                         x_reg = imgs_.x + 10 - 960
                     if cla == "three":
                         x_reg = imgs_.x + 10 - 960 - 960
+                    if cla == "four":
+                        x_reg = imgs_.x + 10 - 960 - 960 - 960
 
                     my_money = text_check_get(x_reg, 880, 892, 900, cla)
                     # my_money = text_check_get(830, 880, 892, 900, cla)
@@ -2125,6 +2127,10 @@ def character_change(cla, character_id):
                                         file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
                                     if cla == 'three':
                                         file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
+                                    if cla == 'four':
+                                        file_path = dir_path + "\\mysettings\\myschedule\\four_now_id.txt"
+
+                                    # read_id = '0'
 
                                     is_out = False
                                     is_out_count = 0
@@ -2132,14 +2138,20 @@ def character_change(cla, character_id):
                                         is_out_count += 1
                                         if is_out_count > 15:
                                             is_out = True
-                                        with open(file_path, "r", encoding='utf-8-sig') as file:
-                                            read_id = file.read()
-
-                                        if str(character_id) == str(read_id):
-                                            is_out = True
+                                        if os.path.isfile(file_path) == True:
+                                            with open(file_path, "r", encoding='utf-8-sig') as file:
+                                                read_id = file.read()
+                                                if str(character_id) == str(read_id):
+                                                    is_out = True
                                         else:
                                             with open(file_path, "w", encoding='utf-8-sig') as file:
                                                 file.write(str(character_id))
+
+                                        # if str(character_id) == str(read_id):
+                                        #     is_out = True
+                                        # else:
+                                        #     with open(file_path, "w", encoding='utf-8-sig') as file:
+                                        #         file.write(str(character_id))
                                         time.sleep(0.3)
 
 

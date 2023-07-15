@@ -23,7 +23,9 @@ def get_items(cla):
         if cla == "two":
             potion = v_.mypotion_2
         if cla == "three":
-            potion = v_.mypotion_2
+            potion = v_.mypotion_3
+        if cla == "four":
+            potion = v_.mypotion_4
 
 
 

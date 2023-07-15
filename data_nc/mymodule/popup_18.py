@@ -15,11 +15,6 @@ def fuckyou_popup(cla):
     import cv2
 
 
-    if cla == 'one':
-        plus = 0
-    if cla == 'two':
-        plus = 960
-
     print("욕 나오는 팝업창")
     # x 같은 팝업창
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\18_popup\\exit_18.PNG"

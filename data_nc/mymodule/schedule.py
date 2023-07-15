@@ -213,12 +213,12 @@ def myQuest_play_check(cla, data):
                 for i in range(len(lines)):
                     complete_ = lines[i].split(":")
                     for j in range(len(complete_)):
-                        if cla == 'one':
+                        if cla == 'one' or cla == 'three':
                             if j < 3:
                                 cla_schedule += complete_[j] + ":"
                             if j == 3:
                                 cla_schedule += complete_[3] + "\n"
-                        if cla == 'two':
+                        if cla == 'two' or cla == 'four':
                             if 3 < j < 7:
                                 cla_schedule += complete_[j] + ":"
                             if j == 7:
@@ -313,6 +313,12 @@ def myQuest_play_add(cla, data):
         if cla == 'two':
             clalal_ = 'Two'
             id_cla = v_.myId_2
+        if cla == 'three':
+            clalal_ = 'Three'
+            id_cla = v_.myId_3
+        if cla == 'four':
+            clalal_ = 'Four'
+            id_cla = v_.myId_4
 
         id_cla = str(id_cla)
         nowDay_ = datetime.today().strftime("%Y%m%d")
@@ -432,9 +438,9 @@ def myQuest_play_add(cla, data):
                 print('cla_schedule2', cla_schedule2)
                 print('cla_schedule1_[0]', cla_schedule1_[0])
                 print('cla_schedule2_[0]', cla_schedule2_[0])
-                if cla == 'one':
+                if cla == 'one' or cla == 'three':
                     cla_schedule = cla_schedule1
-                if cla == 'two':
+                if cla == 'two' or cla == 'four':
                     cla_schedule = cla_schedule2
                 # 시작 스케쥴 파악하기
                 forBreak = False
@@ -476,10 +482,10 @@ def myQuest_play_add(cla, data):
             if data == start[2] and clalal_ == start[0]:
             # if clalal_ == start[0]:
 
-                if cla == 'one':
+                if cla == 'one' or cla == 'three':
                     v_.one_cla_ing = 'check'
                     start_re = start[0] + ":" + start[1] + ":" + start[2] + ":" + '완료' + ":" + cla_schedule2_[start_]
-                if cla == 'two':
+                if cla == 'two' or cla == 'four':
                     v_.two_cla_ing = 'check'
                     start_re = cla_schedule1_[start_] + ":" + start[0] + ":" + start[1] + ":" + start[2] + ":" + '완료'
 
