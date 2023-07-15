@@ -2143,6 +2143,10 @@ def character_change(cla, character_id):
                                                 read_id = file.read()
                                                 if str(character_id) == str(read_id):
                                                     is_out = True
+                                                else:
+                                                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                                                        file.write(str(character_id))
+                                                time.sleep(0.3)
                                         else:
                                             with open(file_path, "w", encoding='utf-8-sig') as file:
                                                 file.write(str(character_id))
