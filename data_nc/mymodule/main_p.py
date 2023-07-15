@@ -2545,7 +2545,7 @@ class FirstTab(QWidget):
             self.sche_add2.setDisabled(True)
             self.sche_add3.setDisabled(True)
             self.sche_add4.setDisabled(True)
-            start_twocla = game_Playing_twocla(self)
+            start_twocla = game_Playing_threecla(self)
             start_twocla.start()
 
         except Exception as e:
@@ -2561,7 +2561,7 @@ class FirstTab(QWidget):
             self.sche_add2.setDisabled(True)
             self.sche_add3.setDisabled(True)
             self.sche_add4.setDisabled(True)
-            start_twocla = game_Playing_twocla(self)
+            start_twocla = game_Playing_fourcla(self)
             start_twocla.start()
 
         except Exception as e:
