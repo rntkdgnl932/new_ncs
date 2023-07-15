@@ -3002,10 +3002,14 @@ class game_Playing(QThread):
 
                                 # 현재 진행중인 스케쥴 내 캐릭터 id와 기존 캐릭터 id 비교해서 다르면 캐릭터 바꾸기
                                 dir_path = "C:\\my_games\\nightcrow"
-                                if v_.now_cla == 'one' or v_.now_cla == 'three':
+                                if v_.now_cla == 'one':
                                     file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
-                                if v_.now_cla == 'two' or v_.now_cla == ' four':
+                                if v_.now_cla == 'two':
                                     file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
+                                if v_.now_cla == 'three':
+                                    file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
+                                if v_.now_cla == 'four':
+                                    file_path = dir_path + "\\mysettings\\myschedule\\four_now_id.txt"
 
                                 if os.path.isfile(file_path) == True:
 
