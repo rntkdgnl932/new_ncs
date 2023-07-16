@@ -955,12 +955,14 @@ def boonhae_(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("분해체크하기")
                     click_pos_2(435, 365, cla)
+                    time.sleep(0.3)
+                    click_pos_2(515, 365, cla)
                     time.sleep(0.1)
                     #click_pos_2(510, 365, cla)
                 else:
                     click_pos_2(580, 450, cla)
-                    time.sleep(0.2)
-                    click_pos_2(475, 425, cla)
+                    time.sleep(0.5)
+                    click_pos_2(475, 450, cla)
                     boonhae_ready = True
             else:
                 click_pos_2(770, 930, cla)
