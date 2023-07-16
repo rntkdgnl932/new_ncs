@@ -51,7 +51,7 @@ from jadong_crow import jadong_play
 from gyucjunji import gyucjunji_play
 from get_item import get_items, get_item_checking, guild_jilyung
 from potion import maul_potion
-from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check
+from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check, dead_die_before
 
 from one_event import daily_one
 
@@ -3056,7 +3056,17 @@ class game_Playing(QThread):
                                             click_pos_2(230, 90, v_.now_cla)
                                             maul_potion(v_.now_cla)
                                             time.sleep(1)
-
+                                else:
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(680, 0, 710, 82, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("main_p check : dead_die_2", imgs_)
+                                        dead_die_before(v_.now_cla)
+                                        time.sleep(1)
+                                        maul_potion(v_.now_cla)
+                                        time.sleep(1)
 
                             if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
                                 # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기

@@ -73,7 +73,14 @@ def dead_die_before(cla):
         if imgs_ is not None and imgs_ != False:
             print("dead_die_2", imgs_)
 
-            v_.dongool_dead_count += 1
+            result_schedule = myQuest_play_check(v_.now_cla, "check")
+            print("dead_die : result_schedule", result_schedule)
+            result_schedule_ = result_schedule[0][2]
+
+            if "_" in result_schedule_:
+                dungeon_ = result_schedule_.split("_")
+                if dungeon_[1] == "동굴":
+                    v_.dongool_dead_count += 1
 
             if v_.force_sub_quest == False:
 
