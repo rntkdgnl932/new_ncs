@@ -3031,6 +3031,9 @@ class game_Playing(QThread):
                             # 새로운 아이템 받을 것 체크하기
                             get_item_checking(v_.now_cla)
 
+                            # 죽은거 매번 체크
+                            dead_die_before(v_.now_cla)
+
                             # 길드지령 있을 경우 선택하기
                             # guild_jilyung(v_.now_cla)
 

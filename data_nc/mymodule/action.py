@@ -63,6 +63,7 @@ def dead_die_before(cla):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_
         from massenger import line_to_me
+        from schedule import myQuest_play_check
 
         die_count = 0
 
