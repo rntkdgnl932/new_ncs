@@ -3095,7 +3095,7 @@ class game_Playing(QThread):
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
                                         if imgs_ is not None and imgs_ != False:
-                                            print("마을이면 물약 ㄱㄱ", imgs_)
+                                            print("마을이면 물약 ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ", imgs_)
                                             maul_potion_only(v_.now_cla)
                                         result = dungeon_play(v_.now_cla, result_schedule_)
                                         if result == True:
