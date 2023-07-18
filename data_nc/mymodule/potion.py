@@ -1038,9 +1038,6 @@ def maul_potion_only(cla):
         import pyautogui
         import pytesseract
 
-        get_items(cla)
-        soojib(cla)
-        moogi_(cla)
         boonhae_(cla)
 
 
