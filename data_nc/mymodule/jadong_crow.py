@@ -453,7 +453,7 @@ def in_spot_to_walking_ready(cla):
 
         out_now = False
         out_ = False
-        out_count - 0
+        out_count = 0
         while out_ is False:
             out_count += 1
             if out_count > 7:
