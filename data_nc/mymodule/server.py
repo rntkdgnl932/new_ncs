@@ -9,7 +9,7 @@ def game_start():
     import variable as v_
     try:
         play_game = False
-        # 먼저 서버 파일 등 있는지 파악 후 없다면 생성 후 실행
+        # 먼저 서버 파일 등 있는지 파악 후 없다면 생성 후 실행...
 
         dir_path = "C:\\my_games\\load\\nightcrow"
         file_path = dir_path + "\\start.txt"
