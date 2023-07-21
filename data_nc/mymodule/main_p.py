@@ -1111,7 +1111,7 @@ class FirstTab(QWidget):
         # g = git.cmd.Git(git_dir)
         # g.pull()
         # Repo('여기 비워진것은 현재 실행되는 창의 위치란 뜻...현재 실행되는 창의 위치 기준...상대경로임...')
-        dir_path = "C:\\my_games\\load\\zenonia"
+        dir_path = "C:\\my_games\\load\\nightcrow"
         file_path = dir_path + "\\start.txt"
         with open(file_path, "w", encoding='utf-8-sig') as file:
             data = 'no'
