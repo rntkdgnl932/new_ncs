@@ -149,7 +149,12 @@ def get_post(cla):
                     click_pos_2(350, 105, cla)
                     time.sleep(1)
                     system_post = False
+                    system_post_count = 0
                     while system_post is False:
+
+                        system_post_count += 1
+                        if system_post_count > 7:
+                            system_post = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\post_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -186,7 +191,12 @@ def get_post(cla):
                         time.sleep(0.3)
                 time.sleep(0.7)
                 get_post_sever_ = False
+                get_post_sever__count = 0
                 while get_post_sever_ is False:
+
+                    get_post_sever__count += 1
+                    if get_post_sever__count > 7:
+                        get_post_sever_ = True
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

@@ -523,7 +523,12 @@ def now_playing(cla, dun_, nowstep):
         #play_ = False
 
         in_ = False
+        in__count = 0
         while in_ is False:
+
+            in__count += 1
+            if in__count > 7:
+                in_ = True
 
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)

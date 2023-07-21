@@ -451,17 +451,22 @@ def in_spot_to_walking_ready(cla):
         from massenger import line_to_me
         from action import out_check, clean_screen
 
+        out_now = False
         out_ = False
+        out_count - 0
         while out_ is False:
+            out_count += 1
+            if out_count > 7:
+                out_ = True
             result_out = out_check(cla)
             if result_out == True:
-                out_ = True
+                out_now = True
             else:
                 click_pos_2(400, 610, cla)
 
                 clean_screen(cla)
 
-        if out_ == True:
+        if out_now == True:
 
             # 우선 월드 지도 펼치기
             in_worldmap = False
@@ -938,7 +943,11 @@ def now_playing(cla):
         play_ = False
 
         in_ = False
+        in_count = 0
         while in_ is False:
+            in_count += 1
+            if in_count > 10:
+                in_ = True
 
             # 길드 지령..
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"

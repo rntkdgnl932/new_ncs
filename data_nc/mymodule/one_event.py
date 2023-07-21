@@ -390,7 +390,12 @@ def last_tal(cla):
             if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 tal_last = False
+                tal_last_count = 0
                 while tal_last is False:
+
+                    tal_last_count += 1
+                    if tal_last_count > 7:
+                        tal_last = True
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

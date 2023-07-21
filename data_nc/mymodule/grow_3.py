@@ -138,7 +138,12 @@ def quest_get(cla):
         sub_count_1 = 0
 
         in_quest_1 = False
+        in_quest_1_count = 0
         while in_quest_1 is False:
+
+            in_quest_1_count += 1
+            if in_quest_1_count > 7:
+                in_quest_1 = True
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\quest_.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -214,7 +219,12 @@ def quest_get(cla):
                             time.sleep(0.3)
                         # 서브퀘가 있었을 경우
                         in_quest_3 = False
+                        in_quest_3_count = 0
                         while in_quest_3 is False:
+
+                            in_quest_3_count += 1
+                            if in_quest_3_count > 7:
+                                in_quest_3 = True
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\move_.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -231,7 +241,12 @@ def quest_get(cla):
                             time.sleep(0.3)
                         # 서브퀘가 있었을 경우
                         in_quest_4 = False
+                        in_quest_4_count = 0
                         while in_quest_4 is False:
+
+                            in_quest_4_count += 1
+                            if in_quest_4_count > 7:
+                                in_quest_4 = True
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\confirm_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -256,7 +271,12 @@ def quest_get(cla):
 
                             # 서브퀘가 있었을 경우
                             in_quest_3 = False
+                            in_quest_3_count = 0
                             while in_quest_3 is False:
+
+                                in_quest_3_count += 1
+                                if in_quest_3_count > 7:
+                                    in_quest_3 = True
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\move_.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -274,7 +294,12 @@ def quest_get(cla):
                                 time.sleep(0.3)
                             # 서브퀘가 있었을 경우
                             in_quest_4 = False
+                            in_quest_4_count = 0
                             while in_quest_4 is False:
+
+                                in_quest_4_count += 1
+                                if in_quest_4_count > 7:
+                                    in_quest_4 = True
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\confirm_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -962,7 +987,12 @@ def item_open(cla):
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 tal_1 = False
+                tal_1_count = 0
                 while tal_1 is False:
+
+                    tal_1_count += 1
+                    if tal_1_count > 7:
+                        tal_1 = True
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -978,15 +1008,24 @@ def item_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.3)
-                tal_2 = False
+                tal_2_count = 0
                 while tal_2 is False:
+
+                    tal_2_count += 1
+                    if tal_2_count > 7:
+                        tal_2 = True
                     menu_result = menu_open(cla)
                     if menu_result == True:
                         click_pos_2(795, 260, cla)
                         tal_2 = True
                         time.sleep(1)
                 tal_3 = False
+                tal_3_count = 0
                 while tal_3 is False:
+
+                    tal_3_count += 1
+                    if tal_3_count > 7:
+                        tal_3 = True
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\talgut.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

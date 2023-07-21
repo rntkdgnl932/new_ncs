@@ -39,7 +39,12 @@ def dead_die(cla):
                 time.sleep(1)
 
                 out_ = False
+                out__count = 0
                 while out_ is False:
+
+                    out__count += 1
+                    if out__count > 7:
+                        out_ = True
                     out_ = out_check(cla)
                     if out_ == False:
                         print("dead_clean")
@@ -222,7 +227,12 @@ def item_open(cla):
                 time.sleep(1)
 
                 tal_3 = False
+                tal_3_count = 0
                 while tal_3 is False:
+
+                    tal_3_count += 1
+                    if tal_3_count > 7:
+                        tal_3 = True
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\glider.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -493,7 +503,12 @@ def item_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             tal_last = False
+                            tal_last_count = 0
                             while tal_last is False:
+
+                                tal_last_count += 1
+                                if tal_last_count > 7:
+                                    tal_last = True
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -521,7 +536,12 @@ def item_open(cla):
                     if tal_1_2 == True:
 
                         tal_3 = False
+                        tal_3_count = 0
                         while tal_3 is False:
+
+                            tal_3_count += 1
+                            if tal_3_count > 7:
+                                tal_3 = True
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\talgut.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -599,7 +619,12 @@ def item_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             tal_last = False
+                            tal_last_count = 0
                             while tal_last is False:
+
+                                tal_last_count += 1
+                                if tal_last_count > 7:
+                                    tal_last = True
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -626,7 +651,12 @@ def item_open(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                     if tal_1_2 == True:
                         tal_3 = False
+                        tal_3_count = 0
                         while tal_3 is False:
+
+                            tal_3_count += 1
+                            if tal_3_count > 7:
+                                tal_3 = True
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\moogioutlook.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

@@ -39,7 +39,7 @@ import colorthief
 from function import imgs_set, imgs_set_, click_pos_2, random_int, text_check_get_3, int_put_, text_check_get, click_with_image, drag_pos, image_processing, get_region, click_pos_reg
 
 
-from massenger import line_monitor
+from massenger import line_monitor, line_to_me
 from schedule import myQuest_play_check, myQuest_play_add
 from test_ import go_test
 from grow_1 import tuto_grow
@@ -2985,251 +2985,282 @@ class game_Playing(QThread):
                     else:
                         print("touching 없")
 
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready.PNG"
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            print("매크로를 내려야 실행됨...10초 후 내림")
-                            for i in range(10):
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready.PNG"
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("매크로를 내려야 실행됨...10초 후 내림")
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        if i > 8:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title_2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            # 나크는 2클라 고정
+                                            imgs_ = imgs_set_(0, 50, 960, 1030, "two", img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
+                                            break
+
+                                    else:
+                                        break
+                                    time.sleep(1)
+                            else:
+
+
+                                # 대기자 명단
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\ready_cancle.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                                imgs_ = imgs_set_(400, 600, 560, 660, v_.now_cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
-                                    if i > 8:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title_2.PNG"
+
+                                    ready_ = False
+                                    while ready_ is False:
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\ready_cancle.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        # 나크는 2클라 고정
-                                        imgs_ = imgs_set_(0, 50, 960, 1030, "two", img, 0.8)
+                                        imgs_ = imgs_set_(400, 600, 560, 660, v_.now_cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
-                                        break
+                                            just_ready = text_check_get(390, 470, 570, 495, v_.now_cla)
+                                            print("대기자?", just_ready)
+                                            time.sleep(10)
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(20, 990, 150, 1040, v_.now_cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                ready_ = True
+                                                time.sleep(1)
 
-                                else:
-                                    break
-                                time.sleep(1)
-                        else:
 
+                                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                                print("result_schedule", result_schedule)
+                                character_id = result_schedule[0][1]
+                                result_schedule_ = result_schedule[0][2]
 
-                            # 대기자 명단
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\ready_cancle.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 600, 560, 660, v_.now_cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
+                                dongool_check = "none"
 
-                                ready_ = False
-                                while ready_ is False:
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\ready_cancle.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 600, 560, 660, v_.now_cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        just_ready = text_check_get(390, 470, 570, 495, v_.now_cla)
-                                        print("대기자?", just_ready)
-                                        time.sleep(10)
-                                    else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
+                                if "_" in result_schedule_:
+                                    dungeon_ = result_schedule_.split("_")
+                                    if dungeon_[1] == "동굴":
+                                        dongool_check = "dongool"
+
+                                # 동굴던전인지...
+                                isjuljun = False
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 120, 600, 160, v_.now_cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    isjuljun = True
+                                    if dongool_check == "dongool" or result_schedule_ == "격전지사냥":
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(20, 990, 150, 1040, v_.now_cla, img, 0.8)
+                                        imgs_ = imgs_set_(450, 640, 540, 710, v_.now_cla, img, 0.9)
                                         if imgs_ is not None and imgs_ != False:
-                                            ready_ = True
-                                            time.sleep(1)
+                                            print("사냥중", imgs_)
+                                        else:
+                                            print("던전 사냥중이 아니니 해제하겠다.")
+                                            drag_pos(360, 550, 600, 550, v_.now_cla)
 
-
-                            result_schedule = myQuest_play_check(v_.now_cla, "check")
-                            print("result_schedule", result_schedule)
-                            character_id = result_schedule[0][1]
-                            result_schedule_ = result_schedule[0][2]
-
-                            dongool_check = "none"
-
-                            if "_" in result_schedule_:
-                                dungeon_ = result_schedule_.split("_")
-                                if dungeon_[1] == "동굴":
-                                    dongool_check = "dongool"
-
-                            # 동굴던전인지...
-                            isjuljun = False
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 120, 600, 160, v_.now_cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                isjuljun = True
-                                if dongool_check == "dongool" or result_schedule_ == "격전지사냥":
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(450, 640, 540, 710, v_.now_cla, img, 0.9)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("사냥중", imgs_)
                                     else:
-                                        print("던전 사냥중이 아니니 해제하겠다.")
+                                        print("던전이 아니니 절전모드는 해제 하겠다.")
                                         drag_pos(360, 550, 600, 550, v_.now_cla)
 
-                                else:
-                                    print("던전이 아니니 절전모드는 해제 하겠다.")
-                                    drag_pos(360, 550, 600, 550, v_.now_cla)
-
-                            # 먼저 캐릭터 변환할 것인지 물어보기
-                            if result_schedule_ == "캐릭터바꾸기":
-                                character_change(v_.now_cla, character_id)
-                                myQuest_play_add(v_.now_cla, result_schedule_)
-                            else:
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(20, 990, 150, 1040, v_.now_cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
+                                # 먼저 캐릭터 변환할 것인지 물어보기
+                                if result_schedule_ == "캐릭터바꾸기":
                                     character_change(v_.now_cla, character_id)
-
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
                                 else:
-
-                                    # 현재 진행중인 스케쥴 내 캐릭터 id와 기존 캐릭터 id 비교해서 다르면 캐릭터 바꾸기
-                                    dir_path = "C:\\my_games\\nightcrow"
-                                    if v_.now_cla == 'one':
-                                        file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
-                                    if v_.now_cla == 'two':
-                                        file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
-                                    if v_.now_cla == 'three':
-                                        file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
-                                    if v_.now_cla == 'four':
-                                        file_path = dir_path + "\\mysettings\\myschedule\\four_now_id.txt"
-
-                                    if os.path.isfile(file_path) == True:
-
-                                        with open(file_path, "r", encoding='utf-8-sig') as file:
-                                            read_id = file.read()
-
-                                        if str(character_id) != str(read_id):
-                                            character_change(v_.now_cla, character_id)
-                                    else:
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(20, 990, 150, 1040, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
                                         character_change(v_.now_cla, character_id)
 
-
-                                # 우측 상단 퀘스트 보이게 하기
-                                quest_look(v_.now_cla)
-
-                                # 먼저 가방 꽉 찼는지 확인부터...
-                                bag_full_check(v_.now_cla)
-
-                                # 새로운 아이템 받을 것 체크하기
-                                get_item_checking(v_.now_cla)
-
-                                # 죽은거 매번 체크
-                                dead_die_before(v_.now_cla)
-
-                                # 길드지령 있을 경우 선택하기
-                                # guild_jilyung(v_.now_cla)
-
-                                # 최초1회만...
-                                if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":
-                                    if v_.just_one == False:
-
-                                        v_.just_one = True
-
-                                        # print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
-                                        # v_.just_one = True
-                                        print("마을일경우 물약 등 체크하기")
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
-                                        if imgs_ is not None and imgs_ != False:
-                                            print("마을이면 물약 ㄱㄱㅋㅋㅋㅋㅋㅋㅋㅋ", imgs_)
-                                            maul_potion(v_.now_cla)
-                                        else:
-                                            result_maul = maul_check(v_.now_cla)
-                                            if result_maul == True:
-                                                click_pos_2(230, 90, v_.now_cla)
-                                                maul_potion(v_.now_cla)
-                                                time.sleep(1)
                                     else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(680, 0, 710, 82, v_.now_cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            print("main_p check : dead_die_2", imgs_)
-                                            dead_die_before(v_.now_cla)
-                                            time.sleep(1)
-                                            maul_potion_only(v_.now_cla)(v_.now_cla)
-                                            time.sleep(1)
 
-                                if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
-                                    # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
+                                        # 현재 진행중인 스케쥴 내 캐릭터 id와 기존 캐릭터 id 비교해서 다르면 캐릭터 바꾸기
+                                        dir_path = "C:\\my_games\\nightcrow"
+                                        if v_.now_cla == 'one':
+                                            file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
+                                        if v_.now_cla == 'two':
+                                            file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
+                                        if v_.now_cla == 'three':
+                                            file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
+                                        if v_.now_cla == 'four':
+                                            file_path = dir_path + "\\mysettings\\myschedule\\four_now_id.txt"
 
-                                    jadong_play(v_.now_cla, v_.onForceGoldSpot_go)
-                                    # 자체에 스케쥴 완료 없음 돈 벌어야 빠져나옴
-                                    my_gold_check(v_.now_cla)
+                                        if os.path.isfile(file_path) == True:
 
-                                else:
+                                            with open(file_path, "r", encoding='utf-8-sig') as file:
+                                                read_id = file.read()
 
-                                    v_.now_ing_schedule = result_schedule_
-
-
+                                            if str(character_id) != str(read_id):
+                                                character_change(v_.now_cla, character_id)
+                                        else:
+                                            character_change(v_.now_cla, character_id)
 
 
-                                    if "_" in result_schedule_:
+                                    # 우측 상단 퀘스트 보이게 하기
+                                    quest_look(v_.now_cla)
 
-                                        dungeon_ = result_schedule_.split("_")
+                                    # 먼저 가방 꽉 찼는지 확인부터...
+                                    bag_full_check(v_.now_cla)
 
-                                        if dungeon_[0] == "던전":
+                                    # 새로운 아이템 받을 것 체크하기
+                                    get_item_checking(v_.now_cla)
+
+                                    # 죽은거 매번 체크
+                                    dead_die_before(v_.now_cla)
+
+                                    # 길드지령 있을 경우 선택하기
+                                    # guild_jilyung(v_.now_cla)
+
+                                    # 최초1회만...
+                                    if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":
+                                        if v_.just_one == False:
+
+                                            v_.just_one = True
+
+                                            # print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
+                                            # v_.just_one = True
+                                            print("마을일경우 물약 등 체크하기")
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                             imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
                                             if imgs_ is not None and imgs_ != False:
-                                                print("마을이면 물약 ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ", imgs_)
-                                                maul_potion_only(v_.now_cla)
-                                            result = dungeon_play(v_.now_cla, result_schedule_)
-                                            if result == True:
-                                                myQuest_play_add(v_.now_cla, result_schedule_)
+                                                print("마을이면 물약 ㄱㄱㅋㅋㅋㅋㅋㅋㅋㅋ", imgs_)
+                                                maul_potion(v_.now_cla)
+                                            else:
+                                                result_maul = maul_check(v_.now_cla)
+                                                if result_maul == True:
+                                                    click_pos_2(230, 90, v_.now_cla)
+                                                    maul_potion(v_.now_cla)
+                                                    time.sleep(1)
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(680, 0, 710, 82, v_.now_cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("main_p check : dead_die_2", imgs_)
+                                                dead_die_before(v_.now_cla)
+                                                time.sleep(1)
+                                                maul_potion_only(v_.now_cla)(v_.now_cla)
+                                                time.sleep(1)
 
-                                        if dungeon_[0] == "사냥":
-                                            jadong_play(v_.now_cla, result_schedule_)
+                                    if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
+                                        # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
 
-                                        if dungeon_[0] == "일일퀘스트":
-                                            select_daily_quest_grow(v_.now_cla, character_id, dungeon_[0])
-                                            # 자체에 스케쥴 완료 있음
+                                        jadong_play(v_.now_cla, v_.onForceGoldSpot_go)
+                                        # 자체에 스케쥴 완료 없음 돈 벌어야 빠져나옴
+                                        my_gold_check(v_.now_cla)
+
                                     else:
-                                        if result_schedule_ == "튜토육성":
-                                            tuto_grow(v_.now_cla)
-                                            # tuto_grow에 스케쥴 완료 있음
-                                        if result_schedule_ == "각종템받기":
 
-                                            # 아래는 특별 이벤트 진행하기
-                                            daily_one(v_.now_cla)
+                                        v_.now_ing_schedule = result_schedule_
 
-                                            get_items(v_.now_cla)
-                                            # 자체에 스케쥴 완료 있음
-                                            if v_.just_one == False:
-                                                v_.just_one = True
+
+
+
+                                        if "_" in result_schedule_:
+
+                                            dungeon_ = result_schedule_.split("_")
+
+                                            if dungeon_[0] == "던전":
                                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
                                                 img_array = np.fromfile(full_path, np.uint8)
                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                                 imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
                                                 if imgs_ is not None and imgs_ != False:
-                                                    print("마을이면 물약 ㄱㄱ", imgs_)
-                                                    maul_potion(v_.now_cla)
-                                        if result_schedule_ == "메인퀘스트":
-                                            main_quest_grow(v_.now_cla)
-                                            # 자체에 스케쥴 완료 있음
-                                        if result_schedule_ == "서브퀘스트":
-                                            sub_quest_grow(v_.now_cla)
-                                            # 자체에 스케쥴 완료 있음
-                                        if result_schedule_ == "일일퀘스트":
+                                                    print("마을이면 물약 ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ", imgs_)
+                                                    maul_potion_only(v_.now_cla)
+                                                result = dungeon_play(v_.now_cla, result_schedule_)
+                                                if result == True:
+                                                    myQuest_play_add(v_.now_cla, result_schedule_)
 
-                                            daily_step = '1'
-                                            select_daily_quest_grow(v_.now_cla, character_id, daily_step)
-                                            # 자체에 스케쥴 완료 있음
-                                        if result_schedule_ == "격전지사냥":
-                                            gyucjunji_play(v_.now_cla)
-                                            # 자체에 스케쥴 완료 있음
+                                            if dungeon_[0] == "사냥":
+                                                jadong_play(v_.now_cla, result_schedule_)
+
+                                            if dungeon_[0] == "일일퀘스트":
+                                                select_daily_quest_grow(v_.now_cla, character_id, dungeon_[0])
+                                                # 자체에 스케쥴 완료 있음
+                                        else:
+                                            if result_schedule_ == "튜토육성":
+                                                tuto_grow(v_.now_cla)
+                                                # tuto_grow에 스케쥴 완료 있음
+                                            if result_schedule_ == "각종템받기":
+
+                                                # 아래는 특별 이벤트 진행하기
+                                                daily_one(v_.now_cla)
+
+                                                get_items(v_.now_cla)
+                                                # 자체에 스케쥴 완료 있음
+                                                if v_.just_one == False:
+                                                    v_.just_one = True
+                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        print("마을이면 물약 ㄱㄱ", imgs_)
+                                                        maul_potion(v_.now_cla)
+                                            if result_schedule_ == "메인퀘스트":
+                                                main_quest_grow(v_.now_cla)
+                                                # 자체에 스케쥴 완료 있음
+                                            if result_schedule_ == "서브퀘스트":
+                                                sub_quest_grow(v_.now_cla)
+                                                # 자체에 스케쥴 완료 있음
+                                            if result_schedule_ == "일일퀘스트":
+
+                                                daily_step = '1'
+                                                select_daily_quest_grow(v_.now_cla, character_id, daily_step)
+                                                # 자체에 스케쥴 완료 있음
+                                            if result_schedule_ == "격전지사냥":
+                                                gyucjunji_play(v_.now_cla)
+                                                # 자체에 스케쥴 완료 있음
+                        else:
+
+                            print("나이트크로우 꺼진것 같은데...10초동안 지켜본다.")
+
+                            look_nightcrows = False
+                            for i in range(10):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    look_nightcrows = True
+                                    break
+                                time.sleep(1)
+                            if look_nightcrows == False:
+                                why = "나이트 크로우 꺼진 것 같다."
+                                print(why)
+                                line_to_me(v_.now_cla, why)
+
+                                dir_path = "C:\\my_games\\load\\nightcrow"
+                                file_path = dir_path + "\\start.txt"
+
+                                with open(file_path, "w", encoding='utf-8-sig') as file:
+                                    data = 'no'
+                                    file.write(str(data))
 
 
 
