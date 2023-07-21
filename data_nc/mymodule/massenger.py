@@ -192,7 +192,7 @@ def line_monitor(game, cla):
     import numpy as np
     import os.path
     import cv2
-    from function import imgs_set, click_pos_reg
+    from function import imgs_set, click_pos_reg, imgs_set_
     from popup_18 import fuckyou_popup
     import time
     from datetime import datetime, timedelta, date
@@ -272,10 +272,10 @@ def line_monitor(game, cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\jangsigan_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set(300, 450, 700, 550, cla, img)
+                imgs_ = imgs_set_(300, 450, 700, 550, cla, img, 0.9)
                 if imgs_ is not None:
                     # jangsigan = True
-                    ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다")
+                    ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다", cla, imgs_)
                     line_to_me(cla, ms_)
 
 
