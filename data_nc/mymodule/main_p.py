@@ -2988,7 +2988,7 @@ class game_Playing(QThread):
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, img, 0.8)
+                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
 
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready.PNG"
@@ -3245,7 +3245,7 @@ class game_Playing(QThread):
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, img, 0.8)
+                                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     look_nightcrows = True
                                     break
