@@ -15,13 +15,13 @@ def go_test():
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change
     from get_item import get_items, get_upjuk, get_event, get_season_pass
     from jadong_crow import jadong_play
-    from realtime import soojib, moogi_
+    from realtime import soojib, moogi_, jaelyo_
     from dungeon import drag_maul_potion_
     import numpy as np
     import pyautogui
     import cv2
     import os
-    from potion import maul_potion
+    from potion import maul_potion, potion_check
     from action import skill_check_
     from sell_potion import sell_potion_start
     import requests
@@ -31,7 +31,7 @@ def go_test():
     import random
     from one_event import daily_one
 
-    cla = "two"
+    cla = "one"
 
     # cla = "two"
 
@@ -44,7 +44,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    click_pos_2(1888, 57, "one")
+    jaelyo_(cla)
 
     # moveY = max(-4, -20)
     # print("moveY", moveY)

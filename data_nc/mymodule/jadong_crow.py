@@ -62,12 +62,16 @@ def jadong_play(cla, result_schedule_):
                 for i in range(len(read_line)):
                     result_ = read_line[i].split("/")
                     if result_[0] == dungeon_[2]:
-                        hunter_spot = result_[2]
+                        if result_[1] == "drag":
+                            hunter_spot = result_[3]
+                        else:
+                            hunter_spot = result_[2]
 
 
         else:
             print("자료가 없다")
             line_to_me(cla, "나크 자동사냥 자료 없다.2")
+
 
 
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[0] + "\\" + hunter_spot + ".PNG"

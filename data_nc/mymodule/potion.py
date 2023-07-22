@@ -282,10 +282,7 @@ def maul_potion(cla):
         import pyautogui
         import pytesseract
 
-        get_items(cla)
-        soojib(cla)
-        moogi_(cla)
-        boonhae_(cla)
+
 
 
         jab_ready = False
@@ -1034,6 +1031,11 @@ def maul_potion(cla):
             else:
                 clean_screen(cla)
 
+        get_items(cla)
+        soojib(cla)
+        moogi_(cla)
+        boonhae_(cla)
+
         jaelyo_(cla)
         dead_die_before(cla)
 
@@ -1054,7 +1056,6 @@ def maul_potion_only(cla):
         import pyautogui
         import pytesseract
 
-        boonhae_(cla)
 
 
         jab_ready = False
@@ -1322,6 +1323,11 @@ def maul_potion_only(cla):
                 jab_3 = True
             else:
                 clean_screen(cla)
+
+        get_items(cla)
+        soojib(cla)
+        moogi_(cla)
+        boonhae_(cla)
 
         jaelyo_(cla)
         dead_die_before(cla)

@@ -19,6 +19,7 @@ def dead_die(cla):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_
         from massenger import line_to_me
+        from potion import maul_potion_only
 
         dead_ = False
 
@@ -32,6 +33,8 @@ def dead_die(cla):
             die_count += 1
             print("dead_die", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(1)
+            maul_potion_only(cla)
             if die_count > 4:
                 line_to_me(cla, "나크 5번째 죽었다.")
                 die_count = 0
