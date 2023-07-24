@@ -722,13 +722,13 @@ def jaelyo_(cla):
                     if imgs_ is not None and imgs_ != False:
 
                         # 물약 있을 경우 전부다 팔아버리기
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\sell_potion_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 0, 300, 1000, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            sell_potion_start(cla)
-                            time.sleep(1)
+                        # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\sell_potion_1.PNG"
+                        # img_array = np.fromfile(full_path, np.uint8)
+                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        # imgs_ = imgs_set_(0, 0, 300, 1000, cla, img, 0.8)
+                        # if imgs_ is not None and imgs_ != False:
+                        #     sell_potion_start(cla)
+                        #     time.sleep(1)
 
 
                         in_chango_3 = False
