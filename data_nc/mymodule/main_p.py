@@ -135,7 +135,7 @@ class MyApp(QDialog):
         # 업데이트버젼
         # pyinstaller --hidden-import PyQt5 --hidden-import requests --hidden-import chardet -i="nightcrow.ico" --add-data="nightcrow.ico;./" --icon="nightcrow.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
 
-        self.setGeometry(1000, 300, 900, 600)
+        self.setGeometry(1000 + 960, 300, 900, 600)
         self.show()
     def my_title(self):
         self.setWindowTitle("나이트크로우(ver " + version + ")")
@@ -3007,8 +3007,8 @@ class game_Playing(QThread):
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title_2.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            # 나크는 2클라 고정
-                                            imgs_ = imgs_set_(0, 50, 960, 1030, "two", img, 0.8)
+                                            # 나크는 3클라 고정
+                                            imgs_ = imgs_set_(0, 50, 960, 1030, "three", img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
                                             break
