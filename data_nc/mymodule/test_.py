@@ -1,12 +1,12 @@
 import time
 
-import requests
-import json
+from screeninfo import get_monitors
 # import os
 import sys
 sys.path.append('C:/my_games/nightcrow/data_nc/mymodule')
 
 import variable as v_
+
 
 
 def go_test():
@@ -44,19 +44,28 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    jaelyo_(cla)
-
     # moveY = max(-4, -20)
     # print("moveY", moveY)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 0, 960, 120, cla, img, 0.83)
-    if imgs_ is not None and imgs_ != False:
-        print("exit_1", imgs_)
-        click_pos_reg(imgs_.x, imgs_.y, cla)
+    monitors = get_monitors()
 
+    print("zzzzz", monitors)
+
+    monitors = get_monitors()
+    last_monitor_number = 0
+    for idx, monitor in enumerate(monitors, start=1):
+        last_monitor_number = idx
+
+    print("모니터 갯수", last_monitor_number)
+
+    # for idx, monitor in enumerate(monitors, start=1):
+    #     print(f"모니터 {idx} 가로 너비: {monitor.width} 픽셀")
+    #     print(f"모니터 {idx} 세로 높이: {monitor.height} 픽셀")
+    #     print(f"모니터 {idx} 왼쪽 상단 X 좌표: {monitor.x} 픽셀")
+    #     print(f"모니터 {idx} 왼쪽 상단 Y 좌표: {monitor.y} 픽셀")
+    #     print(f"모니터 {idx} 오른쪽 하단 X 좌표: {monitor.x + monitor.width} 픽셀")
+    #     print(f"모니터 {idx} 오른쪽 하단 Y 좌표: {monitor.y + monitor.height} 픽셀")
+    #     print("=" * 50)
 
 
 
