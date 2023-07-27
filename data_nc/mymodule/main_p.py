@@ -134,7 +134,7 @@ class MyApp(QDialog):
         # 풀버젼
         # pyinstaller --hidden-import PyQt5 --hidden-import requests --hidden-import chardet --add-data="C:\\my_games\\nightcrow\\data_nc;./data_nc" -i="nightcrow.ico" --add-data="nightcrow.ico;./" --icon="nightcrow.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
         # 업데이트버젼
-        # pyinstaller --hidden-import PyQt5 --hidden-import requests --hidden-import chardet -i="nightcrow.ico" --add-data="nightcrow.ico;./" --icon="nightcrow.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
+        # pyinstaller --hidden-import screeninfo --hidden-import PyQt5 --hidden-import requests --hidden-import chardet -i="nightcrow.ico" --add-data="nightcrow.ico;./" --icon="nightcrow.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
 
         monitors = get_monitors()
         last_monitor_number = 0
