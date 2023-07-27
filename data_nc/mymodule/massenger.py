@@ -247,13 +247,20 @@ def line_monitor(game, cla):
                     line_to_me("two", ms_)
 
                 # 화면
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\nightcrow_title.PNG"
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\out_nc.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+                imgs_ = imgs_set(430, 520, 560, 560, cla, img)
                 if imgs_ is None:
-                    ms_ = str(game) + str(" 꺼진것 같다")
+                    ms_ = str(game) + str("구글 로그인 화면이다. 꺼진것 같다")
                     line_to_me(cla, ms_)
+
+                    dir_path = "C:\\my_games\\load\\nightcrow"
+                    file_path = dir_path + "\\start.txt"
+
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                        data = 'no'
+                        file.write(str(data))
 
                 # #나가기 버튼
                 # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
