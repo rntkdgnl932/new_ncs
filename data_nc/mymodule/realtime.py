@@ -760,7 +760,7 @@ def jaelyo_(cla):
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.85)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("재료 있")
+                                        print("통합 : 재료 있", jaelyo_ready[i])
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                         time.sleep(0.1)
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -838,9 +838,9 @@ def jaelyo_(cla):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\" + jaelyo_ready[i] + ".PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.85)
+                                    imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("재료 있")
+                                        print("개인 : 재료 있", jaelyo_ready[i])
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                         time.sleep(0.1)
                                         click_pos_reg(imgs_.x, imgs_.y, cla)

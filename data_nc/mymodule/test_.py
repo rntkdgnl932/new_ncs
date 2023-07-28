@@ -44,19 +44,22 @@ def go_test():
 
     v_.what_cla = "one클라"
 
+    jaelyo_(cla)
+
+
     # moveY = max(-4, -20)
     # print("moveY", moveY)
 
-    monitors = get_monitors()
-
-    print("zzzzz", monitors)
-
-    monitors = get_monitors()
-    last_monitor_number = 0
-    for idx, monitor in enumerate(monitors, start=1):
-        last_monitor_number = idx
-
-    print("모니터 갯수", last_monitor_number)
+    # monitors = get_monitors()
+    #
+    # print("zzzzz", monitors)
+    #
+    # monitors = get_monitors()
+    # last_monitor_number = 0
+    # for idx, monitor in enumerate(monitors, start=1):
+    #     last_monitor_number = idx
+    #
+    # print("모니터 갯수", last_monitor_number)
 
     # for idx, monitor in enumerate(monitors, start=1):
     #     print(f"모니터 {idx} 가로 너비: {monitor.width} 픽셀")
