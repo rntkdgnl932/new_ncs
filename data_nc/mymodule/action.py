@@ -2205,11 +2205,33 @@ def character_change(cla, character_id):
                                 time.sleep(0.5)
                         else:
                             if int(character_id) == 1:
-                                click_pos_2(60, 180, cla)
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\character_select_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 110, 120, 250, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        time.sleep(0.2)
+                                        click_pos_reg(x_reg, y_reg, cla)
+                                        break
+                                    else:
+                                        click_pos_2(130, 180, cla)
+                                    time.sleep(0.5)
                             if int(character_id) == 2:
-                                click_pos_2(55, 280, cla)
-                            time.sleep(0.2)
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\character_select_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 200, 120, 350, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        time.sleep(0.2)
+                                        click_pos_reg(x_reg, y_reg, cla)
+                                        break
+                                    else:
+                                        click_pos_2(130, 280, cla)
+                                    time.sleep(0.5)
 
+                            time.sleep(0.2)
                             click_pos_reg(x_reg, y_reg, cla)
                         time.sleep(0.5)
 
