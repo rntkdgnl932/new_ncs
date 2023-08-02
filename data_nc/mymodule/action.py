@@ -247,10 +247,14 @@ def item_open(cla):
                         menu_open(cla)
                         click_pos_2(885, 260, cla)
                         time.sleep(1)
-
-                bag_open(cla)
-                time.sleep(0.2)
-                click_pos_2(935, 265, cla)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                if imgs_ is None:
+                    bag_open(cla)
+                    time.sleep(0.2)
+                    click_pos_2(935, 265, cla)
                 time.sleep(0.2)
 
             # 스킬북
@@ -444,9 +448,13 @@ def item_open(cla):
                 imgs_ = imgs_set_(400, 980, 570, 1030, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                bag_open(cla)
-                time.sleep(0.2)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                if imgs_ is None:
+                    bag_open(cla)
+                    time.sleep(0.2)
             # 탈것_1
             dir_path = "C:\\my_games\\nightcrow\\data_nc"
             file_path = dir_path + "\\items\\item_open\\talgut.txt"
@@ -557,10 +565,14 @@ def item_open(cla):
                                 time.sleep(0.1)
                                 click_pos_2(845, 260, cla)
                                 time.sleep(1)
-
-                    bag_open(cla)
-                    time.sleep(0.2)
-                    click_pos_2(935, 265, cla)
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                    if imgs_ is None:
+                        bag_open(cla)
+                        time.sleep(0.2)
+                        click_pos_2(935, 265, cla)
                     time.sleep(0.2)
                 else:
                     print("탈것 없 => ", box_[i])
@@ -671,10 +683,14 @@ def item_open(cla):
                                 menu_open(cla)
                                 click_pos_2(930, 260, cla)
                                 time.sleep(1)
-
-                    bag_open(cla)
-                    time.sleep(0.2)
-                    click_pos_2(935, 265, cla)
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                    if imgs_ is None:
+                        bag_open(cla)
+                        time.sleep(0.2)
+                        click_pos_2(935, 265, cla)
                     time.sleep(0.2)
                 else:
                     print("무기_ 없 => ", box_[i])
@@ -888,7 +904,12 @@ def item_open(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                bag_open(cla)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                if imgs_ is None:
+                    bag_open(cla)
                 time.sleep(0.2)
 
             # 골드상자

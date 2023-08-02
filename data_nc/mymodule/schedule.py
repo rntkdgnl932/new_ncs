@@ -131,19 +131,19 @@ def myQuest_play_check(cla, data):
                                     if j < 3:
                                         reset_schedule_ += complete_[j] + ":"
                                     if j == 3:
-
-                                        if '_' in complete_[2]:
-                                            dunjeon_spl_ = complete_[2].split("_")
-                                            print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                            print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                            # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                            if dunjeon_spl_[1] == "신전":
-                                                reset_schedule_ += complete_[j] + ":"
-                                            else:
-                                                reset_schedule_ += '대기중:'
-                                        else:
-                                            reset_schedule_ += '대기중:'
+                                        reset_schedule_ += "대기중\n"
+                                        # if '_' in complete_[2]:
+                                        #     dunjeon_spl_ = complete_[2].split("_")
+                                        #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                        #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                        #
+                                        #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                        #     if dunjeon_spl_[1] == "신전":
+                                        #         reset_schedule_ += complete_[j] + ":"
+                                        #     else:
+                                        #         reset_schedule_ += '대기중:'
+                                        # else:
+                                        #     reset_schedule_ += '대기중:'
 
                                         # if complete_[2] == "지하감옥":
                                         #     reset_schedule_ += complete_[j] + ":"
@@ -152,19 +152,19 @@ def myQuest_play_check(cla, data):
                                     if 3 < j < 7:
                                         reset_schedule_ += complete_[j] + ":"
                                     if j == 7:
-
-                                        if '_' in complete_[6]:
-                                            dunjeon_spl_ = complete_[6].split("_")
-                                            print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                            print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                            # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                            if dunjeon_spl_[1] == "신전":
-                                                reset_schedule_ += complete_[j] + "\n"
-                                            else:
-                                                reset_schedule_ += "대기중\n"
-                                        else:
-                                            reset_schedule_ += "대기중\n"
+                                        reset_schedule_ += "대기중\n"
+                                        # if '_' in complete_[6]:
+                                        #     dunjeon_spl_ = complete_[6].split("_")
+                                        #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                        #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                        #
+                                        #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                        #     if dunjeon_spl_[1] == "신전":
+                                        #         reset_schedule_ += complete_[j] + "\n"
+                                        #     else:
+                                        #         reset_schedule_ += "대기중\n"
+                                        # else:
+                                        #     reset_schedule_ += "대기중\n"
 
                                         # if complete_[6] == "지하감옥":
                                         #     reset_schedule_ += complete_[j] + "\n"
@@ -578,19 +578,19 @@ def myQuest_play_add(cla, data):
                                 if j < 3:
                                     reset_schedule_ += complete_[j] + ":"
                                 if j == 3:
-
-                                    if '_' in complete_[2]:
-                                        dunjeon_spl_ = complete_[2].split("_")
-                                        print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                        print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                        # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                        if dunjeon_spl_[1] == "신전":
-                                            reset_schedule_ += complete_[j] + ":"
-                                        else:
-                                            reset_schedule_ += '대기중:'
-                                    else:
-                                        reset_schedule_ += '대기중:'
+                                    reset_schedule_ += "대기중\n"
+                                    # if '_' in complete_[2]:
+                                    #     dunjeon_spl_ = complete_[2].split("_")
+                                    #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                    #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                    #
+                                    #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    #     if dunjeon_spl_[1] == "신전":
+                                    #         reset_schedule_ += complete_[j] + ":"
+                                    #     else:
+                                    #         reset_schedule_ += '대기중:'
+                                    # else:
+                                    #     reset_schedule_ += '대기중:'
 
                                     # if complete_[2] == "지하감옥":
                                     #     reset_schedule_ += complete_[j] + ":"
@@ -599,19 +599,19 @@ def myQuest_play_add(cla, data):
                                 if 3 < j < 7:
                                     reset_schedule_ += complete_[j] + ":"
                                 if j == 7:
-
-                                    if '_' in complete_[6]:
-                                        dunjeon_spl_ = complete_[6].split("_")
-                                        print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                        print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                        # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                        if dunjeon_spl_[1] == "신전":
-                                            reset_schedule_ += complete_[j] + "\n"
-                                        else:
-                                            reset_schedule_ += "대기중\n"
-                                    else:
-                                        reset_schedule_ += "대기중\n"
+                                    reset_schedule_ += "대기중\n"
+                                    # if '_' in complete_[6]:
+                                    #     dunjeon_spl_ = complete_[6].split("_")
+                                    #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                    #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                    #
+                                    #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    #     if dunjeon_spl_[1] == "신전":
+                                    #         reset_schedule_ += complete_[j] + "\n"
+                                    #     else:
+                                    #         reset_schedule_ += "대기중\n"
+                                    # else:
+                                    #     reset_schedule_ += "대기중\n"
 
                                     # if complete_[6] == "지하감옥":
                                     #     reset_schedule_ += complete_[j] + "\n"
