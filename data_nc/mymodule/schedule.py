@@ -131,7 +131,7 @@ def myQuest_play_check(cla, data):
                                     if j < 3:
                                         reset_schedule_ += complete_[j] + ":"
                                     if j == 3:
-                                        reset_schedule_ += "대기중\n"
+                                        reset_schedule_ += "대기중:"
                                         # if '_' in complete_[2]:
                                         #     dunjeon_spl_ = complete_[2].split("_")
                                         #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
@@ -578,7 +578,7 @@ def myQuest_play_add(cla, data):
                                 if j < 3:
                                     reset_schedule_ += complete_[j] + ":"
                                 if j == 3:
-                                    reset_schedule_ += "대기중\n"
+                                    reset_schedule_ += "대기중:"
                                     # if '_' in complete_[2]:
                                     #     dunjeon_spl_ = complete_[2].split("_")
                                     #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
