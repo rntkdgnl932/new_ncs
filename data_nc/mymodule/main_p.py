@@ -3025,11 +3025,22 @@ class game_Playing(QThread):
                         imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
 
+                            # 34번 컴퓨터는 nightcrow_start_ready_2
+                            look_title = False
+
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
+                                look_title = True
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                look_title = True
+                            if look_title == True:
                                 print("매크로를 내려야 실행됨...10초 후 내림")
                                 for i in range(10):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready.PNG"
@@ -3048,7 +3059,23 @@ class game_Playing(QThread):
                                             break
 
                                     else:
-                                        break
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_start_ready_2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            if i > 8:
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title_2.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                # 나크는 3클라 고정
+                                                imgs_ = imgs_set_(0, 50, 960, 1030, v_.now_cla, img, 0.7)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
+                                                break
+
+                                        else:
+                                            break
                                     time.sleep(1)
                             else:
 
