@@ -30,6 +30,7 @@ def go_test():
     import pytesseract
     import random
     from one_event import daily_one
+    from schedule import myQuest_play_check
 
     cla = "one"
 
@@ -57,6 +58,11 @@ def go_test():
     imgs_ = imgs_set_(0, 200, 120, 350, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
         print("character_select_2 : ok", imgs_)
+
+    result_schedule = myQuest_play_check(v_.now_cla, "check")
+    print("potion_result_schedule", result_schedule)
+    character_id = result_schedule[0][1]
+    print("character_id", character_id)
 
 
     # moveY = max(-4, -20)

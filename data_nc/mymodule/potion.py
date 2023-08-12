@@ -933,16 +933,30 @@ def maul_potion(cla):
         #                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
         # 캐리터 id 가져오기
-        result_schedule = myQuest_play_check(v_.now_cla, "check")
-        print("potion_result_schedule", result_schedule)
-        character_id = result_schedule[0][1]
+        # result_schedule = myQuest_play_check(v_.now_cla, "check")
+        # print("potion_result_schedule", result_schedule)
+        # character_id = result_schedule[0][1]
 
         # 일일퀘스트 요구 레벨(나의 레벨)
+        # one_now_id
+
+        is_cla = v_.now_cla
+        if is_cla == "one":
+            file_path = "C:\\my_games\\nightcrow\\mysettings\\myschedule\\one_now_id.txt"
+        elif is_cla == "two":
+            file_path = "C:\\my_games\\nightcrow\\mysettings\\myschedule\\two_now_id.txt"
+        elif is_cla == "three":
+            file_path = "C:\\my_games\\nightcrow\\mysettings\\myschedule\\three_now_id.txt"
+        elif is_cla == "four":
+            file_path = "C:\\my_games\\nightcrow\\mysettings\\myschedule\\four_now_id.txt"
+
+        with open(file_path, "r", encoding='utf-8-sig') as file:
+            read_my_id = file.read()
 
         dir_path = "C:\\my_games\\nightcrow\\mysettings\\my_level"
-        if character_id == "1":
+        if read_my_id == "1":
             id_file_path = dir_path + "\\one_character.txt"
-        if character_id == "2":
+        if read_my_id == "2":
             id_file_path = dir_path + "\\two_character.txt"
 
         with open(id_file_path, "r", encoding='utf-8-sig') as file:
