@@ -13,7 +13,7 @@ def go_test():
     from datetime import date, timedelta, datetime
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check, drag_pos
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change
-    from get_item import get_items, get_upjuk, get_event, get_season_pass
+    from get_item import get_items, get_upjuk, get_event, get_season_pass, guild_jilyung
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_, jaelyo_
     from dungeon import drag_maul_potion_
@@ -45,24 +45,15 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\character_select_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 110, 120, 250, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("character_select_1 : ok", imgs_)
+    # jadong, gyucjunji, dungeon
+    guild_jilyung(cla, "jadong")
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\character_select_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 200, 120, 350, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("character_select_2 : ok", imgs_)
-
-    result_schedule = myQuest_play_check(v_.now_cla, "check")
-    print("potion_result_schedule", result_schedule)
-    character_id = result_schedule[0][1]
-    print("character_id", character_id)
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\jinhang.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(330, 480, 410, 560, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("진행 보여", imgs_)
 
 
     # moveY = max(-4, -20)

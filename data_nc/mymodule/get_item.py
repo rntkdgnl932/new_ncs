@@ -1158,10 +1158,11 @@ def guild_jilyung(cla, data):
                         is_soolock_count += 1
                         if is_soolock_count > 5:
                             is_soolock = True
+
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\jinhang.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(350, 530, 420, 565, cla, img, 0.8)
+                        imgs_ = imgs_set_(330, 480, 410, 560, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("진행 보여", imgs_)
                             click_pos_2(930, 60, cla)
@@ -1173,46 +1174,52 @@ def guild_jilyung(cla, data):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-
-                                click_gilyung = False
-
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\800.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_gilyung = True
-
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\800_2.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_gilyung = True
-
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\400.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_gilyung = True
-
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\400_2.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_gilyung = True
-
-                                if click_gilyung == True:
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                else:
-                                    click_pos_2(845, 1015, cla)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
+                            # img_array = np.fromfile(full_path, np.uint8)
+                            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            # imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
+                            # if imgs_ is not None and imgs_ != False:
+                            #
+                            #     click_gilyung = False
+                            #
+                            #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\800.PNG"
+                            #     img_array = np.fromfile(full_path, np.uint8)
+                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #     imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
+                            #     if imgs_ is not None and imgs_ != False:
+                            #         click_gilyung = True
+                            #
+                            #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\800_2.PNG"
+                            #     img_array = np.fromfile(full_path, np.uint8)
+                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #     imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
+                            #     if imgs_ is not None and imgs_ != False:
+                            #         click_gilyung = True
+                            #
+                            #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\400.PNG"
+                            #     img_array = np.fromfile(full_path, np.uint8)
+                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #     imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
+                            #     if imgs_ is not None and imgs_ != False:
+                            #         click_gilyung = True
+                            #
+                            #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\400_2.PNG"
+                            #     img_array = np.fromfile(full_path, np.uint8)
+                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #     imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
+                            #     if imgs_ is not None and imgs_ != False:
+                            #         click_gilyung = True
+                            #
+                            #     if click_gilyung == True:
+                            #         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
+                            #         img_array = np.fromfile(full_path, np.uint8)
+                            #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #         imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
+                            #         if imgs_ is not None and imgs_ != False:
+                            #             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            #     else:
+                            #         click_pos_2(845, 1015, cla)
 
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -1222,6 +1229,7 @@ def guild_jilyung(cla, data):
                             print("길드지령 체크중")
                         else:
                             is_soolock = True
+                        time.sleep(0.3)
 
             if data == "gyucjunji":
                 # 다른 곳 지령 중이면 포기부터...1
@@ -1322,53 +1330,27 @@ def guild_jilyung(cla, data):
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\jinhang.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(350, 530, 420, 565, cla, img, 0.8)
+                        imgs_ = imgs_set_(560, 480, 625, 545, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("진행 보여", imgs_)
                             click_pos_2(930, 60, cla)
+                        # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\giveup.PNG"
+                        # img_array = np.fromfile(full_path, np.uint8)
+                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        # imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
+                        # if imgs_ is not None and imgs_ != False:
+                        #     print("진행 보여", imgs_)
+                        #     click_pos_2(930, 60, cla)
 
                         else:
                             print("진행 안 보여")
-                            # 무조건 바기
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(560, 680, 660, 740, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                            # # 비교해서 받기
-                            # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
-                            # img_array = np.fromfile(full_path, np.uint8)
-                            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            # imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
-                            # if imgs_ is not None and imgs_ != False:
-                            #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\1000.PNG"
-                            #     img_array = np.fromfile(full_path, np.uint8)
-                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            #     imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
-                            #     if imgs_ is not None and imgs_ != False:
-                            #         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
-                            #         img_array = np.fromfile(full_path, np.uint8)
-                            #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            #         imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
-                            #         if imgs_ is not None and imgs_ != False:
-                            #             click_pos_reg(imgs_.x, imgs_.y, cla)
-                            #     else:
-                            #         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\500.PNG"
-                            #         img_array = np.fromfile(full_path, np.uint8)
-                            #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            #         imgs_ = imgs_set_(300, 570, 430, 610, cla, img, 0.9)
-                            #         if imgs_ is not None and imgs_ != False:
-                            #             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
-                            #             img_array = np.fromfile(full_path, np.uint8)
-                            #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            #             imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
-                            #             if imgs_ is not None and imgs_ != False:
-                            #                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                            #         else:
-                            #             click_pos_2(845, 1015, cla)
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1377,6 +1359,7 @@ def guild_jilyung(cla, data):
                             print("길드지령 체크중")
                         else:
                             is_soolock = True
+                        time.sleep(0.3)
 
             if data == "dungeon":
                 # 다른 곳 지령 중이면 포기부터...
@@ -1429,118 +1412,12 @@ def guild_jilyung(cla, data):
                     if is_soolock_ready_count > 4:
                         is_soolock_ready = True
 
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\jinhang.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(740, 680, 920, 730, cla, img, 0.8)
+                    imgs_ = imgs_set_(780, 490, 850, 540, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        is_soolock = False
-                        is_soolock_count = 0
-                        while is_soolock is False:
-                            is_soolock_count += 1
-                            if is_soolock_count > 5:
-                                is_soolock = True
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\jinhang.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(800, 530, 850, 565, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                print("진행 보여", imgs_)
-
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\special.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(760, 395, 920, 430, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("특수 보여", imgs_)
-                                    click_pos_2(835, 705, cla)
-                                    time.sleep(0.3)
-                                    for i in range(10):
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                                            break
-                                        time.sleep(0.2)
-                                    click_pos_2(845, 1015, cla)
-                                else:
-                                    click_pos_2(930, 60, cla)
-                                    is_soolock = True
-
-                            else:
-                                print("진행 안 보여")
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(740, 680, 920, 730, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-
-                                    click_gilyung = False
-
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\800.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(790, 570, 890, 610, cla, img, 0.9)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_gilyung = True
-
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\800_2.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(790, 570, 890, 610, cla, img, 0.9)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_gilyung = True
-
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\400.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(790, 570, 890, 610, cla, img, 0.9)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_gilyung = True
-
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\400_2.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(790, 570, 890, 610, cla, img, 0.9)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_gilyung = True
-
-                                    if click_gilyung == True:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(740, 680, 920, 730, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    else:
-                                        click_pos_2(845, 1015, cla)
-
-
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                print("길드지령 체크중")
-                            else:
-                                is_soolock = True
-                        if is_soolock == True:
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_2(930, 60, cla)
-                    else:
+                        print("진행 보여")
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\special.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1561,6 +1438,57 @@ def guild_jilyung(cla, data):
                         else:
                             is_soolock_ready = True
                             click_pos_2(930, 60, cla)
+
+
+
+
+                    else:
+                        print("진행 안 보여")
+                        is_soolock = False
+                        is_soolock_count = 0
+                        while is_soolock is False:
+                            is_soolock_count += 1
+                            if is_soolock_count > 5:
+                                is_soolock = True
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\special.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(760, 395, 810, 430, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("특수 보여용", imgs_)
+                                click_pos_2(845, 1015, cla)
+                            else:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\soolock.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(740, 680, 920, 730, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("수락하즈아")
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    is_soolock = True
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("길드지령 체크중")
+
+                            time.sleep(0.5)
+                    time.sleep(1)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(930, 60, cla)
 
     except Exception as e:
         print(e)
