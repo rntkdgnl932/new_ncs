@@ -735,6 +735,7 @@ def go_to_spot(cla, data):
     try:
         import cv2
         import numpy as np
+        import os
         from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
         from action import skip_click, go_quest_ing_, clean_screen
         from get_item import guild_jilyung
@@ -750,6 +751,34 @@ def go_to_spot(cla, data):
         if "_" in result_schedule_:
             spot_ = result_schedule_.split("_")
             # 사냥 장소 : spot_[2]
+
+        dir_path = "C:\\my_games\\nightcrow\\data_nc"
+        if spot_[1] == "아빌리우스":
+            file_path = dir_path + "\\jadong\\abilius.txt"
+        if spot_[1] == "바스티움":
+            file_path = dir_path + "\\jadong\\bastium.txt"
+        if spot_[1] == "첼라노":
+            file_path = dir_path + "\\jadong\\chalano.txt"
+        file_path2 = dir_path + "\\jadong\\jadong.txt"
+
+        if os.path.isfile(file_path) == True:
+            with open(file_path, "r", encoding='utf-8-sig') as file:
+                read_ready = file.read()
+                read_ready = read_ready.split(":")
+                read_ = read_ready[1].split("/")
+                print("read_", read_)
+
+        if os.path.isfile(file_path2) == True:
+            with open(file_path2, "r", encoding='utf-8-sig') as file:
+                read_line = file.read().splitlines()
+                for i in range(len(read_line)):
+                    result_ = read_line[i].split("/")
+                    if result_[0] == spot_[2]:
+                        if result_[1] == "drag":
+                            hunter_spot = result_[3]
+                        else:
+                            hunter_spot = result_[2]
+        #####
 
         attack_ready = False
 
@@ -915,16 +944,33 @@ def go_to_spot(cla, data):
                     print("열심히 이동중")
                 elif attack_ready_count > 200:
                     attack_ready_count = 0
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
+
+                    # 원하는 지도에 있을 경우 공격하기
+
+
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[
+                        0] + "\\" + hunter_spot + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
+                    imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        if data == "sub":
-                            attack_ready = True
-                            myQuest_play_add(cla, "서브퀘스트")
-                            clean_screen(cla)
+                        print("도착한 상태")
+                        now_playing(cla)
+
+                    #
+
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            if data == "sub":
+                                attack_ready = True
+                                myQuest_play_add(cla, "서브퀘스트")
+                                clean_screen(cla)
             else:
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\attack_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
