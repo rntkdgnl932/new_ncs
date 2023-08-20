@@ -738,10 +738,18 @@ def go_to_spot(cla, data):
         from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
         from action import skip_click, go_quest_ing_, clean_screen
         from get_item import guild_jilyung
-        from schedule import myQuest_play_add
+        from schedule import myQuest_play_add, myQuest_play_check
         import pyautogui
 
         print("사냥터 이동중")
+
+        result_schedule = myQuest_play_check(v_.now_cla, "check")
+        print("go_to_spot : result_schedule", result_schedule)
+        character_id = result_schedule[0][1]
+        result_schedule_ = result_schedule[0][2]
+        if "_" in result_schedule_:
+            spot_ = result_schedule_.split("_")
+            # 사냥 장소 : spot_[2]
 
         attack_ready = False
 
@@ -817,32 +825,34 @@ def go_to_spot(cla, data):
                     imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
 
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\gyunway_bawigil.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(40, 75, 160, 110, cla, img, 0.75)
-                        if imgs_ is not None and imgs_ != False:
-                            time.sleep(0.1)
-                            pyautogui.keyDown('a')
-                            time.sleep(0.1)
-                            pyautogui.keyUp('a')
-                            time.sleep(0.1)
-                            print("pyautogui.press('a')")
+                        if spot_[2] == "경외의바윗길":
 
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\fly_.PNG"
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_3\\gyunway_bawigil.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(770, 970, 960, 1030, cla, img, 0.7)
+                            imgs_ = imgs_set_(40, 75, 160, 110, cla, img, 0.75)
                             if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                print("플라잉 부스터!!!")
+                                time.sleep(0.1)
+                                pyautogui.keyDown('a')
+                                time.sleep(0.1)
+                                pyautogui.keyUp('a')
+                                time.sleep(0.1)
+                                print("pyautogui.press('a')")
 
-                            # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\flying_.PNG"
-                            # img_array = np.fromfile(full_path, np.uint8)
-                            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            # imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.8)
-                            # if imgs_ is not None and imgs_ != False:
-                            #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\fly_.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(770, 970, 960, 1030, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    print("플라잉 부스터!!!")
+
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\flying_.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\fly_.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
