@@ -737,6 +737,7 @@ def go_to_spot(cla, data):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
         from action import skip_click, go_quest_ing_, clean_screen
+        from get_item import guild_jilyung
         from schedule import myQuest_play_add
         import pyautogui
 
@@ -925,6 +926,9 @@ def go_to_spot(cla, data):
                     if result_ == False:
                         if data == "jadong":
                             click_pos_2(930, 850, cla)
+                            time.sleep(0.1)
+                            guild_jilyung(cla, "jadong")
+                            time.sleep(0.1)
                         if data == "sub":
                             click_pos_2(800, 150, cla)
             time.sleep(0.3)
