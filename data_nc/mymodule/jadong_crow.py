@@ -983,6 +983,7 @@ def go_to_spot(cla, data):
                         if data == "jadong":
                             click_pos_2(930, 850, cla)
                             time.sleep(0.1)
+
                             guild_jilyung(cla, "jadong")
                             time.sleep(0.1)
                         if data == "sub":

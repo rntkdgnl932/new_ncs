@@ -686,7 +686,7 @@ def soojib_exam(cla):
 def jaelyo_(cla):
     try:
 
-        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg, mouse_move_cpp
         from action import out_check, clean_screen, bag_open
         from sell_potion import sell_potion_start
         import numpy as np
@@ -771,6 +771,8 @@ def jaelyo_(cla):
                                         imgs_ = imgs_set_(500, 400, 600, 500, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        mouse_move_cpp(450, 450, cla)
+                                        time.sleep(0.2)
                                 sj_ = False
                                 sj_count = 0
                                 while sj_ is False:
@@ -793,6 +795,8 @@ def jaelyo_(cla):
                                         imgs_ = imgs_set_(500, 400, 600, 500, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        mouse_move_cpp(450, 450, cla)
+                                        time.sleep(0.2)
 
                                     else:
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\maul_chango_3.PNG"

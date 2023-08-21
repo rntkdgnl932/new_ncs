@@ -1070,12 +1070,10 @@ def guild_check(cla):
         print(e)
 
 def guild_jilyung(cla, data):
+    import cv2
+    import numpy as np
+    from function import click_pos_reg, imgs_set_, click_pos_2
     try:
-        import cv2
-        import numpy as np
-        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
-        from action import clean_screen, menu_open
-
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1489,6 +1487,21 @@ def guild_jilyung(cla, data):
                 imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(930, 60, cla)
+
+    except Exception as e:
+        print(e)
+
+def guild_jilyung_get(cla, data):
+    import cv2
+    import numpy as np
+    from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
+    from action import clean_screen, menu_open
+    try:
+        # 추후 길드 가입 여부 부터 체크 후...
+        # 아니면 화면에 길드 지령 있는지 확인 후...
+        print("guild_jilyung_get")
+
+
 
     except Exception as e:
         print(e)

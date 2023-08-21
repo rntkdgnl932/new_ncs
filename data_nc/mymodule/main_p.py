@@ -54,6 +54,7 @@ from get_item import get_items, get_item_checking, guild_jilyung
 from potion import maul_potion, maul_potion_only
 from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check, dead_die_before
 from server import game_start
+from auction_nc import auction_ready
 
 from one_event import daily_one
 
@@ -3261,9 +3262,6 @@ class game_Playing(QThread):
                                             if dungeon_[0] == "사냥":
                                                 jadong_play(v_.now_cla, result_schedule_)
 
-                                            if dungeon_[0] == "일일퀘스트":
-                                                select_daily_quest_grow(v_.now_cla, character_id, dungeon_[0])
-                                                # 자체에 스케쥴 완료 있음
                                         else:
                                             if result_schedule_ == "튜토육성":
                                                 tuto_grow(v_.now_cla)
@@ -3297,6 +3295,10 @@ class game_Playing(QThread):
                                                 # 자체에 스케쥴 완료 있음
                                             if result_schedule_ == "격전지사냥":
                                                 gyucjunji_play(v_.now_cla)
+                                                # 자체에 스케쥴 완료 있음
+
+                                            if result_schedule_ == "거래소등록":
+                                                auction_ready(v_.now_cla)
                                                 # 자체에 스케쥴 완료 있음
                         else:
 

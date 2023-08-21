@@ -11,7 +11,7 @@ import variable as v_
 
 def go_test():
     from datetime import date, timedelta, datetime
-    from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check, drag_pos
+    from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check, drag_pos, imgs_set_num, mouse_move_cpp
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change
     from get_item import get_items, get_upjuk, get_event, get_season_pass, guild_jilyung
     from jadong_crow import jadong_play
@@ -31,6 +31,7 @@ def go_test():
     import random
     from one_event import daily_one
     from schedule import myQuest_play_check
+    from auction_nc import auction_start, jaelyo_out, auction_ready, auction_start2
 
     cla = "one"
 
@@ -45,16 +46,26 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    # jadong, gyucjunji, dungeon
-    guild_jilyung(cla, "jadong")
+    auction_ready(cla)
 
-    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\jinhang.PNG"
+    # result_equal = auction_start(cla)
+    # print("result_equal", result_equal)
+
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\1000.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # imgs_ = imgs_set_(330, 480, 410, 560, cla, img, 0.8)
+    # imgs_ = imgs_set_num(590, 500, 620, 520, cla, img, 0.99)
     # if imgs_ is not None and imgs_ != False:
-    #     print("진행 보여", imgs_)
-
+    #     print("1000", imgs_)
+    # else:
+    #     print("1000 안보여")
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\1000.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_num(377, 603, 410, 620, cla, img, 0.99)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("마지막 거래 금액 : , ", imgs_)
 
     # moveY = max(-4, -20)
     # print("moveY", moveY)
