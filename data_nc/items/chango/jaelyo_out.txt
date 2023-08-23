@@ -11,6 +11,8 @@ ganghwa_moogi
 gold_chunching
 gold_joomoney
 junjik_1
+mangja_gamyun
+mangja_secretkey
 morion
 nightcrow_bangpae
 nightcrow_bisoo
