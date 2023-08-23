@@ -12,6 +12,7 @@ def auction_ready(cla):
     import numpy as np
     import cv2
     from schedule import myQuest_play_add
+    from realtime import boonhae_
     try:
         print("auction_ready")
         # 창고에서 물건 가져오고
@@ -41,6 +42,8 @@ def auction_ready(cla):
         # 다 넣고 마무리는 스케쥴 완료
         myQuest_play_add(cla, "거래소등록")
 
+        # 분해까지 마무리
+        boonhae_(cla)
     except Exception as e:
         print(e)
         return 0
