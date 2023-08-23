@@ -738,7 +738,7 @@ def go_to_spot(cla, data):
         import os
         from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
         from action import skip_click, go_quest_ing_, clean_screen
-        from get_item import guild_jilyung
+        from get_item import guild_jilyung, guild_jilyung_get
         from schedule import myQuest_play_add, myQuest_play_check
         import pyautogui
 
@@ -956,9 +956,19 @@ def go_to_spot(cla, data):
                     imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("도착한 상태")
-                        now_playing(cla)
 
-                    #
+                        attack_ready = True
+                        result_ = go_quest_ing_(cla)
+                        if result_ == False:
+                            if data == "jadong":
+                                click_pos_2(930, 850, cla)
+                                time.sleep(0.1)
+
+                                guild_jilyung_get(cla, "jadong")
+                                time.sleep(0.1)
+                            if data == "sub":
+                                click_pos_2(800, 150, cla)
+
 
                     else:
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
@@ -984,7 +994,7 @@ def go_to_spot(cla, data):
                             click_pos_2(930, 850, cla)
                             time.sleep(0.1)
 
-                            guild_jilyung(cla, "jadong")
+                            guild_jilyung_get(cla, "jadong")
                             time.sleep(0.1)
                         if data == "sub":
                             click_pos_2(800, 150, cla)

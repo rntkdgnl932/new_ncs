@@ -1508,6 +1508,41 @@ def guild_jilyung_get(cla, data):
         # 아니면 화면에 길드 지령 있는지 확인 후...
         print("guild_jilyung_get")
 
+        guild_in_ = False
+        guild_in_count = 0
+        while guild_in_ is False:
+            guild_in_count += 1
+            if guild_in_count > 5:
+                guild_in_ = True
+
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung_click.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(280, 70, 400, 130, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    guild_in_ = True
+                    guild_jilyung(cla, data)
+                else:
+                    guild_in_ = True
+                    click_pos_2(930, 60, cla)
+
+            else:
+                menu_open(cla)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\menu_guild.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(720, 100, 960, 450, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(1)
+            time.sleep(0.5)
+
 
 
     except Exception as e:
