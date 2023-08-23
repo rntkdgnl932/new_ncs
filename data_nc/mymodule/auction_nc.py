@@ -111,12 +111,13 @@ def jaelyo_out(cla):
                                         print("jaelyos", jaelyo_ready)
                                 ###
                                 for i in range(len(jaelyo_ready)):
+                                    print("1. 거래물건 있나???", jaelyo_ready[i])
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\list\\" + jaelyo_ready[i] + ".PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(55, 115, 270, 930, cla, img, 0.85)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("거래물건 있", jaelyo_ready[i])
+                                        print("2. 거래물건 있다", jaelyo_ready[i])
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                         time.sleep(0.1)
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
