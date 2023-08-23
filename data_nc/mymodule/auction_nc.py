@@ -123,7 +123,8 @@ def jaelyo_out(cla):
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                         time.sleep(0.1)
                                         mouse_move_cpp(450, 350, cla)
-                                    time.sleep(0.2)
+                                        time.sleep(0.2)
+                                    time.sleep(0.5)
 
 
                             else:
