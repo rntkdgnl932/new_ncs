@@ -256,6 +256,18 @@ def jaelyo_in(cla):
                                         print("jaelyos", jaelyo_ready)
                                 ###
                                 for i in range(len(jaelyo_ready)):
+
+                                    for z in range(4):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\maul_chango_3.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        else:
+                                            click_pos_2(20, 200, cla)
+                                        time.sleep(0.5)
+
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\list\\" + jaelyo_ready[i] + ".PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -267,6 +279,7 @@ def jaelyo_in(cla):
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                         time.sleep(0.1)
                                         mouse_move_cpp(450, 350, cla)
+                                        time.sleep(0.5)
 
                                 for i in range(5):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\maul_chango_3.PNG"
