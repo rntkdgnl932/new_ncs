@@ -3244,7 +3244,7 @@ class game_Playing(QThread):
                                                     imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
                                                     if imgs_ is not None and imgs_ != False:
                                                         print("마을이면 물약 ㄱㄱ", imgs_)
-                                                        maul_potion(v_.now_cla)
+                                                        maul_potion_only(v_.now_cla)
                                             if result_schedule_ == "메인퀘스트":
                                                 main_quest_grow(v_.now_cla)
                                                 # 자체에 스케쥴 완료 있음
