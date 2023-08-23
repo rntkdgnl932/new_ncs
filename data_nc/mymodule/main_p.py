@@ -3191,43 +3191,6 @@ class game_Playing(QThread):
                                     # 죽은거 매번 체크
                                     dead_die_before(v_.now_cla)
 
-                                    # 길드지령 있을 경우 선택하기
-                                    # guild_jilyung(v_.now_cla)
-
-                                    # 최초1회만...
-                                    if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":
-                                        # if v_.just_one == False:
-                                        if v_.just_one == True:
-
-                                            v_.just_one = True
-
-                                            # print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
-                                            # v_.just_one = True
-                                            print("마을일경우 물약 등 체크하기")
-                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
-                                            if imgs_ is not None and imgs_ != False:
-                                                print("마을이면 물약 ㄱㄱㅋㅋㅋㅋㅋㅋㅋㅋ", imgs_)
-                                                maul_potion(v_.now_cla)
-                                            else:
-                                                result_maul = maul_check(v_.now_cla)
-                                                if result_maul == True:
-                                                    click_pos_2(230, 90, v_.now_cla)
-                                                    maul_potion(v_.now_cla)
-                                                    time.sleep(1)
-                                        else:
-                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(680, 0, 710, 82, v_.now_cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                print("main_p check : dead_die_2", imgs_)
-                                                dead_die_before(v_.now_cla)
-                                                time.sleep(1)
-                                                maul_potion_only(v_.now_cla)(v_.now_cla)
-                                                time.sleep(1)
 
                                     if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
                                         # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기

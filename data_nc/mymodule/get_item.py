@@ -53,7 +53,14 @@ def get_items(cla):
         print("가방 아이템 정리")
         item_open(cla)
 
-        myQuest_play_add(cla, "각종템받기")
+        result_schedule = myQuest_play_check(v_.now_cla, "check")
+        print("result_schedule", result_schedule)
+        character_id = result_schedule[0][1]
+        result_schedule_ = result_schedule[0][2]
+
+        if result_schedule_ == "각종템받기":
+            myQuest_play_add(cla, result_schedule_)
+
         clean_screen(cla)
         print("오케잇!!!!!!!!")
 

@@ -21,7 +21,7 @@ def go_test():
     import pyautogui
     import cv2
     import os
-    from potion import maul_potion, potion_check
+    from potion import maul_potion, potion_check, available_potion, maul_potion_only
     from action import skill_check_
     from sell_potion import sell_potion_start
     import requests
@@ -46,7 +46,10 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    auction_ready(cla)
+    # result_size = available_potion(cla)
+    # print("result_size", result_size, "hahahah")
+
+    maul_potion(cla)
 
     # result_equal = auction_start(cla)
     # print("result_equal", result_equal)

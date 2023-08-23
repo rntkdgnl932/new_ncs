@@ -72,6 +72,7 @@ def dead_die_before(cla):
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_
         from massenger import line_to_me
         from schedule import myQuest_play_check
+        from potion import maul_potion_only
 
         die_count = 0
 
@@ -187,7 +188,7 @@ def dead_die_before(cla):
                     else:
                         click_pos_2(30, 250, cla)
                     time.sleep(0.5)
-
+                maul_potion_only(cla)
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_3.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1273,8 +1274,9 @@ def bag_open(cla):
                                                         v_.force_sub_quest = True
                                                         mg_ = str(my_money) + "골드 있다. 거지다. ㅠㅠ"
                                                         line_to_me(cla, mg_)
-                                                    else:
-                                                        print("기준골드보다 돈 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
+                                                else:
+                                                    if my_money > onFG + 300000:
+                                                        print("기준골드보다 돈 30만원 더 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
                                                         v_.force_sub_quest = False
                                                 click_pos_2(860, 895, cla)
                                     else:
