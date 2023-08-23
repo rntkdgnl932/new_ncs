@@ -17,6 +17,7 @@ def dungeon_play(cla, result_schedule_):
         from action import menu_open, clean_screen
         from massenger import line_to_me
         from potion import maul_potion
+        from get_item import guild_jilyung_get
 
         print("dungeon")
 
@@ -275,7 +276,7 @@ def dungeon_play(cla, result_schedule_):
                                     # dungeon_clear = True
                                     # click_pos_2(930, 60, cla)
 
-                                        
+                                time.sleep(0.7)
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\already_in.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -426,6 +427,7 @@ def dungeon_play(cla, result_schedule_):
                                     loop_y = True
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.3)
+                            time.sleep(0.4)
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\already_in.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -469,6 +471,8 @@ def dungeon_play(cla, result_schedule_):
                                 if imgs_ is not None and imgs_ != False:
                                     three_second = True
                                     print("던전 진입 완료", dungeon_name)
+                                    if dungeon_[1] != "동굴":
+                                        guild_jilyung_get(cla, "dungeon")
                                 time.sleep(0.5)
 
                         else:
