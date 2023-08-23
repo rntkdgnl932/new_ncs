@@ -3278,7 +3278,7 @@ class game_Playing(QThread):
                                     break
                                 time.sleep(1)
                             if look_nightcrows == False:
-                                why = "나이트 크로우 꺼진 것 같다."
+                                why = "나이트 크로우 꺼진 것 같다.."
                                 print(why)
                                 line_to_me(v_.now_cla, why)
 
