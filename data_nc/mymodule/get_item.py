@@ -16,7 +16,7 @@ def get_items(cla):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
         from action import clean_screen, item_open
-        from schedule import myQuest_play_add
+        from schedule import myQuest_play_add, myQuest_play_check
 
         if cla == "one":
             potion = v_.mypotion_1
