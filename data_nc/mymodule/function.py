@@ -110,6 +110,9 @@ def change_number(many_potion):
         if "T" in potion_:
             potion_ = potion_.replace('T', '7')
             print("!!!!!!!!![  T => 7  ]!!!!!!!!!!!!!", potion_)
+        if "t" in potion_:
+            potion_ = potion_.replace('t', '1')
+            print("!!!!!!!!![  t => 1  ]!!!!!!!!!!!!!", potion_)
         if "S" in potion_:
             potion_ = potion_.replace('S', '5')
             print("!!!!!!!!![  S => 5  ]!!!!!!!!!!!!!", potion_)
