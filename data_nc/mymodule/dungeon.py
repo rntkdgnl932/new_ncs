@@ -16,7 +16,7 @@ def dungeon_play(cla, result_schedule_):
         from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg, drag_pos
         from action import menu_open, clean_screen
         from massenger import line_to_me
-        from potion import maul_potion
+        from potion import maul_potion_only
         from get_item import guild_jilyung_get
 
         print("dungeon")
@@ -308,7 +308,7 @@ def dungeon_play(cla, result_schedule_):
                         else:
 
                             if dungeon_name == "dongool_1":
-                                maul_potion(v_.now_cla)
+                                maul_potion_only(v_.now_cla)
 
                             menu_open(cla)
                             click_pos_2(840, 200, cla)
@@ -504,7 +504,7 @@ def now_playing(cla, dun_, nowstep):
         import numpy as np
         import random
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
-        from potion import potion_check, maul_potion
+        from potion import potion_check, maul_potion_only
         from action import clean_screen, out_check, bag_open, skill_check_, in_maul_check, dead_die
         from get_item import guild_jilyung
         from schedule import myQuest_play_add
@@ -725,7 +725,7 @@ def now_playing(cla, dun_, nowstep):
                                     if result_in_maul == True:
                                         maul_che_ = True
                                         in_ = True
-                                        maul_potion(cla)
+                                        maul_potion_only(cla)
                                     else:
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
@@ -1706,7 +1706,7 @@ def drag_maul_potion_(cla, dun_):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
-        from potion import maul_potion
+        from potion import maul_potion_only
         from action import in_maul_check, out_check, clean_screen
 
         print("drag_potion")
@@ -1732,7 +1732,7 @@ def drag_maul_potion_(cla, dun_):
             result_maul = in_maul_check(cla)
             if result_maul == True:
                 go_maul_= True
-                maul_potion(cla)
+                maul_potion_only(cla)
 
 
             else:
@@ -1752,7 +1752,7 @@ def drag_maul_potion_(cla, dun_):
                         go_maul_ = True
                         print("동굴 절전모드 포션 구하러 가는 길")
                         print(dun_, imgs_)
-                        maul_potion(cla)
+                        maul_potion_only(cla)
                     else:
                         result_out = out_check(cla)
                         if result_out == True:
