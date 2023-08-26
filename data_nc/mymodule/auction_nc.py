@@ -602,7 +602,21 @@ def auction_open(cla):
                                             time.sleep(0.5)
                                         else:
                                             print("10원 미만이다 -> ", price_)
-
+                                    for z in range(5):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\sell_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(430, 330, 530, 380, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\sell_exit.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(720, 320, 780, 380, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        else:
+                                            break
+                                        time.sleep(0.5)
                 else:
                     full_path ="c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\sell_click.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
