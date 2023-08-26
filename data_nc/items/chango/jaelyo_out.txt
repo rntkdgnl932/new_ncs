@@ -17,6 +17,9 @@ mangja_secretkey
 morion
 nightcrow_bangpae
 nightcrow_bisoo
+nightcrow_jangsicmaedb
+nightcrow_rojario
+nightcrow_shyad
 papiloos
 sancona
 segong_artifact

@@ -1296,10 +1296,12 @@ def available_potion(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
+    from action import clean_screen
     try:
         print("available_potion")
 
-
+        clean_screen(cla)
+        time.sleep(1)
 
         for i in range(10):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\exit.PNG"
