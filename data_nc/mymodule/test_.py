@@ -33,7 +33,7 @@ def go_test():
     from schedule import myQuest_play_check
     from auction_nc import auction_start, jaelyo_out, auction_ready, auction_start2
 
-    cla = "one"
+    cla = "three"
 
     # cla = "two"
 
@@ -49,7 +49,25 @@ def go_test():
     # result_size = available_potion(cla)
     # print("result_size", result_size, "hahahah")
 
-    maul_potion(cla)
+    is_potion = False
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_potion.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+    if imgs_ is not None and imgs_ != False:
+        print("화면에 소형 물약 존재한다", imgs_)
+        is_potion = True
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_big_potion_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+    if imgs_ is not None and imgs_ != False:
+        print("화면에 대형 물약 존재한다", imgs_)
+        is_potion = True
+
+    if is_potion == False:
+        print("화면에 물약 없다")
 
     # result_equal = auction_start(cla)
     # print("result_equal", result_equal)
