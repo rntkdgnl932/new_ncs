@@ -657,6 +657,15 @@ def auction_start(cla):
     import cv2
     try:
 
+        if cla == "one":
+            x_plus = 0
+        elif cla == "two":
+            x_plus = 960
+        elif cla == "three":
+            x_plus = 960 * 2
+        elif cla == "four":
+            x_plus = 960 * 3
+
         # 결과값
         sell_ready_now_low = ""
         sell_ready_last = ""
@@ -757,15 +766,15 @@ def auction_start(cla):
             if x1_plus == True:
                 if k != 0:
                     if x1_reg_point != 0 or x1_reg_1000 != 0:
-                        if 375 < x1_reg_point < 380 or 375 < x1_reg_1000 < 380:
+                        if 375 + x_plus < x1_reg_point < 380 + x_plus or 375 + x_plus < x1_reg_1000 < 380 + x_plus:
                             if k > 0:
                                 x_1 = x_1 + 3
                                 x_2 = x_2 + 3
-                        if 384 < x1_reg_point < 390 or 384 < x1_reg_1000 < 390:
+                        if 384 + x_plus < x1_reg_point < 390 + x_plus or 384 + x_plus < x1_reg_1000 < 390 + x_plus:
                             if k > 1:
                                 x_1 = x_1 + 3
                                 x_2 = x_2 + 3
-                        if 390 < x1_reg_point < 400 or 390 < x1_reg_1000 < 400:
+                        if 390 + x_plus < x1_reg_point < 400 + x_plus or 390 + x_plus < x1_reg_1000 < 400 + x_plus:
                             if k > 2:
                                 x_1 = x_1 + 3
                                 x_2 = x_2 + 3
@@ -797,13 +806,13 @@ def auction_start(cla):
                             # 두번째 소수점 x = 387, 386
                             # 세번째 소수점 x = 395, 394
                             if k == 1:
-                                if x1_reg_point != 0 and (375 < x1_reg_point < 380):
+                                if x1_reg_point != 0 and (375 + x_plus < x1_reg_point < 380 + x_plus):
                                     sell_ready_now_low += "."
                             if k == 2:
-                                if x1_reg_point != 0 and (384 < x1_reg_point < 390):
+                                if x1_reg_point != 0 and (384 + x_plus < x1_reg_point < 390 + x_plus):
                                     sell_ready_now_low += "."
                             if k == 3:
-                                if x1_reg_point != 0 and (390 < x1_reg_point < 400):
+                                if x1_reg_point != 0 and (390 + x_plus < x1_reg_point < 400 + x_plus):
                                     sell_ready_now_low += "."
                             sell_ready_now_low += str(i)
                         else:
@@ -816,15 +825,15 @@ def auction_start(cla):
             if x2_plus == True:
                 if k != 0:
                     if x2_reg_point != 0 or x2_reg_1000 != 0:
-                        if 375 < x2_reg_point < 380 or 375 < x2_reg_1000 < 380:
+                        if 375 + x_plus < x2_reg_point < 380 + x_plus or 375 + x_plus < x2_reg_1000 < 380 + x_plus:
                             if k > 0:
                                 x_3 = x_3 + 3
                                 x_4 = x_4 + 3
-                        if 384 < x2_reg_point < 390 or 384 < x2_reg_1000 < 390:
+                        if 384 + x_plus < x2_reg_point < 390 + x_plus or 384 + x_plus < x2_reg_1000 < 390 + x_plus:
                             if k > 1:
                                 x_3 = x_3 + 3
                                 x_4 = x_4 + 3
-                        if 390 < x2_reg_point < 400 or 390 < x2_reg_1000 < 400:
+                        if 390 + x_plus < x2_reg_point < 400 + x_plus or 390 + x_plus < x2_reg_1000 < 400 + x_plus:
                             if k > 2:
                                 x_3 = x_3 + 3
                                 x_4 = x_4 + 3
@@ -855,13 +864,13 @@ def auction_start(cla):
                             # 두번째 소수점 x = 387, 386
                             # 세번째 소수점 x = 395, 394
                             if k == 1:
-                                if x2_reg_point != 0 and (375 < x2_reg_point < 380):
+                                if x2_reg_point != 0 and (375 + x_plus < x2_reg_point < 380 + x_plus):
                                     sell_ready_last += "."
                             if k == 2:
-                                if x2_reg_point != 0 and (384 < x2_reg_point < 390):
+                                if x2_reg_point != 0 and (384 + x_plus < x2_reg_point < 390 + x_plus):
                                     sell_ready_last += "."
                             if k == 3:
-                                if x2_reg_point != 0 and (390 < x2_reg_point < 400):
+                                if x2_reg_point != 0 and (390 + x_plus < x2_reg_point < 400 + x_plus):
                                     sell_ready_last += "."
                             sell_ready_last += str(i)
                         else:
