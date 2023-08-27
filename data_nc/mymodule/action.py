@@ -1103,7 +1103,7 @@ def bag_full_check(cla):
         import numpy as np
         import pyautogui
         from function import imgs_set_, click_pos_2
-        from potion import maul_potion
+        from potion import maul_potion_only
         from realtime import boonhae_
         from massenger import line_to_me
 
@@ -1128,7 +1128,7 @@ def bag_full_check(cla):
                     print("point : impossibletoattack", imgs_)
                     line_to_me(cla, "가방 꽉 찼다 확인해줘라")
                     boonhae_(cla)
-                    maul_potion(cla)
+                    maul_potion_only(cla)
 
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
             img_array = np.fromfile(full_path, np.uint8)

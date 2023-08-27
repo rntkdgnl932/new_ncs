@@ -1170,7 +1170,6 @@ def juljun_attack(cla, dun_, nowstep):
                                             v_.potion_count += 1
                                             if v_.potion_count > 3:
                                                 v_.potion_count = 0
-                                                # maul_potion(cla)
                                                 drag_maul_potion_(cla, dun_)
                                                 continue_juljun = True
 
@@ -1203,7 +1202,6 @@ def juljun_attack(cla, dun_, nowstep):
                                                 v_.potion_count += 1
                                                 if v_.potion_count > 5:
                                                     v_.potion_count = 0
-                                                    # maul_potion(cla)
                                                     drag_maul_potion_(cla, dun_)
                                                     continue_juljun = True
                                             else:
@@ -1235,7 +1233,6 @@ def juljun_attack(cla, dun_, nowstep):
                                                     v_.potion_count += 1
                                                     if v_.potion_count > 5:
                                                         v_.potion_count = 0
-                                                        # maul_potion(cla)
                                                         drag_maul_potion_(cla, dun_)
                                                         continue_juljun = True
                                                 else:
@@ -1287,7 +1284,6 @@ def juljun_attack(cla, dun_, nowstep):
                                                 time.sleep(0.1)
                                             if potion_have == False:
                                                 print("포션 구하러 ㄱㄱ")
-                                                # maul_potion(cla)
                                                 drag_maul_potion_(cla, dun_)
                                                 continue_juljun = True
                         elif what_potion_ == 'middle':
@@ -1328,7 +1324,6 @@ def juljun_attack(cla, dun_, nowstep):
                                             v_.potion_count += 1
                                             if v_.potion_count > 3:
                                                 v_.potion_count = 0
-                                                # maul_potion(cla)
                                                 drag_maul_potion_(cla, dun_)
                                                 continue_juljun = True
 
@@ -1361,7 +1356,6 @@ def juljun_attack(cla, dun_, nowstep):
                                                 v_.potion_count += 1
                                                 if v_.potion_count > 5:
                                                     v_.potion_count = 0
-                                                    # maul_potion(cla)
                                                     drag_maul_potion_(cla, dun_)
                                                     continue_juljun = True
                                             else:
@@ -1394,7 +1388,6 @@ def juljun_attack(cla, dun_, nowstep):
                                                     v_.potion_count += 1
                                                     if v_.potion_count > 5:
                                                         v_.potion_count = 0
-                                                        # maul_potion(cla)
                                                         drag_maul_potion_(cla, dun_)
                                                         continue_juljun = True
                                                 else:
@@ -1439,7 +1432,6 @@ def juljun_attack(cla, dun_, nowstep):
                                             time.sleep(0.1)
                                         if potion_have == False:
                                             print("포션 구하러 ㄱㄱ")
-                                            # maul_potion(cla)
                                             drag_maul_potion_(cla, dun_)
                                             continue_juljun = True
 
