@@ -33,7 +33,7 @@ def go_test():
     from schedule import myQuest_play_check
     from auction_nc import auction_start, jaelyo_out, auction_ready, auction_start2
 
-    cla = "three"
+    cla = "one"
 
     # cla = "two"
 
@@ -41,33 +41,30 @@ def go_test():
         plus = 0
     if cla == 'two':
         plus = 960
+    if cla == 'three':
+        plus = 960 + 960
+    if cla == 'four':
+        plus = 960 + 960 + 960
 
     print("여긴 테스트")
 
     v_.what_cla = "one클라"
 
-    # result_size = available_potion(cla)
-    # print("result_size", result_size, "hahahah")
-
-    is_potion = False
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_potion.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\bosang_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+    imgs_ = imgs_set_(730, 970, 830, 1030, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("화면에 소형 물약 존재한다", imgs_)
-        is_potion = True
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_big_potion_2.PNG"
+        print("dfsd", imgs_)
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\already_complete.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+    imgs_ = imgs_set_(700, 970, 750, 1030, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("화면에 대형 물약 존재한다", imgs_)
-        is_potion = True
+        print("already_complete", imgs_)
 
-    if is_potion == False:
-        print("화면에 물약 없다")
+
 
     # result_equal = auction_start(cla)
     # print("result_equal", result_equal)

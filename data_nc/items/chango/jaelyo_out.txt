@@ -20,6 +20,7 @@ nightcrow_bisoo
 nightcrow_jangsicmaedb
 nightcrow_rojario
 nightcrow_shyad
+nightcrow_wangab
 papiloos
 sancona
 segong_artifact

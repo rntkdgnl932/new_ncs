@@ -996,15 +996,14 @@ def dongool_move(cla, nowstep):
         print(e)
 
 def juljun_attack(cla, dun_, nowstep):
+    import cv2
+    import numpy as np
+    from datetime import date, timedelta, datetime
+    from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos, change_number
+    from massenger import line_to_me
+    from action import in_number_check, bag_open, maul_check, in_maul_check, clean_screen, dead_die
+    from schedule import myQuest_play_add
     try:
-        import cv2
-        import numpy as np
-        from datetime import date, timedelta, datetime
-        from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos, change_number
-        from massenger import line_to_me
-        from action import in_number_check, bag_open, maul_check, in_maul_check, clean_screen, dead_die
-        from schedule import myQuest_play_add
-
         continue_juljun = False
         while continue_juljun is False:
 
@@ -1677,15 +1676,6 @@ def juljun_attack(cla, dun_, nowstep):
 
 
 
-
-        # potion_ = text_check_get(515, 1007, 542, 1022, cla)
-        # print("전체4자리 potion_2 =>", potion_)
-        #
-        # potion_ = text_check_get(515, 1007, 536, 1022, cla)
-        # print("앞3자리 potion_ =>", potion_)
-        #
-        # potion_ = text_check_get(520, 1007, 542, 1022, cla)
-        # print("뒷3자리 potion_ =>", potion_)
 
 
 

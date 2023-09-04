@@ -898,7 +898,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트_1', '일일퀘스트_2', '일일퀘스트_3', '각종템받기', '거래소등록', '격전지사냥']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트_1', '일일퀘스트_2', '일일퀘스트_3', '일일퀘스트_4', '각종템받기', '거래소등록', '격전지사냥']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3225,6 +3225,12 @@ class game_Playing(QThread):
                                             if dungeon_[0] == "사냥":
                                                 jadong_play(v_.now_cla, result_schedule_)
 
+                                            if dungeon_[0] == "일일퀘스트":
+
+                                                daily_step = dungeon_[1]
+                                                select_daily_quest_grow(v_.now_cla, character_id, daily_step)
+                                                # 자체에 스케쥴 완료 있음
+
                                         else:
                                             if result_schedule_ == "튜토육성":
                                                 tuto_grow(v_.now_cla)
@@ -3251,11 +3257,7 @@ class game_Playing(QThread):
                                             if result_schedule_ == "서브퀘스트":
                                                 sub_quest_grow(v_.now_cla)
                                                 # 자체에 스케쥴 완료 있음
-                                            if result_schedule_ == "일일퀘스트":
 
-                                                daily_step = '1'
-                                                select_daily_quest_grow(v_.now_cla, character_id, daily_step)
-                                                # 자체에 스케쥴 완료 있음
                                             if result_schedule_ == "격전지사냥":
                                                 gyucjunji_play(v_.now_cla)
                                                 # 자체에 스케쥴 완료 있음
