@@ -497,49 +497,51 @@ class SecondTab(QWidget):
 
     def win_left(self):
         print("왼쪽으로 정렬 합니다.")
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 0, 960 * 4, 1080, "one", img, 0.8)
-        # imgs_ = pyautogui.locateCenterOnScreen(img, confidence=0.7)
+        # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(0, 0, 960 * 4, 1080, "one", img, 0.8)
+        # # imgs_ = pyautogui.locateCenterOnScreen(img, confidence=0.7)
+        # time.sleep(1)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("왼쪽 nightcrow 보여", imgs_)
+        #
+        #     click_pos_reg(imgs_.x + 100, imgs_.y, "one")
         time.sleep(1)
-        if imgs_ is not None and imgs_ != False:
-            print("왼쪽 nightcrow 보여", imgs_)
-
-            click_pos_reg(imgs_.x + 100, imgs_.y, "one")
-            pyautogui.keyDown('win')
-            pyautogui.press('left')
-            pyautogui.keyUp('win')
-            time.sleep(0.3)
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 0, 960 * 4, 1080, "one", img, 0.8)
-            time.sleep(0.3)
-            if imgs_ is not None:
-                click_pos_reg(imgs_.x + 100, imgs_.y, "one")
+        pyautogui.keyDown('win')
+        pyautogui.press('left')
+        pyautogui.keyUp('win')
+        time.sleep(0.3)
+            # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
+            # img_array = np.fromfile(full_path, np.uint8)
+            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            # imgs_ = imgs_set_(0, 0, 960 * 4, 1080, "one", img, 0.8)
+            # time.sleep(0.3)
+            # if imgs_ is not None:
+            #     click_pos_reg(imgs_.x + 100, imgs_.y, "one")
 
     def win_right(self):
         print("오른쪽으로 정렬 합니다.")
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(960, 0, 960 * 4, 1080, "one", img, 0.8)
-        time.sleep(0.3)
-        if imgs_ is not None and imgs_ != False:
-            print("오른쪽 nightcrow 보여", imgs_)
+        # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(960, 0, 960 * 4, 1080, "one", img, 0.8)
+        # time.sleep(0.3)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("오른쪽 nightcrow 보여", imgs_)
 
-            click_pos_reg(imgs_.x + 100, imgs_.y, "one")
-            pyautogui.keyDown('win')
-            pyautogui.press('right')
-            pyautogui.keyUp('win')
-            time.sleep(0.3)
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(960, 0, 960 * 4, 1080, "one", img, 0.8)
-            if imgs_ is not None:
-                click_pos_reg(imgs_.x + 100, imgs_.y, "one")
+            # click_pos_reg(imgs_.x + 100, imgs_.y, "one")
+        time.sleep(1)
+        pyautogui.keyDown('win')
+        pyautogui.press('right')
+        pyautogui.keyUp('win')
+        time.sleep(0.3)
+        # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(960, 0, 960 * 4, 1080, "one", img, 0.8)
+        # if imgs_ is not None:
+        #     click_pos_reg(imgs_.x + 100, imgs_.y, "one")
 
     def let_is_login_1(self):
         print("로그인1 버튼 입니다.")
