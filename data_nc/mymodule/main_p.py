@@ -500,7 +500,7 @@ class SecondTab(QWidget):
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 0, 960, 1080, "one", img, 0.8)
+        imgs_ = imgs_set_(0, 0, 960 * 4, 1080, "one", img, 0.8)
         # imgs_ = pyautogui.locateCenterOnScreen(img, confidence=0.7)
         time.sleep(1)
         if imgs_ is not None and imgs_ != False:
@@ -514,7 +514,7 @@ class SecondTab(QWidget):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 0, 960, 1080, "one", img, 0.8)
+            imgs_ = imgs_set_(0, 0, 960 * 4, 1080, "one", img, 0.8)
             time.sleep(0.3)
             if imgs_ is not None:
                 click_pos_reg(imgs_.x + 100, imgs_.y, "one")
@@ -524,7 +524,7 @@ class SecondTab(QWidget):
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(960, 0, 1920, 1080, "one", img, 0.8)
+        imgs_ = imgs_set_(960, 0, 960 * 4, 1080, "one", img, 0.8)
         time.sleep(0.3)
         if imgs_ is not None and imgs_ != False:
             print("오른쪽 nightcrow 보여", imgs_)
@@ -537,7 +537,7 @@ class SecondTab(QWidget):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(960, 0, 1920, 1080, "one", img, 0.8)
+            imgs_ = imgs_set_(960, 0, 960 * 4, 1080, "one", img, 0.8)
             if imgs_ is not None:
                 click_pos_reg(imgs_.x + 100, imgs_.y, "one")
 
