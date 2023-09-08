@@ -379,6 +379,8 @@ def click_pos_2(pos_1, pos_2, cla):
         if cla == 'four':
             coordinate = 960 + 960 + 960
 
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+
         if v_.now_arduino == "on":
             arduino_port = v_.COM_
             baudrate = v_.speed_
@@ -456,7 +458,7 @@ def click_pos_2(pos_1, pos_2, cla):
             ser.close()
         else:
 
-            pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
+            # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
             # time.sleep(0.2)
             pyautogui.click(pos_1 + random_int() + coordinate, pos_2 + random_int())
             time.sleep(0.5)
@@ -479,6 +481,8 @@ def click_pos_reg(pos_1, pos_2, cla):
             coordinate = 0
         if cla == 'four':
             coordinate = 0
+
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
             arduino_port = v_.COM_
@@ -542,7 +546,7 @@ def click_pos_reg(pos_1, pos_2, cla):
             ser.close()
         else:
 
-            pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
+            # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
 
             pyautogui.click(pos_1 + random_int() + coordinate, pos_2 + random_int())
             time.sleep(0.5)
@@ -568,6 +572,8 @@ def mouse_move_cpp(pos_1, pos_2, cla):
             coordinate = 960 + 960
         if cla == 'four':
             coordinate = 960 + 960 + 960
+
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
 
@@ -735,6 +741,7 @@ def drag_pos_reg(pos_1, pos_2, pos_3, pos_4, cla):
             coordinate = 0
         if cla == 'four':
             coordinate = 0
+
         if v_.now_arduino == "on":
             cla = "one"
             # 마우스 이동

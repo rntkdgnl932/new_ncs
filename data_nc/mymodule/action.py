@@ -2138,13 +2138,14 @@ def skill_check_(cla):
         print(e)
 
 def character_change(cla, character_id):
+    from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+    from massenger import line_to_me
+    import numpy as np
+    import cv2
+    import os
     try:
 
-        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
-        from massenger import line_to_me
-        import numpy as np
-        import cv2
-        import os
+
 
         print("캐릭터 체인지")
 
