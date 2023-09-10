@@ -14,7 +14,7 @@ def gyucjunji_play(cla, lv):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg, drag_pos
-        from action import menu_open, clean_screen
+        from action import menu_open, clean_screen, dead_die_before
         from massenger import line_to_me
         from potion import maul_potion
         from schedule import myQuest_play_add
@@ -29,7 +29,7 @@ def gyucjunji_play(cla, lv):
             time.sleep(0.1)
         else:
 
-            print("격전지 시작")
+            print("격전지 시작 : ", v_.gyucjunji_dead_count)
 
             in_dungeon__ = False
 
@@ -56,6 +56,16 @@ def gyucjunji_play(cla, lv):
                     imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+                # 죽었을때
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 0, 710, 82, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    dead_die_before(cla)
+                    time.sleep(0.5)
 
                 # 격전지 체크
 
@@ -215,7 +225,7 @@ def now_playing(cla, lv):
             myQuest_play_add(cla, data)
             time.sleep(0.1)
         else:
-
+            print("격전지에서 죽은 횟수 : ", v_.gyucjunji_dead_count)
             in_ = False
             in__count = 0
             while in_ is False:
