@@ -110,7 +110,7 @@ def gyucjunji_in(cla):
     import numpy as np
     import cv2
     from function import click_pos_reg, imgs_set_, click_pos_2
-    from action import menu_open
+    from action import menu_open, dead_die_before
     try:
         in_gyuc_ = False
         in_gyuc_count = 0
@@ -123,8 +123,22 @@ def gyucjunji_in(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(720, 105, 955, 500, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("menu_gyucjunji", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+                # 죽었을때
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 0, 710, 82, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    dead_die_before(cla)
+                    time.sleep(0.5)
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\menu_gyucjunji.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(720, 105, 955, 500, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("menu_gyucjunji", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 cancle_ = False
                 for i in range(10):
@@ -202,6 +216,14 @@ def gyucjunji_in(cla):
 
             else:
                 menu_open(cla)
+                # 죽었을때
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 0, 710, 82, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    dead_die_before(cla)
+                    time.sleep(0.5)
             time.sleep(0.5)
     except Exception as e:
         print(e)
