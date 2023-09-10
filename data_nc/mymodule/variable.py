@@ -84,6 +84,11 @@ just_one = False
 
 # 얼음 동굴
 who_attack_ = False
+dongool_dead_count = 0
+
+# 격전지
+gyucjunji_setting = False
+gyucjunji_dead_count = 0
 
 # 일일퀘스트
 sub_quest_count = 0
@@ -92,8 +97,6 @@ sub_quest_count = 0
 bag_open_count = 0
 bag_full_open_count = 0
 
-# 동굴 죽음 카운터
-dongool_dead_count = 0
 
 # 마우스 셋팅 관련
 mouse_speed = 20

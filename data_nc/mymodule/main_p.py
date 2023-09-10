@@ -900,7 +900,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트_1', '일일퀘스트_2', '일일퀘스트_3', '일일퀘스트_4', '각종템받기', '거래소등록', '격전지사냥']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트_1', '일일퀘스트_2', '일일퀘스트_3', '일일퀘스트_4', '각종템받기', '거래소등록', '격전지_40', '격전지_45', '격전지_50']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3182,7 +3182,11 @@ class game_Playing(QThread):
 
 
                                     # 우측 상단 퀘스트 보이게 하기
-                                    quest_look(v_.now_cla)
+                                    if "_" in result_schedule_:
+                                        dungeon_ = result_schedule_.split("_")
+
+                                        if dungeon_[0] != "격전지":
+                                            quest_look(v_.now_cla)
 
                                     # 먼저 가방 꽉 찼는지 확인부터...
                                     bag_full_check(v_.now_cla)
@@ -3226,6 +3230,9 @@ class game_Playing(QThread):
 
                                             if dungeon_[0] == "사냥":
                                                 jadong_play(v_.now_cla, result_schedule_)
+
+                                            if dungeon_[0] == "격전지":
+                                                gyucjunji_play(v_.now_cla, dungeon_[1])
 
                                             if dungeon_[0] == "일일퀘스트":
 

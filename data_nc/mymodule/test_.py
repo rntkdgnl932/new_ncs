@@ -32,6 +32,7 @@ def go_test():
     from one_event import daily_one
     from schedule import myQuest_play_check
     from auction_nc import auction_start, jaelyo_out, auction_ready, auction_start2
+    from gyucjunji import scan_jungye_setting
 
     cla = "one"
 
@@ -50,19 +51,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\bosang_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(730, 970, 830, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("dfsd", imgs_)
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\already_complete.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(700, 970, 750, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("already_complete", imgs_)
+    scan_jungye_setting(cla)
 
 
 
