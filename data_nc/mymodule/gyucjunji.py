@@ -437,6 +437,18 @@ def now_playing(cla, lv):
                             print("가방 닫자")
                             click_pos_2(935, 100, cla)
 
+                        # 정예몹 찾아서 공격하기기
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\devulllll.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(600, 80, 910, 240, cla, img, 0.75)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            mouse_move_cpp(480, 480, cla)
+                            time.sleep(0.1)
+
+                        # 포션 체크
                         potion_check(cla)
 
                         # 정예몹 찾아서 공격하기기
