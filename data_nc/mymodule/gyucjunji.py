@@ -448,7 +448,7 @@ def now_playing(cla, lv):
                             mouse_move_cpp(480, 480, cla)
                             time.sleep(0.1)
 
-                        # 포션 체크
+                        # 포션 체크하기
                         potion_check(cla)
 
                         # 정예몹 찾아서 공격하기기
