@@ -151,6 +151,8 @@ def gyucjunji_in(cla):
                         cancle_ = True
                         break
                     time.sleep(0.3)
+
+
                 is_walking = False
 
 
@@ -158,7 +160,7 @@ def gyucjunji_in(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\cancle.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                    imgs_ = imgs_set_(370, 600, 460, 660, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         in_gyuc_ = True
@@ -196,15 +198,29 @@ def gyucjunji_in(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_2(480, 730, cla)
                                 time.sleep(1)
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\already_gyucjunji.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 70, 500, 120, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("already gyucjunji")
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\cancle.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.5)
+
 
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\toohab_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                            imgs_ = imgs_set_(40, 60, 120, 120, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 arrive = True
                                 in_gyuc_ = True
-                                click_pos_2(230, 90, cla)
+                                # click_pos_2(230, 90, cla)
                                 time.sleep(0.2)
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\gyuc_jabhwa2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -213,6 +229,7 @@ def gyucjunji_in(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_2(230, 90, cla)
                                 time.sleep(0.2)
+                            time.sleep(1)
 
             else:
                 menu_open(cla)
@@ -399,11 +416,15 @@ def now_playing(cla, lv):
                                                             time.sleep(0.2)
                                                             click_pos_2(925, 850, cla)
                                                             time.sleep(0.2)
+                                                        else:
+                                                            click_pos_2(925, 850, cla)
+                                                            time.sleep(0.2)
 
 
                                     else:
-                                        drag_pos(150, 880, 600, 355, cla)
-                                        time.sleep(0.2)
+                                        for i in range(2):
+                                            drag_pos(150, 880, 600, 355, cla)
+                                            time.sleep(0.2)
                                         if int(lv) == 40:
                                             click_pos_2(415, 350, cla)
                                             time.sleep(0.1)
@@ -416,6 +437,15 @@ def now_playing(cla, lv):
                                     time.sleep(0.2)
                                 else:
                                     click_pos_2(110, 160, cla)
+                                    time.sleep(0.1)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\kiidebat.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(777, 77, 865, 115, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        time.sleep(0.5)
                                 time.sleep(0.2)
                         else:
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\gyuc_jabhwa.PNG"

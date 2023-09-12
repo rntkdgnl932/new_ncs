@@ -190,74 +190,93 @@ def potion_check(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("화면에 물약 존재한다", imgs_)
                 else:
-                    print("화면에 물약 존재하지 않는다", v_.potion_count)
-                    v_.potion_count += 1
-                    print("not have potoin?", v_.potion_count)
-                    if v_.potion_count > 2:
-                        v_.potion_count = 0
-
-                        bag_open(cla)
-                        time.sleep(0.2)
-
-                        # 물약 찾기
-                        potion_have = False
-                        for i in range(10):
-                            click_pos_2(935, 265, cla)
-                            time.sleep(0.1)
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_in_bag.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(670, 110, 900, 900, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                potion_have = True
-                                print("가방에 물약 존재한다", imgs_)
-                                break
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\big_potion_in_bag2.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(670, 110, 900, 900, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                potion_have = True
-                                print("가방에 물약 존재한다", imgs_)
-                                break
-                            time.sleep(0.1)
-                        if potion_have == False:
-                            maul_potion(cla)
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\big_potion_ready.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+                    if imgs_ is not None and imgs_ != False:
+                        print("화면에 big 물약 존재한다", imgs_)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\big_potion_eating.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+                        if imgs_ is not None and imgs_ != False:
+                            print("화면에 big(1) 물약 존재한다", imgs_)
                         else:
-                            result_schedule = myQuest_play_check(v_.now_cla, "check")
-                            print("물약 체크중 스케쥴 확인하기", result_schedule)
-                            result_schedule_ = result_schedule[0][2]
 
-                            dongool_check = "none"
+                            print("화면에 물약 존재하지 않는다", v_.potion_count)
+                            v_.potion_count += 1
+                            print("not have potoin?", v_.potion_count)
+                            if v_.potion_count > 2:
+                                v_.potion_count = 0
 
-                            if "_" in result_schedule_:
-                                dungeon_ = result_schedule_.split("_")
-                                if dungeon_[1] == "동굴":
-                                    dongool_check = "dongool"
-                            if dongool_check == "dongool" or result_schedule_ == "격전지사냥":
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("메뉴 닫자", imgs_)
-                                    click_pos_2(930, 60, cla)
+                                bag_open(cla)
+                                time.sleep(0.2)
+
+                                # 물약 찾기
+                                potion_have = False
+                                for i in range(10):
+                                    click_pos_2(935, 265, cla)
                                     time.sleep(0.1)
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("가방 닫자")
-                                    click_pos_2(935, 100, cla)
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_in_bag.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(670, 110, 900, 900, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        potion_have = True
+                                        print("가방에 물약 존재한다", imgs_)
+                                        break
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\big_potion_in_bag2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(670, 110, 900, 900, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        potion_have = True
+                                        print("가방에 물약 존재한다", imgs_)
+                                        break
                                     time.sleep(0.1)
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(400, 120, 600, 160, v_.now_cla, img, 0.8)
-                                if imgs_ is None:
-                                    click_pos_2(25, 970, cla)
-                                    time.sleep(0.5)
+                                if potion_have == False:
+                                    maul_potion(cla)
+                                else:
+                                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                                    print("물약 체크중 스케쥴 확인하기", result_schedule)
+                                    result_schedule_ = result_schedule[0][2]
+
+                                    dongool_check = "none"
+
+                                    if "_" in result_schedule_:
+                                        dungeon_ = result_schedule_.split("_")
+                                        if dungeon_[1] == "동굴":
+                                            dongool_check = "dongool"
+                                    if dongool_check == "dongool" or result_schedule_ == "격전지사냥":
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("메뉴 닫자", imgs_)
+                                            click_pos_2(930, 60, cla)
+                                            time.sleep(0.1)
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("가방 닫자")
+                                            click_pos_2(935, 100, cla)
+                                            time.sleep(0.1)
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(400, 120, 600, 160, v_.now_cla, img, 0.8)
+                                        if imgs_ is None:
+                                            click_pos_2(25, 970, cla)
+                                            time.sleep(0.5)
+
+
+
+
 
 
         dead_die_before(cla)

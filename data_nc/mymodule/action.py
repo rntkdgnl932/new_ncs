@@ -22,6 +22,8 @@ def dead_die(cla):
         from potion import maul_potion_only
 
         dead_ = False
+        x_reg = 0
+        y_reg = 0
 
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -29,6 +31,8 @@ def dead_die(cla):
         imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             dead_ = True
+            x_reg = imgs_.x
+            y_reg = imgs_.y
 
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -36,19 +40,26 @@ def dead_die(cla):
         imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             dead_ = True
+            x_reg = imgs_.x
+            y_reg = imgs_.y
 
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(680, 0, 710, 82, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            dead_ = True
+
 
         if dead_ == True:
 
             die_count += 1
             print("dead_die", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
+            if x_reg != 0:
+                click_pos_reg(x_reg, y_reg, cla)
+
+                for i in range(30):
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        break
+                    else:
+                        clean_screen(cla)
+                    time.sleep(0.5)
+
             time.sleep(1)
             maul_potion_only(cla)
             if die_count > 4:
@@ -72,7 +83,14 @@ def dead_die(cla):
                     else:
                         dead_die_before(cla)
                     time.sleep(0.5)
-
+        else:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 0, 710, 82, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                dead_ = True
+                dead_die_before(cla)
 
 
         return dead_

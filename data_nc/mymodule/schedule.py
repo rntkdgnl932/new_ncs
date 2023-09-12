@@ -184,6 +184,9 @@ def myQuest_play_check(cla, data):
                 v_.one_cla_get_event = False
                 v_.two_cla_get_event = False
 
+                v_.gyucjunji_dead_count = 0
+                v_.dongool_dead_count = 0
+
 
         else:
             with open(file_path2, "w", encoding='utf-8-sig') as file:
@@ -635,6 +638,9 @@ def myQuest_play_add(cla, data):
             v_.two_cla_ing = 'check'
             v_.one_cla_get_event = False
             v_.two_cla_get_event = False
+
+            v_.dongool_dead_count = 0
+            v_.gyucjunji_dead_count = 0
             # myQuest_number_check(cla, "new")
             # change_ = 1
             # characterChange(change_, cla)
