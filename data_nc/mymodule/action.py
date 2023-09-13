@@ -1523,11 +1523,12 @@ def menu_open(cla):
         print(e)
 
 def clean_screen(cla):
+    import cv2
+    import numpy as np
+    from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
+    from schedule import myQuest_play_add, myQuest_play_check
     try:
-        import cv2
-        import numpy as np
-        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
-        from schedule import myQuest_play_add, myQuest_play_check
+
 
         print("<< clean_screen >>")
 
@@ -1562,6 +1563,8 @@ def clean_screen(cla):
         else:
             print("none?", v_.now_ing_schedule)
 
+        # 팝업창 끄기
+        # _stop_please(cla)
 
         # 절전 해제
 

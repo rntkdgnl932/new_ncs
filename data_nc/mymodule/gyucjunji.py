@@ -720,7 +720,6 @@ def scan_jungye_setting(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(860, 225, 910, 280, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                scan_ = True
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.2)
 
@@ -730,7 +729,16 @@ def scan_jungye_setting(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(780, 80, 830, 130, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
+                        scan_ = True
                         break
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\scan_setting.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(860, 225, 910, 280, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
                     time.sleep(0.3)
 
                 # 주변 대상 탐색
@@ -898,6 +906,9 @@ def scan_jungye_setting(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     time.sleep(0.2)
+
+
+
         for i in range(5):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\setting_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
