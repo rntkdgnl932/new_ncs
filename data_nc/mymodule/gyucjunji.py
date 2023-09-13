@@ -1093,10 +1093,10 @@ def my_lv_go(cla, lv):
                         time.sleep(0.2)
                     time.sleep(0.5)
                     if int(lv) == 40:
-                        click_pos_2(400, 350, cla)
+                        click_pos_2(400, 550, cla)
                         time.sleep(0.1)
                     elif int(lv) == 45:
-                        click_pos_2(400, 500, cla)
+                        click_pos_2(400, 350, cla)
                         time.sleep(0.1)
                     elif int(lv) == 50:
                         click_pos_2(550, 750, cla)
