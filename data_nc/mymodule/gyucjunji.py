@@ -985,9 +985,10 @@ def my_lv_go(cla, lv):
                                 is_walking = False
 
                                 is_walking_count = 0
+                                not_walking_count = 0
                                 while is_walking is False:
                                     is_walking_count += 1
-                                    if is_walking_count > 15:
+                                    if is_walking_count > 100:
                                         is_walking = True
 
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\toohab_1.PNG"
@@ -1001,11 +1002,16 @@ def my_lv_go(cla, lv):
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            is_walking_count = 0
-                                            print("사냥터 이동...in_spot_walking_2 보여", is_walking_count)
+                                            # is_walking_count = 0
+                                            print("사냥터 이동...in_spot_walking_2 보여(is_walking_count) : 100", is_walking_count)
                                         else:
-                                            print("사냥터 이동...in_spot_walking_2 안 보여",
-                                                  is_walking_count)
+                                            print("사냥터 이동...in_spot_walking_2 안 보여(not_walking_count) : 7",
+                                                  not_walking_count)
+                                            not_walking_count += 1
+
+                                            if not_walking_count > 7:
+                                                is_walking = True
+
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\arrive_killdebat.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1017,6 +1023,8 @@ def my_lv_go(cla, lv):
                                     else:
                                         my_lv_go(cla, lv)
                                         is_walking = True
+
+                                    time.sleep(1)
 
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
