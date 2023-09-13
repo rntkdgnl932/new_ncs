@@ -1087,16 +1087,19 @@ def my_lv_go(cla, lv):
 
                 else:
                     for i in range(2):
-                        drag_pos(150, 880, 600, 355, cla)
+                        drag_pos(820, 260, 820, 820, cla)
                         time.sleep(0.2)
+                        click_pos_2(820, 260, cla)
+                        time.sleep(0.2)
+                    time.sleep(0.5)
                     if int(lv) == 40:
-                        click_pos_2(415, 350, cla)
+                        click_pos_2(400, 350, cla)
                         time.sleep(0.1)
                     elif int(lv) == 45:
-                        click_pos_2(420, 170, cla)
+                        click_pos_2(400, 500, cla)
                         time.sleep(0.1)
                     elif int(lv) == 50:
-                        click_pos_2(630, 630, cla)
+                        click_pos_2(550, 750, cla)
                         time.sleep(0.1)
                 time.sleep(0.2)
             else:
