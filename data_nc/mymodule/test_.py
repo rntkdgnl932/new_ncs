@@ -51,13 +51,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_eating.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(720, 975, 745, 1010, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("물약 먹고 있다", imgs_)
-        is_potion = True
+    maul_potion_only(cla)
 
 
 

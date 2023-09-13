@@ -454,16 +454,6 @@ def maul_potion(cla):
                 print("janhwa_2", imgs_)
                 jab_1_count = 0
                 time.sleep(0.2)
-                # lv. 45 부터 사용 가능한 물약
-                # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\middle_potion.PNG"
-                # img_array = np.fromfile(full_path, np.uint8)
-                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                # imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.83)
-                # if imgs_ is not None and imgs_ != False:
-                #     print("middle_potion", imgs_)
-                #     jab_2 = True
-                #     click_pos_reg(imgs_.x + 70, imgs_.y, cla)
-                # else:
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\small_potion.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -987,10 +977,84 @@ def maul_potion(cla):
                         print("pilseong", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        # 해당되지 않는 물약 팔아버리기
+        sell_ = False
+        if potion_size == "middle":
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\small_potion_sell.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 120, 910, 910, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("small_potion : ", imgs_)
+                sell_ = True
+        elif potion_size == "small":
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\big_potion_sell.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 120, 910, 910, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("middle_potion : ", imgs_)
+                sell_ = True
+        # 물약 팔기
+        sell_count = 0
+        while sell_ is True:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_sell.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(490, 630, 600, 770, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("potion_buy", imgs_)
+
+                sell_x = imgs_.x
+                sell_y = imgs_.y
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\max.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(520, 550, 610, 610, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+                sell_ = False
+                time.sleep(0.5)
+                click_pos_reg(sell_x, sell_y, cla)
+                time.sleep(0.2)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\max.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(340, 630, 480, 780, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+                time.sleep(1.2)
+            else:
+                sell_count += 1
+                if sell_count > 5:
+                    sell_count = 0
+                    sell_ = False
+
+                if potion_size == "middle":
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\small_potion_sell.PNG"
+                elif potion_size == "small":
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\big_potion_sell.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 120, 910, 910, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("potion sell", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    sell_ = False
+            time.sleep(0.5)
+
+
+
+
 
 
         # 물약 사기
         jab_3 = False
+        jab_1_count = 0
         while jab_3 is False:
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_buy.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -1288,7 +1352,76 @@ def maul_potion_only(cla):
         # with open(id_file_path, "r", encoding='utf-8-sig') as file:
         #     read_level = file.read()
         #     read_level_ = int(read_level)
+        # 해당되지 않는 물약 팔아버리기
+        sell_ = False
+        if potion_size == "middle":
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\small_potion_sell.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 120, 910, 910, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("small_potion : ", imgs_)
+                sell_ = True
+        elif potion_size == "small":
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\big_potion_sell.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 120, 910, 910, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("middle_potion : ", imgs_)
+                sell_ = True
+        # 물약 팔기
+        sell_count = 0
+        while sell_ is True:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_sell.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(490, 630, 600, 770, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("potion_buy", imgs_)
+                sell_x = imgs_.x
+                sell_y = imgs_.y
 
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\max.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(520, 550, 610, 610, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+                sell_ = False
+                time.sleep(0.5)
+                click_pos_reg(sell_x, sell_y, cla)
+                time.sleep(0.2)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\max.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(340, 630, 480, 780, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+                time.sleep(1.2)
+            else:
+                sell_count += 1
+                if sell_count > 5:
+                    sell_count = 0
+                    sell_ = False
+
+                if potion_size == "middle":
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\small_potion_sell.PNG"
+                elif potion_size == "small":
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\big_potion_sell.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 120, 910, 910, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("potion sell", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    sell_ = False
+            time.sleep(0.5)
+
+        jab_1_count = 0
         jab_3 = False
         while jab_3 is False:
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_buy.PNG"
