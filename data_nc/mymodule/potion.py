@@ -34,14 +34,14 @@ def potion_check(cla):
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_potion.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+        imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("화면에 소형 물약 존재한다", imgs_)
             is_potion = True
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_big_potion_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+        imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("화면에 대형 물약 존재한다", imgs_)
             is_potion = True
