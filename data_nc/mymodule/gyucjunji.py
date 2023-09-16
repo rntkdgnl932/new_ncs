@@ -398,6 +398,7 @@ def now_playing(cla, lv):
                             if imgs_ is not None and imgs_ != False:
                                 print("눈알 없다.", imgs_)
                                 click_pos_2(30, 55, cla)
+                                time.sleep(0.5)
 
                         # 격전지 상인 등 격전지인지 파악 하기기
 
