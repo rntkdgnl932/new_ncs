@@ -383,6 +383,22 @@ def now_playing(cla, lv):
                         if go_ice_count > 10:
                             go_ice_1 = True
 
+                        # 눈알
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\maul_eye_check.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 55, 80, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("눈알 있다.", imgs_)
+                        else:
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\close_eye_check.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 55, 80, cla, img, 0.84)
+                            if imgs_ is not None and imgs_ != False:
+                                print("눈알 없다.", imgs_)
+                                click_pos_2(30, 55, cla)
+
                         # 격전지 상인 등 격전지인지 파악 하기기
 
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\toohab_1.PNG"
