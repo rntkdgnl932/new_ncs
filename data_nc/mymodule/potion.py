@@ -249,7 +249,7 @@ def potion_check(cla):
                                         dungeon_ = result_schedule_.split("_")
                                         if dungeon_[1] == "동굴":
                                             dongool_check = "dongool"
-                                    if dongool_check == "dongool" or result_schedule_ == "격전지사냥":
+                                    if dongool_check == "dongool":
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

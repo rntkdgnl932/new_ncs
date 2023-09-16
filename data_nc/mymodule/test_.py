@@ -51,7 +51,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    maul_potion_only(cla)
+    potion_check(cla)
 
 
 
