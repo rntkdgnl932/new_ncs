@@ -16,52 +16,63 @@ def boss_attack_start(cla):
     from action import clean_screen
     try:
 
+        print("boss_attack")
+
         boss1 = False
         boss2 = False
 
-        print("boss_attack")
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_click.PNG"
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(240, 60, 300, 120, cla, img, 0.85)
+        imgs_ = imgs_set_(30, 200, 110, 240, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            print("boss 떳다.")
-            boss1 = True
+            boss2 = True
 
-        while boss1 is True:
+        else:
+
+
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_click.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(240, 60, 300, 120, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.1)
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_in.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(440, 700, 520, 765, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.1)
-            for i in range(10):
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss.PNG"
+                print("boss 떳다.")
+                boss1 = True
+
+            while boss1 is True:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_click.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(30, 200, 110, 240, cla, img, 0.85)
+                imgs_ = imgs_set_(240, 60, 300, 120, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(600, 600, cla)
-                    pyautogui.keyDown('w')
-                    time.sleep(3)
-                    pyautogui.keyUp('w')
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.1)
-                    boss1 = False
-                    boss2 = True
-                    break
-                time.sleep(1)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_in.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(440, 700, 520, 765, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 200, 110, 240, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(600, 600, cla)
+                        pyautogui.keyDown('w')
+                        time.sleep(3)
+                        pyautogui.keyUp('w')
+                        time.sleep(0.1)
+                        boss1 = False
+                        boss2 = True
+                        break
+                    time.sleep(1)
 
-
-        scan_jungye_setting(cla)
-        time.sleep(0.2)
+        if boss2 == True:
+            scan_jungye_setting(cla)
+            time.sleep(0.2)
 
         while boss2 is True:
 
