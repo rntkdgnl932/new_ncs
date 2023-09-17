@@ -59,6 +59,10 @@ def boss_attack_start(cla):
                     break
                 time.sleep(1)
 
+
+        scan_jungye_setting(cla)
+        time.sleep(0.2)
+
         while boss2 is True:
 
             in_ = False
@@ -90,7 +94,7 @@ def boss_attack_start(cla):
                 click_pos_2(930, 850, cla)
                 time.sleep(0.1)
             else:
-                scan_jungye_setting(cla)
+
                 time.sleep(0.1)
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_attack.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
