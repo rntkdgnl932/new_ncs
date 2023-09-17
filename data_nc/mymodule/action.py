@@ -1708,6 +1708,37 @@ def clean_screen(cla):
             if clean_out_count > 5:
                 out_ = True
 
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\jangsigan_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(300, 450, 700, 550, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    for i in range(10):
+                        click_pos_2(110, 710, cla)
+                        time.sleep(0.3)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\game_start_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            for z in range(10):
+                                result_out = out_check(cla)
+                                if result_out == True:
+                                    break
+                                time.sleep(0.5)
+                            break
+
+
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\setting_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
