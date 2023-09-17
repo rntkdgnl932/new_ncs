@@ -51,7 +51,32 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    jaelyo_(cla)
+    dir_path = "C:\\my_games\\nightcrow\\data_nc"
+    file_path = dir_path + "\\items\\chango\\jaelyo.txt"
+    ###
+    if os.path.isfile(file_path) == True:
+        with open(file_path, "r", encoding='utf-8-sig') as file:
+            jaelyo_ready = file.read().splitlines()
+            print("jaelyos", jaelyo_ready)
+    ###
+    for i in range(len(jaelyo_ready)):
+        for z in range(7):
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\maul_chango_3.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                break
+            else:
+                click_pos_2(20, 200, cla)
+            time.sleep(0.5)
+
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\" + jaelyo_ready[i] + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("통합 : 재료 있", jaelyo_ready[i])
 
 
 
