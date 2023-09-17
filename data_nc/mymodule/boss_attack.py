@@ -13,6 +13,7 @@ def boss_attack_start(cla):
     import cv2
     import pyautogui
     from gyucjunji import scan_jungye_setting
+    from action import clean_screen
     try:
 
         boss1 = False
@@ -85,6 +86,7 @@ def boss_attack_start(cla):
                 in_ = True
 
             if in_ == False:
+                clean_screen(cla)
                 click_pos_2(930, 850, cla)
                 time.sleep(0.1)
             else:
