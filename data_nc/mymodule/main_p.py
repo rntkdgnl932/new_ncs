@@ -52,10 +52,11 @@ from jadong_crow import jadong_play
 from gyucjunji import gyucjunji_play
 from get_item import get_items, get_item_checking, guild_jilyung
 from potion import maul_potion, maul_potion_only
-from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check, dead_die_before
+from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check, dead_die_before, clean_screen
 from server import game_start
 from auction_nc import auction_ready
 from boss_attack import boss_attack_start
+from realtime import boonhae_
 
 from one_event import daily_one
 
@@ -901,7 +902,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트_1', '일일퀘스트_2', '일일퀘스트_3', '일일퀘스트_4', '각종템받기', '거래소등록', '격전지_40', '격전지_45', '격전지_50']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '거래소등록', '분해하기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트_1', '일일퀘스트_2', '일일퀘스트_3', '일일퀘스트_4', '격전지_40', '격전지_45', '격전지_50']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3273,13 +3274,18 @@ class game_Playing(QThread):
                                                 sub_quest_grow(v_.now_cla)
                                                 # 자체에 스케쥴 완료 있음
 
-                                            if result_schedule_ == "격전지사냥":
-                                                gyucjunji_play(v_.now_cla)
-                                                # 자체에 스케쥴 완료 있음
-
                                             if result_schedule_ == "거래소등록":
                                                 auction_ready(v_.now_cla)
                                                 # 자체에 스케쥴 완료 있음
+
+                                            if result_schedule_ == "분해하기":
+                                                boonhae_(v_.now_cla)
+                                                time.sleep(0.1)
+                                                clean_screen(v_.now_cla)
+                                                time.sleep(0.1)
+
+                                                myQuest_play_add(v_.now_cla, result_schedule_)
+                                                time.sleep(0.1)
                         else:
 
                             print("나이트크로우 꺼진것 같은데...10초동안 지켜본다.")

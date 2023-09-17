@@ -969,7 +969,7 @@ def boonhae_(cla):
         from action import bag_open
 
 
-        bag_open(cla)
+        # bag_open(cla)
 
         boonhae_ready = False
         boonhae_ready_count = 0
@@ -1001,8 +1001,22 @@ def boonhae_(cla):
                     click_pos_2(475, 450, cla)
                     boonhae_ready = True
             else:
+                bag_open(cla)
+
+                time.sleep(0.5)
+
                 click_pos_2(770, 930, cla)
-            time.sleep(0.3)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\boonhae_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(480, 80, 540, 160, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.4)
+
+            time.sleep(0.5)
 
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\boonhae_after.PNG"
         img_array = np.fromfile(full_path, np.uint8)
