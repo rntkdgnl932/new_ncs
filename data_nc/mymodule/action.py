@@ -1713,11 +1713,13 @@ def clean_screen(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(300, 450, 700, 550, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
+                print("장시간이다!!!!!!!!!!!!!!!!")
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
+                    print("확인버튼이다!!!!!!!!!!!!!!!!")
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     for i in range(10):
                         click_pos_2(110, 710, cla)
