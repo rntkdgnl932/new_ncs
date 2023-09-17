@@ -199,6 +199,7 @@ def quest_get(cla, character_id, step):
                                 if imgs_ is not None and imgs_ != False:
                                     print("continue_off", imgs_)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.1)
                                     mouse_move_cpp(390, 520, cla)
                             time.sleep(0.5)
 
@@ -415,6 +416,7 @@ def quest_check(cla, step, now):
                                 if imgs_ is not None and imgs_ != False:
                                     print("continue_off", imgs_)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.1)
                                     mouse_move_cpp(390, 520, cla)
                             time.sleep(0.5)
 
