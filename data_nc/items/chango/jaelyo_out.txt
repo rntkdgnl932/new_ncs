@@ -29,5 +29,6 @@ segong_bangugoo
 segong_jangsingoo
 segong_moogi
 siyak
+toohab_sasle_gabot
 vacant_bottle
 waljangsuk
