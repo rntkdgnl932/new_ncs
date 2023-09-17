@@ -1438,7 +1438,7 @@ def juljun_attack(cla, dun_, nowstep):
                         nowtime_ = datetime.today().strftime("%Y년%m월%d일 %H시%M분%S초")
                         # print("현재시간", nowtime_)
 
-                        line_to_me(cla, str(nowtime_) + "에 어떤 놈이 공격했다")
+                        # line_to_me(cla, str(nowtime_) + "에 어떤 놈이 공격했다")
 
                         print("한대 맞은 듯...랜덤 이동 보이면 바로 이동하기!!", v_.dongool_dead_count)
 
