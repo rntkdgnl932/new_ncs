@@ -13,13 +13,14 @@ def boss_attack_start(cla):
     import cv2
     import pyautogui
     from gyucjunji import scan_jungye_setting
-    from action import clean_screen
+    from action import clean_screen, menu_open
     try:
 
         print("boss_attack")
 
         boss1 = False
         boss2 = False
+        boss3 = False
 
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -125,8 +126,38 @@ def boss_attack_start(cla):
                 click_pos_2(565, 605, cla)
                 time.sleep(0.5)
                 boss2 = False
+                boss3 = True
 
             time.sleep(5)
+
+        while boss3 is True:
+
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(425, 350, 490, 405, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("보스토벌 열었다.")
+                for i in range(3):
+                    click_pos_2(710, 440, cla)
+                    time.sleep(0.1)
+                    click_pos_2(710, 585, cla)
+                    time.sleep(0.1)
+                boss3 = False
+
+            else:
+                menu_open(cla)
+                click_pos_2(930, 375, cla)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(425, 350, 490, 405, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.4)
+
 
     except Exception as e:
         print(e)
