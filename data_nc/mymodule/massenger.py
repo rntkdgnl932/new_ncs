@@ -197,7 +197,7 @@ def line_monitor(game, cla):
     from popup_18 import fuckyou_popup
     import time
     from datetime import datetime, timedelta, date
-    from server import server_get_zeno
+    from server import server_get_nightcrow
     try:
         isLoop = False
 
@@ -207,7 +207,7 @@ def line_monitor(game, cla):
             # x같은 팝업창
             # fuckyou_popup(cla)
 
-            result_my_server_read = server_get_zeno()
+            result_my_server_read = server_get_nightcrow()
             print("my_server_read", result_my_server_read)
 
             if result_my_server_read == 'start':
@@ -292,7 +292,7 @@ def line_monitor(game, cla):
                 imgs_ = imgs_set_(300, 450, 700, 550, cla, img, 0.9)
                 if imgs_ is not None:
                     # jangsigan = True
-                    ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다", cla, imgs_)
+                    ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다 : ") + str(cla)
                     line_to_me(cla, ms_)
 
 

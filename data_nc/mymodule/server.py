@@ -47,7 +47,7 @@ def game_start():
         # 게임 클라 선택 및 실행시 yes로 바뀌고, 정지 할 경우에만 no로 바뀜. 자동업데이트는 안바뀜. 수동 업데이트는 no로 바뀜.
         if start_get == "yes":
 
-            result_my_server_read = server_get_zeno()
+            result_my_server_read = server_get_nightcrow()
             print("my_server_read", result_my_server_read)
 
             if result_my_server_read == 'start':
@@ -80,7 +80,7 @@ def game_start():
         print(e)
         return 0
 
-def server_get_zeno():
+def server_get_nightcrow():
     try:
         url = "https://raw.githubusercontent.com/rntkdgnl932/server/master/nightcrow.txt"
 
@@ -88,7 +88,7 @@ def server_get_zeno():
         # response = requests.get(url, headers={'Cache-Control': 'no-cache'})
         data = response.text
 
-        print("server_get_zeno", data)
+        print("server_get_nightcrow", data)
         return data
     except Exception as e:
         print(e)
