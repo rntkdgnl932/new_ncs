@@ -1524,9 +1524,11 @@ def menu_open(cla):
 
 def clean_screen(cla):
     import cv2
+    import os
     import numpy as np
-    from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
+    from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos, imgs_set
     from schedule import myQuest_play_add, myQuest_play_check
+    from massenger import line_to_me
     try:
 
 
@@ -1708,163 +1710,92 @@ def clean_screen(cla):
             if clean_out_count > 5:
                 out_ = True
 
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\out_nc.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                for i in range(10):
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                    else:
-                        break
+            imgs_ = imgs_set(430, 520, 560, 560, cla, img)
+            if imgs_ is not None:
+                ms_ = str("나크 ") + str("구글 로그인 화면이다. 꺼진것 같다")
+                line_to_me(cla, ms_)
+
+                dir_path = "C:\\my_games\\load\\nightcrow"
+                file_path = dir_path + "\\start.txt"
+                file_path2 = dir_path + "\\cla.txt"
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    data = 'no'
+                    file.write(str(data))
+                    time.sleep(0.2)
+                with open(file_path2, "w", encoding='utf-8-sig') as file:
+                    data = v_.now_cla
+                    file.write(str(data))
                     time.sleep(0.2)
 
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\jangsigan_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(300, 450, 700, 550, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                print("장시간이다!!!!!!!!!!!!!!!!")
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
+                os.execl(sys.executable, sys.executable, *sys.argv)
+
+            else:
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.85)
+                imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    print("확인버튼이다!!!!!!!!!!!!!!!!")
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    for i in range(20):
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\anymore_not_look.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(80, 680, 280, 780, cla, img, 0.83)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_2(110, 710, cla)
-                            time.sleep(0.3)
-
+                    for i in range(10):
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.3)
-
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\game_start_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.2)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.2)
-                            for z in range(10):
-                                result_out = out_check(cla)
-                                if result_out == True:
-                                    break
-                                time.sleep(0.5)
+                        else:
                             break
+                        time.sleep(0.2)
 
-
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\setting_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(600, 800, 960, 1030, cla, img, 0.83)
-            if imgs_ is not None and imgs_ != False:
-                print("setting_1", imgs_)
-                click_pos_2(930, 60, cla)
-
-            re_1 = go_auto_ing_(cla)
-            re_2 = go_quest_ing_(cla)
-            if re_1 == True or re_2 == True:
-                out_ = True
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\jangsigan_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+                imgs_ = imgs_set_(300, 450, 700, 550, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    print("pvp_1", imgs_)
-                    click_pos_2(930, 60, cla)
-            else:
-                print("클린 스크린 바깥 화면이 아니다.")
-                # 더 이상 보지 않음
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\anymore_not_look.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(80, 680, 280, 780, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("anymore_not_look", imgs_)
-                    click_pos_2(110, 710, cla)
-                    time.sleep(0.3)
-                    click_pos_2(110, 710, cla)
+                    print("장시간이다!!!!!!!!!!!!!!!!")
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("확인버튼이다!!!!!!!!!!!!!!!!")
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        for i in range(20):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\anymore_not_look.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(80, 680, 280, 780, cla, img, 0.83)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(110, 710, cla)
+                                time.sleep(0.3)
 
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\logout.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(40, 980, 160, 1030, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("logout 보여", imgs_)
-                    click_pos_2(110, 710, cla)
-                    time.sleep(0.3)
-                    click_pos_2(110, 710, cla)
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.3)
 
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(20, 990, 150, 1040, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    result_schedule = myQuest_play_check(v_.now_cla, "check")
-                    print("clean_screen : 캐릭터 선택화면이 보여 result_schedule", result_schedule)
-                    character_id = result_schedule[0][1]
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\game_start_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+                                for z in range(10):
+                                    result_out = out_check(cla)
+                                    if result_out == True:
+                                        break
+                                    time.sleep(0.5)
+                                break
 
-                    character_change(cla, character_id)
-
-                # skip
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_1.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(800, 45, 960, 130, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("skip_1", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                # skip
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_2.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(580, 880, 680, 920, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("skip_2", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("clean screen 가방 닫자")
-                    click_pos_2(935, 100, cla)
-
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("confirm_1", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\y_1.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("y_", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\setting_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -1874,38 +1805,133 @@ def clean_screen(cla):
                     print("setting_1", imgs_)
                     click_pos_2(930, 60, cla)
 
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_1.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(800, 0, 960, 120, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("exit_1", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_2.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(500, 0, 960, 600, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("exit_2", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_3.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(500, 0, 960, 600, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("exit_3", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
+                re_1 = go_auto_ing_(cla)
+                re_2 = go_quest_ing_(cla)
+                if re_1 == True or re_2 == True:
+                    out_ = True
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("pvp_1", imgs_)
+                        click_pos_2(930, 60, cla)
+                else:
+                    print("클린 스크린 바깥 화면이 아니다.")
+                    # 더 이상 보지 않음
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\anymore_not_look.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(80, 680, 280, 780, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("anymore_not_look", imgs_)
+                        click_pos_2(110, 710, cla)
+                        time.sleep(0.3)
+                        click_pos_2(110, 710, cla)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\logout.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(40, 980, 160, 1030, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("logout 보여", imgs_)
+                        click_pos_2(110, 710, cla)
+                        time.sleep(0.3)
+                        click_pos_2(110, 710, cla)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(20, 990, 150, 1040, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        result_schedule = myQuest_play_check(v_.now_cla, "check")
+                        print("clean_screen : 캐릭터 선택화면이 보여 result_schedule", result_schedule)
+                        character_id = result_schedule[0][1]
+
+                        character_change(cla, character_id)
+
+                    # skip
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(800, 45, 960, 130, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("skip_1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    # skip
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\skip_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(580, 880, 680, 920, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("skip_2", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("clean screen 가방 닫자")
+                        click_pos_2(935, 100, cla)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("confirm_1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\quest\\y_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("y_", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\setting_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(600, 800, 960, 1030, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("setting_1", imgs_)
+                        click_pos_2(930, 60, cla)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(800, 0, 960, 120, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("exit_1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 0, 960, 600, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("exit_2", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(900, 70, 960, 200, cla, img, 0.83)
+                    imgs_ = imgs_set_(500, 0, 960, 600, cla, img, 0.83)
                     if imgs_ is not None and imgs_ != False:
+                        print("exit_3", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\bag_check.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\exit_3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(900, 70, 960, 200, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
         return out_

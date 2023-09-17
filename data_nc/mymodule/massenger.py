@@ -191,6 +191,7 @@ def line_monitor(game, cla):
     print("line_monitor")
     import numpy as np
     import os.path
+    import os
     import cv2
     from function import imgs_set, click_pos_reg, imgs_set_
     from popup_18 import fuckyou_popup
@@ -257,10 +258,19 @@ def line_monitor(game, cla):
 
                     dir_path = "C:\\my_games\\load\\nightcrow"
                     file_path = dir_path + "\\start.txt"
-
+                    file_path2 = dir_path + "\\cla.txt"
                     with open(file_path, "w", encoding='utf-8-sig') as file:
                         data = 'no'
                         file.write(str(data))
+                        time.sleep(0.2)
+                    with open(file_path2, "w", encoding='utf-8-sig') as file:
+                        data = v_.now_cla
+                        file.write(str(data))
+                        time.sleep(0.2)
+
+                    os.execl(sys.executable, sys.executable, *sys.argv)
+
+
 
                 # #나가기 버튼
                 # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\item_1\\exit_1.PNG"
