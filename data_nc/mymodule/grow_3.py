@@ -17,7 +17,7 @@ def sub_quest_grow(cla):
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from massenger import line_to_me
         from schedule import myQuest_play_add
-        from potion import potion_check, maul_potion
+        from potion import potion_check, maul_potion_only
         from action import go_quest_ing_, go_auto_ing_, clean_screen, dead_die, in_maul_check
 
         import pyautogui
@@ -58,7 +58,7 @@ def sub_quest_grow(cla):
 
             result_maul = in_maul_check(cla)
             if result_maul == True:
-                maul_potion(cla)
+                maul_potion_only(cla)
 
             quest_check(cla)
 

@@ -97,6 +97,9 @@ sub_quest_count = 0
 bag_open_count = 0
 bag_full_open_count = 0
 
+# 포션 사이즈
+potion_size = "none"
+
 
 # 마우스 셋팅 관련
 mouse_speed = 20

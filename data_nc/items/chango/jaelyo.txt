@@ -8,6 +8,7 @@ soojunggwangmool
 tulmoongchi
 waljangsuk
 junjik_1
+gold_jogak
 gold_joomoney
 papiloos
 yangpigi
@@ -21,8 +22,4 @@ gmsok_papyun
 black_ink
 siyak
 gold_chunching
-ganghwa_artifact
-ganghwa_bangugoo
-ganghwa_moogi
 cave_5
-jangsingoo

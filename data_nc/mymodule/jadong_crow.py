@@ -85,9 +85,6 @@ def jadong_play(cla, result_schedule_):
             print("사냥터 진입하러 가자")
             # 자동사냥 진입
             clean_screen(cla)
-            # result_maul = in_maul_check(cla)
-            # if result_maul == True:
-            #     maul_potion(cla)
             in_world(cla)
             in_spot(cla, result_schedule_)
             go_to_spot(cla, "jadong")

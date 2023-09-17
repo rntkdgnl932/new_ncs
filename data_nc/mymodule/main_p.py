@@ -3249,6 +3249,8 @@ class game_Playing(QThread):
                                                 # 아래는 특별 이벤트 진행하기
                                                 daily_one(v_.now_cla)
 
+                                                maul_potion(v_.now_cla)
+
                                                 get_items(v_.now_cla)
                                                 # 자체에 스케쥴 완료 있음
                                                 if v_.just_one == False:

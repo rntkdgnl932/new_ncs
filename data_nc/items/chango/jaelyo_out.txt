@@ -9,6 +9,7 @@ ganghwa_artifact
 ganghwa_bangugoo
 ganghwa_moogi
 gold_chunching
+gold_jogak
 gold_joomoney
 junjik_1
 junjik_2
