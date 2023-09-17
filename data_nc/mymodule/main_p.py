@@ -55,6 +55,7 @@ from potion import maul_potion, maul_potion_only
 from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check, dead_die_before
 from server import game_start
 from auction_nc import auction_ready
+from boss_attack import boss_attack_start
 
 from one_event import daily_one
 
@@ -3190,6 +3191,9 @@ class game_Playing(QThread):
 
                                     # 먼저 가방 꽉 찼는지 확인부터...
                                     bag_full_check(v_.now_cla)
+
+                                    # 보스 사냥..
+                                    boss_attack_start(v_.now_cla)
 
                                     # 새로운 아이템 받을 것 체크하기
                                     get_item_checking(v_.now_cla)

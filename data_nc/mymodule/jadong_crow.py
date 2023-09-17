@@ -1103,6 +1103,7 @@ def now_playing(cla):
                 result_ = go_quest_ing_(cla)
                 if result_ == False:
                     click_pos_2(930, 850, cla)
+                    time.sleep(0.1)
 
 
             else:
