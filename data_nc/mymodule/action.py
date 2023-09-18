@@ -2217,6 +2217,14 @@ def skill_check_(cla):
                         time.sleep(0.1)
                         click_pos_2(715, 160 + (y_gob * i), cla)
                         time.sleep(0.1)
+                    for i in range(5):
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\in_skill_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(25, 115, 80, 180, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.4)
 
 
             else:
