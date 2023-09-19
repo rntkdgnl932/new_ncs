@@ -758,41 +758,51 @@ def now_playing(cla, dun_, nowstep):
                             juljun_attack(cla, dun_, nowstep)
                             v_.who_attack_ = False
                     else:
-                        print("정상적으로 사냥중...총 10초 딜레이중")
-                        potion_check(cla)
-                        time.sleep(10)
-                        # play_ = True
-                        # 여긴 길드 지령 체크하기
-                        # 길드 지령..
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                        imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                         if imgs_ is not None and imgs_ != False:
 
-                            jilyung_is_ = False
-                            jilyung_is_count = 0
-                            while jilyung_is_ is False:
-                                jilyung_is_count += 1
-                                if jilyung_is_count > 5:
-                                    jilyung_is_ = True
+                            print("정상적으로 사냥중...총 10초 딜레이중")
+                            potion_check(cla)
+                            time.sleep(10)
+                            # play_ = True
+                            # 여긴 길드 지령 체크하기
+                            # 길드 지령..
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
 
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    guild_jilyung(cla, "dungeon")
-                                    jilyung_is_ = True
-                                else:
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+                                jilyung_is_ = False
+                                jilyung_is_count = 0
+                                while jilyung_is_ is False:
+                                    jilyung_is_count += 1
+                                    if jilyung_is_count > 5:
+                                        jilyung_is_ = True
+
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                                    imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        guild_jilyung(cla, "dungeon")
+                                        jilyung_is_ = True
+                                    else:
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                                time.sleep(0.4)
+                                    time.sleep(0.4)
+                        else:
+                            print("던전 안이 아니당.")
+                            in_ = True
             else:
                 print("던전 안이 아니다.")
                 in_ = True
