@@ -353,21 +353,21 @@ def now_playing(cla, lv):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(400, 850, 600, 900, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("hunting_1", imgs_)
+                    print("격 hunting_1", imgs_)
                     in_ = True
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(400, 850, 600, 900, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("hunting_2", imgs_)
+                    print("격 hunting_2", imgs_)
                     in_ = True
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_3.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(400, 850, 600, 900, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("hunting_3", imgs_)
+                    print("격 hunting_3", imgs_)
                     in_ = True
 
 
@@ -575,8 +575,6 @@ def now_playing(cla, lv):
 
                 else:
 
-
-                    # m 이 없어질때 절전어택 시작 : nowplaying
                     if int(lv) == 40:
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\lv40.PNG"
                         #full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\toohab_1.PNG"
