@@ -66,7 +66,7 @@ with open(file_path2, "r", encoding='utf-8-sig') as file:
 this_game = "나이트크로우"
 
 # 시스템 우편 받기
-system_post = False
+system_post_get = False
 
 # 자동모드 관련
 potion_count = 0

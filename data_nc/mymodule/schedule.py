@@ -192,6 +192,7 @@ def myQuest_play_check(cla, data):
                 v_.one_cla_get_event = False
                 v_.two_cla_get_event = False
 
+                v_.system_post_get = False
                 v_.gyucjunji_dead_count = 0
                 v_.dongool_dead_count = 0
         else:
@@ -638,6 +639,7 @@ def myQuest_play_add(cla, data):
             v_.one_cla_get_event = False
             v_.two_cla_get_event = False
 
+            v_.system_post_get = False
             v_.dongool_dead_count = 0
             v_.gyucjunji_dead_count = 0
             # myQuest_number_check(cla, "new")

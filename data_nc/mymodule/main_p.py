@@ -3196,9 +3196,9 @@ class game_Playing(QThread):
                                     # 보스 사냥..
                                     boss_attack_start(v_.now_cla)
 
-                                    if v_.system_post == False:
+                                    if v_.system_post_get == False:
                                         get_post(v_.now_cla)
-                                        v_.system_post = True
+                                        v_.system_post_get = True
 
                                     # 새로운 아이템 받을 것 체크하기
                                     get_item_checking(v_.now_cla)
