@@ -153,14 +153,14 @@ def get_post(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("point1", imgs_)
 
-                    click_pos_2(350, 105, cla)
+                    click_pos_2(480, 105, cla)
                     time.sleep(1)
                     system_post = False
                     system_post_count = 0
                     while system_post is False:
 
                         system_post_count += 1
-                        if system_post_count > 7:
+                        if system_post_count > 20:
                             system_post = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\post_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)

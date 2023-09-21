@@ -50,7 +50,7 @@ from grow_4 import select_daily_quest_grow
 from dungeon import dungeon_play
 from jadong_crow import jadong_play
 from gyucjunji import gyucjunji_play
-from get_item import get_items, get_item_checking, guild_jilyung
+from get_item import get_items, get_item_checking, guild_jilyung, get_post
 from potion import maul_potion, maul_potion_only
 from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check, dead_die_before, clean_screen
 from server import game_start
@@ -3195,6 +3195,10 @@ class game_Playing(QThread):
 
                                     # 보스 사냥..
                                     boss_attack_start(v_.now_cla)
+
+                                    if v_.system_post == False:
+                                        get_post(v_.now_cla)
+                                        v_.system_post = True
 
                                     # 새로운 아이템 받을 것 체크하기
                                     get_item_checking(v_.now_cla)
