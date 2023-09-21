@@ -51,10 +51,36 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    click_pos_2(600, 600, cla)
-    pyautogui.keyDown('w')
-    time.sleep(3)
-    pyautogui.keyUp('w')
+    # 물약 파악
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        what_potion_ = 'small'
+        print("what_potion_ = 'small'")
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_not_small_potion.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("what_potion_ = 'not small'")
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        what_potion_ = 'middle'
+        print("what_potion_ = 'middle'")
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_not_middle_potion.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("what_potion_ = 'not middle'")
 
 
 

@@ -708,6 +708,8 @@ def jaelyo_(cla):
             imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
 
+                in_chango_1 = True
+
                 in_chango_2 = False
                 in_chango_2_count = 0
                 while in_chango_2 is False:
@@ -720,6 +722,8 @@ def jaelyo_(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
+
+                        in_chango_2 = True
 
                         # 물약 있을 경우 전부다 팔아버리기
                         # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\sell_potion_1.PNG"
@@ -742,6 +746,9 @@ def jaelyo_(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
+
+                                in_chango_3 = True
+
                                 click_pos_2(930, 265, cla)
                                 time.sleep(0.5)
                                 click_pos_2(170, 1010, cla)
@@ -819,9 +826,6 @@ def jaelyo_(cla):
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_2(930, 60, cla)
                                         else:
-                                            in_chango_1 = True
-                                            in_chango_2 = True
-                                            in_chango_3 = True
                                             sj_ = True
                                             print("창고 정리 끝")
                                     time.sleep(0.5)
