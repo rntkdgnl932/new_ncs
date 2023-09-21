@@ -1,4 +1,6 @@
 import sys
+import time
+
 sys.path.append('C:/my_games/nightcrow/data_nc/mymodule')
 
 import variable as v_
@@ -12,6 +14,10 @@ def myQuest_play_check(cla, data):
         import os.path
         from datetime import datetime
         from datetime import date, timedelta
+
+        start = []
+
+        start_ = 3
 
         refresh_ = False
 
@@ -60,7 +66,6 @@ def myQuest_play_check(cla, data):
                 day_ = lines2[0].split(":")
             if day_[0] == nowDay:
                 print("nowDay ing good")
-                read_sche = True
             else:
                 v_.just_one = False
                 v_.force_sub_quest = False
@@ -189,114 +194,103 @@ def myQuest_play_check(cla, data):
 
                 v_.gyucjunji_dead_count = 0
                 v_.dongool_dead_count = 0
-
-
         else:
             with open(file_path2, "w", encoding='utf-8-sig') as file:
                 file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
-                myQuest_play_check(cla, data)
 
-        if read_sche == True:
+        # 스케쥴 관련
+        cla_schedule = ""
+        if os.path.isfile(file_path) == True:
+            print("3_", nowDay)
+            # 파일 읽기
+            with open(file_path, "r", encoding='utf-8-sig') as file:
+                lines = file.read().splitlines()
+                isSchedule_ = False
+                while isSchedule_ is False:
+                    if lines == [] or lines == "":
+                        print("스케쥴이 비었다 : myQuest_grow_check")
+                        with open(file_path3, "r", encoding='utf-8-sig') as file:
+                            schedule_ready = file.read()
+                        with open(file_path, "w", encoding='utf-8-sig') as file:
+                            file.write(schedule_ready)
+                        with open(file_path, "r", encoding='utf-8-sig') as file:
+                            lines = file.read().splitlines()
+                    else:
+                        isSchedule_ = True
 
-            #스케쥴 관련
-            cla_schedule = ""
-            if os.path.isfile(file_path) == True:
-                print("3_", nowDay)
-                # 파일 읽기
-                with open(file_path, "r", encoding='utf-8-sig') as file:
-                    lines = file.read().splitlines()
-                    isSchedule_ = False
-                    while isSchedule_ is False:
-                        if lines == [] or lines == "":
-                            print("스케쥴이 비었다 : myQuest_grow_check")
-                            with open(file_path3, "r", encoding='utf-8-sig') as file:
-                                schedule_ready = file.read()
-                            with open(file_path, "w", encoding='utf-8-sig') as file:
-                                file.write(schedule_ready)
-                            with open(file_path, "r", encoding='utf-8-sig') as file:
-                                lines = file.read().splitlines()
-                        else:
-                            isSchedule_ = True
+                for i in range(len(lines)):
+                    complete_ = lines[i].split(":")
+                    for j in range(len(complete_)):
+                        if cla == 'one' or cla == 'three':
+                            if j < 3:
+                                cla_schedule += complete_[j] + ":"
+                            if j == 3:
+                                cla_schedule += complete_[3] + "\n"
+                        if cla == 'two' or cla == 'four':
+                            if 3 < j < 7:
+                                cla_schedule += complete_[j] + ":"
+                            if j == 7:
+                                cla_schedule += complete_[7] + "\n"
+            # 시작 스케쥴 파악하기
 
-                    for i in range(len(lines)):
-                        complete_ = lines[i].split(":")
-                        for j in range(len(complete_)):
-                            if cla == 'one' or cla == 'three':
-                                if j < 3:
-                                    cla_schedule += complete_[j] + ":"
-                                if j == 3:
-                                    cla_schedule += complete_[3] + "\n"
-                            if cla == 'two' or cla == 'four':
-                                if 3 < j < 7:
-                                    cla_schedule += complete_[j] + ":"
-                                if j == 7:
-                                    cla_schedule += complete_[7] + "\n"
-                #시작 스케쥴 파악하기
-
-                forBreak = False
-                schedule_ = cla_schedule.split("\n")
-                schedule_ = ' '.join(schedule_).split()
-                print("schedule_", schedule_)
-                for i in range(len(schedule_)):
-                    schedule_2 = schedule_[i].split(":")
-                    for j in range(len(schedule_2)):
-                        if schedule_2[3] != "완료":
-                            forBreak = True
-                            print("대기중인 첫번째", i)
-                            start_ = i
-                            break
-                    if forBreak == True:
+            forBreak = False
+            schedule_ = cla_schedule.split("\n")
+            schedule_ = ' '.join(schedule_).split()
+            print("schedule_", schedule_)
+            for i in range(len(schedule_)):
+                schedule_2 = schedule_[i].split(":")
+                for j in range(len(schedule_2)):
+                    if schedule_2[3] != "완료":
+                        forBreak = True
+                        print("대기중인 첫번째", i)
+                        start_ = i
                         break
-                print("start!", start_)
-                start = schedule_[start_].split(":")
-                start = ' '.join(start).split()
-                print("start[1]!", start[1])
+                if forBreak == True:
+                    break
+            print("start!", start_)
+            start = schedule_[start_].split(":")
+            start = ' '.join(start).split()
+            print("start[1]!", start[1])
 
-                dunjeon_spl_re = "none"
-                if '_' in start[2]:
-                    dunjeon_spl_ = start[2].split("_")
-                    print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                    print("dunjeon_spl_[1]", dunjeon_spl_[1])
-                    dunjeon_spl_re = dunjeon_spl_[0]
+            dunjeon_spl_re = "none"
+            if '_' in start[2]:
+                dunjeon_spl_ = start[2].split("_")
+                print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                dunjeon_spl_re = dunjeon_spl_[0]
 
-                # if start[2] == '미드가르드' or start[2] == '요툰하임':
-                #     now_ing = 'maul'
-                # elif start[2] == '공허' or dunjeon_spl_re == '공허':
-                #     now_ing = 'gonghu'
-                # elif start[2] == '난쟁이' or dunjeon_spl_re == '난쟁이':
-                #     now_ing = 'nanjang'
-                # elif start[2] == '지하감옥' or dunjeon_spl_re == '지하감옥':
-                #     now_ing = 'underprison'
-                # elif start[2] == '요툰육성' or start[2] == '니다육성':
-                #     now_ing = 'grow'
-                # else:
-                #     now_ing = 'jadong'
+            # if start[2] == '미드가르드' or start[2] == '요툰하임':
+            #     now_ing = 'maul'
+            # elif start[2] == '공허' or dunjeon_spl_re == '공허':
+            #     now_ing = 'gonghu'
+            # elif start[2] == '난쟁이' or dunjeon_spl_re == '난쟁이':
+            #     now_ing = 'nanjang'
+            # elif start[2] == '지하감옥' or dunjeon_spl_re == '지하감옥':
+            #     now_ing = 'underprison'
+            # elif start[2] == '요툰육성' or start[2] == '니다육성':
+            #     now_ing = 'grow'
+            # else:
+            #     now_ing = 'jadong'
 
-
-
-
-
-    ###################################################################################################
-
+        else:
+            print('파일 없당')
+            if os.path.isdir(dir_path) == True:
+                print('디렉토리 존재함')
+                with open(file_path3, "r", encoding='utf-8-sig') as file:
+                    shcedule = file.read().splitlines()
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    file.write(shcedule)
+                    myQuest_play_check(cla, data)
             else:
-                print('파일 없당')
-                if os.path.isdir(dir_path) == True:
-                    print('디렉토리 존재함')
-                    with open(file_path3, "r", encoding='utf-8-sig') as file:
-                        shcedule = file.read().splitlines()
-                    with open(file_path, "w", encoding='utf-8-sig') as file:
-                        file.write(shcedule)
-                        myQuest_play_check(cla, data)
-                else:
-                    print('디렉토리 존재하지 않음')
-                    os.makedirs(dir_path)
-                    with open(file_path3, "r", encoding='utf-8-sig') as file:
-                        shcedule = file.read().splitlines()
-                    with open(file_path, "w", encoding='utf-8-sig') as file:
-                        file.write(shcedule)
-                        myQuest_play_check(cla, data)
+                print('디렉토리 존재하지 않음')
+                os.makedirs(dir_path)
+                with open(file_path3, "r", encoding='utf-8-sig') as file:
+                    shcedule = file.read().splitlines()
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    file.write(shcedule)
+                    myQuest_play_check(cla, data)
 
-            return start, start_, refresh_
+        return start, start_, refresh_
     except Exception as e:
         print(e)
         return 0

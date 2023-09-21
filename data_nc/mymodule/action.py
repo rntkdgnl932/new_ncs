@@ -1796,6 +1796,14 @@ def clean_screen(cla):
                                     time.sleep(0.5)
                                 break
 
+                # 던전 끝났을때
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
 
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\setting_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)

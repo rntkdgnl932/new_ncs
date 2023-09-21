@@ -918,7 +918,7 @@ class FirstTab(QWidget):
         list4 = ['던전 선택', '던전_번영', '던전_수련', '던전_신전', '던전_유적', '던전_동굴']
         cb4.addItems(list4)
         cb44 = QComboBox()
-        list44 = ['구역 및 전당', '1', '2', '3', '4', '5', '6']
+        list44 = ['구역 및 전당', '1', '2', '3', '4', '5', '6', '7']
         cb44.addItems(list44)
 
         vbox4 = QHBoxLayout()
