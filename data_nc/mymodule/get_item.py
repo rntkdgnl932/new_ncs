@@ -160,7 +160,7 @@ def get_post(cla):
                     while system_post is False:
 
                         system_post_count += 1
-                        if system_post_count > 20:
+                        if system_post_count > 40:
                             system_post = True
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\post_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
