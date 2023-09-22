@@ -50,38 +50,14 @@ def go_test():
     print("여긴 테스트")
 
     v_.what_cla = "one클라"
-
-    # 물약 파악
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\arrive_killdebat.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+    imgs_ = imgs_set_(250, 390, 370, 450, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        what_potion_ = 'small'
-        print("what_potion_ = 'small'")
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_not_small_potion.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("what_potion_ = 'not small'")
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        what_potion_ = 'middle'
-        print("what_potion_ = 'middle'")
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_not_middle_potion.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("what_potion_ = 'not middle'")
-
+        print('kill')
+    else:
+        print('notttt')
 
 
     # result_equal = auction_start(cla)
