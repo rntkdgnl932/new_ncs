@@ -1968,6 +1968,34 @@ def in_number_check(cla, data):
     except Exception as e:
         print(e)
 
+def game_loading(cla):
+    import cv2
+    import numpy as np
+    from function import imgs_set_
+    try:
+
+        print('game loading')
+        loaded = False
+        loaded_count = 0
+        load_out = 0
+        while loaded is False:
+            loaded_count += 1
+            if loaded_count > 150:
+                loaded = True
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\loading.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(150, 850, 750, 1050, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print('loding...', loaded_count)
+            else:
+                load_out += 1
+                if load_out > 2:
+                    loaded = True
+
+            time.sleep(1)
+    except Exception as e:
+        print(e)
 
 def out_check(cla):
     try:

@@ -110,7 +110,7 @@ def gyucjunji_in(cla, lv):
     import numpy as np
     import cv2
     from function import click_pos_reg, imgs_set_, click_pos_2
-    from action import menu_open, dead_die_before
+    from action import menu_open, dead_die_before, game_loading
     try:
         in_gyuc_ = False
         in_gyuc_count = 0
@@ -199,10 +199,22 @@ def gyucjunji_in(cla, lv):
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\arrive_killdebat.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(430, 380, 530, 430, cla, img, 0.8)
+                            imgs_ = imgs_set_(250, 390, 370, 450, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                click_pos_2(480, 730, cla)
-                                time.sleep(1)
+                                click_pos_2(305, 705, cla)
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\loading.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(150, 850, 750, 1050, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print('loding...')
+                                        game_loading(cla)
+                                        break
+                                    else:
+                                        print('진입증')
+                                    time.sleep(0.4)
                         time.sleep(0.2)
 
 
@@ -265,9 +277,9 @@ def gyucjunji_in(cla, lv):
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\arrive_killdebat.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(430, 380, 530, 430, cla, img, 0.8)
+                                            imgs_ = imgs_set_(250, 390, 370, 450, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
-                                                click_pos_2(480, 730, cla)
+                                                click_pos_2(305, 705, cla)
                                                 time.sleep(1)
                                             else:
                                                 break
@@ -485,9 +497,9 @@ def now_playing(cla, lv):
                                                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\arrive_killdebat.PNG"
                                                                 img_array = np.fromfile(full_path, np.uint8)
                                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                                imgs_ = imgs_set_(430, 380, 530, 430, cla, img, 0.8)
+                                                                imgs_ = imgs_set_(250, 390, 370, 450, cla, img, 0.8)
                                                                 if imgs_ is not None and imgs_ != False:
-                                                                    click_pos_2(480, 730, cla)
+                                                                    click_pos_2(305, 705, cla)
                                                                     time.sleep(1)
                                                             time.sleep(0.2)
                                                         else:
@@ -1058,9 +1070,9 @@ def my_lv_go(cla, lv):
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\arrive_killdebat.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(430, 380, 530, 430, cla, img, 0.8)
+                                            imgs_ = imgs_set_(250, 390, 370, 450, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
-                                                click_pos_2(480, 730, cla)
+                                                click_pos_2(305, 705, cla)
                                                 time.sleep(1)
                                         time.sleep(0.2)
                                     else:
