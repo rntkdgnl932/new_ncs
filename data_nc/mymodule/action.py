@@ -1477,7 +1477,7 @@ def menu_open(cla):
             menu_ready_count += 1
             if menu_ready_count > 10:
                 menu_ready_ = True
-                line_to_me(cla, "씨팔, 메뉴 여는데 문제 있다.")
+                #line_to_me(cla, "씨팔, 메뉴 여는데 문제 있다.")
 
             print("menu_open의 out_check")
             out_result = out_check(cla)
