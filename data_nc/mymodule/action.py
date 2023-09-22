@@ -1525,6 +1525,8 @@ def menu_open(cla):
 
                     character_change(cla, character_id)
 
+            time.sleep(0.5)
+
 
 
 
