@@ -106,6 +106,15 @@ def boss_attack_start(cla):
                 click_pos_2(930, 850, cla)
                 time.sleep(0.1)
             else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    print("boss : janhwa_1", imgs_)
+                    boss2 = False
+                    boss3 = True
+
 
                 time.sleep(0.1)
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_attack.PNG"
