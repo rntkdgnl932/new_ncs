@@ -57,6 +57,7 @@ from server import game_start
 from auction_nc import auction_ready
 from boss_attack import boss_attack_start
 from realtime import boonhae_
+from temporary_event import dungeon_play_event
 
 from one_event import daily_one
 
@@ -915,7 +916,7 @@ class FirstTab(QWidget):
         # 던전 종류
         self.com_group4 = QGroupBox('던전')
         cb4 = QComboBox()
-        list4 = ['던전 선택', '던전_번영', '던전_수련', '던전_신전', '던전_유적', '던전_동굴']
+        list4 = ['던전 선택', '던전_번영', '던전_수련', '던전_유적', '던전_동굴', '던전_신전', '던전_이벤트']
         cb4.addItems(list4)
         cb44 = QComboBox()
         list44 = ['구역 및 전당', '1', '2', '3', '4', '5', '6', '7']
@@ -3233,7 +3234,11 @@ class game_Playing(QThread):
                                                 if imgs_ is not None and imgs_ != False:
                                                     print("마을이면 물약 ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ", imgs_)
                                                     maul_potion_only(v_.now_cla)
-                                                result = dungeon_play(v_.now_cla, result_schedule_)
+                                                if dungeon_[1] == "이벤트":
+                                                    result = dungeon_play_event(v_.now_cla, result_schedule_)
+                                                else:
+
+                                                    result = dungeon_play(v_.now_cla, result_schedule_)
                                                 if result == True:
                                                     myQuest_play_add(v_.now_cla, result_schedule_)
 
