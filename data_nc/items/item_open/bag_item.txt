@@ -12,3 +12,5 @@ biyac_jaewoon_1
 biyac_sungjang_1
 moolja_1
 yongbyungdan
+segong_box_1
+segong_box_2
