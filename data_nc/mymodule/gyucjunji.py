@@ -674,6 +674,9 @@ def now_playing(cla, lv):
                                     time.sleep(0.5)
 
                         # 정예몹 찾아서 공격하기기
+
+                        clicked = False
+
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\devulllll.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -681,6 +684,7 @@ def now_playing(cla, lv):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.2)
+                            clicked = True
 
                         else:
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\boss.PNG"
@@ -690,13 +694,19 @@ def now_playing(cla, lv):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
-                        mouse_move_cpp(480, 480, cla)
-                        time.sleep(0.1)
+                                clicked = True
+
+                        if clicked == True:
+                            mouse_move_cpp(480, 480, cla)
+                            time.sleep(0.1)
 
                         # 포션 체크하기
                         potion_check(cla)
 
                         # 정예몹 찾아서 공격하기기
+
+                        clicked = False
+
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\devulllll.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -704,6 +714,7 @@ def now_playing(cla, lv):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.2)
+                            clicked = True
                         else:
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\boss.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -712,8 +723,11 @@ def now_playing(cla, lv):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
-                        mouse_move_cpp(480, 480, cla)
-                        time.sleep(0.1)
+                                clicked = True
+
+                        if clicked == True:
+                            mouse_move_cpp(480, 480, cla)
+                            time.sleep(0.1)
 
                         play_ = True
                         # 여긴 길드 지령 체크하기
