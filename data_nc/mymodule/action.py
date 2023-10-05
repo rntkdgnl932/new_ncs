@@ -1722,11 +1722,21 @@ def clean_screen(cla):
             if clean_out_count > 5:
                 out_ = True
 
+            out_nc = False
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\out_nc.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set(430, 520, 560, 560, cla, img)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
+                out_nc = True
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\out_nc.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set(430, 520, 560, 560, cla, img)
+            if imgs_ is not None and imgs_ != False:
+                out_nc = True
+
+            if out_nc == True:
                 ms_ = str("나크 ") + str("구글 로그인 화면이다. 꺼진것 같다")
                 line_to_me(cla, ms_)
 
