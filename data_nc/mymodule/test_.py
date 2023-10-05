@@ -50,7 +50,7 @@ def go_test():
     print("여긴 테스트")
 
     v_.what_cla = "one클라"
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\out_nc.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\out_nc2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
     imgs_ = imgs_set(430, 520, 560, 560, cla, img)
