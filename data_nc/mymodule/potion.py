@@ -1613,6 +1613,28 @@ def available_potion(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(720, 760, 770, 810, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
+
+                # 체크 해제시 체크해주기
+
+                for c in range(5):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_checked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(510, 800, 550, 840, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("potion_checked", imgs_)
+                        break
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_not_checked.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(510, 800, 550, 840, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("potion_not_checked", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
+
+
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\lv45.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
