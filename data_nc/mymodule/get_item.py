@@ -435,7 +435,7 @@ def get_event(cla):
                                     get_season_last_count = 0
                                     while get_season_last is False:
                                         get_season_last_count += 1
-                                        if get_season_last_count > 5:
+                                        if get_season_last_count > 6:
                                             get_season_last = True
 
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
@@ -444,6 +444,10 @@ def get_event(cla):
                                         imgs_ = imgs_set_(200, a, 250, b, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             time.sleep(0.4)
+
+                                            if get_season_last_count > 3:
+                                                drag_pos(500, 600, 500, 300, cla)
+                                                time.sleep(0.3)
 
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
@@ -465,11 +469,9 @@ def get_event(cla):
                                                     click_pos_2(860, 410, cla)
                                                     time.sleep(0.3)
                                                 else:
-                                                    if get_season_last_count > 3:
-                                                        drag_pos(500, 600, 500, 300, cla)
-                                                    if get_season_last_count > 5:
-                                                        get_season_last = True
                                                     print("1")
+                                        else:
+                                            get_season_last = True
                                         time.sleep(0.3)
                             else:
                                 drag_pos(140, 660, 140, 430, cla)
