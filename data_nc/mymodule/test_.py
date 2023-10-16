@@ -22,7 +22,7 @@ def go_test():
     import cv2
     import os
     from potion import maul_potion, potion_check, available_potion, maul_potion_only
-    from action import skill_check_
+    from action import skill_check_, mine_check
     from sell_potion import sell_potion_start
     import requests
     import git
@@ -33,6 +33,7 @@ def go_test():
     from schedule import myQuest_play_check
     from auction_nc import auction_start, jaelyo_out, auction_ready, auction_start2
     from gyucjunji import scan_jungye_setting
+    from property_nc import my_property_upload
 
     cla = "one"
 
@@ -53,8 +54,8 @@ def go_test():
 
     # jaelyo_out(cla)
 
-    result = available_potion(cla)
-    print("size", result)
+    my_property_upload(cla)
+
 
     # result_equal = auction_start(cla)
     # print("result_equal", result_equal)

@@ -198,16 +198,38 @@ class ThirdTab(QWidget):
                 with open(file_path2, "w", encoding='utf-8-sig') as file:
                     file.write("on")
 
+        dir_path2 = dir_path + "\\nightcrow\\mysettings\\game_server"
+        file_path3 = dir_path2 + "\\game_server.txt"
+
+        isFile = False
+        while isFile is False:
+            if os.path.isdir(dir_path2) == True:
+                if os.path.isfile(file_path3) == True:
+                    isFile = True
+                    # 파일 읽기
+                    with open(file_path3, "r", encoding='utf-8-sig') as file:
+                        line3 = file.read()
+                        print('나크 game server', line3)
+                else:
+                    print('game server 파일(line3) 없당')
+                    with open(file_path3, "w", encoding='utf-8-sig') as file:
+                        file.write("k0")
+            else:
+                os.makedirs(dir_path2)
+
         self.monitor = QGroupBox('My Cla Monitor & Arduino')
 
         self.own = QLabel("       현재 소유자 : " + line_[0] + "\n\n")
         self.computer = QLabel("       현재 컴퓨터 : " + line_[1] + " 컴퓨터\n\n")
+        self.game_server = QLabel("       현재 게임서버 : " + line3 + "\n\n")
         self.mouse_arduino = QLabel("       현재 아두이노 활성화 상태 : " + line2 + "\n\n")
 
         self.own_in = QLineEdit(self)
         self.own_in.setText(line_[0])
         self.computer_in = QLineEdit(self)
         self.computer_in.setText(line_[1])
+        self.game_server_in = QLineEdit(self)
+        self.game_server_in.setText(line3)
         self.line_save = QPushButton("저장하기")
         self.line_save.clicked.connect(self.button_line_save)
 
@@ -222,6 +244,9 @@ class ThirdTab(QWidget):
         mo1_2 = QHBoxLayout()
         mo1_2.addWidget(self.computer)
 
+        mo1_5 = QHBoxLayout()
+        mo1_5.addWidget(self.game_server)
+
         mo1_mouse = QHBoxLayout()
         mo1_mouse.addWidget(self.mouse_arduino)
 
@@ -229,6 +254,7 @@ class ThirdTab(QWidget):
         mo1_3.addStretch(1)
         mo1_3.addWidget(self.own_in)
         mo1_3.addWidget(self.computer_in)
+        mo1_3.addWidget(self.game_server_in)
         mo1_3.addStretch(1)
         mo1_3.addWidget(self.line_save)
         mo1_3.addStretch(18)
@@ -241,6 +267,7 @@ class ThirdTab(QWidget):
         Mobox1.addStretch(1)
         Mobox1.addLayout(mo1_1)
         Mobox1.addLayout(mo1_2)
+        Mobox1.addLayout(mo1_5)
         Mobox1.addLayout(mo1_mouse)
         Mobox1.addLayout(mo1_3)
         Mobox1.addStretch(3)
@@ -260,17 +287,24 @@ class ThirdTab(QWidget):
     def button_line_save(self):
         own_ = self.own_in.text()  # line_edit text 값 가져오기
         computer_ = self.computer_in.text()
+        game_server_ = self.game_server_in.text()
         print(own_)
         print(computer_)
+        print(game_server_)
 
         self.own.setText("       현재 소유자 : " + own_ + "\n\n")
         self.computer.setText("       현재 컴퓨터 : " + computer_ + " 컴퓨터\n\n")
-        write_ = own_ + ":" + computer_
+        self.game_server.setText("       현재 게임서버 : " + game_server_ + "\n\n")
+        write_1 = own_ + ":" + computer_
+        write_2 = str(game_server_)
         dir_path = "C:\\my_games"
         file_path = dir_path + "\\line\\line.txt"
+        file_path2 = dir_path + "\\nightcrow\\mysettings\\game_server\\game_server.txt"
 
         with open(file_path, "w", encoding='utf-8-sig') as file:
-            file.write(write_)
+            file.write(write_1)
+        with open(file_path2, "w", encoding='utf-8-sig') as file:
+            file.write(write_2)
 
     def button_arduino_on(self):
         print("arduino_on")

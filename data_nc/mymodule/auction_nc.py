@@ -365,6 +365,7 @@ def jaelyo_in(cla):
 def auction_open(cla):
     from function import imgs_set_, click_pos_reg, click_pos_2, mouse_move_cpp
     from action import menu_open
+    from property_nc import my_property_upload
     import numpy as np
     import cv2
     import os
@@ -382,6 +383,11 @@ def auction_open(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
+
+
+                # 다이야 파악 후 업로드
+                my_property_upload(cla)
+                time.sleep(0.2)
 
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\auction_bag.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -403,6 +409,9 @@ def auction_open(cla):
 
                         click_pos_2(845, 1015, cla)
                         time.sleep(0.5)
+
+
+
                         click_pos_2(680, 1015, cla)
                         time.sleep(0.5)
 
