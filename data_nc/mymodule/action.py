@@ -2324,6 +2324,15 @@ def mine_check(cla):
     try:
         print("mine_check")
 
+        if cla == 'one':
+            plus = 0
+        if cla == 'two':
+            plus = 960
+        if cla == 'three':
+            plus = 960 + 960
+        if cla == 'four':
+            plus = 960 + 960 + 960
+
         gold_ = 0
         dia_ = 0
 
@@ -2347,7 +2356,7 @@ def mine_check(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("gold", imgs_)
                     # 491
-                    x_reg_1 = imgs_.x
+                    x_reg_1 = imgs_.x - plus
 
                     read_gold = text_check_get(x_reg_1 + 14, 35, x_reg_1 + 90, 65, cla)
                     print("read_gold", read_gold)
@@ -2366,7 +2375,7 @@ def mine_check(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("dia", imgs_)
                     # 410
-                    x_reg_2 = imgs_.x
+                    x_reg_2 = imgs_.x - plus
 
                     read_dia = text_check_get(x_reg_2 + 15, 35, x_reg_2 + 60, 65, cla)
                     print("read_dia", read_dia)
