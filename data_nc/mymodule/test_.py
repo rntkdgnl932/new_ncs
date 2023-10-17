@@ -54,7 +54,9 @@ def go_test():
 
     # jaelyo_out(cla)
 
-    my_property_upload(cla)
+    # my_property_upload(cla)
+
+    mine_check(cla)
 
 
     # result_equal = auction_start(cla)
