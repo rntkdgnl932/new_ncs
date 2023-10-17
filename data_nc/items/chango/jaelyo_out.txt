@@ -5,6 +5,7 @@ bone_neck
 bunyung_low
 bunyung_high
 cave_5
+cave_6
 crystal_1
 eleta_1
 frozen_tear
