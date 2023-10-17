@@ -35,7 +35,7 @@ def go_test():
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
 
-    cla = "one"
+    cla = "three"
 
     # cla = "two"
 
