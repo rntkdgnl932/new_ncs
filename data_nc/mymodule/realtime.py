@@ -102,13 +102,26 @@ def moogi_(cla):
                             # imgs_ = imgs_set_(750, 695, 850, 735, cla, img, 0.8)
                             # if imgs_ is not None and imgs_ != False:
                             #     click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            ready = False
+
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\moogi_gold.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(600, 700, 715, 750, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 print("moogi_gold", imgs_)
+                                ready = True
 
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\moogisoolyun_morion.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(600, 700, 715, 750, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("moogisoolyun_morion", imgs_)
+                                ready = True
+
+                            if ready == True:
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\moogi_sooglyun_4.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -124,7 +137,7 @@ def moogi_(cla):
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
                             else:
-                                print("moogi_gold 없다.")
+                                print("moogi_gold or moogisoolyun_morion 없다.")
 
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\moogi_sooglyun_4.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
