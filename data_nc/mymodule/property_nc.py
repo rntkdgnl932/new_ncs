@@ -86,71 +86,75 @@ def my_property_upload(cla):
         #             clean_screen(cla)
         #     time.sleep(0.5)
 
-        # 5. 내 서버 ip 불러오기
+        # 다이야 0이면 업로드 안하기
 
-        ftp_server = ftp_ip_get()
+        if int(result_mine[1]) != 0:
 
+            # 5. 내 서버 ip 불러오기
 
-
-        # 업로드 처리 과정
-
-        # 6. 로컬 파일 경로 (절대 경로 사용)
-        local_file_path = 'C:/my_games/nightcrow/mysettings/my_property/my_property.txt'
-
-        dir_path = "C:\\my_games\\nightcrow\\mysettings\\my_property"
-        file_path = dir_path + "\\my_property.txt"
-
-        isstart1 = False
-        while isstart1 is False:
-            if os.path.isdir(dir_path) == True:
-                isstart1 = True
-                with open(file_path, "w", encoding='utf-8-sig') as file:
-                    # data = 사용자:게임이름:게임서버:다이아:골드
-                    data = str(line_[0]) + ':' + str(game_name) + ':' + str(game_server) + ':' + str(result_mine[1]) + ':' + str(
-                        result_mine[0])
-                    file.write(str(data))
-
-            else:
-                os.makedirs(dir_path)
+            ftp_server = ftp_ip_get()
 
 
 
+            # 업로드 처리 과정
 
-        # 7. 원격 파일 경로 (FTP 서버 내)
-        remote_directory = '/nightcrow/' + str(line_[0])  # 원격 디렉토리 경로
-        remote_file_path = '/nightcrow/' + str(line_[0]) + '/' + str(line_[1]) + '.txt'
-        print("7", remote_file_path)
+            # 6. 로컬 파일 경로 (절대 경로 사용)
+            local_file_path = 'C:/my_games/nightcrow/mysettings/my_property/my_property.txt'
 
-        # # 미리 삭제해버리자?
-        # if os.path.isdir(remote_directory) == False:
-        #     os.makedirs(remote_directory)
-        #
-        # if os.path.isfile(remote_file_path) == True:
-        #     os.remove(file_path)
-        #     print('기존 파일이 삭제되었습니다.')
+            dir_path = "C:\\my_games\\nightcrow\\mysettings\\my_property"
+            file_path = dir_path + "\\my_property.txt"
 
-        # FTP 연결 및 파일 업로드
-        try:
-            print("aaa")
-            with FTP(ftp_server) as ftp:
-                ftp.login(ftp_username, ftp_password)
+            isstart1 = False
+            while isstart1 is False:
+                if os.path.isdir(dir_path) == True:
+                    isstart1 = True
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                        # data = 사용자:게임이름:게임서버:다이아:골드
+                        data = str(line_[0]) + ':' + str(game_name) + ':' + str(game_server) + ':' + str(result_mine[1]) + ':' + str(
+                            result_mine[0])
+                        file.write(str(data))
 
-                # # 원격 디렉토리가 이미 존재하지 않는 경우에만 생성
-                # if remote_directory not in ftp.nlst():
-                #     ftp.mkd(remote_directory)
-                #     print("remote_directory")
-                # if remote_file_path in ftp.nlst():
-                #     ftp.delete(remote_file_path)
-                #     print("delete")
-                # else:
-                #     print(" not delete")
+                else:
+                    os.makedirs(dir_path)
 
-                with open(local_file_path, 'rb') as file:
-                    # 파일 업로드시 UTF-8 인코딩 사용
-                    ftp.storbinary('STOR ' + remote_file_path, file, 8192)
-                print(f'로컬 파일 {local_file_path}을 FTP 서버의 {remote_file_path}로 업로드했습니다.')
-        except Exception as e:
-            print(f'파일 업로드 실패: {e}')
+
+
+
+            # 7. 원격 파일 경로 (FTP 서버 내)
+            remote_directory = '/nightcrow/' + str(line_[0])  # 원격 디렉토리 경로
+            remote_file_path = '/nightcrow/' + str(line_[0]) + '/' + str(line_[1]) + '.txt'
+            print("7", remote_file_path)
+
+            # # 미리 삭제해버리자?
+            # if os.path.isdir(remote_directory) == False:
+            #     os.makedirs(remote_directory)
+            #
+            # if os.path.isfile(remote_file_path) == True:
+            #     os.remove(file_path)
+            #     print('기존 파일이 삭제되었습니다.')
+
+            # FTP 연결 및 파일 업로드
+            try:
+                print("aaa")
+                with FTP(ftp_server) as ftp:
+                    ftp.login(ftp_username, ftp_password)
+
+                    # # 원격 디렉토리가 이미 존재하지 않는 경우에만 생성
+                    # if remote_directory not in ftp.nlst():
+                    #     ftp.mkd(remote_directory)
+                    #     print("remote_directory")
+                    # if remote_file_path in ftp.nlst():
+                    #     ftp.delete(remote_file_path)
+                    #     print("delete")
+                    # else:
+                    #     print(" not delete")
+
+                    with open(local_file_path, 'rb') as file:
+                        # 파일 업로드시 UTF-8 인코딩 사용
+                        ftp.storbinary('STOR ' + remote_file_path, file, 8192)
+                    print(f'로컬 파일 {local_file_path}을 FTP 서버의 {remote_file_path}로 업로드했습니다.')
+            except Exception as e:
+                print(f'파일 업로드 실패: {e}')
 
     except Exception as e:
         print(e)
