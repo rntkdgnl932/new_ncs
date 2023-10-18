@@ -2358,8 +2358,13 @@ def mine_check(cla):
                     # 491
                     x_reg_1 = imgs_.x - plus
 
-                    read_gold = text_check_get(x_reg_1 + 14, 35, x_reg_1 + 90, 65, cla)
-                    print("read_gold", read_gold)
+                    for i in range(4):
+                        read_gold = text_check_get(x_reg_1 + 14 + i, 35, x_reg_1 + 90, 65, cla)
+                        if read_gold == "":
+                            print("골드 못 읽음")
+                        else:
+                            print("read_gold", read_gold)
+                            break
 
                     digit_ready = in_number_check(cla, read_gold)
                     print("digit_ready", digit_ready)
@@ -2377,8 +2382,13 @@ def mine_check(cla):
                     # 410
                     x_reg_2 = imgs_.x - plus
 
-                    read_dia = text_check_get(x_reg_2 + 15, 35, x_reg_2 + 60, 65, cla)
-                    print("read_dia", read_dia)
+                    for i in range(4):
+                        read_dia = text_check_get(x_reg_2 + 15 + i, 35, x_reg_2 + 60, 65, cla)
+                        if read_dia == "":
+                            print("다이아 못 읽음")
+                        else:
+                            print("read_dia", read_dia)
+                            break
 
                     digit_ready = in_number_check(cla, read_dia)
                     print("digit_ready", digit_ready)
