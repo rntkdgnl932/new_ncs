@@ -31,7 +31,7 @@ def go_test():
     import random
     from one_event import daily_one
     from schedule import myQuest_play_check
-    from auction_nc import auction_start, jaelyo_out, auction_ready, auction_start2
+    from auction_nc import auction_start, jaelyo_out, auction_ready, auction_open
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
 
@@ -56,7 +56,7 @@ def go_test():
 
     # my_property_upload(cla)
 
-    mine_check(cla)
+    auction_open(cla)
 
 
     # result_equal = auction_start(cla)

@@ -684,6 +684,15 @@ def auction_open(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
+                        for i in range(10):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\2020.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(65, 995, 120, 1030, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.5)
+
                     time.sleep(0.5)
 
             else:
@@ -695,10 +704,10 @@ def auction_open(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     for i in range(10):
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\auction_title.PNG"
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\auction_bag.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.8)
+                        imgs_ = imgs_set_(850, 90, 910, 140, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             break
                         time.sleep(0.5)
