@@ -2444,6 +2444,17 @@ def character_change(cla, character_id):
 
         print("캐릭터 체인지")
 
+        # 현재 진입되었던 캐릭터 번호(id)
+
+        dir_path = "C:\\my_games\\nightcrow"
+        if cla == 'one':
+            file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
+        if cla == 'two':
+            file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
+        if cla == 'three':
+            file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
+        if cla == 'four':
+            file_path = dir_path + "\\mysettings\\myschedule\\four_now_id.txt"
 
         cha_select = False
         cha_select_count = 0
@@ -2494,17 +2505,7 @@ def character_change(cla, character_id):
                                     cha_select = True
                                     in_game = True
 
-                                    # 현재 진입한 캐릭터 번호(id)
 
-                                    dir_path = "C:\\my_games\\nightcrow"
-                                    if cla == 'one':
-                                        file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
-                                    if cla == 'two':
-                                        file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
-                                    if cla == 'three':
-                                        file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
-                                    if cla == 'four':
-                                        file_path = dir_path + "\\mysettings\\myschedule\\four_now_id.txt"
 
                                     # read_id = '0'
 
@@ -2526,12 +2527,6 @@ def character_change(cla, character_id):
                                         else:
                                             with open(file_path, "w", encoding='utf-8-sig') as file:
                                                 file.write(str(character_id))
-
-                                        # if str(character_id) == str(read_id):
-                                        #     is_out = True
-                                        # else:
-                                        #     with open(file_path, "w", encoding='utf-8-sig') as file:
-                                        #         file.write(str(character_id))
                                         time.sleep(0.3)
 
 
