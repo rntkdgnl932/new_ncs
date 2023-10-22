@@ -455,7 +455,7 @@ def auction_open(cla):
                     else:
 
                         # 다이아 모두 받기
-                       click_pos_2(845, 1015, cla)
+                        click_pos_2(845, 1015, cla)
                         time.sleep(0.5)
 
 
