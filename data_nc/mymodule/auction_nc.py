@@ -435,9 +435,7 @@ def auction_open(cla):
             if imgs_ is not None and imgs_ != False:
 
 
-                # 다이야 파악 후 업로드
-                my_property_upload(cla)
-                time.sleep(0.2)
+
 
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\auction_bag.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -456,12 +454,12 @@ def auction_open(cla):
 
                     else:
 
-
+                        # 일괄회수
                         click_pos_2(845, 1015, cla)
                         time.sleep(0.5)
 
 
-
+                        # 다이아 모두 받기
                         click_pos_2(680, 1015, cla)
                         time.sleep(0.5)
 
@@ -474,7 +472,9 @@ def auction_open(cla):
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.2)
 
-
+                        # 다이야 파악 후 업로드
+                        my_property_upload(cla)
+                        time.sleep(0.2)
 
                         dir_path = "C:\\my_games\\nightcrow\\data_nc"
                         file_path = dir_path + "\\items\\chango\\jaelyo_out.txt"
