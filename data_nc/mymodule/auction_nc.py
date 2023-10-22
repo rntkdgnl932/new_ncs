@@ -454,12 +454,12 @@ def auction_open(cla):
 
                     else:
 
-                        # 일괄회수
-                        click_pos_2(845, 1015, cla)
+                        # 다이아 모두 받기
+                       click_pos_2(845, 1015, cla)
                         time.sleep(0.5)
 
 
-                        # 다이아 모두 받기
+                        # 일괄회수
                         click_pos_2(680, 1015, cla)
                         time.sleep(0.5)
 
