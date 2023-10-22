@@ -1,4 +1,5 @@
 animal_blood
+baltob_nalcalowoon
 bihang_boopoom
 bone_gyunjang
 bone_neck
@@ -16,6 +17,9 @@ ganghwa_moogi
 gold_chunching
 gold_jogak
 gold_joomoney
+haegol_chultoibyung_chultoi
+haegol_chultoibyung_mace
+haegol_chultoibyung_ssangchultoi
 hwasal_boolujin
 ileta
 janghwa_chojja
@@ -34,14 +38,21 @@ nightcrow_rojario
 nightcrow_shyad
 nightcrow_wangab
 nool_chultoibyung_morningstar
+nool_dangum
 nool_gonbong
+nool_gonbongbyung_galyanggonbong
+nool_gonbongbyung_gonbong
 nool_toogoo
+nool_yosoolsa_jipange
+nool_yosoolsa_mabubbong
 ok_chukhubyung_hwal
 ok_joodoonbyun_chultoi
 ok_joodoonbyun_doublechultoi
 ok_joodoonbyun_morningstar
 ok_moliggoon_jagsal
+ok_ssawoomggoon_daegum
 papiloos
+rezardman_jaksal
 sancona
 segong_artifact
 segong_bangugoo
