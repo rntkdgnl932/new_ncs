@@ -17,6 +17,7 @@ def get_items(cla):
         from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
         from action import clean_screen, item_open
         from schedule import myQuest_play_add, myQuest_play_check
+        from potion import maul_potion
 
         if cla == "one":
             potion = v_.mypotion_1
@@ -31,6 +32,8 @@ def get_items(cla):
 
         print("<< 아이템 받기 시작 >>")
         clean_screen(cla)
+        # 포션 구매
+        maul_potion(cla)
         # 시즌패스 받기
         print("시즌패스 받기")
         get_season_pass(cla)
