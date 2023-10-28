@@ -3320,19 +3320,19 @@ class game_Playing(QThread):
                                                     # 아래는 특별 이벤트 진행하기
                                                     daily_one(v_.now_cla)
 
-                                                    maul_potion(v_.now_cla)
+                                                    # maul_potion(v_.now_cla)
 
-                                                    get_items(v_.now_cla)
+                                                    # get_items(v_.now_cla)
                                                     # 자체에 스케쥴 완료 있음
-                                                    if v_.just_one == False:
-                                                        v_.just_one = True
-                                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
-                                                        img_array = np.fromfile(full_path, np.uint8)
-                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                        imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
-                                                        if imgs_ is not None and imgs_ != False:
-                                                            print("마을이면 물약 ㄱㄱ", imgs_)
-                                                            maul_potion_only(v_.now_cla)
+                                                    # if v_.just_one == False:
+                                                    #     v_.just_one = True
+                                                    #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+                                                    #     img_array = np.fromfile(full_path, np.uint8)
+                                                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    #     imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
+                                                    #     if imgs_ is not None and imgs_ != False:
+                                                    #         print("마을이면 물약 ㄱㄱ", imgs_)
+                                                    #         maul_potion_only(v_.now_cla)
                                                 if result_schedule_ == "메인퀘스트":
                                                     main_quest_grow(v_.now_cla)
                                                     # 자체에 스케쥴 완료 있음
