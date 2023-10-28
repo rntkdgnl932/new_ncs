@@ -2435,6 +2435,7 @@ def mine_check(cla):
 def character_change(cla, character_id):
     from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
     from massenger import line_to_me
+    from potion import maul_potion
     import numpy as np
     import cv2
     import os
@@ -2505,7 +2506,8 @@ def character_change(cla, character_id):
                                     cha_select = True
                                     in_game = True
 
-
+                                    # 포션 구매
+                                    maul_potion(cla)
 
                                     # read_id = '0'
 
