@@ -1548,6 +1548,7 @@ def maul_potion_only(cla):
                 time.sleep(1.2)
             else:
                 jab_1_count += 1
+                print("jab_1_count", jab_1_count, v_.potion_size)
                 if jab_1_count > 5:
                     jab_1_count = 0
                     jab_3 = True
