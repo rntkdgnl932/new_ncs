@@ -1309,13 +1309,13 @@ def maul_potion_only(cla):
                 time.sleep(0.2)
 
                 #
-                get_items(cla)
-                soojib(cla)
-                moogi_(cla)
-                boonhae_(cla)
-
-                jaelyo_(cla)
-                dead_die_before(cla)
+                # get_items(cla)
+                # soojib(cla)
+                # moogi_(cla)
+                # boonhae_(cla)
+                #
+                # jaelyo_(cla)
+                # dead_die_before(cla)
                 #
                 time.sleep(0.2)
 
@@ -1478,6 +1478,7 @@ def maul_potion_only(cla):
                 print("middle_potion : ", imgs_)
                 sell_ = True
         # 물약 팔기
+        print("물약팔기")
         sell_count = 0
         while sell_ is True:
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_sell.PNG"
@@ -1528,6 +1529,7 @@ def maul_potion_only(cla):
                     sell_ = False
             time.sleep(0.5)
 
+        print("포션 구매")
         jab_1_count = 0
         jab_3 = False
         while jab_3 is False:
