@@ -35,7 +35,7 @@ def go_test():
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
 
-    cla = "one"
+    cla = "three"
 
     # cla = "two"
 
@@ -56,14 +56,7 @@ def go_test():
 
     # my_property_upload(cla)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\list\\morion2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(690, 115, 960, 930, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("morion", imgs_)
-    else:
-        print("없")
+    maul_potion_only(cla)
     # result_equal = auction_start(cla)
     # print("result_equal", result_equal)
 
