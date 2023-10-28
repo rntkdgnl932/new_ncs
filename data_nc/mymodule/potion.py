@@ -1559,7 +1559,7 @@ def maul_potion_only(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\small_potion.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.83)
+                imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("potion : ", v_.potion_size, imgs_)
                     click_pos_reg(imgs_.x + 70, imgs_.y, cla)
