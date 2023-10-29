@@ -77,6 +77,14 @@ def boss_attack_start(cla):
 
         while boss2 is True:
 
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                print("boss : janhwa_11", imgs_)
+                boss2 = True
+
             in_ = False
 
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_1.PNG"
@@ -136,6 +144,13 @@ def boss_attack_start(cla):
                 time.sleep(0.5)
                 boss2 = False
                 boss3 = True
+
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(300, 400, 700, 800, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
 
             time.sleep(5)
 

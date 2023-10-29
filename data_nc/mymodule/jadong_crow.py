@@ -1107,6 +1107,15 @@ def now_playing(cla):
 
 
             else:
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\different.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(520, 410, 620, 450, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("던전 중 실수로 다른 퀘스트 클릭한 경우", imgs_)
+                    click_pos_2(410, 640, cla)
+
                 print("정상적으로 사냥중...5초 딜레이중")
                 potion_check(cla)
                 time.sleep(5)
