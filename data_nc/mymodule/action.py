@@ -1311,8 +1311,8 @@ def bag_open(cla):
                                                         mg_ = str(my_money) + "골드 있다. 거지다. ㅠㅠ"
                                                         line_to_me(cla, mg_)
                                                 else:
-                                                    if my_money > onFG + 500000:
-                                                        print("기준골드보다 돈 50만원 더 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
+                                                    if my_money > onFG + 1000000:
+                                                        print("기준골드보다 돈 100만원 더 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
                                                         v_.force_sub_quest = False
                                                 click_pos_2(860, 895, cla)
                                     else:
