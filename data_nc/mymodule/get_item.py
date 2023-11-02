@@ -1391,7 +1391,7 @@ def guild_jilyung(cla, data):
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\special.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(760, 395, 920, 430, cla, img, 0.8)
+                        imgs_ = imgs_set_(760, 395, 960, 430, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("특수 보여", imgs_)
                             click_pos_2(835, 705, cla)
@@ -1423,7 +1423,7 @@ def guild_jilyung(cla, data):
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\special.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(760, 395, 810, 430, cla, img, 0.8)
+                            imgs_ = imgs_set_(760, 395, 960, 430, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 print("특수 보여용", imgs_)
                                 click_pos_2(845, 1015, cla)
