@@ -544,7 +544,6 @@ class SecondTab(QWidget):
         #     print("왼쪽 nightcrow 보여", imgs_)
         #
         #     click_pos_reg(imgs_.x + 100, imgs_.y, "one")
-        time.sleep(1)
         pyautogui.keyDown('win')
         pyautogui.press('left')
         pyautogui.keyUp('win')
@@ -568,7 +567,6 @@ class SecondTab(QWidget):
         #     print("오른쪽 nightcrow 보여", imgs_)
 
             # click_pos_reg(imgs_.x + 100, imgs_.y, "one")
-        time.sleep(1)
         pyautogui.keyDown('win')
         pyautogui.press('right')
         pyautogui.keyUp('win')
