@@ -441,7 +441,7 @@ def click_pos_2(pos_1, pos_2, cla):
                 if -c_reg < moveX < c_reg and -c_reg < moveY < c_reg:
                     x_reg = pos_1 + coordinate - pyautogui.position()[0]
                     y_reg = pos_2 - pyautogui.position()[1]
-                    if -c_reg < x_reg < c_reg and -c_reg < y_reg < c_reg:
+                    if -c_reg < x_reg < c_reg and -c_reg < y_reg < c_reg and pyautogui.position()[1] >= 31:
                         # print("move_count", move_count)
                         # print("moveX", moveX)
                         # print("moveY", moveY)
@@ -460,7 +460,7 @@ def click_pos_2(pos_1, pos_2, cla):
 
             # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
             # time.sleep(0.2)
-            pyautogui.click(pos_1 + random_int() + coordinate, pos_2 + random_int())
+            pyautogui.click(pos_1 + random_int() + coordinate, pos_2)
             time.sleep(0.5)
 
     except Exception as e:
@@ -538,7 +538,7 @@ def click_pos_reg(pos_1, pos_2, cla):
                 if received_data == '0' or (-c_reg < moveX < c_reg and -c_reg < moveY < c_reg):
                     x_reg = pos_1 + coordinate - pyautogui.position()[0]
                     y_reg = pos_2 - pyautogui.position()[1]
-                    if -c_reg < x_reg < c_reg and -c_reg < y_reg < c_reg:
+                    if -c_reg < x_reg < c_reg and -c_reg < y_reg < c_reg and pyautogui.position()[1] >= 31:
                         moveZ = 2
                         move_ = True
                         data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
@@ -548,7 +548,7 @@ def click_pos_reg(pos_1, pos_2, cla):
 
             # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
 
-            pyautogui.click(pos_1 + random_int() + coordinate, pos_2 + random_int())
+            pyautogui.click(pos_1 + random_int() + coordinate, pos_2)
             time.sleep(0.5)
 
 
