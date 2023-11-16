@@ -786,7 +786,7 @@ def now_playing(cla, dun_, nowstep):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                    imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                     if imgs_ is not None and imgs_ != False:
                         print("동굴 공격중")
                         click_pos_2(25, 970, cla)
@@ -873,7 +873,7 @@ def dongool_move(cla, nowstep):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.8)
+            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
             if imgs_ is not None and imgs_ != False:
                 print("dongool_1", imgs_)
                 go_ice_1 = True
@@ -1668,12 +1668,6 @@ def juljun_attack(cla, dun_, nowstep):
                                                     juljun_ready_count += 1
                                                     if juljun_ready_count > 10:
                                                         juljun_ready = True
-
-                                                    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_1.PNG"
-                                                    # img_array = np.fromfile(full_path, np.uint8)
-                                                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    # imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
-                                                    # if imgs_ is not None and imgs_ != False:
 
                                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                                                     img_array = np.fromfile(full_path, np.uint8)
