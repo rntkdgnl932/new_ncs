@@ -39,6 +39,8 @@ def dungeon_play(cla, result_schedule_):
             dungeon_name = "youjuk_1"
         elif dungeon_[1] == "동굴":
             dungeon_name = "dongool_1"
+        elif dungeon_[1] == "기암":
+            dungeon_name = "giam_1"
 
         dungeon_clear = False
 
@@ -360,8 +362,12 @@ def dungeon_play(cla, result_schedule_):
                                 if step_ready == 7:
                                     step_ready = 6
                             print("step_ready", step_ready)
-                            step = 115 + (step_ready * 50)
-                            click_pos_2(800, step, cla)
+                            # 기암 등 업뎃 이전까지 동굴은 일단 2층만...
+                            if dungeon_[1] == "동굴":
+                                click_pos_2(800, 220, cla)
+                            else:
+                                step = 115 + (step_ready * 50)
+                                click_pos_2(800, step, cla)
                             time.sleep(1)
 
                             # 얼음 동굴 서버 꽉 찰 경우 클리어 해버리기 추후에 하기
