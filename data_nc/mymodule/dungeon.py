@@ -952,6 +952,24 @@ def dongool_move(cla, nowstep):
                                             if imgs_ is not None and imgs_ != False:
                                                 last_move_count = 0
                                                 print("동굴 : in_spot_walking_2 보여", last_move_count)
+
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    print("메뉴 닫자", imgs_)
+                                                    click_pos_2(930, 60, cla)
+                                                    time.sleep(0.1)
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    print("가방 닫자")
+                                                    click_pos_2(935, 100, cla)
+                                                    time.sleep(0.1)
+
                                             else:
                                                 last_move_count += 1
                                                 print("동굴 : in_spot_walking_2 안 보여", last_move_count)
