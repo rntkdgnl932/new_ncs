@@ -2688,6 +2688,7 @@ def move_check(cla):
         import numpy as np
         import cv2
 
+        not_have = False
 
         # 마을 이동 체크
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
@@ -2724,7 +2725,8 @@ def move_check(cla):
                         mouse_move_cpp(700, 500, cla)
                         time.sleep(0.3)
                     time.sleep(0.1)
-
+            else:
+                not_have = True
 
 
 
@@ -2762,6 +2764,12 @@ def move_check(cla):
                         mouse_move_cpp(700, 500, cla)
                         time.sleep(0.3)
                     time.sleep(0.1)
+            else:
+                not_have = True
+
+
+
+
 
         for i in range(10):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\bag_checked.PNG"
@@ -2771,6 +2779,35 @@ def move_check(cla):
             if imgs_ is not None and imgs_ != False:
                 click_pos_2(940, 100, cla)
                 time.sleep(0.2)
+
+        if not_have == True:
+            click_pos_2(110, 160, cla)
+            for i in range(10):
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(450, 990, 510, 1030, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    break
+                time.sleep(0.5)
+            for i in range(10):
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\worldmap_maul.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(710, 165, 780, 225, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\confirm_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        break
+                    else:
+                        click_pos_2(925, 200, cla)
+                else:
+                    drag_pos(800, 250, 800, 900, cla)
+                time.sleep(0.5)
 
         clean_screen(cla)
 

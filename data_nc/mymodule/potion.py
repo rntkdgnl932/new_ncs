@@ -504,6 +504,10 @@ def maul_potion(cla):
             x_reg = imgs_.x
             if cla == "two":
                 x_reg = x_reg - 960
+            elif cla == "three":
+                x_reg = x_reg - (960 * 2)
+            elif cla == "four":
+                x_reg = x_reg - (960 * 3)
             y_reg = imgs_.y
 
             img = pyautogui.screenshot(region=(get_region(x_reg - 2, y_reg + 13, x_reg + 28, y_reg + 33, cla)))
@@ -639,6 +643,10 @@ def maul_potion(cla):
             x_reg = imgs_.x
             if cla == "two":
                 x_reg = x_reg - 960
+            elif cla == "three":
+                x_reg = x_reg - (960 * 2)
+            elif cla == "four":
+                x_reg = x_reg - (960 * 3)
             y_reg = imgs_.y
 
             img = pyautogui.screenshot(region=(get_region(x_reg - 2, y_reg + 13, x_reg + 28, y_reg + 33, cla)))
@@ -785,6 +793,10 @@ def maul_potion(cla):
             x_reg = imgs_.x
             if cla == "two":
                 x_reg = x_reg - 960
+            elif cla == "three":
+                x_reg = x_reg - (960 * 2)
+            elif cla == "four":
+                x_reg = x_reg - (960 * 3)
             y_reg = imgs_.y
 
             img = pyautogui.screenshot(region=(get_region(x_reg - 1, y_reg + 13, x_reg + 29, y_reg + 33, cla)))
@@ -937,6 +949,10 @@ def maul_potion(cla):
             x_reg = imgs_.x
             if cla == "two":
                 x_reg = x_reg - 960
+            elif cla == "three":
+                x_reg = x_reg - (960 * 2)
+            elif cla == "four":
+                x_reg = x_reg - (960 * 3)
             y_reg = imgs_.y
 
             img = pyautogui.screenshot(region=(get_region(x_reg - 4, y_reg + 12, x_reg + 26, y_reg + 32, cla)))
