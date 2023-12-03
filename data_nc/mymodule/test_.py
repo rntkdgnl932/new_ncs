@@ -35,7 +35,7 @@ def go_test():
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
 
-    cla = "two"
+    cla = "one"
 
     # cla = "two"
 
@@ -52,24 +52,24 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    # jaelyo_out(cla)
+    move_check(cla)
 
     # my_property_upload(cla)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\maul_move_.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(680, 110, 920, 1000, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        x_reg = imgs_.x
-        if cla == "two":
-            x_reg = x_reg - 960
-        y_reg = imgs_.y
-
-        img = pyautogui.screenshot(region=(get_region(x_reg - 2, y_reg + 13, x_reg + 28, y_reg + 33, cla)))
-        white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-        move_ = pytesseract.image_to_string(white_img, lang=None)
-        print("how many random_move?", move_)
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\maul_move_.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(680, 110, 920, 1000, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     x_reg = imgs_.x
+    #     if cla == "two":
+    #         x_reg = x_reg - 960
+    #     y_reg = imgs_.y
+    #
+    #     img = pyautogui.screenshot(region=(get_region(x_reg - 2, y_reg + 13, x_reg + 28, y_reg + 33, cla)))
+    #     white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+    #     move_ = pytesseract.image_to_string(white_img, lang=None)
+    #     print("how many random_move?", move_)
     # result_equal = auction_start(cla)
     # print("result_equal", result_equal)
 
