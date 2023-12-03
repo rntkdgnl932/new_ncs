@@ -1007,7 +1007,7 @@ def now_playing(cla):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
         from potion import potion_check
-        from action import clean_screen, out_check, bag_open, go_quest_ing_
+        from action import clean_screen, out_check, bag_open, go_quest_ing_, move_check
         from get_item import guild_jilyung
 
         print("now_jadong_playing")
@@ -1117,6 +1117,8 @@ def now_playing(cla):
                     click_pos_2(410, 640, cla)
 
                 print("정상적으로 사냥중...5초 딜레이중")
+                move_check(cla)
+                time.sleep(0.1)
                 potion_check(cla)
                 time.sleep(5)
                 play_ = True
