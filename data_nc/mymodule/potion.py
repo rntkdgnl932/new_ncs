@@ -329,6 +329,16 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            for i in range(10):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\not_have_item.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(370, 80, 480, 120, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+
+                                    break
+                                time.sleep(0.3)
+
             else:
                 bag_open(cla)
                 time.sleep(1)
@@ -420,7 +430,15 @@ def maul_potion(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("maul_move__1", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.2)
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\not_have_item.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(370, 80, 480, 120, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+
+                                        break
+                                    time.sleep(0.3)
 
                                 for i in range(10):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\sangin.PNG"
@@ -1258,6 +1276,8 @@ def maul_potion_move_buy(cla):
         v_.potion_size = "none"
 
 
+
+
         jab_ready = False
         jab_ready_count = 0
         while jab_ready is False:
@@ -1879,6 +1899,15 @@ def maul_potion_only(cla):
                         imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            for i in range(10):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\not_have_item.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(370, 80, 480, 120, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+
+                                    break
+                                time.sleep(0.3)
             else:
                 bag_open(cla)
                 time.sleep(1)
@@ -1972,7 +2001,15 @@ def maul_potion_only(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("maul_move__1", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.2)
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\not_have_item.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(370, 80, 480, 120, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+
+                                        break
+                                    time.sleep(0.3)
                                 for i in range(10):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\sangin.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)

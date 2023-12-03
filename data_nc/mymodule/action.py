@@ -2686,6 +2686,7 @@ def move_check(cla):
 
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg, mouse_move_cpp
         from potion import maul_potion_move_buy
+        from schedule import myQuest_play_check
         import numpy as np
         import cv2
 
@@ -2784,37 +2785,125 @@ def move_check(cla):
                 time.sleep(0.2)
 
         if not_have == True:
-            click_pos_2(110, 160, cla)
-            for i in range(10):
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_1.PNG"
+
+            clean_screen(cla)
+
+            result_schedule = myQuest_play_check(v_.now_cla, "check")
+            print("result_schedule", result_schedule)
+            character_id = result_schedule[0][1]
+            result_schedule_ = result_schedule[0][2]
+
+            maul_in_ = False
+            maul_in_count = 0
+            while maul_in_ is False:
+                maul_in_count += 1
+                if maul_in_count > 7:
+                    maul_in_ = True
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(450, 990, 510, 1030, cla, img, 0.8)
+                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
-                    break
-                time.sleep(0.5)
-            for i in range(10):
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\worldmap_maul.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(710, 165, 780, 225, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\confirm_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        break
-                    else:
-                        click_pos_2(925, 200, cla)
+                    print("janhwa_1", imgs_)
+                    maul_in_ = True
+                    maul_potion_move_buy(cla)
                 else:
-                    drag_pos(800, 250, 800, 900, cla)
-                time.sleep(0.5)
+                    if "사냥" in result_schedule_:
+                        click_pos_2(110, 160, cla)
 
-        maul_potion_move_buy(cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(450, 990, 510, 1030, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.5)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\worldmap_maul.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(710, 165, 780, 225, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\confirm_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    break
+                                else:
+                                    click_pos_2(925, 200, cla)
+                            else:
+                                drag_pos(800, 250, 800, 900, cla)
+                            time.sleep(0.5)
+                    elif "던전" in result_schedule_:
 
-        clean_screen(cla)
+                        dungeon_ = result_schedule_.split("_")
+
+                        if dungeon_[1] == "번영":
+                            dungeon_name = "bunyuong_1"
+                        elif dungeon_[1] == "수련":
+                            dungeon_name = "soolyun_1"
+                        elif dungeon_[1] == "신전":
+                            dungeon_name = "sinjun_1"
+                        elif dungeon_[1] == "유적":
+                            dungeon_name = "youjuk_1"
+                        elif dungeon_[1] == "동굴":
+                            dungeon_name = "dongool_1"
+                        elif dungeon_[1] == "기암":
+                            dungeon_name = "giam_1"
+
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+                        if imgs_ is not None and imgs_ != False:
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\confirm_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    break
+                                else:
+                                    click_pos_2(230, 95, cla)
+                                time.sleep(1)
+                        else:
+                            click_pos_2(110, 160, cla)
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\world_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(450, 990, 510, 1030, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                time.sleep(0.5)
+                            for i in range(10):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\worldmap_maul.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(710, 165, 780, 225, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\confirm_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
+                                    else:
+                                        click_pos_2(925, 200, cla)
+                                else:
+                                    drag_pos(800, 250, 800, 900, cla)
+                                time.sleep(0.5)
+                time.sleep(1)
+
+
 
     except Exception as e:
         print(e)
