@@ -2685,6 +2685,7 @@ def move_check(cla):
     try:
 
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg, mouse_move_cpp
+        from potion import maul_potion_move_buy
         import numpy as np
         import cv2
 
@@ -2726,6 +2727,7 @@ def move_check(cla):
                         time.sleep(0.3)
                     time.sleep(0.1)
             else:
+                print("마을 이동서 없다.")
                 not_have = True
 
 
@@ -2765,6 +2767,7 @@ def move_check(cla):
                         time.sleep(0.3)
                     time.sleep(0.1)
             else:
+                print("랜덤 이동서 없다.")
                 not_have = True
 
 
@@ -2808,6 +2811,8 @@ def move_check(cla):
                 else:
                     drag_pos(800, 250, 800, 900, cla)
                 time.sleep(0.5)
+
+        maul_potion_move_buy(cla)
 
         clean_screen(cla)
 
