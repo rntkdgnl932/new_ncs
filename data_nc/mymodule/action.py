@@ -2838,6 +2838,15 @@ def move_check(cla):
                             else:
                                 drag_pos(800, 250, 800, 900, cla)
                             time.sleep(0.5)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("janhwa_1", imgs_)
+                                break
+                            time.sleep(1)
                     elif "던전" in result_schedule_:
 
                         dungeon_ = result_schedule_.split("_")
@@ -2912,6 +2921,15 @@ def move_check(cla):
                                 else:
                                     drag_pos(800, 250, 800, 900, cla)
                                 time.sleep(0.5)
+                            for i in range(10):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("janhwa_1", imgs_)
+                                    break
+                                time.sleep(1)
                 time.sleep(1)
 
 
