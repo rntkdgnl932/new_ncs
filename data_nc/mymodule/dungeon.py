@@ -807,6 +807,10 @@ def now_playing(cla, dun_, nowstep):
                         if imgs_ is not None and imgs_ != False:
 
                             print("정상적으로 사냥중...총 10초 딜레이중")
+                            # 이동서 체크
+
+
+                            # 포션 체크
                             potion_check(cla)
                             time.sleep(10)
                             # play_ = True

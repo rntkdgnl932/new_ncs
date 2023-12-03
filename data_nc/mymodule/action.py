@@ -2680,3 +2680,99 @@ def my_gold_check(cla):
 
     except Exception as e:
         print(e)
+
+def move_check(cla):
+    try:
+
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg, mouse_move_cpp
+        import numpy as np
+        import cv2
+
+
+        # 마을 이동 체크
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("마을 이동서 있다.")
+        else:
+            bag_open(cla)
+            time.sleep(0.1)
+            click_pos_2(935, 265, cla)
+            time.sleep(0.2)
+            click_pos_2(885, 935, cla)
+            time.sleep(1)
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\bag_maul_move.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 110, 900, 880, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.3)
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\bag_checked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(680, 910, 730, 960, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(290, 1000, cla)
+                        break
+                    else:
+                        click_pos_2(710, 935, cla)
+                        time.sleep(0.2)
+                        mouse_move_cpp(700, 500, cla)
+                        time.sleep(0.3)
+                    time.sleep(0.1)
+
+
+
+
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("랜덤 이동서 있다.")
+        else:
+            bag_open(cla)
+            time.sleep(0.1)
+            click_pos_2(935, 265, cla)
+            time.sleep(0.2)
+            click_pos_2(885, 935, cla)
+            time.sleep(1)
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\bag_random_move.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 110, 900, 880, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.3)
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\bag_checked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(680, 910, 730, 960, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(345, 1000, cla)
+                        break
+                    else:
+                        click_pos_2(710, 935, cla)
+                        time.sleep(0.2)
+                        mouse_move_cpp(700, 500, cla)
+                        time.sleep(0.3)
+                    time.sleep(0.1)
+
+        for i in range(10):
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\bag\\bag_checked.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 910, 730, 960, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(940, 100, cla)
+                time.sleep(0.2)
+
+        clean_screen(cla)
+
+    except Exception as e:
+        print(e)

@@ -12,7 +12,7 @@ import variable as v_
 def go_test():
     from datetime import date, timedelta, datetime
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check, drag_pos, imgs_set_num, mouse_move_cpp
-    from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change
+    from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change, move_check
     from get_item import get_items, get_upjuk, get_event, get_season_pass, guild_jilyung
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_, jaelyo_
@@ -35,7 +35,7 @@ def go_test():
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
 
-    cla = "three"
+    cla = "one"
 
     # cla = "two"
 
@@ -56,7 +56,7 @@ def go_test():
 
     # my_property_upload(cla)
 
-    maul_potion_only(cla)
+    move_check(cla)
     # result_equal = auction_start(cla)
     # print("result_equal", result_equal)
 
