@@ -2868,6 +2868,17 @@ def move_check(cla):
                                 imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                                    for k in range(20):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\loading.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(150, 850, 750, 1050, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            game_loading(cla)
+                                            break
+                                        time.sleep(0.3)
+
                                     break
                                 else:
                                     click_pos_2(230, 95, cla)
