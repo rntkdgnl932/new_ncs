@@ -57,6 +57,7 @@ def go_test():
     # my_property_upload(cla)
 
     move_check(cla)
+    potion_check(cla)
     # result_equal = auction_start(cla)
     # print("result_equal", result_equal)
 
