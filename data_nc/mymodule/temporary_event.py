@@ -155,7 +155,7 @@ def dungeon_play_event(cla, result_schedule_):
                                         if imgs_ is not None and imgs_ != False:
                                             break
                                         else:
-                                            click_pos_2(480, 110, cla)
+                                            click_pos_2(610, 110, cla)
                                         time.sleep(0.5)
 
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\event\\manlyo.PNG"
