@@ -52,7 +52,23 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    move_check(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(30, 360, 120, 400, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("dungeon_clear", imgs_)
+    else:
+        print("nononononononono")
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("dungeon_clear2", imgs_)
+    else:
+        print("nononononononono2222222222222222")
 
     # my_property_upload(cla)
 
