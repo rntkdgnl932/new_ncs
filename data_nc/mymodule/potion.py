@@ -43,7 +43,7 @@ def potion_check(cla):
             if imgs_ is not None and imgs_ != False:
                 print(v_.potion_size, "존재한다.")
                 is_potion = True
-        if v_.potion_size == "none":
+        if v_.potion_size == "middle":
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_middle.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
