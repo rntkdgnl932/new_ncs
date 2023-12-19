@@ -75,7 +75,7 @@ def dungeon_play(cla, result_schedule_):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("juljun_dungeon", imgs_)
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
@@ -87,7 +87,7 @@ def dungeon_play(cla, result_schedule_):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(450, 640, 540, 710, cla, img, 0.9)
+                    imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         print("동굴 사냥중인듯 하다")
                         # 동굴 진입해서 사냥중
@@ -678,7 +678,7 @@ def now_playing(cla, dun_, nowstep):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -1154,7 +1154,7 @@ def juljun_attack(cla, dun_, nowstep):
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(450, 640, 490, 670, cla, img, 0.9)
+                        imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
                             in_maul_ = True
                             print("거점이다. 동굴 끝난듯 하다.", imgs_)
@@ -1165,32 +1165,33 @@ def juljun_attack(cla, dun_, nowstep):
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(450, 640, 490, 670, cla, img, 0.9)
+                                imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
                                     print("드래그중")
                                 else:
                                     break
                                 time.sleep(0.5)
 
-                            time.sleep(0.5)
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            for i in range(5):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.1)
                         else:
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(450, 640, 540, 710, cla, img, 0.9)
+                            imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
                                 print("동굴 사냥중인듯 하다", imgs_)
                             else:
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     print("juljun_mode", imgs_)
                                     in_maul_ = True
@@ -1201,7 +1202,7 @@ def juljun_attack(cla, dun_, nowstep):
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                                        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             print("드래그 중...")
                                         else:
@@ -1257,7 +1258,7 @@ def juljun_attack(cla, dun_, nowstep):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("juljun_mode", imgs_)
 
@@ -1280,54 +1281,35 @@ def juljun_attack(cla, dun_, nowstep):
                             print("what_potion_ = 'middle'")
 
                         if what_potion_ == 'small':
+
+                            potion_need = False
+
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                print("juljun_potion 일딴 물약 있다", imgs_)
-                                x_reg = imgs_.x
-                                y_reg = imgs_.y
-                                if cla == "two":
-                                    x_reg = x_reg - 960
-                                if cla == "three":
-                                    x_reg = x_reg - 960 - 960
 
-                                # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
-                                potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
-                                print("전체4자리 potion_?", potion_ready)
-                                result_num_in = in_number_check(cla, potion_ready)
-                                if result_num_in == True:
-                                    potion_ = change_number(potion_ready)
-                                    potion = int_put_(potion_)
-                                    potion_bloon = potion.isdigit()
-                                    if potion_bloon == True:
-                                        potion = int(potion)
-                                        print("potion?", potion)
-                                        if cla == "one":
-                                            v_.mypotion_1 = potion
-                                        if cla == "two":
-                                            v_.mypotion_2 = potion
-                                        if cla == "three":
-                                            v_.mypotion_3 = potion
-                                        if cla == "four":
-                                            v_.mypotion_4 = potion
-
-                                        if potion < 50:
-                                            v_.potion_count += 1
-                                            if v_.potion_count > 3:
-                                                v_.potion_count = 0
-                                                drag_maul_potion_(cla, dun_)
-                                                continue_juljun = True
-
-                                        else:
-                                            v_.potion_count = 0
-                                    else:
-                                        print("potion => 숫자 아님")
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_not_small_potion.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("what_potion_ = 'not small'")
+                                    potion_need = True
                                 else:
-                                    # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
-                                    potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
-                                    print("앞3자리 potion_2?", potion_ready)
+
+                                    print("juljun_potion 일딴 물약 있다")
+                                    x_reg = imgs_.x
+                                    y_reg = imgs_.y
+                                    if cla == "two":
+                                        x_reg = x_reg - 960
+                                    if cla == "three":
+                                        x_reg = x_reg - 960 - 960
+
+                                    # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
+                                    potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
+                                    print("전체4자리 potion_?", potion_ready)
                                     result_num_in = in_number_check(cla, potion_ready)
                                     if result_num_in == True:
                                         potion_ = change_number(potion_ready)
@@ -1345,20 +1327,21 @@ def juljun_attack(cla, dun_, nowstep):
                                             if cla == "four":
                                                 v_.mypotion_4 = potion
 
-                                            if potion < 10:
+                                            if potion < 50:
                                                 v_.potion_count += 1
-                                                if v_.potion_count > 5:
+                                                if v_.potion_count > 3:
                                                     v_.potion_count = 0
                                                     drag_maul_potion_(cla, dun_)
                                                     continue_juljun = True
+
                                             else:
                                                 v_.potion_count = 0
                                         else:
                                             print("potion => 숫자 아님")
                                     else:
-                                        # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
-                                        potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
-                                        print("뒷3자리 potion_3 =>", potion_ready)
+                                        # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
+                                        potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
+                                        print("앞3자리 potion_2?", potion_ready)
                                         result_num_in = in_number_check(cla, potion_ready)
                                         if result_num_in == True:
                                             potion_ = change_number(potion_ready)
@@ -1376,7 +1359,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                 if cla == "four":
                                                     v_.mypotion_4 = potion
 
-                                                if potion < 50:
+                                                if potion < 10:
                                                     v_.potion_count += 1
                                                     if v_.potion_count > 5:
                                                         v_.potion_count = 0
@@ -1386,6 +1369,37 @@ def juljun_attack(cla, dun_, nowstep):
                                                     v_.potion_count = 0
                                             else:
                                                 print("potion => 숫자 아님")
+                                        else:
+                                            # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
+                                            potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
+                                            print("뒷3자리 potion_3 =>", potion_ready)
+                                            result_num_in = in_number_check(cla, potion_ready)
+                                            if result_num_in == True:
+                                                potion_ = change_number(potion_ready)
+                                                potion = int_put_(potion_)
+                                                potion_bloon = potion.isdigit()
+                                                if potion_bloon == True:
+                                                    potion = int(potion)
+                                                    print("potion?", potion)
+                                                    if cla == "one":
+                                                        v_.mypotion_1 = potion
+                                                    if cla == "two":
+                                                        v_.mypotion_2 = potion
+                                                    if cla == "three":
+                                                        v_.mypotion_3 = potion
+                                                    if cla == "four":
+                                                        v_.mypotion_4 = potion
+
+                                                    if potion < 50:
+                                                        v_.potion_count += 1
+                                                        if v_.potion_count > 5:
+                                                            v_.potion_count = 0
+                                                            drag_maul_potion_(cla, dun_)
+                                                            continue_juljun = True
+                                                    else:
+                                                        v_.potion_count = 0
+                                                else:
+                                                    print("potion => 숫자 아님")
 
 
                             else:
@@ -1471,7 +1485,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                                                                 img_array = np.fromfile(full_path, np.uint8)
                                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                                imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                                                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                                                                 if imgs_ is not None and imgs_ != False:
                                                                     break
                                                                 time.sleep(0.3)
@@ -1482,55 +1496,40 @@ def juljun_attack(cla, dun_, nowstep):
                                                         print("포션 구하러 ㄱㄱ")
                                                         drag_maul_potion_(cla, dun_)
                                                         continue_juljun = True
+                            if potion_need == True:
+                                print("포션 구하러 ㄱㄱ : potion_need")
+                                drag_maul_potion_(cla, dun_)
+                                continue_juljun = True
                         elif what_potion_ == 'middle':
+
+                            potion_need = False
+
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                print("uljun_potion_2 일딴 물약 있다", imgs_)
-                                x_reg = imgs_.x
-                                y_reg = imgs_.y
-                                if cla == "two":
-                                    x_reg = x_reg - 960
-                                if cla == "three":
-                                    x_reg = x_reg - 960 - 960
 
-                                # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
-                                potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
-                                print("전체4자리 potion_?", potion_ready)
-                                result_num_in = in_number_check(cla, potion_ready)
-                                if result_num_in == True:
-                                    potion_ = change_number(potion_ready)
-                                    potion = int_put_(potion_)
-                                    potion_bloon = potion.isdigit()
-                                    if potion_bloon == True:
-                                        potion = int(potion)
-                                        print("potion?", potion)
-                                        if cla == "one":
-                                            v_.mypotion_1 = potion
-                                        if cla == "two":
-                                            v_.mypotion_2 = potion
-                                        if cla == "three":
-                                            v_.mypotion_3 = potion
-                                        if cla == "four":
-                                            v_.mypotion_4 = potion
-
-                                        if potion < 50:
-                                            v_.potion_count += 1
-                                            if v_.potion_count > 3:
-                                                v_.potion_count = 0
-                                                drag_maul_potion_(cla, dun_)
-                                                continue_juljun = True
-
-                                        else:
-                                            v_.potion_count = 0
-                                    else:
-                                        print("potion => 숫자 아님")
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_not_middle_potion.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("what_potion_ = 'not middle'")
+                                    potion_need = True
                                 else:
-                                    # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
-                                    potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
-                                    print("앞3자리 potion_2?", potion_ready)
+
+                                    print("juljun_potion 일딴 물약 있다")
+                                    x_reg = imgs_.x
+                                    y_reg = imgs_.y
+                                    if cla == "two":
+                                        x_reg = x_reg - 960
+                                    if cla == "three":
+                                        x_reg = x_reg - 960 - 960
+
+                                    # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
+                                    potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
+                                    print("전체4자리 potion_?", potion_ready)
                                     result_num_in = in_number_check(cla, potion_ready)
                                     if result_num_in == True:
                                         potion_ = change_number(potion_ready)
@@ -1548,21 +1547,21 @@ def juljun_attack(cla, dun_, nowstep):
                                             if cla == "four":
                                                 v_.mypotion_4 = potion
 
-                                            if potion < 10:
+                                            if potion < 50:
                                                 v_.potion_count += 1
-                                                if v_.potion_count > 5:
+                                                if v_.potion_count > 3:
                                                     v_.potion_count = 0
                                                     drag_maul_potion_(cla, dun_)
                                                     continue_juljun = True
+
                                             else:
                                                 v_.potion_count = 0
                                         else:
                                             print("potion => 숫자 아님")
                                     else:
-                                        # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
-                                        potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29,
-                                                                      cla)
-                                        print("뒷3자리 potion_3 =>", potion_ready)
+                                        # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
+                                        potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
+                                        print("앞3자리 potion_2?", potion_ready)
                                         result_num_in = in_number_check(cla, potion_ready)
                                         if result_num_in == True:
                                             potion_ = change_number(potion_ready)
@@ -1580,7 +1579,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                 if cla == "four":
                                                     v_.mypotion_4 = potion
 
-                                                if potion < 50:
+                                                if potion < 10:
                                                     v_.potion_count += 1
                                                     if v_.potion_count > 5:
                                                         v_.potion_count = 0
@@ -1590,6 +1589,38 @@ def juljun_attack(cla, dun_, nowstep):
                                                     v_.potion_count = 0
                                             else:
                                                 print("potion => 숫자 아님")
+                                        else:
+                                            # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
+                                            potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29,
+                                                                          cla)
+                                            print("뒷3자리 potion_3 =>", potion_ready)
+                                            result_num_in = in_number_check(cla, potion_ready)
+                                            if result_num_in == True:
+                                                potion_ = change_number(potion_ready)
+                                                potion = int_put_(potion_)
+                                                potion_bloon = potion.isdigit()
+                                                if potion_bloon == True:
+                                                    potion = int(potion)
+                                                    print("potion?", potion)
+                                                    if cla == "one":
+                                                        v_.mypotion_1 = potion
+                                                    if cla == "two":
+                                                        v_.mypotion_2 = potion
+                                                    if cla == "three":
+                                                        v_.mypotion_3 = potion
+                                                    if cla == "four":
+                                                        v_.mypotion_4 = potion
+
+                                                    if potion < 50:
+                                                        v_.potion_count += 1
+                                                        if v_.potion_count > 5:
+                                                            v_.potion_count = 0
+                                                            drag_maul_potion_(cla, dun_)
+                                                            continue_juljun = True
+                                                    else:
+                                                        v_.potion_count = 0
+                                                else:
+                                                    print("potion => 숫자 아님")
 
 
                             else:
@@ -1637,7 +1668,10 @@ def juljun_attack(cla, dun_, nowstep):
                                                 print("포션 구하러 ㄱㄱ")
                                                 drag_maul_potion_(cla, dun_)
                                                 continue_juljun = True
-
+                            if potion_need == True:
+                                print("포션 구하러 ㄱㄱ : potion_need")
+                                drag_maul_potion_(cla, dun_)
+                                continue_juljun = True
                     else:
                         nowtime_ = datetime.today().strftime("%Y년%m월%d일 %H시%M분%S초")
                         print("현재시간", nowtime_)
@@ -1673,7 +1707,6 @@ def juljun_attack(cla, dun_, nowstep):
                         imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             continue_juljun = True
-                            v_.dongool_dead_count += 1
                             dead_die(cla)
                         # 동굴에서 3번 이상 죽으면 그날 마무리
                         if v_.dongool_dead_count > 3:
@@ -1696,7 +1729,7 @@ def juljun_attack(cla, dun_, nowstep):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         print("juljun_potion_re", imgs_)
                                         in_dungeon__ = True
@@ -1808,7 +1841,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                                                         img_array = np.fromfile(full_path, np.uint8)
                                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                        imgs_ = imgs_set_(450, 640, 490, 670, cla, img, 0.9)
+                                                        imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                                                         if imgs_ is not None and imgs_ != False:
                                                             print("거점이다. 동굴 끝난듯 하다.", imgs_)
                                                             drag_pos(360, 550, 600, 550, cla)
@@ -1817,7 +1850,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                                                                 img_array = np.fromfile(full_path, np.uint8)
                                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                                imgs_ = imgs_set_(450, 640, 490, 670, cla, img, 0.9)
+                                                                imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                                                                 if imgs_ is not None and imgs_ != False:
                                                                     print("드래그중...,,")
                                                                 else:
@@ -1858,7 +1891,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                                                     img_array = np.fromfile(full_path, np.uint8)
                                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                                                     if imgs_ is not None and imgs_ != False:
                                                         last_juljun = True
                                                     else:
@@ -1939,7 +1972,7 @@ def drag_maul_potion_(cla, dun_):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("juljun_dungeon...", imgs_)
                     drag_pos(360, 550, 600, 550, cla)

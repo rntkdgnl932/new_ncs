@@ -64,7 +64,7 @@ def dungeon_play_event(cla, result_schedule_):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("juljun_dungeon", imgs_)
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
@@ -453,7 +453,7 @@ def now_playing(cla, dun_, nowstep):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)

@@ -52,23 +52,68 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(30, 360, 120, 400, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("dungeon_clear", imgs_)
-    else:
-        print("nononononononono")
+    potion_check(cla)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("dungeon_clear2", imgs_)
-    else:
-        print("nononononononono2222222222222222")
+
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.9)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("uljun_potion_2 일딴 물약 있다", imgs_)
+    #
+    #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_not_middle_potion.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("what_potion_ = 'not middle'")
+    #     else:
+    #         print("진짜 물약 있다.")
+    #
+    # else:
+    #     print("물약 없다")
+    #
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("거점이다. 동굴 끝난듯 하다.", imgs_)
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("동굴 사냥중인듯 하다", imgs_)
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(400, 50, 600, 100, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("juljun_mode", imgs_)
+
+
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(30, 360, 120, 400, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("dungeon_clear", imgs_)
+    # else:
+    #     print("nononononononono")
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("dungeon_clear2", imgs_)
+    # else:
+    #     print("nononononononono2222222222222222")
 
     # my_property_upload(cla)
 
