@@ -3191,7 +3191,7 @@ class game_Playing(QThread):
                                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(450, 640, 540, 710, v_.now_cla, img, 0.9)
+                                            imgs_ = imgs_set_(400, 880, 560, 960, v_.now_cla, img, 0.9)
                                             if imgs_ is not None and imgs_ != False:
                                                 print("사냥중", imgs_)
                                             else:
