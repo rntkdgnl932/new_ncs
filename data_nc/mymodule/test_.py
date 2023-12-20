@@ -52,8 +52,12 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    potion_check(cla)
-
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_out.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(30, 200, 110, 240, cla, img, 0.85)
+    if imgs_ is not None and imgs_ != False:
+        print("uljun_potion_2 일딴 물약 있다", imgs_)
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
