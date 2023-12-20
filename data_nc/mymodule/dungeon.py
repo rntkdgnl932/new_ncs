@@ -1298,50 +1298,24 @@ def juljun_attack(cla, dun_, nowstep):
                                     print("what_potion_ = 'not small'")
                                     potion_need = True
                                 else:
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("juljun_potion 일딴 물약 있다")
+                                        x_reg = imgs_.x
+                                        y_reg = imgs_.y
+                                        if cla == "two":
+                                            x_reg = x_reg - 960
+                                        elif cla == "three":
+                                            x_reg = x_reg - 960 - 960
+                                        elif cla == "four":
+                                            x_reg = x_reg - 960 - 960 - 960
 
-                                    print("juljun_potion 일딴 물약 있다")
-                                    x_reg = imgs_.x
-                                    y_reg = imgs_.y
-                                    if cla == "two":
-                                        x_reg = x_reg - 960
-                                    if cla == "three":
-                                        x_reg = x_reg - 960 - 960
-
-                                    # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
-                                    potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
-                                    print("전체4자리 potion_?", potion_ready)
-                                    result_num_in = in_number_check(cla, potion_ready)
-                                    if result_num_in == True:
-                                        potion_ = change_number(potion_ready)
-                                        potion = int_put_(potion_)
-                                        potion_bloon = potion.isdigit()
-                                        if potion_bloon == True:
-                                            potion = int(potion)
-                                            print("potion?", potion)
-                                            if cla == "one":
-                                                v_.mypotion_1 = potion
-                                            if cla == "two":
-                                                v_.mypotion_2 = potion
-                                            if cla == "three":
-                                                v_.mypotion_3 = potion
-                                            if cla == "four":
-                                                v_.mypotion_4 = potion
-
-                                            if potion < 50:
-                                                v_.potion_count += 1
-                                                if v_.potion_count > 3:
-                                                    v_.potion_count = 0
-                                                    drag_maul_potion_(cla, dun_)
-                                                    continue_juljun = True
-
-                                            else:
-                                                v_.potion_count = 0
-                                        else:
-                                            print("potion => 숫자 아님")
-                                    else:
-                                        # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
-                                        potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
-                                        print("앞3자리 potion_2?", potion_ready)
+                                        # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
+                                        potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
+                                        print("전체4자리 potion_?", potion_ready)
                                         result_num_in = in_number_check(cla, potion_ready)
                                         if result_num_in == True:
                                             potion_ = change_number(potion_ready)
@@ -1359,20 +1333,21 @@ def juljun_attack(cla, dun_, nowstep):
                                                 if cla == "four":
                                                     v_.mypotion_4 = potion
 
-                                                if potion < 10:
+                                                if potion < 50:
                                                     v_.potion_count += 1
-                                                    if v_.potion_count > 5:
+                                                    if v_.potion_count > 3:
                                                         v_.potion_count = 0
                                                         drag_maul_potion_(cla, dun_)
                                                         continue_juljun = True
+
                                                 else:
                                                     v_.potion_count = 0
                                             else:
                                                 print("potion => 숫자 아님")
                                         else:
-                                            # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
-                                            potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
-                                            print("뒷3자리 potion_3 =>", potion_ready)
+                                            # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
+                                            potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
+                                            print("앞3자리 potion_2?", potion_ready)
                                             result_num_in = in_number_check(cla, potion_ready)
                                             if result_num_in == True:
                                                 potion_ = change_number(potion_ready)
@@ -1390,7 +1365,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                     if cla == "four":
                                                         v_.mypotion_4 = potion
 
-                                                    if potion < 50:
+                                                    if potion < 10:
                                                         v_.potion_count += 1
                                                         if v_.potion_count > 5:
                                                             v_.potion_count = 0
@@ -1400,6 +1375,37 @@ def juljun_attack(cla, dun_, nowstep):
                                                         v_.potion_count = 0
                                                 else:
                                                     print("potion => 숫자 아님")
+                                            else:
+                                                # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
+                                                potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
+                                                print("뒷3자리 potion_3 =>", potion_ready)
+                                                result_num_in = in_number_check(cla, potion_ready)
+                                                if result_num_in == True:
+                                                    potion_ = change_number(potion_ready)
+                                                    potion = int_put_(potion_)
+                                                    potion_bloon = potion.isdigit()
+                                                    if potion_bloon == True:
+                                                        potion = int(potion)
+                                                        print("potion?", potion)
+                                                        if cla == "one":
+                                                            v_.mypotion_1 = potion
+                                                        if cla == "two":
+                                                            v_.mypotion_2 = potion
+                                                        if cla == "three":
+                                                            v_.mypotion_3 = potion
+                                                        if cla == "four":
+                                                            v_.mypotion_4 = potion
+
+                                                        if potion < 50:
+                                                            v_.potion_count += 1
+                                                            if v_.potion_count > 5:
+                                                                v_.potion_count = 0
+                                                                drag_maul_potion_(cla, dun_)
+                                                                continue_juljun = True
+                                                        else:
+                                                            v_.potion_count = 0
+                                                    else:
+                                                        print("potion => 숫자 아님")
 
 
                             else:
@@ -1518,50 +1524,24 @@ def juljun_attack(cla, dun_, nowstep):
                                     print("what_potion_ = 'not middle'")
                                     potion_need = True
                                 else:
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("juljun_potion 일딴 물약 있다")
+                                        x_reg = imgs_.x
+                                        y_reg = imgs_.y
+                                        if cla == "two":
+                                            x_reg = x_reg - 960
+                                        elif cla == "three":
+                                            x_reg = x_reg - 960 - 960
+                                        elif cla == "four":
+                                            x_reg = x_reg - 960 - 960 - 960
 
-                                    print("juljun_potion 일딴 물약 있다")
-                                    x_reg = imgs_.x
-                                    y_reg = imgs_.y
-                                    if cla == "two":
-                                        x_reg = x_reg - 960
-                                    if cla == "three":
-                                        x_reg = x_reg - 960 - 960
-
-                                    # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
-                                    potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
-                                    print("전체4자리 potion_?", potion_ready)
-                                    result_num_in = in_number_check(cla, potion_ready)
-                                    if result_num_in == True:
-                                        potion_ = change_number(potion_ready)
-                                        potion = int_put_(potion_)
-                                        potion_bloon = potion.isdigit()
-                                        if potion_bloon == True:
-                                            potion = int(potion)
-                                            print("potion?", potion)
-                                            if cla == "one":
-                                                v_.mypotion_1 = potion
-                                            if cla == "two":
-                                                v_.mypotion_2 = potion
-                                            if cla == "three":
-                                                v_.mypotion_3 = potion
-                                            if cla == "four":
-                                                v_.mypotion_4 = potion
-
-                                            if potion < 50:
-                                                v_.potion_count += 1
-                                                if v_.potion_count > 3:
-                                                    v_.potion_count = 0
-                                                    drag_maul_potion_(cla, dun_)
-                                                    continue_juljun = True
-
-                                            else:
-                                                v_.potion_count = 0
-                                        else:
-                                            print("potion => 숫자 아님")
-                                    else:
-                                        # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
-                                        potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
-                                        print("앞3자리 potion_2?", potion_ready)
+                                        # potion_ready = text_check_get(476, 1007, 505, 1022, cla)
+                                        potion_ready = text_check_get(x_reg - 3, y_reg + 14, x_reg + 26, y_reg + 29, cla)
+                                        print("전체4자리 potion_?", potion_ready)
                                         result_num_in = in_number_check(cla, potion_ready)
                                         if result_num_in == True:
                                             potion_ = change_number(potion_ready)
@@ -1579,21 +1559,21 @@ def juljun_attack(cla, dun_, nowstep):
                                                 if cla == "four":
                                                     v_.mypotion_4 = potion
 
-                                                if potion < 10:
+                                                if potion < 50:
                                                     v_.potion_count += 1
-                                                    if v_.potion_count > 5:
+                                                    if v_.potion_count > 3:
                                                         v_.potion_count = 0
                                                         drag_maul_potion_(cla, dun_)
                                                         continue_juljun = True
+
                                                 else:
                                                     v_.potion_count = 0
                                             else:
                                                 print("potion => 숫자 아님")
                                         else:
-                                            # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
-                                            potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29,
-                                                                          cla)
-                                            print("뒷3자리 potion_3 =>", potion_ready)
+                                            # potion_ready = text_check_get(475, 1007, 497, 1022, cla)
+                                            potion_ready = text_check_get(x_reg - 4, y_reg + 14, x_reg + 18, y_reg + 29, cla)
+                                            print("앞3자리 potion_2?", potion_ready)
                                             result_num_in = in_number_check(cla, potion_ready)
                                             if result_num_in == True:
                                                 potion_ = change_number(potion_ready)
@@ -1611,7 +1591,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                     if cla == "four":
                                                         v_.mypotion_4 = potion
 
-                                                    if potion < 50:
+                                                    if potion < 10:
                                                         v_.potion_count += 1
                                                         if v_.potion_count > 5:
                                                             v_.potion_count = 0
@@ -1621,6 +1601,38 @@ def juljun_attack(cla, dun_, nowstep):
                                                         v_.potion_count = 0
                                                 else:
                                                     print("potion => 숫자 아님")
+                                            else:
+                                                # potion_ready = text_check_get(482, 1007, 505, 1022, cla)
+                                                potion_ready = text_check_get(x_reg + 3, y_reg + 14, x_reg + 26, y_reg + 29,
+                                                                              cla)
+                                                print("뒷3자리 potion_3 =>", potion_ready)
+                                                result_num_in = in_number_check(cla, potion_ready)
+                                                if result_num_in == True:
+                                                    potion_ = change_number(potion_ready)
+                                                    potion = int_put_(potion_)
+                                                    potion_bloon = potion.isdigit()
+                                                    if potion_bloon == True:
+                                                        potion = int(potion)
+                                                        print("potion?", potion)
+                                                        if cla == "one":
+                                                            v_.mypotion_1 = potion
+                                                        if cla == "two":
+                                                            v_.mypotion_2 = potion
+                                                        if cla == "three":
+                                                            v_.mypotion_3 = potion
+                                                        if cla == "four":
+                                                            v_.mypotion_4 = potion
+
+                                                        if potion < 50:
+                                                            v_.potion_count += 1
+                                                            if v_.potion_count > 5:
+                                                                v_.potion_count = 0
+                                                                drag_maul_potion_(cla, dun_)
+                                                                continue_juljun = True
+                                                        else:
+                                                            v_.potion_count = 0
+                                                    else:
+                                                        print("potion => 숫자 아님")
 
 
                             else:
