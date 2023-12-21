@@ -33,15 +33,15 @@ def dead_die(cla):
             dead_ = True
             x_reg = imgs_.x
             y_reg = imgs_.y
-
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            dead_ = True
-            x_reg = imgs_.x
-            y_reg = imgs_.y
+        else:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                dead_ = True
+                x_reg = imgs_.x
+                y_reg = imgs_.y
 
 
 
