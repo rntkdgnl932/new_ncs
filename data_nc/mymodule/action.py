@@ -2030,6 +2030,7 @@ def out_check(cla):
 
         re_1 = go_auto_ing_(cla)
         re_2 = go_quest_ing_(cla)
+        # re_3 = out_checking(cla)
         if re_1 == True or re_2 == True:
             out_ = True
 
@@ -2038,6 +2039,28 @@ def out_check(cla):
     except Exception as e:
         print(e)
 
+def out_checking(cla):
+    try:
+
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        import numpy as np
+        import cv2
+
+        go_ = False
+
+        #퀘스트 진행중인지 여부
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\out_check_attack.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(810, 870, 910, 980, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("out_check_attack", imgs_)
+            go_ = True
+
+        return go_
+
+    except Exception as e:
+        print(e)
 
 def go_quest_ing_(cla):
     try:

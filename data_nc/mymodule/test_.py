@@ -12,7 +12,7 @@ import variable as v_
 def go_test():
     from datetime import date, timedelta, datetime
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check, drag_pos, imgs_set_num, mouse_move_cpp
-    from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change, move_check
+    from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change, move_check, dead_die
     from get_item import get_items, get_upjuk, get_event, get_season_pass, guild_jilyung
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_, jaelyo_
@@ -52,12 +52,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_out.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(30, 200, 110, 240, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("uljun_potion_2 일딴 물약 있다", imgs_)
+    dead_die(cla)
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
