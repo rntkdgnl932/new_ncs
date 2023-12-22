@@ -196,7 +196,7 @@ def dungeon_play(cla, result_schedule_):
                                         line_to_me(cla, "번영 아직 오픈 못했다.")
                                         dungeon_clear = True
 
-                                    if dungeon_clear == False
+                                    if dungeon_clear == False:
                                         click_pos_2(200, 200, cla)
                                 elif dungeon_[1] == "수련":
 
