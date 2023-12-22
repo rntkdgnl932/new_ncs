@@ -158,19 +158,34 @@ def dungeon_play(cla, result_schedule_):
 
                             if v_.force_sub_quest == False:
                                 if dungeon_[1] == "번영":
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(30, 160, 120, 200, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        dungeon_clear = True
-                                    else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+
+                                    click_pos_2(80, 110, cla)
+                                    time.sleep(0.2)
+                                    click_pos_2(200, 200, cla)
+
+                                    time.sleep(0.2)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                        imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             dungeon_clear = True
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                dungeon_clear = True
+                                            else:
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\event\\manlyo.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(390, 180, 540, 240, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    dungeon_clear = True
+                                        time.sleep(0.2)
 
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -181,24 +196,36 @@ def dungeon_play(cla, result_schedule_):
                                         line_to_me(cla, "번영 아직 오픈 못했다.")
                                         dungeon_clear = True
 
-                                    if dungeon_clear == False:
-                                        click_pos_2(80, 110, cla)
-                                        time.sleep(0.2)
+                                    if dungeon_clear == False
                                         click_pos_2(200, 200, cla)
                                 elif dungeon_[1] == "수련":
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        dungeon_clear = True
-                                    else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+
+                                    click_pos_2(80, 110, cla)
+                                    time.sleep(0.2)
+                                    click_pos_2(200, 300, cla)
+                                    time.sleep(0.2)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                        imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             dungeon_clear = True
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                dungeon_clear = True
+                                            else:
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\event\\manlyo.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(390, 180, 540, 240, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    dungeon_clear = True
+                                        time.sleep(0.2)
 
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -210,23 +237,34 @@ def dungeon_play(cla, result_schedule_):
                                         dungeon_clear = True
 
                                     if dungeon_clear == False:
-                                        click_pos_2(80, 110, cla)
-                                        time.sleep(0.2)
                                         click_pos_2(200, 300, cla)
                                 elif dungeon_[1] == "신전":
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(30, 360, 120, 400, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        dungeon_clear = True
-                                    else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+                                    click_pos_2(80, 110, cla)
+                                    time.sleep(0.2)
+                                    click_pos_2(200, 400, cla)
+                                    time.sleep(0.2)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                        imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             dungeon_clear = True
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                dungeon_clear = True
+                                            else:
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\event\\manlyo.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(390, 180, 540, 240, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    dungeon_clear = True
+                                        time.sleep(0.2)
 
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -238,23 +276,34 @@ def dungeon_play(cla, result_schedule_):
                                         dungeon_clear = True
 
                                     if dungeon_clear == False:
-                                        click_pos_2(80, 110, cla)
-                                        time.sleep(0.2)
                                         click_pos_2(200, 400, cla)
                                 elif dungeon_[1] == "유적":
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(30, 460, 120, 500, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        dungeon_clear = True
-                                    else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+                                    click_pos_2(80, 110, cla)
+                                    time.sleep(0.2)
+                                    click_pos_2(200, 500, cla)
+                                    time.sleep(0.2)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                        imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             dungeon_clear = True
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                dungeon_clear = True
+                                            else:
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\event\\manlyo.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(390, 180, 540, 240, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    dungeon_clear = True
+                                        time.sleep(0.2)
 
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -266,19 +315,35 @@ def dungeon_play(cla, result_schedule_):
                                         dungeon_clear = True
 
                                     if dungeon_clear == False:
-                                        click_pos_2(80, 110, cla)
-                                        time.sleep(0.2)
                                         click_pos_2(200, 500, cla)
                                 elif dungeon_[1] == "동굴":
                                     click_pos_2(210, 110, cla)
-                                    time.sleep(0.7)
+                                    time.sleep(0.2)
 
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\manlyo.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(100, 130, 240, 200, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        dungeon_clear = True
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            dungeon_clear = True
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                dungeon_clear = True
+                                            else:
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\manlyo.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(100, 130, 240, 200, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    dungeon_clear = True
+                                        time.sleep(0.2)
+
+
 
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\not_open.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)

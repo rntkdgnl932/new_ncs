@@ -52,10 +52,18 @@ def boss_attack_start(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_click.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(240, 60, 300, 120, cla, img, 0.85)
+                imgs_ = imgs_set_(200, 60, 300, 130, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.1)
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_click2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(200, 60, 300, 130, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_in.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -184,7 +192,7 @@ def boss_attack_start(cla):
                     click_pos_2(710, 440, cla)
                     time.sleep(0.1)
                     click_pos_2(710, 585, cla)
-                    time.sleep(0.1)
+                    time.sleep(0.2)
                 boss3 = False
 
             else:
@@ -199,6 +207,17 @@ def boss_attack_start(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     time.sleep(0.4)
+        for i in range(10):
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 130, 820, 180, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(930, 110, cla)
+            else:
+                break
+            time.sleep(0.5)
+
 
 
     except Exception as e:
