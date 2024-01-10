@@ -3289,8 +3289,8 @@ class game_Playing(QThread):
                                                         print("마을이면 물약 ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ", imgs_)
                                                         maul_potion_only(v_.now_cla)
                                                     if dungeon_[1] == "이벤트":
-                                                        result = dungeon_play_event(v_.now_cla, result_schedule_)
-                                                        # myQuest_play_add(v_.now_cla, result_schedule_)
+                                                        # result = dungeon_play_event(v_.now_cla, result_schedule_)
+                                                        myQuest_play_add(v_.now_cla, result_schedule_)
                                                     else:
 
                                                         result = dungeon_play(v_.now_cla, result_schedule_)
