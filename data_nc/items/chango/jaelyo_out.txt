@@ -7,6 +7,7 @@ bunyung_low
 bunyung_high
 cave_5
 cave_6
+chungong
 crystal_1
 eleta_1
 frozen_tear
@@ -17,6 +18,7 @@ ganghwa_moogi
 gold_chunching
 gold_jogak
 gold_joomoney
+guild_jilyung
 haegol_chultoibyung_chultoi
 haegol_chultoibyung_mace
 haegol_chultoibyung_ssangchultoi
