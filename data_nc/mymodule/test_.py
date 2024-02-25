@@ -61,6 +61,33 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("uljun_potion_2 일딴 물약 있다", imgs_)
 
+    dungeon_clear = False
+
+    for i in range(10):
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            dungeon_clear = True
+        else:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                dungeon_clear = True
+            else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\manlyo.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(100, 130, 240, 200, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    dungeon_clear = True
+        time.sleep(0.2)
+
+    print("dungeon_clear", dungeon_clear)
+
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
