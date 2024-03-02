@@ -982,9 +982,9 @@ def guild_check(cla):
                                 click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
                                 time.sleep(0.1)
 
-                            click_pos_2(430, 990, cla)
+                            click_pos_2(430, 950, cla)
                             time.sleep(0.1)
-                            click_pos_2(430, 990, cla)
+                            click_pos_2(430, 950, cla)
                             time.sleep(0.1)
 
                             giboo_ = False
@@ -1009,7 +1009,7 @@ def guild_check(cla):
                                     clean_screen(cla)
 
                                 else:
-                                    click_pos_2(555, 990, cla)
+                                    click_pos_2(555, 950, cla)
                                 time.sleep(0.5)
 
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
