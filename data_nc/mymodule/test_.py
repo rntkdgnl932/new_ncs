@@ -13,7 +13,7 @@ def go_test():
     from datetime import date, timedelta, datetime
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check, drag_pos, imgs_set_num, mouse_move_cpp
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change, move_check, dead_die
-    from get_item import get_items, get_upjuk, get_event, get_season_pass, guild_jilyung
+    from get_item import get_items, get_upjuk, get_event, get_season_pass, guild_jilyung, guild_check
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_, jaelyo_
     from dungeon import drag_maul_potion_
@@ -52,41 +52,30 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    # dead_die(cla)
+    guild_check(cla)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("uljun_potion_2 일딴 물약 있다", imgs_)
-
-    dungeon_clear = False
-
-    for i in range(10):
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            dungeon_clear = True
-        else:
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 190, 460, 240, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                dungeon_clear = True
-            else:
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\manlyo.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(100, 130, 240, 200, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    dungeon_clear = True
-        time.sleep(0.2)
-
-    print("dungeon_clear", dungeon_clear)
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(740, 220, 770, 270, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("point 1", imgs_)
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_des_point.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(450, 920, 490, 970, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("guild_des_point 1", imgs_)
+    #     click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_des_point.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(845, 940, 895, 985, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("guild_des_point 2", imgs_)
+    #     click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
