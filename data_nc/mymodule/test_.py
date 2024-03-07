@@ -52,7 +52,8 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    guild_check(cla)
+    result_potion = available_potion(cla)
+    print("available_potion", result_potion)
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

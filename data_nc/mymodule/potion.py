@@ -2053,6 +2053,7 @@ def maul_potion_only(cla):
                 imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("small_potion", imgs_)
+
                     jab_2 = True
                     # click_pos_reg(imgs_.x + 70, imgs_.y, cla)
             else:
