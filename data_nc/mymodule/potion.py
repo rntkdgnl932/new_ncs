@@ -72,6 +72,24 @@ def potion_check(cla):
                 if imgs_ is not None and imgs_ != False:
                     print(v_.potion_size, "zero 존재한다.")
                     potion_zero = True
+            for i in range(10):
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(390, 1004, 406, 1016, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("숫자는? ", i)
+                    break
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(380, 985, 406, 1016, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("물량 100개 이하")
+                        potion_zero = True
+                        break
 
         if is_potion == True and potion_zero == False:
             # img = pyautogui.screenshot(region=(get_region(730, 1004, 759, 1016, cla)))
