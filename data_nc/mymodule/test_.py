@@ -52,25 +52,40 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    result = text_check_get(390, 1004, 406, 1016, cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(250, 960, 420, 1030, "three", img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("마을 이동서 있다.")
 
-    for i in range(10):
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(250, 960, 420, 1030, "three", img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("랜덤 이동서 있다.")
 
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(390, 1004, 406, 1016, cla, img, 0.83)
-        if imgs_ is not None and imgs_ != False:
-            print("숫자는? ", i)
-            break
-        else:
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(380, 985, 406, 1016, cla, img, 0.83)
-            if imgs_ is not None and imgs_ != False:
-                print("물량 100개 이하")
-                break
+
+    # result = text_check_get(390, 1004, 406, 1016, cla)
+    #
+    # for i in range(10):
+    #
+    #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(390, 1004, 406, 1016, cla, img, 0.83)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("숫자는? ", i)
+    #         break
+    #     else:
+    #         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100.PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(380, 985, 406, 1016, cla, img, 0.83)
+    #         if imgs_ is not None and imgs_ != False:
+    #             print("물량 100개 이하")
+    #             break
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
