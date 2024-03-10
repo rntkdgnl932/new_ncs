@@ -1106,7 +1106,7 @@ def in_maul_check(cla):
 
         in_ = False
 
-        maul_list = ["maul_", "maul_a", "maul_b", "maul_c"]
+        maul_list = ["maul_", "maul_a", "maul_b", "maul_c", "maul_d"]
         for i in range(len(maul_list)):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\maul\\" + maul_list[i] + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -2643,15 +2643,39 @@ def character_change(cla, character_id):
                             imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\loading.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(150, 850, 750, 1050, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    game_loading(cla)
                         time.sleep(0.5)
                 else:
-                    clean_screen(cla)
+
 
                     # 마을이 아니라면...
-                    result_maul_check = in_maul_check(cla)
-                    if result_maul_check == False:
-                        click_pos_2(290, 990, cla)
-                        time.sleep(5)
+                    for i in range(20):
+                        result_maul_check = in_maul_check(cla)
+                        if result_maul_check == True:
+                            break
+                        else:
+                            clean_screen(cla)
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\loading.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(150, 850, 750, 1050, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                game_loading(cla)
+                        time.sleep(1)
 
                     menu_open(cla)
                     time.sleep(0.1)

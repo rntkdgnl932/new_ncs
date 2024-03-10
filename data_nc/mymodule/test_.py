@@ -52,19 +52,21 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(250, 960, 420, 1030, "three", img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("마을 이동서 있다.", imgs_)
+    maul_potion_only(cla)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(250, 960, 420, 1030, "three", img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("랜덤 이동서 있다.", imgs_)
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(250, 960, 420, 1030, "three", img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("마을 이동서 있다.", imgs_)
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(250, 960, 420, 1030, "three", img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("랜덤 이동서 있다.", imgs_)
 
 
     # result = text_check_get(390, 1004, 406, 1016, cla)

@@ -39,6 +39,8 @@ def jadong_play(cla, result_schedule_):
             file_path = dir_path + "\\jadong\\bastium.txt"
         if dungeon_[1] == "첼라노":
             file_path = dir_path + "\\jadong\\chalano.txt"
+        if dungeon_[1] == "트로네텔":
+            file_path = dir_path + "\\jadong\\tronetel.txt"
         file_path2 = dir_path + "\\jadong\\jadong.txt"
 
         if os.path.isfile(file_path) == True:
@@ -188,7 +190,7 @@ def in_world(cla):
 
                 maul_ = False
 
-                maul_list = ["maul_", "maul_a", "maul_b", "maul_c"]
+                maul_list = ["maul_", "maul_a", "maul_b", "maul_c", "maul_d"]
                 for i in range(len(maul_list)):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\maul\\" + maul_list[i] + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -199,6 +201,30 @@ def in_world(cla):
                         maul_ = True
                 if maul_ == False:
                     # click_pos_2(230, 90, cla)
+                    # 마을이 아니라면...
+                    for i in range(20):
+                        result_maul_check = in_maul_check(cla)
+                        if result_maul_check == True:
+                            break
+                        else:
+                            clean_screen(cla)
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\loading.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(150, 850, 750, 1050, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                game_loading(cla)
+                        time.sleep(1)
+
+
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\maul\\jabhwa_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -206,6 +232,7 @@ def in_world(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("여긴 마을!!!!!!!!!!!!!")
                         click_pos_2(230, 90, cla)
+                        time.sleep(0.5)
 
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\maul_eye_check.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -251,7 +278,7 @@ def in_world(cla):
                         world_check = False
                     else:
                         click_pos_2(110, 160, cla)
-                    time.sleep(0.3)
+                    time.sleep(0.5)
             time.sleep(0.3)
 
 
@@ -289,20 +316,30 @@ def in_spot(cla, result_schedule_):
             if imgs_ is not None and imgs_ != False:
                 print("bastium", imgs_)
                 in_map = True
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\abilius.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                in_map = True
-                print("abilius", imgs_)
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\chalano.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                in_map = True
-                print("chalano", imgs_)
+            else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\abilius.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    in_map = True
+                    print("abilius", imgs_)
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\chalano.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        in_map = True
+                        print("chalano", imgs_)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\tronetel.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            in_map = True
+                            print("tronetel", imgs_)
             if in_map == True:
                 # 사냥터에 따라 지도 클릭 달라짐
 
@@ -315,10 +352,12 @@ def in_spot(cla, result_schedule_):
 
                 if dungeon_[1] == "아빌리우스":
                     file_path = dir_path + "\\jadong\\abilius.txt"
-                if dungeon_[1] == "바스티움":
+                elif dungeon_[1] == "바스티움":
                     file_path = dir_path + "\\jadong\\bastium.txt"
-                if dungeon_[1] == "첼라노":
+                elif dungeon_[1] == "첼라노":
                     file_path = dir_path + "\\jadong\\chalano.txt"
+                elif dungeon_[1] == "트로네텔":
+                    file_path = dir_path + "\\jadong\\tronetel.txt"
                 file_path2 = dir_path + "\\jadong\\jadong.txt"
 
 
@@ -559,6 +598,16 @@ def in_spot_to_walking_ready(cla):
                         gold_spot = "알레인고지대"
                         spot_global = "사냥_첼라노_" + gold_spot
                         v_.onForceGoldSpot_go = spot_global
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\d_list.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(770, 70, 870, 120, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("a_list", imgs_)
+                            gold_spot = "델피아광산"
+                            spot_global = "사냥_트로네텔_" + gold_spot
+                            v_.onForceGoldSpot_go = spot_global
 
             if os.path.isfile(file_path2) == True:
                 with open(file_path2, "r", encoding='utf-8-sig') as file:
@@ -752,10 +801,12 @@ def go_to_spot(cla, data):
         dir_path = "C:\\my_games\\nightcrow\\data_nc"
         if spot_[1] == "아빌리우스":
             file_path = dir_path + "\\jadong\\abilius.txt"
-        if spot_[1] == "바스티움":
+        elif spot_[1] == "바스티움":
             file_path = dir_path + "\\jadong\\bastium.txt"
-        if spot_[1] == "첼라노":
+        elif spot_[1] == "첼라노":
             file_path = dir_path + "\\jadong\\chalano.txt"
+        elif spot_[1] == "첼라노":
+            file_path = dir_path + "\\jadong\\tronetelchalano.txt"
         file_path2 = dir_path + "\\jadong\\jadong.txt"
 
         if os.path.isfile(file_path) == True:
@@ -897,7 +948,7 @@ def go_to_spot(cla, data):
                             print("in_spot_walking_2 보여...이동중")
                             if fly_to_the_sky_count > 20:
                                 fly_to_the_sky = True
-                                attack_ready = True
+                                # attack_ready = True # ???
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
