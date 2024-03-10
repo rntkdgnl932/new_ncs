@@ -894,6 +894,7 @@ def go_to_spot(cla, data):
             imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 flying = True
+
                 fly_to_the_sky = False
                 fly_to_the_sky_count = 0
                 while fly_to_the_sky is False:
