@@ -96,10 +96,13 @@ def jadong_play(cla, result_schedule_):
         print(e)
 
 def in_world(cla):
+    import cv2
+    import numpy as np
+    from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
+    from action import in_maul_check, clean_screen, game_loading
     try:
-        import cv2
-        import numpy as np
-        from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
+
+
 
         in_worldmap = False
         in_worldmap_count = 0
