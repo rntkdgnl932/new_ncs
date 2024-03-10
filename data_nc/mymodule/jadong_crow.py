@@ -809,7 +809,7 @@ def go_to_spot(cla, data):
         elif spot_[1] == "첼라노":
             file_path = dir_path + "\\jadong\\chalano.txt"
         elif spot_[1] == "첼라노":
-            file_path = dir_path + "\\jadong\\tronetelchalano.txt"
+            file_path = dir_path + "\\jadong\\tronetel.txt"
         file_path2 = dir_path + "\\jadong\\jadong.txt"
 
         if os.path.isfile(file_path) == True:
@@ -1006,19 +1006,27 @@ def go_to_spot(cla, data):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("도착한 상태")
 
-                        attack_ready = True
-                        result_ = go_quest_ing_(cla)
-                        if result_ == False:
-                            if data == "jadong":
-                                click_pos_2(930, 850, cla)
-                                time.sleep(0.1)
 
-                                guild_jilyung_get(cla, "jadong")
-                                time.sleep(0.1)
-                            if data == "sub":
-                                click_pos_2(800, 150, cla)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\flying_.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("도착 했지만 아직 날아 가는 중")
+                        else:
+
+                            attack_ready = True
+                            result_ = go_quest_ing_(cla)
+                            if result_ == False:
+                                if data == "jadong":
+                                    click_pos_2(930, 850, cla)
+                                    time.sleep(0.1)
+
+                                    guild_jilyung_get(cla, "jadong")
+                                    time.sleep(0.1)
+                                if data == "sub":
+                                    click_pos_2(800, 150, cla)
 
 
                     else:
