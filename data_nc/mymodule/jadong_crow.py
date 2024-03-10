@@ -808,7 +808,7 @@ def go_to_spot(cla, data):
             file_path = dir_path + "\\jadong\\bastium.txt"
         elif spot_[1] == "첼라노":
             file_path = dir_path + "\\jadong\\chalano.txt"
-        elif spot_[1] == "첼라노":
+        elif spot_[1] == "트로네텔":
             file_path = dir_path + "\\jadong\\tronetel.txt"
         file_path2 = dir_path + "\\jadong\\jadong.txt"
 
