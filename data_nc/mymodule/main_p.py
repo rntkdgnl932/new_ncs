@@ -148,7 +148,9 @@ class MyApp(QDialog):
 
         if last_monitor_number == 1:
             self.setGeometry(1000, 300, 900, 600)
-        if last_monitor_number == 2:
+        elif last_monitor_number == 2:
+            self.setGeometry(1000 + 960, 300, 900, 600)
+        elif last_monitor_number == 3:
             self.setGeometry(1000 + 960, 300, 900, 600)
 
         self.show()
