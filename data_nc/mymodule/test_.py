@@ -59,6 +59,7 @@ def go_test():
         imgs_ = imgs_set_(220, 870, 270, 910, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
             print("dead_gold 떳다.", imgs_)
+            break
         else:
             click_pos_2(95, 895, cla)
         time.sleep(0.5)
