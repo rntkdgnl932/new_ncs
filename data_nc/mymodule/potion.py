@@ -2280,7 +2280,7 @@ def available_potion(cla):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\exit.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(720, 760, 770, 810, cla, img, 0.8)
+            imgs_ = imgs_set_(480, 760, 530, 810, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
 
                 # 체크 해제시 체크해주기
@@ -2289,7 +2289,7 @@ def available_potion(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_checked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(510, 800, 550, 840, cla, img, 0.8)
+                    imgs_ = imgs_set_(275, 800, 315, 840, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("potion_checked", imgs_)
                         break
@@ -2297,7 +2297,7 @@ def available_potion(cla):
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\potion_not_checked.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(510, 800, 550, 840, cla, img, 0.8)
+                        imgs_ = imgs_set_(275, 800, 315, 840, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("potion_not_checked", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2310,29 +2310,29 @@ def available_potion(cla):
                 imgs_ = imgs_set_(600, 900, 660, 930, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     v_.potion_size = "small"
-                    click_pos_2(565, 900, cla)
+                    click_pos_2(320, 900, cla)
                     break
                 else:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\lv60.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(670, 900, 730, 930, cla, img, 0.8)
+                    imgs_ = imgs_set_(340, 900, 530, 930, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         v_.potion_size = "middle"
-                        click_pos_2(635, 900, cla)
+                        click_pos_2(320, 900, cla)
                     else:
                         v_.potion_size = "big"
-                        click_pos_2(705, 900, cla)
+                        click_pos_2(370, 900, cla)
                     break
             else:
-                click_pos_2(735, 1000, cla)
+                click_pos_2(240, 1000, cla)
             time.sleep(0.5)
 
         for i in range(5):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\exit.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(720, 760, 770, 810, cla, img, 0.8)
+            imgs_ = imgs_set_(480, 760, 530, 810, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
