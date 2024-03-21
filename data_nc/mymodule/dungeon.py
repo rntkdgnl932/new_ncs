@@ -607,7 +607,7 @@ def dungeon_play(cla, result_schedule_):
                                     print("던전 진입 완료", dungeon_name)
                                     if dungeon_[1] != "동굴":
                                         guild_jilyung_get(cla, "dungeon")
-                                time.sleep(0.5)
+                                time.sleep(1)
 
                         else:
                             in_dungeon__ = True

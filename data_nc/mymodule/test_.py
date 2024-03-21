@@ -52,26 +52,18 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_click.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(200, 60, 300, 130, cla, img, 0.75)
-    if imgs_ is not None and imgs_ != False:
-        print("boss 떳다.")
+    for i in range(5):
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(200, 60, 300, 130, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            print("dead_gold 떳다.", imgs_)
+        else:
+            click_pos_2(95, 895, cla)
+        time.sleep(0.5)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_click2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(200, 60, 300, 130, cla, img, 0.75)
-    if imgs_ is not None and imgs_ != False:
-        print("boss_click2 떳다.")
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_click3.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(200, 60, 300, 130, cla, img, 0.75)
-    if imgs_ is not None and imgs_ != False:
-        print("boss_click3 떳다.")
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
