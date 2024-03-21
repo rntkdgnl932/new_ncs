@@ -56,7 +56,7 @@ def go_test():
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(200, 60, 300, 130, cla, img, 0.75)
+        imgs_ = imgs_set_(220, 870, 270, 910, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
             print("dead_gold 떳다.", imgs_)
         else:
