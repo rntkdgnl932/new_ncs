@@ -52,17 +52,43 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    for i in range(5):
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(220, 870, 270, 910, cla, img, 0.75)
-        if imgs_ is not None and imgs_ != False:
-            print("dead_gold 떳다.", imgs_)
-            break
-        else:
-            click_pos_2(95, 895, cla)
-        time.sleep(0.5)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_attack.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(600, 80, 910, 240, cla, img, 0.75)
+    if imgs_ is not None and imgs_ != False:
+        print("boss_attack 떳다.", imgs_)
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("보스 hunting_1", imgs_)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("보스 hunting_2", imgs_)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_3.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("보스 hunting_3", imgs_)
+
+    # for i in range(5):
+    #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(220, 870, 270, 910, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("dead_gold 떳다.", imgs_)
+    #         break
+    #     else:
+    #         click_pos_2(95, 895, cla)
+    #     time.sleep(0.5)
 
 
 
