@@ -638,7 +638,7 @@ def now_playing(cla, dun_, nowstep):
     from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
     from potion import potion_check, maul_potion_only, maul_potion
     from action import move_check
-    from action import clean_screen, out_check, bag_open, skill_check_, in_maul_check, dead_die
+    from action import clean_screen, out_check, bag_open, skill_check_, in_maul_check, dead_die, fullbag_check
     from get_item import guild_jilyung
     from schedule import myQuest_play_add
     try:
@@ -917,8 +917,11 @@ def now_playing(cla, dun_, nowstep):
                             # 포션 체크
                             move_check(cla)
                             time.sleep(0.1)
-                            potion_check(cla)
 
+                            fullbag_check(cla)
+                            time.sleep(0.1)
+
+                            potion_check(cla)
                             time.sleep(10)
                             # play_ = True
                             # 여긴 길드 지령 체크하기

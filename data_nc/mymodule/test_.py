@@ -52,31 +52,45 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_attack.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\full_bag_2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(600, 80, 910, 240, cla, img, 0.75)
+    imgs_ = imgs_set_(817, 45, 845, 70, cla, img, 0.75)
     if imgs_ is not None and imgs_ != False:
-        print("boss_attack 떳다.", imgs_)
+        print("full_bag_2", imgs_)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_1.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\full_bag_3.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
+    imgs_ = imgs_set_(817, 45, 845, 70, cla, img, 0.75)
     if imgs_ is not None and imgs_ != False:
-        print("보스 hunting_1", imgs_)
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("보스 hunting_2", imgs_)
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_3.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("보스 hunting_3", imgs_)
+        print("보스 full_bag_3", imgs_)
+
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_attack.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(600, 80, 910, 240, cla, img, 0.75)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("boss_attack 떳다.", imgs_)
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_1.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("보스 hunting_1", imgs_)
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("보스 hunting_2", imgs_)
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\hunting_3.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(350, 850, 600, 900, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("보스 hunting_3", imgs_)
 
     # for i in range(5):
     #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"

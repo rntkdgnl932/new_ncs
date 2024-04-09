@@ -979,15 +979,12 @@ def jaelyo_(cla):
         print(e)
 
 def boonhae_(cla):
+    import cv2
+    import numpy as np
+    from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg
+    from action import bag_open
+
     try:
-        import cv2
-        import numpy as np
-        from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg
-        from action import bag_open
-
-
-        # bag_open(cla)
-
         boonhae_ready = False
         boonhae_ready_count = 0
         while boonhae_ready is False:
