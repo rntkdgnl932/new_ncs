@@ -902,62 +902,71 @@ def now_playing(cla, dun_, nowstep):
                         #     juljun_attack(cla, dun_, nowstep)
                         #     v_.who_attack_ = False
                     else:
-                        # 던전중일때만
-                        print("동굴 말고 다른 던전 공격중...던전이름 : ", dungeon_name)
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_3.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                         if imgs_ is not None and imgs_ != False:
-
-                            print("정상적으로 사냥중...총 10초 딜레이중")
-                            # 이동서 체크
-
-
-                            # 포션 체크
-                            move_check(cla)
+                            print("동굴 공격중")
+                            click_pos_2(25, 970, cla)
                             time.sleep(0.1)
-
-                            fullbag_check(cla)
-                            time.sleep(0.1)
-
-                            potion_check(cla)
-                            time.sleep(10)
-                            # play_ = True
-                            # 여긴 길드 지령 체크하기
-                            # 길드 지령..
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+                        else:
+                            # 던전중일때만
+                            print("동굴 말고 다른 던전 공격중...던전이름 : ", dungeon_name)
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                             if imgs_ is not None and imgs_ != False:
 
-                                jilyung_is_ = False
-                                jilyung_is_count = 0
-                                while jilyung_is_ is False:
-                                    jilyung_is_count += 1
-                                    if jilyung_is_count > 5:
-                                        jilyung_is_ = True
+                                print("정상적으로 사냥중...총 10초 딜레이중")
+                                # 이동서 체크
 
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        guild_jilyung(cla, "dungeon")
-                                        jilyung_is_ = True
-                                    else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+
+                                # 포션 체크
+                                move_check(cla)
+                                time.sleep(0.1)
+
+                                fullbag_check(cla)
+                                time.sleep(0.1)
+
+                                potion_check(cla)
+                                time.sleep(10)
+                                # play_ = True
+                                # 여긴 길드 지령 체크하기
+                                # 길드 지령..
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+
+                                    jilyung_is_ = False
+                                    jilyung_is_count = 0
+                                    while jilyung_is_ is False:
+                                        jilyung_is_count += 1
+                                        if jilyung_is_count > 5:
+                                            jilyung_is_ = True
+
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_title.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                                        imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            guild_jilyung(cla, "dungeon")
+                                            jilyung_is_ = True
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\guild_jilyung.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                                    time.sleep(0.4)
-                        else:
-                            print("던전 안이 아니당.")
-                            in_ = True
+                                        time.sleep(0.4)
+                            else:
+                                print("던전 안이 아니당.")
+                                in_ = True
             else:
                 print("던전 안이 아니다.")
                 in_ = True
@@ -991,6 +1000,16 @@ def dongool_move(cla, nowstep):
             if imgs_ is not None and imgs_ != False:
                 print("dongool_1", imgs_)
                 go_ice_1 = True
+
+            else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+                if imgs_ is not None and imgs_ != False:
+                    print("dongool_3", imgs_)
+                    go_ice_1 = True
+            if go_ice_1 == True:
                 go_ice_2 = False
                 go_ice_count = 0
                 while go_ice_2 is False:
@@ -1189,7 +1208,7 @@ def juljun_attack(cla, dun_, nowstep):
     from datetime import date, timedelta, datetime
     from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos, change_number
     from massenger import line_to_me
-    from action import in_number_check, bag_open, maul_check, in_maul_check, clean_screen, dead_die
+    from action import in_number_check, bag_open, maul_check, in_maul_check, clean_screen, dead_die, juljun_fullbag_check
     from schedule import myQuest_play_add
     try:
         continue_juljun = False
@@ -1329,6 +1348,11 @@ def juljun_attack(cla, dun_, nowstep):
                     imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("juljun_mode", imgs_)
+
+                        # 공격불가 체크
+                        juljun_fullbag_check(cla)
+                        time.sleep(0.1)
+
 
                         what_potion_ = "none"
 
@@ -2066,13 +2090,26 @@ def drag_maul_potion_(cla, dun_):
                         print("동굴 절전모드 포션 구하러 가는 길")
                         print(dun_, imgs_)
                         maul_potion_only(cla)
+
                     else:
-                        result_out = out_check(cla)
-                        if result_out == True:
-                            print("마을이동서 클릭")
-                            click_pos_2(290, 990, cla)
+
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+                        if imgs_ is not None and imgs_ != False:
+                            go_maul_ = True
+                            print("동굴 절전모드 포션 구하러 가는 길")
+                            print(dun_, imgs_)
+                            maul_potion_only(cla)
+
                         else:
-                            clean_screen(cla)
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                print("마을이동서 클릭")
+                                click_pos_2(290, 990, cla)
+                            else:
+                                clean_screen(cla)
 
 
             time.sleep(1)
