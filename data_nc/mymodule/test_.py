@@ -22,7 +22,7 @@ def go_test():
     import cv2
     import os
     from potion import maul_potion, potion_check, available_potion, maul_potion_only
-    from action import skill_check_, mine_check
+    from action import skill_check_, mine_check, juljun_fullbag_check
     from sell_potion import sell_potion_start
     import requests
     import git
@@ -52,19 +52,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\full_bag_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(817, 45, 845, 70, cla, img, 0.75)
-    if imgs_ is not None and imgs_ != False:
-        print("full_bag_2", imgs_)
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\full_bag_3.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(817, 45, 845, 70, cla, img, 0.75)
-    if imgs_ is not None and imgs_ != False:
-        print("보스 full_bag_3", imgs_)
+    juljun_fullbag_check(cla)
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_attack.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
