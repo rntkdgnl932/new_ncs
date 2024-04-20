@@ -70,3 +70,6 @@ vision_chongmyung
 waljangsuk
 water_joomoney
 wood
+ice_wind_wing
+doogguwoon_banghanbok_1
+papun_1
