@@ -52,7 +52,42 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    juljun_fullbag_check(cla)
+    for i in range(10):
+
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(390, 1004, 406, 1016, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            print("숫자는? ", i)
+            break
+        else:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(380, 985, 426, 1020, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("물량 100개 이하")
+                potion_zero = True
+                break
+            else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(380, 985, 426, 1020, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("물량 100개 이하...")
+                    potion_zero = True
+                    break
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\gujum.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+    if imgs_ is not None and imgs_ != False:
+        print("gujum", imgs_)
+
+    # juljun_fullbag_check(cla)
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_attack.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
