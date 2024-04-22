@@ -23,4 +23,5 @@ black_ink
 siyak
 gold_chunching
 cave_5
-ice_wind_wing
+ice_wind_wing_1
+ice_wind_wing_2
