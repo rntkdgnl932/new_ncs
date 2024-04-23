@@ -579,7 +579,7 @@ def maul_potion(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\ilgwal_title.PNG"
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\not_ilgwal_msg.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(480, 70, 600, 120, cla, img, 0.8)
