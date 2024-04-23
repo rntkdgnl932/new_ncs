@@ -52,7 +52,23 @@ def go_test():
 
     v_.what_cla = "one클라"
 
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("juljun_potion 일딴 물약 있다")
+    #
+    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_not_middle_potion.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("what_potion_ = 'not middle'")
+
     maul_potion_only(cla)
+
+    # maul_potion_only(cla)
 
     # for i in range(10):
     #
