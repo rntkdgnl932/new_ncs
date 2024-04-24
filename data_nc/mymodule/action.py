@@ -2788,7 +2788,7 @@ def juljun_fullbag_check(cla):
                 imgs_ = imgs_set_num(50, 200, 65 + add_x, 230, cla, img, 0.75)
                 if imgs_ is not None and imgs_ != False:
                     print("juljun_full_bag : ", num)
-                    if num == 9:
+                    if num == 9 or num == 10:
                         is_full = True
                     break
 
