@@ -2755,7 +2755,7 @@ def my_gold_check(cla):
         print(e)
 
 def juljun_fullbag_check(cla):
-    from function import click_pos_2, imgs_set, imgs_set_
+    from function import click_pos_2, imgs_set, imgs_set_, imgs_set_num
     from realtime import boonhae_
     import numpy as np
     import cv2
@@ -2777,6 +2777,21 @@ def juljun_fullbag_check(cla):
                 print("juljun_full_bag_1", imgs_)
                 is_full = True
 
+            for i in range(5):
+                num = i + 6
+                add_x = 0
+                if num == 10:
+                    add_x = 10
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\juljun_full_bag_num\\" + str(num) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_num(50, 200, 65 + add_x, 230, cla, img, 0.75)
+                if imgs_ is not None and imgs_ != False:
+                    print("juljun_full_bag : ", num)
+                    if num == 9:
+                        is_full = True
+                    break
+
         if is_full == True:
             print("분해")
             boonhae_(cla)
@@ -2784,6 +2799,7 @@ def juljun_fullbag_check(cla):
     except Exception as e:
         print("에러", e)
         return e
+
 def fullbag_check(cla):
     from function import click_pos_2, imgs_set, imgs_set_
     from realtime import boonhae_

@@ -66,7 +66,18 @@ def go_test():
     # if imgs_ is not None and imgs_ != False:
     #     print("what_potion_ = 'not middle'")
 
-    maul_potion_only(cla)
+    for i in range(5):
+        num = i + 6
+        add_x = 0
+        if num == 10:
+            add_x = 10
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\juljun_full_bag_num\\" + str(num) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_num(50, 200, 65 + add_x, 230, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            print("juljun_full_bag : ", num)
+            break
 
     # maul_potion_only(cla)
 
