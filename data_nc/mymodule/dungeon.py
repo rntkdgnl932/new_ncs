@@ -1623,7 +1623,7 @@ def juljun_attack(cla, dun_, nowstep):
                                     minus = 960 * 4
                                 if cla == 'six':
                                     minus = 960 * 5
-                                    x_reg = imgs_.x
+                                x_reg = imgs_.x
                                 for i in range(10):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
                                         i) + ".PNG"
