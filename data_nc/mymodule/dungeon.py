@@ -1611,13 +1611,25 @@ def juljun_attack(cla, dun_, nowstep):
                                 print("juljun_potion 일딴 물약 있다")
                                 # 424 => - 5 + 15 // 996 => 1005, 1030
                                 # 물약 파악
-                                x_reg = imgs_.x
+                                if cla == 'one':
+                                    minus = 0
+                                if cla == 'two':
+                                    minus = 960
+                                if cla == 'three':
+                                    minus = 960 * 2
+                                if cla == 'four':
+                                    minus = 960 * 3
+                                if cla == 'five':
+                                    minus = 960 * 4
+                                if cla == 'six':
+                                    minus = 960 * 5
+                                    x_reg = imgs_.x
                                 for i in range(10):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
                                         i) + ".PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_num(x_reg, 1005, x_reg + 13, 1030, cla, img, 0.8)
+                                    imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         print("100자리 숫자는?'", i, imgs_)
                                         potion_need = False
