@@ -310,6 +310,94 @@ def potion_check(cla):
     except Exception as e:
         print(e)
 
+def juljun_potion_check(cla):
+    import cv2
+    import numpy as np
+    from function import text_check_get, imgs_set_num, imgs_set_, click_pos_2
+
+    if cla == 'one':
+        minus = 0
+    if cla == 'two':
+        minus = 960
+    if cla == 'three':
+        minus = 960 * 2
+    if cla == 'four':
+        minus = 960 * 3
+    if cla == 'five':
+        minus = 960 * 4
+    if cla == 'six':
+        minus = 960 * 5
+
+    try:
+
+        print("juljun potion check")
+
+        potion_need = False
+
+        what_potion_ = "none"
+        x_reg = 0
+
+        # 물약 파악
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            what_potion_ = 'small'
+            x_reg = imgs_.x
+            print("what_potion_ = 'small'")
+        else:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                what_potion_ = 'middle'
+                x_reg = imgs_.x
+
+                print("what_potion_ = 'middle'")
+        if x_reg != 0:
+            if what_potion_ == 'small':
+
+
+
+                x_reg = imgs_.x
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
+                        i) + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("100자리 숫자는?'", i, imgs_)
+                        potion_need = False
+                        break
+
+
+            elif what_potion_ == 'middle':
+
+
+                # 424 => - 5 + 15 // 996 => 1005, 1030
+                # 물약 파악
+
+                x_reg = imgs_.x
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
+                        i) + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("100자리 숫자는?'", i, imgs_)
+                        potion_need = False
+                        break
+
+
+
+
+        return potion_need
+    except Exception as e:
+        print(e)
 
 def maul_potion(cla):
     import cv2
@@ -769,6 +857,47 @@ def maul_potion_move_buy(cla):
 def maul_potion_only(cla):
     try:
         maul_potion(cla)
+    except Exception as e:
+        print(e)
+
+
+def juljun_maul_potion(cla):
+    import cv2
+    import numpy as np
+    from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
+    from potion import maul_potion_only
+    from action import in_maul_check, out_check, clean_screen
+
+    print("juljun_maul_potion")
+    try:
+
+
+
+        go_maul_ = False
+        go_maul_count = 0
+        while go_maul_ is False:
+            go_maul_count += 1
+            if go_maul_count > 10:
+                go_maul_ = True
+            result_maul = in_maul_check(cla)
+            if result_maul == True:
+                go_maul_= True
+                maul_potion_only(cla)
+
+
+            else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("juljun_dungeon...", imgs_)
+                    drag_pos(360, 550, 600, 550, cla)
+
+
+
+            time.sleep(1)
+
     except Exception as e:
         print(e)
 

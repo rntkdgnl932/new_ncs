@@ -14,9 +14,9 @@ def dungeon_play(cla, result_schedule_):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg, drag_pos
-        from action import menu_open, clean_screen, in_maul_check
+        from action import menu_open, clean_screen, in_maul_check, out_check
         from massenger import line_to_me
-        from potion import maul_potion_only
+        from potion import maul_potion_only, juljun_potion_check, juljun_maul_potion
         from get_item import guild_jilyung_get
 
         print("dungeon")
@@ -78,7 +78,7 @@ def dungeon_play(cla, result_schedule_):
             imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("juljun_dungeon", imgs_)
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
@@ -93,9 +93,101 @@ def dungeon_play(cla, result_schedule_):
                         # 동굴 진입해서 사냥중
                         juljun_attack(cla, dungeon_[1], dungeon_[2])
                     else:
-                        drag_pos(360, 550, 600, 550, cla)
+                        for i in range(6):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("드래그 중...")
+                                drag_pos(360, 550, 600, 550, cla)
+                                time.sleep(0.3)
+                            else:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
                 else:
-                    drag_pos(360, 550, 600, 550, cla)
+                    # hereeeee
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\" + dungeon_name + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("던전 중", dungeon_name)
+                            need_count = 0
+                            for i in range(10):
+                                result_need = juljun_potion_check(cla)
+                                if result_need == False:
+                                    break
+                                else:
+                                    need_count += 1
+                                    if need_count > 2:
+                                        juljun_maul_potion(cla)
+                                time.sleep(0.1)
+                        else:
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+
+                                for i in range(6):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("드래그 중...")
+                                        drag_pos(360, 550, 600, 550, cla)
+                                        time.sleep(0.3)
+                                    else:
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.5)
+                                for i in range(10):
+                                    result_out = out_check(cla)
+                                    if result_out == True:
+                                        click_pos_2(930, 850, cla)
+                                        break
+                                    else:
+                                        clean_screen(cla)
+                    else:
+
+                        for i in range(6):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("드래그 중...")
+                                drag_pos(360, 550, 600, 550, cla)
+                                time.sleep(0.3)
+                            else:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+
+
+
+
+
 
             else:
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
@@ -964,6 +1056,13 @@ def now_playing(cla, dun_, nowstep):
                                                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
                                         time.sleep(0.4)
+
+                                # start......hereeee
+
+                                # 절전하기
+                                click_pos_2(25, 970, cla)
+                                time.sleep(0.1)
+
                             else:
                                 print("던전 안이 아니당.")
                                 in_ = True

@@ -21,7 +21,7 @@ def go_test():
     import pyautogui
     import cv2
     import os
-    from potion import maul_potion, potion_check, available_potion, maul_potion_only
+    from potion import maul_potion, potion_check, available_potion, maul_potion_only, juljun_potion_check
     from action import skill_check_, mine_check, juljun_fullbag_check
     from sell_potion import sell_potion_start
     import requests
@@ -52,6 +52,61 @@ def go_test():
 
     v_.what_cla = "one클라"
 
+
+    #333
+    # if dungeon_[1] == "번영":
+    #     dungeon_name = "bunyuong_1"
+    # elif dungeon_[1] == "수련":
+    #     dungeon_name = "soolyun_1"
+    # elif dungeon_[1] == "신전":
+    #     dungeon_name = "sinjun_1"
+    # elif dungeon_[1] == "유적":
+    #     dungeon_name = "youjuk_1"
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\bunyuong_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("bunyuong_1", imgs_)
+        juljun_potion_check(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\soolyun_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("soolyun_1", imgs_)
+        juljun_potion_check(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\sinjun_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("sinjun_1", imgs_)
+        juljun_potion_check(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\youjuk_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("youjuk_1", imgs_)
+        juljun_potion_check(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\gujum.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(450, 880, 520, 930, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("gujum", imgs_)
+        juljun_potion_check(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\deadgujum.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(430, 900, 550, 950, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("dead", imgs_)
+
+
+
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -66,18 +121,18 @@ def go_test():
     # if imgs_ is not None and imgs_ != False:
     #     print("what_potion_ = 'not middle'")
 
-    for i in range(5):
-        num = i + 6
-        add_x = 0
-        if num == 10:
-            add_x = 10
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\juljun_full_bag_num\\" + str(num) + ".PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(50, 200, 65 + add_x, 230, cla, img, 0.75)
-        if imgs_ is not None and imgs_ != False:
-            print("juljun_full_bag : ", num)
-            break
+    # for i in range(5):
+    #     num = i + 6
+    #     add_x = 0
+    #     if num == 10:
+    #         add_x = 10
+    #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\juljun_full_bag_num\\" + str(num) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_num(50, 200, 65 + add_x, 230, cla, img, 0.75)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("juljun_full_bag : ", num)
+    #         break
 
     # maul_potion_only(cla)
 
