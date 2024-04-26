@@ -3233,28 +3233,28 @@ class game_Playing(QThread):
                                         if dungeon_[1] == "동굴":
                                             dongool_check = "dongool"
 
-                                    # 동굴던전인지...
-                                    isjuljun = False
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 50, 600, 160, v_.now_cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        isjuljun = True
-                                        if dungeon_[0] == "던전" or result_schedule_ == "격전지사냥":
-                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(400, 880, 560, 960, v_.now_cla, img, 0.9)
-                                            if imgs_ is not None and imgs_ != False:
-                                                print("사냥중", imgs_)
-                                            else:
-                                                print("던전 사냥중이 아니니 해제하겠다.")
-                                                drag_pos(360, 550, 600, 550, v_.now_cla)
-
-                                        else:
-                                            print("던전이 아니니 절전모드는 해제 하겠다.")
-                                            drag_pos(360, 550, 600, 550, v_.now_cla)
+                                    # # 동굴던전인지...
+                                    # isjuljun = False
+                                    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                                    # img_array = np.fromfile(full_path, np.uint8)
+                                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    # imgs_ = imgs_set_(400, 50, 600, 160, v_.now_cla, img, 0.8)
+                                    # if imgs_ is not None and imgs_ != False:
+                                    #     isjuljun = True
+                                    #     if dungeon_[0] == "던전" or result_schedule_ == "격전지사냥":
+                                    #         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
+                                    #         img_array = np.fromfile(full_path, np.uint8)
+                                    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    #         imgs_ = imgs_set_(400, 880, 560, 960, v_.now_cla, img, 0.9)
+                                    #         if imgs_ is not None and imgs_ != False:
+                                    #             print("사냥중", imgs_)
+                                    #         else:
+                                    #             print("던전 사냥중이 아니니 해제하겠다.")
+                                    #             drag_pos(360, 550, 600, 550, v_.now_cla)
+                                    #
+                                    #     else:
+                                    #         print("던전이 아니니 절전모드는 해제 하겠다.")
+                                    #         drag_pos(360, 550, 600, 550, v_.now_cla)
 
                                     # 먼저 캐릭터 변환할 것인지 물어보기
                                     if result_schedule_ == "캐릭터바꾸기":
