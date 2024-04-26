@@ -63,6 +63,8 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
+    juljun_potion_check(cla)
+
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\bunyuong_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -98,7 +100,7 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("gujum", imgs_)
         juljun_potion_check(cla)
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\deadgujum.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\gujum.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
     imgs_ = imgs_set_(430, 900, 550, 950, cla, img, 0.8)

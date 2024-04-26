@@ -332,7 +332,7 @@ def juljun_potion_check(cla):
 
         print("juljun potion check")
 
-        potion_need = False
+        potion_need = True
 
         what_potion_ = "none"
         x_reg = 0
