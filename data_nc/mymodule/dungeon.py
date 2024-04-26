@@ -164,6 +164,29 @@ def dungeon_play(cla, result_schedule_):
                                         break
                                     else:
                                         clean_screen(cla)
+                            else:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    for i in range(6):
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("드래그 중...")
+                                            drag_pos(360, 550, 600, 550, cla)
+                                            time.sleep(0.3)
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
                     else:
 
                         for i in range(6):

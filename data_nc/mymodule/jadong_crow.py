@@ -9,15 +9,15 @@ sys.path.append('C:/my_games/nightcrow/data_nc/mymodule')
 import variable as v_
 
 def jadong_play(cla, result_schedule_):
-    try:
-        import cv2
-        import os
-        import numpy as np
-        from function import text_check_get, int_put_, imgs_set_, click_pos_reg
-        from action import out_check, clean_screen, in_maul_check
-        from massenger import line_to_me
-        from potion import maul_potion
+    import cv2
+    import os
+    import numpy as np
+    from function import text_check_get, click_pos_2, imgs_set_, click_pos_reg, drag_pos
+    from action import out_check, clean_screen
+    from massenger import line_to_me
+    from potion import maul_potion, juljun_maul_potion, juljun_potion_check
 
+    try:
         dungeon_ = result_schedule_.split("_")
 
         print("자동사냥냥터 : ", dungeon_[2])
@@ -74,22 +74,101 @@ def jadong_play(cla, result_schedule_):
             print("자료가 없다")
             line_to_me(cla, "나크 자동사냥 자료 없다.2")
 
-
-
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[0] + "\\" + hunter_spot + ".PNG"
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
+        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("도착한 상태")
-            now_playing(cla)
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[0] + "_juljun\\" + hunter_spot + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    print("자동사냥 중", hunter_spot)
+                    need_count = 0
+                    for i in range(10):
+                        result_need = juljun_potion_check(cla)
+                        if result_need == False:
+                            break
+                        else:
+                            need_count += 1
+                            if need_count > 2:
+                                juljun_maul_potion(cla)
+                        time.sleep(0.1)
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+
+                        for i in range(6):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("드래그 중...")
+                                drag_pos(360, 550, 600, 550, cla)
+                                time.sleep(0.3)
+                            else:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+                        for i in range(10):
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                click_pos_2(930, 850, cla)
+                                break
+                            else:
+                                clean_screen(cla)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            for i in range(6):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("드래그 중...")
+                                    drag_pos(360, 550, 600, 550, cla)
+                                    time.sleep(0.3)
+                                else:
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
         else:
-            print("사냥터 진입하러 가자")
-            # 자동사냥 진입
-            clean_screen(cla)
-            in_world(cla)
-            in_spot(cla, result_schedule_)
-            go_to_spot(cla, "jadong")
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[0] + "\\" + hunter_spot + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("도착한 상태")
+                now_playing(cla)
+            else:
+                print("사냥터 진입하러 가자")
+                # 자동사냥 진입
+                clean_screen(cla)
+                in_world(cla)
+                in_spot(cla, result_schedule_)
+                go_to_spot(cla, "jadong")
 
         return complete_
     except Exception as e:
@@ -1198,8 +1277,12 @@ def now_playing(cla):
                 time.sleep(0.1)
 
                 potion_check(cla)
-                time.sleep(5)
+                # time.sleep(5)
                 play_ = True
+
+                # 절전하기
+                click_pos_2(25, 970, cla)
+                time.sleep(0.1)
 
         return play_
     except Exception as e:
