@@ -24,3 +24,16 @@ def fuckyou_popup(cla):
     if imgs_ is not None:
         click_pos_reg(imgs_.x, imgs_.y, cla)
 
+    # 보스 퇴치 성공
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\boss\\boss_success.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(300, 400, 700, 800, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(300, 400, 700, 800, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+

@@ -57,6 +57,7 @@ from server import game_start
 from auction_nc import auction_ready
 from boss_attack import boss_attack_start
 from realtime import boonhae_
+from popup_18 import fuckyou_popup
 from temporary_event import dungeon_play_event
 
 from one_event import daily_one
@@ -3220,6 +3221,9 @@ class game_Playing(QThread):
                                                     ready_ = True
                                                     time.sleep(1)
 
+
+                                    # 팝업창과 보스창 없애기
+                                    fuckyou_popup(v_.now_cla)
 
                                     result_schedule = myQuest_play_check(v_.now_cla, "check")
                                     print("result_schedule", result_schedule)
