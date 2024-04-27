@@ -2514,6 +2514,16 @@ def character_change(cla, character_id):
                 cha_select = True
                 line_to_me(cla, "처음 스타트 화면에 문제가 있다.")
 
+
+            # 절전모드 해제 juljun
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                drag_pos(360, 550, 600, 550, cla)
+
+
             # 캐릭터 선택 화면
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
             img_array = np.fromfile(full_path, np.uint8)
