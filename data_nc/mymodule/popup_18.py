@@ -10,7 +10,7 @@ import variable as v_
 
 
 def fuckyou_popup(cla):
-    from function import click_pos_reg, imgs_set
+    from function import click_pos_reg, imgs_set, imgs_set_
     import numpy as np
     import cv2
 
