@@ -34,6 +34,7 @@ def go_test():
     from auction_nc import auction_start, jaelyo_out, auction_ready, auction_open
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
+    from action import juljun_check
 
     cla = "one"
 
@@ -63,51 +64,16 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
-    juljun_potion_check(cla)
+    result_juljun = juljun_check(cla)
+    if result_juljun == True:
+        print("juljun", result)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\bunyuong_1.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
     if imgs_ is not None and imgs_ != False:
-        print("bunyuong_1", imgs_)
-        juljun_potion_check(cla)
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\soolyun_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("soolyun_1", imgs_)
-        juljun_potion_check(cla)
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\sinjun_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("sinjun_1", imgs_)
-        juljun_potion_check(cla)
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\youjuk_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("youjuk_1", imgs_)
-        juljun_potion_check(cla)
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\gujum.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(450, 880, 520, 930, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("gujum", imgs_)
-        juljun_potion_check(cla)
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\gujum.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(430, 900, 550, 950, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("dead", imgs_)
-
-
+        print("juljun_mode : 거점일 경우 해제", imgs_)
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

@@ -13,7 +13,7 @@ def jadong_play(cla, result_schedule_):
     import os
     import numpy as np
     from function import text_check_get, click_pos_2, imgs_set_, click_pos_reg, drag_pos
-    from action import out_check, clean_screen
+    from action import out_check, clean_screen, juljun_check
     from massenger import line_to_me
     from potion import maul_potion, juljun_maul_potion, juljun_potion_check
 
@@ -74,11 +74,8 @@ def jadong_play(cla, result_schedule_):
             print("자료가 없다")
             line_to_me(cla, "나크 자동사냥 자료 없다.2")
 
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
-        if imgs_ is not None and imgs_ != False:
+        result_juljun = juljun_check(cla)
+        if result_juljun == True:
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[0] + "_juljun\\" + hunter_spot + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -108,11 +105,8 @@ def jadong_play(cla, result_schedule_):
                     if imgs_ is not None and imgs_ != False:
 
                         for i in range(6):
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
-                            if imgs_ is not None and imgs_ != False:
+                            result_juljun = juljun_check(cla)
+                            if result_juljun == True:
                                 print("드래그 중...")
                                 drag_pos(360, 550, 600, 550, cla)
                                 time.sleep(0.3)
@@ -138,11 +132,8 @@ def jadong_play(cla, result_schedule_):
                         imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
                             for i in range(6):
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
-                                if imgs_ is not None and imgs_ != False:
+                                result_juljun = juljun_check(cla)
+                                if result_juljun == True:
                                     print("드래그 중...")
                                     drag_pos(360, 550, 600, 550, cla)
                                     time.sleep(0.3)

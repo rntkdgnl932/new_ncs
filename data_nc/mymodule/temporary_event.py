@@ -15,7 +15,7 @@ def dungeon_play_event(cla, result_schedule_):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg, drag_pos
-        from action import menu_open, clean_screen, in_maul_check
+        from action import menu_open, clean_screen, in_maul_check, juljun_check
         from massenger import line_to_me
         from potion import maul_potion_only
         from get_item import guild_jilyung_get
@@ -61,12 +61,9 @@ def dungeon_play_event(cla, result_schedule_):
 
             time.sleep(1)
 
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("juljun_dungeon", imgs_)
+            result_juljun = juljun_check(cla)
+            if result_juljun == True:
+                print("juljun_dungeon")
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -374,7 +371,7 @@ def now_playing(cla, dun_, nowstep):
         import random
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
         from potion import potion_check, maul_potion_only, maul_potion
-        from action import clean_screen, out_check, bag_open, skill_check_, in_maul_check, dead_die
+        from action import clean_screen, out_check, bag_open, skill_check_, in_maul_check, dead_die, juljun_check
         from get_item import guild_jilyung
         from schedule import myQuest_play_add
 
@@ -466,11 +463,8 @@ def now_playing(cla, dun_, nowstep):
                     print("던전이름 : ", dungeon_name, "hunting_3", imgs_)
                     in_ = True
 
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
+                result_juljun = juljun_check(cla)
+                if result_juljun == True:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

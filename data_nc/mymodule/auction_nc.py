@@ -412,6 +412,8 @@ def jaelyo_in(cla):
     except Exception as e:
         print(e)
 
+
+
 def auction_open(cla):
     from function import imgs_set_, click_pos_reg, click_pos_2, mouse_move_cpp
     from action import menu_open
