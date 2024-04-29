@@ -117,59 +117,52 @@ def dungeon_play(cla, result_schedule_):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
-                            print("던전 중", dungeon_name)
-                            need_count = 0
-                            for i in range(10):
-                                result_need = juljun_potion_check(cla)
-                                if result_need == False:
-                                    break
+                            for i in range(6):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("드래그 중...")
+                                    drag_pos(360, 550, 600, 550, cla)
+                                    time.sleep(0.3)
                                 else:
-                                    need_count += 1
-                                    if need_count > 2:
-                                        juljun_maul_potion(cla)
-                                time.sleep(0.1)
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
                         else:
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-
-                                for i in range(6):
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("드래그 중...")
-                                        drag_pos(360, 550, 600, 550, cla)
-                                        time.sleep(0.3)
-                                    else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
+                                print("던전 중", dungeon_name)
+                                need_count = 0
                                 for i in range(10):
-                                    result_out = out_check(cla)
-                                    if result_out == True:
-                                        click_pos_2(930, 850, cla)
+                                    result_need = juljun_potion_check(cla)
+                                    if result_need == False:
                                         break
                                     else:
-                                        clean_screen(cla)
+                                        need_count += 1
+                                        if need_count > 2:
+                                            juljun_maul_potion(cla)
+                                    time.sleep(0.1)
                             else:
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
+
                                     for i in range(6):
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
@@ -186,6 +179,15 @@ def dungeon_play(cla, result_schedule_):
                                             imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.5)
+                                    for i in range(10):
+                                        result_out = out_check(cla)
+                                        if result_out == True:
+                                            click_pos_2(930, 850, cla)
+                                            break
+                                        else:
+                                            clean_screen(cla)
+
 
                     else:
 
