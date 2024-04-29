@@ -889,7 +889,7 @@ def juljun_maul_potion(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.8)
+                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                 if imgs_ is not None and imgs_ != False:
                     print("juljun_dungeon...", imgs_)
                     drag_pos(360, 550, 600, 550, cla)

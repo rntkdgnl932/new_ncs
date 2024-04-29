@@ -75,7 +75,7 @@ def dungeon_play(cla, result_schedule_):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
             if imgs_ is not None and imgs_ != False:
                 print("juljun_dungeon", imgs_)
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_2.PNG"
@@ -97,7 +97,7 @@ def dungeon_play(cla, result_schedule_):
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                             if imgs_ is not None and imgs_ != False:
                                 print("드래그 중...")
                                 drag_pos(360, 550, 600, 550, cla)
@@ -144,7 +144,7 @@ def dungeon_play(cla, result_schedule_):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                                     if imgs_ is not None and imgs_ != False:
                                         print("드래그 중...")
                                         drag_pos(360, 550, 600, 550, cla)
@@ -174,7 +174,7 @@ def dungeon_play(cla, result_schedule_):
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                                        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                                         if imgs_ is not None and imgs_ != False:
                                             print("드래그 중...")
                                             drag_pos(360, 550, 600, 550, cla)
@@ -193,7 +193,7 @@ def dungeon_play(cla, result_schedule_):
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                            imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                             if imgs_ is not None and imgs_ != False:
                                 print("드래그 중...")
                                 drag_pos(360, 550, 600, 550, cla)
@@ -858,7 +858,7 @@ def now_playing(cla, dun_, nowstep):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                 if imgs_ is not None and imgs_ != False:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\dongool_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -1400,7 +1400,7 @@ def juljun_attack(cla, dun_, nowstep):
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                                 if imgs_ is not None and imgs_ != False:
                                     print("juljun_mode", imgs_)
                                     in_maul_ = True
@@ -1411,7 +1411,7 @@ def juljun_attack(cla, dun_, nowstep):
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                                        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                                         if imgs_ is not None and imgs_ != False:
                                             print("드래그 중...")
                                         else:
@@ -1467,7 +1467,7 @@ def juljun_attack(cla, dun_, nowstep):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                     if imgs_ is not None and imgs_ != False:
                         print("juljun_mode", imgs_)
 
@@ -1705,7 +1705,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                                                                 img_array = np.fromfile(full_path, np.uint8)
                                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                                                                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                                                                 if imgs_ is not None and imgs_ != False:
                                                                     break
                                                                 time.sleep(0.3)
@@ -1867,7 +1867,7 @@ def juljun_attack(cla, dun_, nowstep):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                                     if imgs_ is not None and imgs_ != False:
                                         print("juljun_potion_re", imgs_)
                                         in_dungeon__ = True
@@ -2029,7 +2029,7 @@ def juljun_attack(cla, dun_, nowstep):
                                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                                                     img_array = np.fromfile(full_path, np.uint8)
                                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                                                    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                                                     if imgs_ is not None and imgs_ != False:
                                                         last_juljun = True
                                                     else:
@@ -2110,7 +2110,7 @@ def drag_maul_potion_(cla, dun_):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.85)
+                imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
                 if imgs_ is not None and imgs_ != False:
                     print("juljun_dungeon...", imgs_)
                     drag_pos(360, 550, 600, 550, cla)
