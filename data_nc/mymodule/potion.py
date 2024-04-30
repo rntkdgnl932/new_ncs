@@ -822,6 +822,18 @@ def juljun_maul_potion(cla):
                 if result_juljun == True:
                     print("juljun_dungeon...")
                     drag_pos(360, 550, 600, 550, cla)
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        for i in range(10):
+                            result_maul = in_maul_check(cla)
+                            if result_maul == True:
+                                break
+                            time.sleep(1)
 
 
 
