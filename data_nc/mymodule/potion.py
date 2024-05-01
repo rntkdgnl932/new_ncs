@@ -67,7 +67,7 @@ def potion_check(cla):
 
 
 
-        return potion
+        return potion_zero
     except Exception as e:
         print(e)
 
