@@ -12,13 +12,8 @@ import variable as v_
 def potion_check(cla):
     import cv2
     import numpy as np
-    from function import text_check_get, int_put_, imgs_set_, click_pos_2, in_number_check, change_number, \
-        image_processing, get_region
-    from action import dead_die_before, bag_open
-    from realtime import soojib
-    from schedule import myQuest_play_check
-    import pyautogui
-    import pytesseract
+    from function import imgs_set_num
+    from action import dead_die_before, juljun_check, out_check
 
     try:
 
@@ -31,208 +26,42 @@ def potion_check(cla):
         if cla == "four":
             potion = v_.mypotion_4
 
-        is_potion = False
+        # 기준
+        potion_zero = True
 
-        potion_zero = False
+        result_juljun = juljun_check(cla)
 
-        if v_.potion_size == "none":
-            available_potion(cla)
-            time.sleep(0.5)
-        if v_.potion_size == "small":
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_small.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(370, 960, 420, 1020, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print(v_.potion_size, "존재한다.")
-                is_potion = True
+        if result_juljun == False:
 
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_small_zero.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(370, 990, 420, 1020, cla, img, 0.88)
-                if imgs_ is not None and imgs_ != False:
-                    print(v_.potion_size, "zero 존재한다.")
-                    potion_zero = True
+            result_out = out_check(cla)
 
-        if v_.potion_size == "middle":
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_middle.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(370, 960, 420, 1020, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print(v_.potion_size, "존재한다.")
-                is_potion = True
+            if result_out == True:
 
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_middle_zero.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(370, 990, 420, 1020, cla, img, 0.88)
-                if imgs_ is not None and imgs_ != False:
-                    print(v_.potion_size, "zero 존재한다.")
-                    potion_zero = True
-            for i in range(10):
+                for i in range(10):
 
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(390, 1004, 406, 1016, cla, img, 0.83)
-                if imgs_ is not None and imgs_ != False:
-                    print("숫자는? ", i)
-                    break
-                else:
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100.PNG"
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(380, 985, 426, 1020, cla, img, 0.83)
+                    imgs_ = imgs_set_num(240, 1004, 254, 1016, cla, img, 0.83)
                     if imgs_ is not None and imgs_ != False:
-                        print("물량 100개 이하")
-                        potion_zero = True
+                        print("숫자는? ", i, imgs_)
+                        potion_zero = False
                         break
-                    else:
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100_2.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(380, 985, 426, 1020, cla, img, 0.83)
-                        if imgs_ is not None and imgs_ != False:
-                            print("물량 100개 이하...")
-                            potion_zero = True
-                            break
-
-        if is_potion == True and potion_zero == False:
-            # img = pyautogui.screenshot(region=(get_region(730, 1004, 759, 1016, cla)))
-            # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-            # potion_ready = pytesseract.image_to_string(white_img, lang=None)
-            potion_ready = text_check_get(730, 1004, 759, 1018, cla)
-            print("전체4자리 potion_?", potion_ready)
-            result_num_in = in_number_check(cla, potion_ready)
-            if result_num_in == True:
-                potion = change_number(potion_ready)
-                potion_bloon = potion.isdigit()
-                if potion_bloon == True:
-                    potion = int(potion)
-                    print("potion?", potion)
-                    if cla == "one":
-                        v_.mypotion_1 = potion
-                    if cla == "two":
-                        v_.mypotion_2 = potion
-                    if cla == "three":
-                        v_.mypotion_3 = potion
-                    if cla == "four":
-                        v_.mypotion_4 = potion
-
-                    if potion < 10:
-                        v_.potion_count += 1
-                        if v_.potion_count > 3:
-                            v_.potion_count = 0
-                            maul_potion_only(cla)
-                    else:
-                        v_.potion_count = 0
-                else:
-                    print("potion => 숫자 아님")
             else:
-                # img = pyautogui.screenshot(region=(get_region(733, 1004, 758, 1016, cla)))
-                # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-                # potion_ready = pytesseract.image_to_string(white_img, lang=None)
-                potion_ready = text_check_get(733, 1004, 758, 1018, cla)
-                print("전체4자리 potion_2?", potion_ready)
-                result_num_in = in_number_check(cla, potion_ready)
-                if result_num_in == True:
-                    potion = change_number(potion_ready)
-                    potion_bloon = potion.isdigit()
-                    if potion_bloon == True:
-                        potion = int(potion)
-                        print("potion?", potion)
-                        if cla == "one":
-                            v_.mypotion_1 = potion
-                        if cla == "two":
-                            v_.mypotion_2 = potion
-                        if cla == "three":
-                            v_.mypotion_3 = potion
-                        if cla == "four":
-                            v_.mypotion_4 = potion
+                print("바깥 화면 아니라서 물약 파악 불가능...")
+        else:
+            potion_zero = juljun_potion_check(cla)
 
-                        if potion < 10:
-                            v_.potion_count += 1
-                            if v_.potion_count > 5:
-                                v_.potion_count = 0
-                                maul_potion_only(cla)
-                        else:
-                            v_.potion_count = 0
-                    else:
-                        print("potion => 숫자 아님")
-                else:
-                    # img = pyautogui.screenshot(region=(get_region(730, 1004, 752, 1016, cla)))
-                    # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-                    # potion_ready = pytesseract.image_to_string(white_img, lang=None)
-                    potion_ready = text_check_get(730, 1004, 752, 1018, cla)
-                    print("앞3자리 potion_?", potion_ready)
-                    result_num_in = in_number_check(cla, potion_ready)
-                    if result_num_in == True:
-                        potion = change_number(potion_ready)
-                        potion_bloon = potion.isdigit()
-                        if potion_bloon == True:
-                            potion = int(potion)
-                            print("potion?", potion)
-                            if cla == "one":
-                                v_.mypotion_1 = potion
-                            if cla == "two":
-                                v_.mypotion_2 = potion
-                            if cla == "three":
-                                v_.mypotion_3 = potion
-                            if cla == "four":
-                                v_.mypotion_4 = potion
 
-                            if potion < 10:
-                                v_.potion_count += 1
-                                if v_.potion_count > 3:
-                                    v_.potion_count = 0
-                                    maul_potion_only(cla)
-                            else:
-                                v_.potion_count = 0
-                        else:
-                            print("potion => 숫자 아님")
-                    else:
-                        # img = pyautogui.screenshot(region=(get_region(738, 1004, 759, 1016, cla)))
-                        # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
-                        # potion_ready = pytesseract.image_to_string(white_img, lang=None)
-                        potion_ready = text_check_get(738, 1004, 759, 1018, cla)
-                        print("뒷3자리 potion_??", potion_ready)
-                        result_num_in = in_number_check(cla, potion_ready)
-                        if result_num_in == True:
-                            potion = change_number(potion_ready)
-                            potion_bloon = potion.isdigit()
-                            if potion_bloon == True:
-                                potion = int(potion)
-                                print("potion?", potion)
-                                if cla == "one":
-                                    v_.mypotion_1 = potion
-                                if cla == "two":
-                                    v_.mypotion_2 = potion
-                                if cla == "three":
-                                    v_.mypotion_3 = potion
-                                if cla == "four":
-                                    v_.mypotion_4 = potion
+        if potion_zero == True:
 
-                                if potion < 100:
-                                    v_.potion_count += 1
-                                    if v_.potion_count > 3:
-                                        v_.potion_count = 0
-                                        maul_potion_only(cla)
-                                else:
-                                    v_.potion_count = 0
-
-                            else:
-                                print("potion => 숫자 아님")
-
-        elif potion_zero == True:
-
-            print("화면에 물약 존재하지 않는다", v_.potion_count)
             v_.potion_count += 1
-            print("not have potoin?", v_.potion_count)
+            print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
             if v_.potion_count > 2:
                 v_.potion_count = 0
                 maul_potion_only(cla)
+        else:
+            v_.potion_count = 0
 
         dead_die_before(cla)
 
@@ -241,6 +70,9 @@ def potion_check(cla):
         return potion
     except Exception as e:
         print(e)
+
+
+
 
 def juljun_potion_check(cla):
     import cv2
@@ -343,7 +175,7 @@ def maul_potion(cla):
     import pytesseract
     try:
 
-
+        v_.potion_count = 0
         v_.potion_size = "none"
 
 
@@ -1002,3 +834,237 @@ def quick3_potion(cla):
 
 
 
+###################################
+def potion_check_ex(cla):
+    import cv2
+    import numpy as np
+    from function import text_check_get, int_put_, imgs_set_, click_pos_2, in_number_check, change_number, \
+        image_processing, get_region
+    from action import dead_die_before, bag_open
+    from realtime import soojib
+    from schedule import myQuest_play_check
+    import pyautogui
+    import pytesseract
+
+    try:
+
+        if cla == "one":
+            potion = v_.mypotion_1
+        if cla == "two":
+            potion = v_.mypotion_2
+        if cla == "three":
+            potion = v_.mypotion_3
+        if cla == "four":
+            potion = v_.mypotion_4
+
+        is_potion = False
+
+        potion_zero = False
+
+        if v_.potion_size == "none":
+            available_potion(cla)
+            time.sleep(0.5)
+        if v_.potion_size == "small":
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_small.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(370, 960, 420, 1020, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print(v_.potion_size, "존재한다.")
+                is_potion = True
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_small_zero.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(370, 990, 420, 1020, cla, img, 0.88)
+                if imgs_ is not None and imgs_ != False:
+                    print(v_.potion_size, "zero 존재한다.")
+                    potion_zero = True
+
+        if v_.potion_size == "middle":
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_middle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(370, 960, 420, 1020, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print(v_.potion_size, "존재한다.")
+                is_potion = True
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_middle_zero.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(370, 990, 420, 1020, cla, img, 0.88)
+                if imgs_ is not None and imgs_ != False:
+                    print(v_.potion_size, "zero 존재한다.")
+                    potion_zero = True
+            for i in range(10):
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(390, 1004, 406, 1016, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("숫자는? ", i)
+                    break
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(380, 985, 426, 1020, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("물량 100개 이하")
+                        potion_zero = True
+                        break
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\out_middle_100_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(380, 985, 426, 1020, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            print("물량 100개 이하...")
+                            potion_zero = True
+                            break
+
+        if is_potion == True and potion_zero == False:
+            # img = pyautogui.screenshot(region=(get_region(730, 1004, 759, 1016, cla)))
+            # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+            # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+            potion_ready = text_check_get(730, 1004, 759, 1018, cla)
+            print("전체4자리 potion_?", potion_ready)
+            result_num_in = in_number_check(cla, potion_ready)
+            if result_num_in == True:
+                potion = change_number(potion_ready)
+                potion_bloon = potion.isdigit()
+                if potion_bloon == True:
+                    potion = int(potion)
+                    print("potion?", potion)
+                    if cla == "one":
+                        v_.mypotion_1 = potion
+                    if cla == "two":
+                        v_.mypotion_2 = potion
+                    if cla == "three":
+                        v_.mypotion_3 = potion
+                    if cla == "four":
+                        v_.mypotion_4 = potion
+
+                    if potion < 10:
+                        v_.potion_count += 1
+                        if v_.potion_count > 3:
+                            v_.potion_count = 0
+                            maul_potion_only(cla)
+                    else:
+                        v_.potion_count = 0
+                else:
+                    print("potion => 숫자 아님")
+            else:
+                # img = pyautogui.screenshot(region=(get_region(733, 1004, 758, 1016, cla)))
+                # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+                # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+                potion_ready = text_check_get(733, 1004, 758, 1018, cla)
+                print("전체4자리 potion_2?", potion_ready)
+                result_num_in = in_number_check(cla, potion_ready)
+                if result_num_in == True:
+                    potion = change_number(potion_ready)
+                    potion_bloon = potion.isdigit()
+                    if potion_bloon == True:
+                        potion = int(potion)
+                        print("potion?", potion)
+                        if cla == "one":
+                            v_.mypotion_1 = potion
+                        if cla == "two":
+                            v_.mypotion_2 = potion
+                        if cla == "three":
+                            v_.mypotion_3 = potion
+                        if cla == "four":
+                            v_.mypotion_4 = potion
+
+                        if potion < 10:
+                            v_.potion_count += 1
+                            if v_.potion_count > 5:
+                                v_.potion_count = 0
+                                maul_potion_only(cla)
+                        else:
+                            v_.potion_count = 0
+                    else:
+                        print("potion => 숫자 아님")
+                else:
+                    # img = pyautogui.screenshot(region=(get_region(730, 1004, 752, 1016, cla)))
+                    # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+                    # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+                    potion_ready = text_check_get(730, 1004, 752, 1018, cla)
+                    print("앞3자리 potion_?", potion_ready)
+                    result_num_in = in_number_check(cla, potion_ready)
+                    if result_num_in == True:
+                        potion = change_number(potion_ready)
+                        potion_bloon = potion.isdigit()
+                        if potion_bloon == True:
+                            potion = int(potion)
+                            print("potion?", potion)
+                            if cla == "one":
+                                v_.mypotion_1 = potion
+                            if cla == "two":
+                                v_.mypotion_2 = potion
+                            if cla == "three":
+                                v_.mypotion_3 = potion
+                            if cla == "four":
+                                v_.mypotion_4 = potion
+
+                            if potion < 10:
+                                v_.potion_count += 1
+                                if v_.potion_count > 3:
+                                    v_.potion_count = 0
+                                    maul_potion_only(cla)
+                            else:
+                                v_.potion_count = 0
+                        else:
+                            print("potion => 숫자 아님")
+                    else:
+                        # img = pyautogui.screenshot(region=(get_region(738, 1004, 759, 1016, cla)))
+                        # white_img = image_processing(img, (148, 148, 148), (255, 255, 255))
+                        # potion_ready = pytesseract.image_to_string(white_img, lang=None)
+                        potion_ready = text_check_get(738, 1004, 759, 1018, cla)
+                        print("뒷3자리 potion_??", potion_ready)
+                        result_num_in = in_number_check(cla, potion_ready)
+                        if result_num_in == True:
+                            potion = change_number(potion_ready)
+                            potion_bloon = potion.isdigit()
+                            if potion_bloon == True:
+                                potion = int(potion)
+                                print("potion?", potion)
+                                if cla == "one":
+                                    v_.mypotion_1 = potion
+                                if cla == "two":
+                                    v_.mypotion_2 = potion
+                                if cla == "three":
+                                    v_.mypotion_3 = potion
+                                if cla == "four":
+                                    v_.mypotion_4 = potion
+
+                                if potion < 100:
+                                    v_.potion_count += 1
+                                    if v_.potion_count > 3:
+                                        v_.potion_count = 0
+                                        maul_potion_only(cla)
+                                else:
+                                    v_.potion_count = 0
+
+                            else:
+                                print("potion => 숫자 아님")
+
+        elif potion_zero == True:
+
+            print("화면에 물약 존재하지 않는다", v_.potion_count)
+            v_.potion_count += 1
+            print("not have potoin?", v_.potion_count)
+            if v_.potion_count > 2:
+                v_.potion_count = 0
+                maul_potion_only(cla)
+
+        dead_die_before(cla)
+
+
+
+        return potion
+    except Exception as e:
+        print(e)
+############################################

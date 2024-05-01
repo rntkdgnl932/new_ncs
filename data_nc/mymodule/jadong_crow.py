@@ -15,7 +15,7 @@ def jadong_play(cla, result_schedule_):
     from function import text_check_get, click_pos_2, imgs_set_, click_pos_reg, drag_pos
     from action import out_check, clean_screen, juljun_check
     from massenger import line_to_me
-    from potion import maul_potion, juljun_maul_potion, juljun_potion_check
+    from potion import maul_potion, juljun_maul_potion, potion_check
 
     try:
         dungeon_ = result_schedule_.split("_")
@@ -89,7 +89,7 @@ def jadong_play(cla, result_schedule_):
                     print("자동사냥 중", hunter_spot)
                     need_count = 0
                     for i in range(10):
-                        result_need = juljun_potion_check(cla)
+                        result_need = potion_check(cla)
                         if result_need == False:
                             break
                         else:

@@ -64,16 +64,15 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
-    result_juljun = juljun_check(cla)
-    if result_juljun == True:
-        print("juljun", result)
+    for i in range(10):
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_mode.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
-    if imgs_ is not None and imgs_ != False:
-        print("juljun_mode : 거점일 경우 해제", imgs_)
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_num(240, 1004, 254, 1016, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            print("숫자는? ", i, imgs_)
+            break
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

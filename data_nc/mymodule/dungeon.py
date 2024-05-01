@@ -16,7 +16,7 @@ def dungeon_play(cla, result_schedule_):
         from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg, drag_pos
         from action import menu_open, clean_screen, in_maul_check, out_check
         from massenger import line_to_me
-        from potion import maul_potion_only, juljun_potion_check, juljun_maul_potion
+        from potion import maul_potion_only, potion_check, juljun_maul_potion
         from get_item import guild_jilyung_get
         from action import juljun_check
 
@@ -140,7 +140,7 @@ def dungeon_play(cla, result_schedule_):
                                 print("던전 중", dungeon_name)
                                 need_count = 0
                                 for i in range(20):
-                                    result_need = juljun_potion_check(cla)
+                                    result_need = potion_check(cla)
                                     if result_need == False:
                                         break
                                     else:
@@ -521,10 +521,6 @@ def dungeon_play(cla, result_schedule_):
 
                         else:
 
-                            # if dungeon_name == "dongool_1":
-                            #     result_maul = in_maul_check(cla)
-                            #     if result_maul == True:
-                            #         maul_potion_only(v_.now_cla)
 
                             menu_open(cla)
                             click_pos_2(840, 200, cla)

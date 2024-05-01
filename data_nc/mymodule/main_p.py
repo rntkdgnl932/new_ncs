@@ -3339,13 +3339,7 @@ class game_Playing(QThread):
                                                 dungeon_ = result_schedule_.split("_")
 
                                                 if dungeon_[0] == "던전":
-                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
-                                                    img_array = np.fromfile(full_path, np.uint8)
-                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
-                                                    if imgs_ is not None and imgs_ != False:
-                                                        print("마을이면 물약 ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ", imgs_)
-                                                        maul_potion_only(v_.now_cla)
+
                                                     if dungeon_[1] == "이벤트":
                                                         # result = dungeon_play_event(v_.now_cla, result_schedule_)
                                                         myQuest_play_add(v_.now_cla, result_schedule_)
@@ -3377,20 +3371,6 @@ class game_Playing(QThread):
                                                     daily_one(v_.now_cla)
 
                                                     myQuest_play_add(v_.now_cla, result_schedule_)
-
-                                                    # maul_potion(v_.now_cla)
-
-                                                    # get_items(v_.now_cla)
-                                                    # 자체에 스케쥴 완료 있음
-                                                    # if v_.just_one == False:
-                                                    #     v_.just_one = True
-                                                    #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
-                                                    #     img_array = np.fromfile(full_path, np.uint8)
-                                                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    #     imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.9)
-                                                    #     if imgs_ is not None and imgs_ != False:
-                                                    #         print("마을이면 물약 ㄱㄱ", imgs_)
-                                                    #         maul_potion_only(v_.now_cla)
                                                 if result_schedule_ == "메인퀘스트":
                                                     main_quest_grow(v_.now_cla)
                                                     # 자체에 스케쥴 완료 있음

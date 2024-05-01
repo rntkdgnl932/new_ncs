@@ -1051,6 +1051,14 @@ def guild_jilyung(cla, data):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
+            # 보상 획득하기
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\guild\\get_jilyung_bosang.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(750, 690, 915, 730, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
 
             # 길드지령 보상 모두 받기
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
