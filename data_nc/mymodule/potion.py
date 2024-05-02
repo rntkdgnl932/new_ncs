@@ -59,7 +59,7 @@ def potion_check(cla):
 
             v_.potion_count += 1
             print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
-            if v_.potion_count > 5:
+            if v_.potion_count > 9:
                 v_.potion_count = 0
                 maul_potion_only(cla)
         else:
