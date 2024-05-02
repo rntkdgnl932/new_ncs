@@ -1645,7 +1645,7 @@ def clean_screen(cla):
 
             result_juljun = juljun_check(cla)
             if result_juljun == True:
-                print("juljun_mode : 거점일 경우 해제", imgs_)
+                print("juljun_mode : 거점일 경우 해제")
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
