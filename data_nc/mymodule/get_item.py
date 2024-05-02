@@ -228,7 +228,70 @@ def get_post(cla):
                         click_pos_2(930, 60, cla)
                         # click_pos_2(80, 105, cla)
                     time.sleep(0.3)
+                # 캐릭터
+                time.sleep(0.7)
+                get_post_sever_ = False
+                get_post_sever__count = 0
+                while get_post_sever_ is False:
 
+                    get_post_sever__count += 1
+                    if get_post_sever__count > 7:
+                        get_post_sever_ = True
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(230, 75, 300, 110, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(220, 105, cla)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(900, 120, 960, 330, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("point2", imgs_)
+                            in_post_ = True
+                            click_pos_2(880, 1010, cla)
+                            time.sleep(0.5)
+                            click_pos_2(880, 1010, cla)
+                            clean_screen(cla)
+                    else:
+                        in_post_ = True
+                        get_post_sever_ = True
+                        click_pos_2(930, 60, cla)
+                        # click_pos_2(80, 105, cla)
+                    time.sleep(0.3)
+                # 길드
+                time.sleep(0.7)
+                get_post_sever_ = False
+                get_post_sever__count = 0
+                while get_post_sever_ is False:
+
+                    get_post_sever__count += 1
+                    if get_post_sever__count > 7:
+                        get_post_sever_ = True
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(370, 75, 430, 110, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(350, 105, cla)
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(900, 120, 960, 330, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("point2", imgs_)
+                            in_post_ = True
+                            click_pos_2(880, 1010, cla)
+                            time.sleep(0.5)
+                            click_pos_2(880, 1010, cla)
+                            clean_screen(cla)
+                    else:
+                        in_post_ = True
+                        get_post_sever_ = True
+                        click_pos_2(930, 60, cla)
+                        # click_pos_2(80, 105, cla)
+                    time.sleep(0.3)
 
 
 

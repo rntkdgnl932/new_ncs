@@ -13,7 +13,7 @@ def go_test():
     from datetime import date, timedelta, datetime
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, get_region, image_processing, change_number, in_number_check, drag_pos, imgs_set_num, mouse_move_cpp
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change, move_check, dead_die
-    from get_item import get_items, get_upjuk, get_event, get_season_pass, guild_jilyung, guild_check
+    from get_item import get_items, get_upjuk, get_event, get_season_pass, guild_jilyung, guild_check, get_post
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_, jaelyo_
     from dungeon import drag_maul_potion_
@@ -64,23 +64,7 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_middle_zero.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(370, 990, 430, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("quick3_potion_middle_zero", imgs_)
-
-
-    for i in range(10):
-
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(240, 1004, 254, 1016, cla, img, 0.83)
-        if imgs_ is not None and imgs_ != False:
-            print("숫자는? ", i, imgs_)
-            break
+    get_post(cla)
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
