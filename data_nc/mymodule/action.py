@@ -1587,6 +1587,31 @@ def juljun_check(cla):
     except Exception as e:
         print(e)
 
+def juljun_off(cla):
+    import cv2
+    import os
+    import numpy as np
+    from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos, imgs_set
+    from schedule import myQuest_play_add, myQuest_play_check
+    from massenger import line_to_me
+    try:
+        is_juljun = False
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 50, 600, 160, cla, img, 0.88)
+        if imgs_ is not None and imgs_ != False:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 70, 60, 130, cla, img, 0.88)
+            if imgs_ is not None and imgs_ != False:
+                drag_pos(360, 550, 600, 550, cla)
+
+
+    except Exception as e:
+        print(e)
+
 def clean_screen(cla):
     import cv2
     import os

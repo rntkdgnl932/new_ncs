@@ -139,15 +139,7 @@ def dungeon_play(cla, result_schedule_):
                             if imgs_ is not None and imgs_ != False:
                                 print("던전 중", dungeon_name)
                                 need_count = 0
-                                for i in range(20):
-                                    result_need = potion_check(cla)
-                                    if result_need == False:
-                                        break
-                                    else:
-                                        need_count += 1
-                                        if need_count > 4:
-                                            juljun_maul_potion(cla)
-                                    time.sleep(0.1)
+                                potion_check(cla)
                             else:
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
