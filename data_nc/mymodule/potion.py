@@ -46,6 +46,7 @@ def potion_check(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("숫자는? ", i, imgs_)
                         potion_zero = False
+                        v_.potion_count = 0
                         break
             else:
                 print("바깥 화면 아니라서 물약 파악 불가능...")
@@ -121,7 +122,7 @@ def juljun_potion_check(cla):
                 x_reg = imgs_.x
 
                 print("what_potion_ = 'middle'")
-                
+
         for i in range(10):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
                 i) + ".PNG"
@@ -131,6 +132,8 @@ def juljun_potion_check(cla):
             if imgs_ is not None and imgs_ != False:
                 print("100자리 숫자는?'", i, imgs_)
                 potion_need = False
+                v_.potion_count = 0
+
                 break
 
 
