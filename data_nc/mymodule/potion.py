@@ -46,6 +46,7 @@ def potion_check(cla):
                     potion_zero = True
                 else:
                     print("물약 0개 이상 있다.")
+                    potion_zero = False
 
                 # for i in range(10):
                 #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
