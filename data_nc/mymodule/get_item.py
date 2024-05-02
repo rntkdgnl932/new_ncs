@@ -194,8 +194,6 @@ def get_post(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("point2", imgs_)
                                 click_pos_2(80, 105, cla)
-                            else:
-                                in_post_ = True
                         time.sleep(0.3)
                 time.sleep(0.7)
                 get_post_sever_ = False
@@ -223,10 +221,8 @@ def get_post(cla):
                             click_pos_2(880, 1010, cla)
                             clean_screen(cla)
                     else:
-                        in_post_ = True
                         get_post_sever_ = True
-                        click_pos_2(930, 60, cla)
-                        # click_pos_2(80, 105, cla)
+
                     time.sleep(0.3)
                 # 캐릭터
                 time.sleep(0.7)
@@ -255,10 +251,7 @@ def get_post(cla):
                             click_pos_2(880, 1010, cla)
                             clean_screen(cla)
                     else:
-                        in_post_ = True
                         get_post_sever_ = True
-                        click_pos_2(930, 60, cla)
-                        # click_pos_2(80, 105, cla)
                     time.sleep(0.3)
                 # 길드
                 time.sleep(0.7)
