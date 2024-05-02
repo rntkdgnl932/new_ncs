@@ -37,22 +37,26 @@ def potion_check(cla):
 
             if result_out == True:
 
-                for b in range(10):
-                    for i in range(10):
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\quick3_potion_middle_zero.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_num(370, 990, 430, 1030, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("quick3_potion_middle_zero", imgs_)
+                    potion_zero = True
+                else:
+                    print("물약 0개 이상 있다.")
 
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_num(240, 1004, 254, 1016, cla, img, 0.83)
-                        if imgs_ is not None and imgs_ != False:
-                            print("숫자는? ", i, imgs_)
-                            potion_zero = False
-                            v_.potion_count = 0
-                            break
-                    if potion_zero == False:
-                        break
-                    else:
-                        time.sleep(0.1)
+                # for i in range(10):
+                #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\out_number\\" + str(i) + ".PNG"
+                #     img_array = np.fromfile(full_path, np.uint8)
+                #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                #     imgs_ = imgs_set_num(240, 1004, 254, 1016, cla, img, 0.83)
+                #     if imgs_ is not None and imgs_ != False:
+                #         print("숫자는? ", i, imgs_)
+                #         potion_zero = False
+                #         v_.potion_count = 0
+                #         break
 
             else:
                 print("바깥 화면 아니라서 물약 파악 불가능...")
@@ -65,7 +69,7 @@ def potion_check(cla):
 
             v_.potion_count += 1
             print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
-            if v_.potion_count > 15:
+            if v_.potion_count > 3:
                 v_.potion_count = 0
 
                 result = juljun_check(cla)
@@ -134,26 +138,28 @@ def juljun_potion_check(cla):
                 x_reg = imgs_.x
 
                 print("what_potion_ = 'middle'")
+        if what_potion_ == 'small' or what_potion_ == 'middle':
+            for b in range(10):
 
-        for b in range(10):
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
+                        i) + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("100자리 숫자는?'", i, imgs_)
+                        potion_need = False
+                        v_.potion_count = 0
 
-            for i in range(10):
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
-                    i) + ".PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("100자리 숫자는?'", i, imgs_)
-                    potion_need = False
-                    v_.potion_count = 0
-
+                        break
+                if potion_need == False:
                     break
-            if potion_need == False:
-                break
-            else:
-                time.sleep(0.1)
-
+                else:
+                    time.sleep(0.1)
+        else:
+            potion_need = False
+            print("절전 물약 파악 안되어서 보류...")
 
 
         return potion_need
