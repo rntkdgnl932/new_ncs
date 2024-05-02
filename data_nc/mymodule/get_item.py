@@ -141,7 +141,7 @@ def get_post(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                    imgs_ = imgs_set_(110, 75, 600, 110, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         point_search = True
                         print("point search compleate", imgs_)
@@ -292,13 +292,14 @@ def get_post(cla):
                 menu_open(cla)
 
                 time.sleep(0.5)
-
+                clicked = False
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(720, 970, 780, 1030, cla, img, 0.75)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(750, 1000, cla)
+                    clicked = True
                 else:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\point_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -306,9 +307,20 @@ def get_post(cla):
                     imgs_ = imgs_set_(720, 970, 780, 1030, cla, img, 0.75)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(750, 1000, cla)
+                        clicked = True
                     else:
                         print("우편에 빨강점이 안보여!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                         in_post_ = True
+                if clicked == True:
+                    for i in range(10):
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\post_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(40, 40, 120, 80, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.2)
+
             time.sleep(0.5)
 
     except Exception as e:
