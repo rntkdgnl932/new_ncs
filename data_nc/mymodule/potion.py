@@ -121,44 +121,17 @@ def juljun_potion_check(cla):
                 x_reg = imgs_.x
 
                 print("what_potion_ = 'middle'")
-        if x_reg != 0:
-            if what_potion_ == 'small':
-
-
-
-                x_reg = imgs_.x
-                for i in range(10):
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
-                        i) + ".PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("100자리 숫자는?'", i, imgs_)
-                        potion_need = False
-                        break
-
-
-            elif what_potion_ == 'middle':
-
-
-                # 424 => - 5 + 15 // 996 => 1005, 1030
-                # 물약 파악
-
-                x_reg = imgs_.x
-                for i in range(10):
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
-                        i) + ".PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("100자리 숫자는?'", i, imgs_)
-                        potion_need = False
-                        break
-        else:
-            print("다음에 파악하자")
-            potion_need = False
+                
+        for i in range(10):
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
+                i) + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("100자리 숫자는?'", i, imgs_)
+                potion_need = False
+                break
 
 
 
