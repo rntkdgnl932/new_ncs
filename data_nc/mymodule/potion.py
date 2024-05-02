@@ -49,6 +49,7 @@ def potion_check(cla):
                         break
             else:
                 print("바깥 화면 아니라서 물약 파악 불가능...")
+                potion_zero = False
         else:
             potion_zero = juljun_potion_check(cla)
 
@@ -155,7 +156,9 @@ def juljun_potion_check(cla):
                         print("100자리 숫자는?'", i, imgs_)
                         potion_need = False
                         break
-
+        else:
+            print("다음에 파악하자")
+            potion_need = False
 
 
 
