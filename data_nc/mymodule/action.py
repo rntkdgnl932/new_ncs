@@ -1645,7 +1645,7 @@ def clean_screen(cla):
 
             result_juljun = juljun_check(cla)
             if result_juljun == True:
-                print("juljun_mode : 거점일 경우 해제")
+                print("juljun_mode : 절전일 경우 해제")
                 drag_pos(360, 550, 600, 550, cla)
 
             else:
