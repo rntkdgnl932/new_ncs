@@ -24,9 +24,9 @@ def jadong_play(cla, result_schedule_):
 
         complete_ = False
 
-        result_out = out_check(cla)
-        if result_out == False:
-            clean_screen(cla)
+        # result_out = out_check(cla)
+        # if result_out == False:
+        #     clean_screen(cla)
 
         if "_" in result_schedule_:
             dungeon_ = result_schedule_.split("_")
@@ -144,7 +144,9 @@ def jadong_play(cla, result_schedule_):
                                     imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
-
+            else:
+                print("지정된 자동사냥터가 아니다.")
+                clean_screen(cla)
         else:
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[0] + "\\" + hunter_spot + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
