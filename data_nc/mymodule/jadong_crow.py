@@ -87,15 +87,9 @@ def jadong_play(cla, result_schedule_):
                 imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
                     print("자동사냥 중", hunter_spot)
-                    need_count = 0
+
                     for i in range(10):
-                        result_need = potion_check(cla)
-                        if result_need == False:
-                            break
-                        else:
-                            need_count += 1
-                            if need_count > 2:
-                                juljun_maul_potion(cla)
+                         potion_check(cla)
                         time.sleep(0.1)
                 else:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
