@@ -89,7 +89,8 @@ def jadong_play(cla, result_schedule_):
                     print("자동사냥 중", hunter_spot)
 
                     for i in range(10):
-                         potion_check(cla)
+
+                        potion_check(cla)
                         time.sleep(0.1)
                 else:
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
