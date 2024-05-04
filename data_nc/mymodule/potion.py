@@ -12,7 +12,7 @@ import variable as v_
 def potion_check(cla):
     import cv2
     import numpy as np
-    from function import imgs_set_num
+    from function import imgs_set_num, imgs_set_
     from action import dead_die_before, juljun_check, out_check, juljun_off
 
     try:
@@ -62,25 +62,101 @@ def potion_check(cla):
             else:
                 print("바깥 화면 아니라서 물약 파악 불가능...")
                 potion_zero = False
+
+            if potion_zero == True:
+
+                v_.potion_count += 1
+                print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
+                if v_.potion_count > 3:
+                    v_.potion_count = 0
+
+                    result = juljun_check(cla)
+                    if result == True:
+                        juljun_off(cla)
+
+                    maul_potion_only(cla)
+            else:
+                print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
+
         else:
-            potion_zero = juljun_potion_check(cla)
+            # potion_zero = juljun_potion_check(cla)
+
+            if cla == 'one':
+                minus = 0
+            if cla == 'two':
+                minus = 960
+            if cla == 'three':
+                minus = 960 * 2
+            if cla == 'four':
+                minus = 960 * 3
+            if cla == 'five':
+                minus = 960 * 4
+            if cla == 'six':
+                minus = 960 * 5
+
+            potion_need = True
+
+            what_potion_ = "none"
+            x_reg = 0
+
+            # 물약 파악
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                what_potion_ = 'small'
+                x_reg = imgs_.x
+                print("what_potion_ = 'small'")
+            else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(250, 960, 750, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    what_potion_ = 'middle'
+                    x_reg = imgs_.x
+
+                    print("what_potion_ = 'middle'")
+            if what_potion_ == 'small' or what_potion_ == 'middle':
+                for b in range(10):
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\juljun_number\\" + str(
+                            i) + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_num(x_reg - minus, 1005, x_reg + 13 - minus, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("100자리 숫자는?'", i, imgs_)
+                            potion_need = False
+                            v_.potion_count = 0
+
+                            break
+                    if potion_need == False:
+                        break
+                    else:
+                        time.sleep(0.1)
+            else:
+                potion_need = False
+                print("절전 물약 파악 안되어서 보류...")
 
 
-        if potion_zero == True:
 
-            v_.potion_count += 1
-            print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
-            if v_.potion_count > 3:
-                v_.potion_count = 0
+            if potion_need == True:
 
-                result = juljun_check(cla)
-                if result == True:
-                    juljun_off(cla)
+                v_.potion_count += 1
+                print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
+                if v_.potion_count > 3:
+                    v_.potion_count = 0
 
-                maul_potion_only(cla)
-        else:
-            print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
-            v_.potion_count = 0
+                    result = juljun_check(cla)
+                    if result == True:
+                        juljun_off(cla)
+
+                    maul_potion_only(cla)
+            else:
+                print("물약 100개 이하로 파악된 횟수 => ", v_.potion_count)
 
         dead_die_before(cla)
 
