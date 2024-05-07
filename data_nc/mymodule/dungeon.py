@@ -1488,7 +1488,28 @@ def juljun_attack(cla, dun_, nowstep):
                                             imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
                                             if imgs_ is not None and imgs_ != False:
                                                 break
+                                            else:
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    break
                                             time.sleep(1)
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    continue_juljun = True
+                                    dead_die(cla)
+                                # 동굴에서 3번 이상 죽으면 그날 마무리
+                                if v_.dongool_dead_count > 3:
+                                    v_.dongool_dead_count = 0
+                                    continue_juljun = True
+                                    myQuest_play_add(cla, v_.now_ing_schedule)
+                                    break
+
                                 time.sleep(0.5)
 
 
