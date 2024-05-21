@@ -2013,7 +2013,7 @@ def juljun_attack(cla, dun_, nowstep):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.)
+                                    imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         print("동굴던전 스텝 5 미만 : 마을이동 보여서 클릭", v_.dongool_dead_count, imgs_)
                                         continue_juljun = True

@@ -1612,6 +1612,64 @@ def juljun_off(cla):
     except Exception as e:
         print(e)
 
+def jangsigan_check(cla):
+    import cv2
+    import os
+    import numpy as np
+    from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos, imgs_set
+    from schedule import myQuest_play_add, myQuest_play_check
+    from massenger import line_to_me
+    try:
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\jangsigan_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(300, 450, 700, 550, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("장시간이다!!!!!!!!!!!!!!!!")
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("확인버튼이다!!!!!!!!!!!!!!!!")
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                for i in range(20):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\anymore_not_look.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(80, 680, 280, 780, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(110, 710, cla)
+                        time.sleep(0.3)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\game_start_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        for z in range(10):
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                break
+                            time.sleep(0.5)
+                        break
+
+
+    except Exception as e:
+        print(e)
+
 def clean_screen(cla):
     import cv2
     import os
@@ -1843,51 +1901,7 @@ def clean_screen(cla):
                                     break
                                 time.sleep(0.2)
 
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\jangsigan_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(300, 450, 700, 550, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            print("장시간이다!!!!!!!!!!!!!!!!")
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\confirm_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                print("확인버튼이다!!!!!!!!!!!!!!!!")
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                for i in range(20):
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\anymore_not_look.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(80, 680, 280, 780, cla, img, 0.83)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_2(110, 710, cla)
-                                        time.sleep(0.3)
-
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.3)
-
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\game_start_1.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.2)
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.2)
-                                        for z in range(10):
-                                            result_out = out_check(cla)
-                                            if result_out == True:
-                                                break
-                                            time.sleep(0.5)
-                                        break
+                        jangsigan_check(cla)
 
                         # 던전 끝났을때
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
