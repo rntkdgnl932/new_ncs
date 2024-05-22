@@ -1332,186 +1332,193 @@ def juljun_attack(cla, dun_, nowstep):
             else:
                 print("touching 없")
 
-                in_maul_ = False
-                print("마을일경우에만 절전 전투모드 잠시 해제")
-                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
+                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("마을이면 스케쥴 진행 ㄱㄱ", imgs_)
-                    in_maul_ = True
-                else:
-                    result_maul = maul_check(v_.now_cla)
-                    if result_maul == True:
-                        click_pos_2(230, 90, v_.now_cla)
+
+                    in_maul_ = False
+                    print("마을일경우에만 절전 전투모드 잠시 해제")
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        print("마을이면 스케쥴 진행 ㄱㄱ", imgs_)
                         in_maul_ = True
                     else:
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
-                        if imgs_ is not None and imgs_ != False:
+                        result_maul = maul_check(v_.now_cla)
+                        if result_maul == True:
+                            click_pos_2(230, 90, v_.now_cla)
                             in_maul_ = True
-                            print("거점이다. 동굴 끝난듯 하다.", imgs_)
-                            drag_pos(360, 550, 600, 550, cla)
-                            time.sleep(1)
-
-                            for i in range(5):
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("드래그중")
-                                    drag_pos(360, 550, 600, 550, cla)
-                                else:
-                                    break
-                                time.sleep(0.5)
-
-                            for i in range(5):
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.1)
                         else:
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("동굴 사냥중인듯 하다", imgs_)
-                            else:
-                                result_juljun = juljun_check(cla)
-                                if result_juljun == True:
-                                    print("juljun_mode")
-                                    in_maul_ = True
-                                    print("사냥중이지 않다. 다시 체크해보자")
-                                    drag_pos(360, 550, 600, 550, cla)
+                                in_maul_ = True
+                                print("거점이다. 동굴 끝난듯 하다.", imgs_)
+                                drag_pos(360, 550, 600, 550, cla)
+                                time.sleep(1)
 
-                                    for i in range(5):
-                                        result_juljun = juljun_check(cla)
-                                        if result_juljun == True:
-                                            print("드래그 중...")
-                                            drag_pos(360, 550, 600, 550, cla)
-                                        else:
-                                            break
-                                        time.sleep(0.5)
-                                    time.sleep(0.5)
-
-                                    for i in range(5):
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.1)
-
-                                else:
-                                    print("공격 당하는 듯 하다. 이동해버리자")
-                                    # continue_juljun
-                                    # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_1.PNG"
-                                    # img_array = np.fromfile(full_path, np.uint8)
-                                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    # imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
-                                    # if imgs_ is not None and imgs_ != False:
-                                    #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
-                                    #     img_array = np.fromfile(full_path, np.uint8)
-                                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    #     imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
-                                    #     if imgs_ is not None and imgs_ != False:
-                                    #         print("동굴던전 : 랜덤이동 보여서 클릭")
-                                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
-                if in_maul_ == True:
-
-                    continue_juljun = True
-                    dead_die(cla)
-                    print("절전모드 잠시 중지...", v_.dongool_dead_count)
-                    if v_.dongool_dead_count > 4:
-                        v_.dongool_dead_count = 0
-                        myQuest_play_add(cla, v_.now_ing_schedule)
-                else:
-
-                    print("절전모드 피격시 옮기기 모드...동굴에서 죽은 횟수", v_.dongool_dead_count)
-                    result_juljun = juljun_check(cla)
-                    if result_juljun == True:
-                        print("juljun_mode")
-
-                        # 공격불가 체크
-                        juljun_fullbag_check(cla)
-                        time.sleep(0.1)
-                        potion_check(cla)
-
-                    else:
-                        nowtime_ = datetime.today().strftime("%Y년%m월%d일 %H시%M분%S초")
-                        print("현재시간", nowtime_)
-
-                        # line_to_me(cla, str(nowtime_) + "에 어떤 놈이 공격했다")
-
-                        print("한대 맞은 듯...랜덤 이동 보이면 바로 이동하기!!", v_.dongool_dead_count)
-
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            continue_juljun = True
-                            dead_die(cla)
-                        # 동굴에서 3번 이상 죽으면 그날 마무리
-                        if v_.dongool_dead_count > 3:
-                            v_.dongool_dead_count = 0
-                            continue_juljun = True
-                            myQuest_play_add(cla, v_.now_ing_schedule)
-
-
-                        else:
-
-                            for i in range(10):
-                                result_out = out_check(cla)
-                                if result_out == True:
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
+                                for i in range(5):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.)
+                                    imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("동굴던전 스텝 5 미만 : 마을이동 보여서 클릭", v_.dongool_dead_count, imgs_)
-                                        continue_juljun = True
+                                        print("드래그중")
+                                        drag_pos(360, 550, 600, 550, cla)
+                                    else:
+                                        break
+                                    time.sleep(0.5)
+
+                                for i in range(5):
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        for m in range(10):
-                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
-                                            if imgs_ is not None and imgs_ != False:
-                                                break
-                                            else:
-                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    break
-                                            time.sleep(1)
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
+                                    time.sleep(0.1)
+                            else:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
+                                imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
-                                    continue_juljun = True
-                                    dead_die(cla)
-                                # 동굴에서 3번 이상 죽으면 그날 마무리
-                                if v_.dongool_dead_count > 3:
-                                    v_.dongool_dead_count = 0
-                                    continue_juljun = True
-                                    myQuest_play_add(cla, v_.now_ing_schedule)
-                                    break
+                                    print("동굴 사냥중인듯 하다", imgs_)
+                                else:
+                                    result_juljun = juljun_check(cla)
+                                    if result_juljun == True:
+                                        print("juljun_mode")
+                                        in_maul_ = True
+                                        print("사냥중이지 않다. 다시 체크해보자")
+                                        drag_pos(360, 550, 600, 550, cla)
 
-                                time.sleep(0.5)
+                                        for i in range(5):
+                                            result_juljun = juljun_check(cla)
+                                            if result_juljun == True:
+                                                print("드래그 중...")
+                                                drag_pos(360, 550, 600, 550, cla)
+                                            else:
+                                                break
+                                            time.sleep(0.5)
+                                        time.sleep(0.5)
 
+                                        for i in range(5):
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            time.sleep(0.1)
+
+                                    else:
+                                        print("공격 당하는 듯 하다. 이동해버리자")
+                                        # continue_juljun
+                                        # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_1.PNG"
+                                        # img_array = np.fromfile(full_path, np.uint8)
+                                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        # imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+                                        # if imgs_ is not None and imgs_ != False:
+                                        #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\random_move_1.PNG"
+                                        #     img_array = np.fromfile(full_path, np.uint8)
+                                        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        #     imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
+                                        #     if imgs_ is not None and imgs_ != False:
+                                        #         print("동굴던전 : 랜덤이동 보여서 클릭")
+                                        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    if in_maul_ == True:
+
+                        continue_juljun = True
+                        dead_die(cla)
+                        print("절전모드 잠시 중지...", v_.dongool_dead_count)
+                        if v_.dongool_dead_count > 4:
+                            v_.dongool_dead_count = 0
+                            myQuest_play_add(cla, v_.now_ing_schedule)
+                    else:
+
+                        print("절전모드 피격시 옮기기 모드...동굴에서 죽은 횟수", v_.dongool_dead_count)
+                        result_juljun = juljun_check(cla)
+                        if result_juljun == True:
+                            print("juljun_mode")
+
+                            # 공격불가 체크
+                            juljun_fullbag_check(cla)
+                            time.sleep(0.1)
+                            potion_check(cla)
+
+                        else:
+                            nowtime_ = datetime.today().strftime("%Y년%m월%d일 %H시%M분%S초")
+                            print("현재시간", nowtime_)
+
+                            # line_to_me(cla, str(nowtime_) + "에 어떤 놈이 공격했다")
+
+                            print("한대 맞은 듯...랜덤 이동 보이면 바로 이동하기!!", v_.dongool_dead_count)
+
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                continue_juljun = True
+                                dead_die(cla)
+                            # 동굴에서 3번 이상 죽으면 그날 마무리
+                            if v_.dongool_dead_count > 3:
+                                v_.dongool_dead_count = 0
+                                continue_juljun = True
+                                myQuest_play_add(cla, v_.now_ing_schedule)
+
+
+                            else:
+
+                                for i in range(10):
+                                    result_out = out_check(cla)
+                                    if result_out == True:
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\maul_move_1.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("동굴던전 스텝 5 미만 : 마을이동 보여서 클릭", v_.dongool_dead_count, imgs_)
+                                            continue_juljun = True
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            for m in range(10):
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\janhwa_1.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.9)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    break
+                                                else:
+                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        break
+                                                time.sleep(1)
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_die.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(700, 800, 960, 1030, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        continue_juljun = True
+                                        dead_die(cla)
+                                    # 동굴에서 3번 이상 죽으면 그날 마무리
+                                    if v_.dongool_dead_count > 3:
+                                        v_.dongool_dead_count = 0
+                                        continue_juljun = True
+                                        myQuest_play_add(cla, v_.now_ing_schedule)
+                                        break
+
+                                    time.sleep(0.5)
+                else:
+                    continue_juljun = True
 
     except Exception as e:
         print(e)
