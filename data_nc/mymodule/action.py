@@ -2356,7 +2356,7 @@ def skill_check_(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_4.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(60, 900, 140, 940, cla, img, 0.8)
+                    imgs_ = imgs_set_(160, 900, 250, 940, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         in_skill_4 = True
                         print("자동사용 켬 완료")
@@ -2364,7 +2364,7 @@ def skill_check_(cla):
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_3.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(60, 900, 140, 940, cla, img, 0.8)
+                        imgs_ = imgs_set_(160, 900, 250, 940, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("자동사용 켜는 중")
                             click_pos_reg(imgs_.x, imgs_.y, cla)

@@ -64,7 +64,46 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
-    get_post(cla)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_7.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(900, 50, 960, 150, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("skill_7 일딴 물약 있다", imgs_)
+    else:
+        print("안 보려")
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_5.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 920, 50, 960, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        in_skill_1 = True
+        print("반복사용 체크 완료")
+    time.sleep(0.2)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_5.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(125, 920, 160, 960, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        in_skill_2 = True
+        print("pvp 시 사용 체크 완료")
+    time.sleep(0.2)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_5.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        in_skill_3 = True
+        print("사용 불가 건너뛰기 체크 완료")
+    time.sleep(0.2)
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_4.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(60, 900, 140, 940, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        in_skill_4 = True
+        print("자동사용 켬 완료")
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
