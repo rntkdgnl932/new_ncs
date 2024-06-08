@@ -797,8 +797,9 @@ def available_potion(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\lv45.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(600, 900, 660, 930, cla, img, 0.8)
+                imgs_ = imgs_set_(340, 900, 660, 930, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
+                    print("lv45 x :small", imgs_)
                     v_.potion_size = "small"
                     click_pos_2(320, 900, cla)
                     break
@@ -806,11 +807,13 @@ def available_potion(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\lv60.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(340, 900, 530, 930, cla, img, 0.8)
+                    imgs_ = imgs_set_(340, 900, 660, 930, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
+                        print("lv60 x : middle", imgs_)
                         v_.potion_size = "middle"
                         click_pos_2(320, 900, cla)
                     else:
+                        print("lv60 o : big", imgs_)
                         v_.potion_size = "big"
                         click_pos_2(370, 900, cla)
                     break
