@@ -53,6 +53,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
+    available_potion(cla)
 
     #333
     # if dungeon_[1] == "번영":
