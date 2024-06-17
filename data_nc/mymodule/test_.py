@@ -53,7 +53,7 @@ def go_test():
 
     v_.what_cla = "one클라"
 
-    available_potion(cla)
+
 
     #333
     # if dungeon_[1] == "번영":
@@ -65,12 +65,12 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\potion\\lv60.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\menu_auction.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(340, 900, 530, 930, cla, img, 0.8)
+    imgs_ = imgs_set_(720, 100, 960, 450, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("lv60 일딴 물약 있다", imgs_)
+        print("menu_auction", imgs_)
     else:
         print("안 보려")
 
