@@ -193,8 +193,8 @@ def line_monitor(game, cla):
     import os.path
     import os
     import cv2
-    from function import imgs_set, click_pos_reg, imgs_set_
-    from popup_18 import fuckyou_popup
+    from function import imgs_set, click_pos_reg, imgs_set_, click_pos_2
+    from action import out_check
     import time
     from datetime import datetime, timedelta, date
     from server import server_get_nightcrow
