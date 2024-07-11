@@ -1007,12 +1007,14 @@ def boonhae_(cla):
                     click_pos_2(435, 365, cla)
                     time.sleep(0.3)
                     click_pos_2(515, 365, cla)
-                    time.sleep(0.1)
+                    time.sleep(0.3)
+                    click_pos_2(435, 425, cla)
+                    time.sleep(0.3)
                     #click_pos_2(510, 365, cla)
                 else:
-                    click_pos_2(580, 450, cla)
+                    click_pos_2(580, 480, cla)
                     time.sleep(0.5)
-                    click_pos_2(475, 450, cla)
+                    click_pos_2(450, 480, cla)
                     boonhae_ready = True
             else:
                 bag_open(cla)
