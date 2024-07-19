@@ -3220,6 +3220,32 @@ class game_Playing(QThread):
                                                 if imgs_ is not None and imgs_ != False:
                                                     ready_ = True
                                                     time.sleep(1)
+                                    else:
+                                        # 대기자 명단
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            down = True
+                                            down_count = 0
+                                            while down is True:
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    down_count += 1
+                                                    print("다운로드 중", down_count, "초")
+                                                else:
+                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        down = False
+
+                                                time.sleep(1)
 
 
                                     # 팝업창과 보스창 없애기
