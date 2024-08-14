@@ -34,7 +34,7 @@ def go_test():
     from auction_nc import auction_start, jaelyo_out, auction_ready, auction_open
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
-    from action import juljun_check
+    from get_item import get_sangjum_gyohwan
 
     cla = "one"
 
@@ -65,14 +65,23 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_7.PNG"
+    get_sangjum_gyohwan(cla)
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sohwan_moogi.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(900, 50, 960, 150, cla, img, 0.8)
+    imgs_ = imgs_set_(170, 170, 780, 580, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("skill_7", imgs_)
+        print("sohwan_moogi", imgs_)
     else:
         print("안 보려")
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(450, 660, 650, 730, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("y_", imgs_)
 
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"

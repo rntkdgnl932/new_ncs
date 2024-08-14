@@ -112,6 +112,120 @@ def get_item_checking(cla):
         print(e)
 
 
+def get_sangjum_gyohwan(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
+        from action import clean_screen, menu_open
+
+        in_sangjum = False
+        in_sangjum_count = 0
+        while in_sangjum is False:
+            in_sangjum_count += 1
+            if in_sangjum_count > 5:
+                in_sangjum = True
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sangjum_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 30, 120, 90, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("상점", imgs_)
+
+                in_sangjum = True
+
+                for i in range(5):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\ilgwal_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 120, 90, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(215, 110, cla)
+                    time.sleep(0.5)
+
+                for i in range(5):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sohwan_moogi.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(170, 170, 780, 580, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("sohwan_moogi", imgs_)
+                        break
+                    else:
+                        click_pos_2(100, 200, cla)
+                    time.sleep(0.5)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(450, 660, 650, 730, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("y_", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                        for e in range(10):
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sohwan_exit.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 980, 550, 1040, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("sohwan_exit", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                break
+                            else:
+                                click_pos_2(480, 1010, cla)
+
+
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sohwan_moogi.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(170, 170, 780, 580, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sohwan_talgut.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(170, 170, 780, 580, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+                    time.sleep(0.5)
+
+                clean_screen(cla)
+
+
+            else:
+                menu_open(cla)
+
+                time.sleep(0.5)
+
+                for i in range(5):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\pvp_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(750, 65, cla)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sangjum_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 30, 120, 90, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                    time.sleep(0.5)
+
+            time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
+
 def get_post(cla):
     try:
         import cv2
