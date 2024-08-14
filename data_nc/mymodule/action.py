@@ -2465,6 +2465,7 @@ def skill_check_(cla):
             imgs_ = imgs_set_(900, 50, 960, 150, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("skill_7", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
                 break
             time.sleep(0.5)
