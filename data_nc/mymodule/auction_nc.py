@@ -193,6 +193,7 @@ def jaelyo_out(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
+                                print("창고...", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
                             time.sleep(3)

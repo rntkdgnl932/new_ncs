@@ -2458,6 +2458,16 @@ def skill_check_(cla):
                     menu_open(cla)
                     click_pos_2(885, 60, cla)
             time.sleep(0.3)
+        for i in range(5):
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_7.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(900, 50, 960, 150, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("skill_7", imgs_)
+            else:
+                break
+            time.sleep(0.5)
 
     except Exception as e:
         print(e)
