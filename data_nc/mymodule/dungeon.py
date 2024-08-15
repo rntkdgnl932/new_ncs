@@ -904,6 +904,7 @@ def now_playing(cla, dun_, nowstep):
                                             if imgs_ is not None and imgs_ != False:
                                                 print(dun_, imgs_)
                                                 in_dungeon__ = True
+                                                break
                                             time.sleep(1)
 
                                     click_pos_2(930, 850, cla)
