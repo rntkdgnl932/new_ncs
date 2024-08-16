@@ -989,7 +989,7 @@ def boonhae_(cla):
         boonhae_ready_count = 0
         while boonhae_ready is False:
             boonhae_ready_count += 1
-            if boonhae_ready_count > 5:
+            if boonhae_ready_count > 10:
                 boonhae_ready = True
 
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\boonhae_title.PNG"
@@ -1001,21 +1001,52 @@ def boonhae_(cla):
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\boonhae_not_check.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(415, 345, 450, 380, cla, img, 0.83)
+                imgs_ = imgs_set_(410, 340, 450, 380, cla, img, 0.83)
                 if imgs_ is not None and imgs_ != False:
-                    print("분해체크하기")
-                    click_pos_2(435, 365, cla)
-                    time.sleep(0.3)
-                    click_pos_2(515, 365, cla)
-                    time.sleep(0.3)
-                    click_pos_2(435, 425, cla)
-                    time.sleep(0.3)
-                    #click_pos_2(510, 365, cla)
+                    print("분해체크하기1")
+                    click_pos_reg(imgs_.x + 20, imgs_.y, cla)
+
                 else:
-                    click_pos_2(580, 480, cla)
-                    time.sleep(0.5)
-                    click_pos_2(450, 480, cla)
-                    boonhae_ready = True
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\boonhae_not_check.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(490, 340, 530, 380, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("분해체크하기2")
+                        click_pos_reg(imgs_.x + 20, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\boonhae_not_check.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(410, 410, 450, 450, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            print("분해체크하기3")
+                            click_pos_reg(imgs_.x + 20, imgs_.y, cla)
+                        else:
+                            click_pos_2(580, 480, cla)
+                            time.sleep(0.5)
+                            click_pos_2(450, 480, cla)
+                            boonhae_ready = True
+
+
+                # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\boonhae_not_check.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set_(415, 345, 450, 380, cla, img, 0.83)
+                # if imgs_ is not None and imgs_ != False:
+                #     print("분해체크하기")
+                #     click_pos_2(435, 365, cla)
+                #     time.sleep(0.3)
+                #     click_pos_2(515, 365, cla)
+                #     time.sleep(0.3)
+                #     click_pos_2(435, 425, cla)
+                #     time.sleep(0.3)
+                #     #click_pos_2(510, 365, cla)
+                # else:
+                #     click_pos_2(580, 480, cla)
+                #     time.sleep(0.5)
+                #     click_pos_2(450, 480, cla)
+                #     boonhae_ready = True
             else:
                 bag_open(cla)
 
