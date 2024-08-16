@@ -35,6 +35,7 @@ def go_test():
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
     from get_item import get_sangjum_gyohwan
+    from realtime import boonhae_
 
     cla = "one"
 
@@ -65,7 +66,7 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
-    get_sangjum_gyohwan(cla)
+    boonhae_(cla)
 
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sohwan_moogi.PNG"
     img_array = np.fromfile(full_path, np.uint8)
