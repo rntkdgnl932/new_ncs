@@ -38,6 +38,11 @@ def get_items(cla):
         # 이벤트 받기
         print("이벤트 받기")
         get_event(cla)
+
+        # 상점 소환
+        print("상점 소환")
+        get_sangjum_gyohwan(cla)
+
         # 업적 받기
         print("업적 받기")
         get_upjuk(cla)
@@ -165,7 +170,7 @@ def get_sangjum_gyohwan(cla):
                             click_pos_2(100, 200, cla)
                     time.sleep(0.5)
 
-                for i in range(10):
+                for i in range(15):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -185,6 +190,7 @@ def get_sangjum_gyohwan(cla):
                                 break
                             else:
                                 click_pos_2(480, 1010, cla)
+                            time.sleep(0.5)
 
 
                     else:
@@ -660,7 +666,17 @@ def get_event(cla):
                                                     click_pos_2(860, 410, cla)
                                                     time.sleep(0.3)
                                                 else:
-                                                    print("1")
+                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\event_joosawi.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(400, 400, 700, 500, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        click_pos_2(575, 715, cla)
+                                                        time.sleep(0.3)
+                                                        click_pos_2(575, 715, cla)
+                                                        time.sleep(0.3)
+                                                    else:
+                                                        print("1")
                                         else:
                                             get_season_last = True
                                         time.sleep(0.3)
@@ -968,6 +984,7 @@ def get_upjuk(cla):
 
     except Exception as e:
         print(e)
+
 
 def sinnyum_junseong(cla):
     try:

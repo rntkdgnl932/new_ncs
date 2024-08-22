@@ -40,7 +40,7 @@ def auction_ready(cla):
         # 그리고 다시 창고에 넣는다
         jaelyo_in(cla)
         # 다 넣고 마무리는 스케쥴 완료
-        myQuest_play_add(cla, "거래소등록")
+        # myQuest_play_add(cla, "거래소등록")
 
         # 분해까지 마무리
         boonhae_(cla)
@@ -737,219 +737,137 @@ def auction_start(cla):
         elif cla == "four":
             x_plus = 960 * 3
 
+
         # 결과값
         sell_ready_now_low = ""
         sell_ready_last = ""
-        x1_reg_point = 0
-        x1_reg_1000 = 0
-        x2_reg_point = 0
-        x2_reg_1000 = 0
 
+        y_1 = 570
+        y_2 = 596
+        y_3 = 648
+        y_4 = 680
 
-        x1_plus = False
+        # 현재 최저 금액
 
-        x2_plus = False
+        small_x = 410 + x_plus
 
-        # 첫번째 소수점 및 쉼표 파악
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\point.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(377, 580, 410, 600, cla, img, 0.99)
-        if imgs_ is not None and imgs_ != False:
-            print("현재 최저 금액 : point", imgs_)
-            # 첫번째 소수점 x = 379, 378
-            # 두번째 소수점 x = 387, 386
-            # 세번째 소수점 x = 395
-            x1_plus = True
-            x1_reg_point = imgs_.x
-        else:
-            print("현재 최저 금액 : not point")
-
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\1000.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(377, 580, 410, 600, cla, img, 0.99)
-        if imgs_ is not None and imgs_ != False:
-            print("현재 최저 금액 : , ", imgs_)
-            x1_plus = True
-            x1_reg_1000 = imgs_.x
-        else:
-            print("현재 최저 금액 : not 1000")
-
-        # 두번째 소수점 및 쉼표 파악
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\point.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(377, 650, 410, 670, cla, img, 0.99)
-        if imgs_ is not None and imgs_ != False:
-            print("마지막 거래 금액 : point", imgs_)
-            x2_plus = True
-            x2_reg_point = imgs_.x
-        else:
-            print("마지막 거래 금액 : not point")
-
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\1000.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(377, 650, 410, 670, cla, img, 0.99)
-        if imgs_ is not None and imgs_ != False:
-            print("마지막 거래 금액 : , ", imgs_)
-            x2_plus = True
-            x2_reg_1000 = imgs_.x
-        else:
-            print("마지막 거래 금액 : not 1000")
-
-
-        # 값 구하기
-        for k in range(4):
-            if k == 0:
-                # 첫째자리
-                x_1 = 369
-                x_2 = 378
-                x_3 = 369
-                x_4 = 378
-            if k == 1:
-                # 둘째자리
-                x_1 = 377
-                x_2 = 386
-                x_3 = 377
-                x_4 = 386
-            if k == 2:
-                # 셋째자리
-                x_1 = 385
-                x_2 = 394
-                x_3 = 385
-                x_4 = 394
-            if k == 3:
-                # 넷째자리
-                x_1 = 393
-                x_2 = 402
-                x_3 = 393
-                x_4 = 402
-
-            y_1 = 570
-            y_2 = 588
-            y_3 = 648
-            y_4 = 664
-
-            # sell_ready_now_low
-
-            if x1_plus == True:
-                if k != 0:
-                    if x1_reg_point != 0 or x1_reg_1000 != 0:
-                        if 375 + x_plus < x1_reg_point < 380 + x_plus or 375 + x_plus < x1_reg_1000 < 380 + x_plus:
-                            if k > 0:
-                                x_1 = x_1 + 3
-                                x_2 = x_2 + 3
-                        if 384 + x_plus < x1_reg_point < 390 + x_plus or 384 + x_plus < x1_reg_1000 < 390 + x_plus:
-                            if k > 1:
-                                x_1 = x_1 + 3
-                                x_2 = x_2 + 3
-                        if 390 + x_plus < x1_reg_point < 400 + x_plus or 390 + x_plus < x1_reg_1000 < 400 + x_plus:
-                            if k > 2:
-                                x_1 = x_1 + 3
-                                x_2 = x_2 + 3
-
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\vacant.PNG"
+        for i in range(10):
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\" + str(i) + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
+            imgs_ = imgs_set_num(360, y_1, 410, y_2, cla, img, 0.99)
             if imgs_ is not None and imgs_ != False:
-                print("숫자 없다")
+                data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
+                print(data, imgs_)
+                if small_x > imgs_.x:
+                    small_x = imgs_.x
 
-            else:
+        # print("small_x", small_x)
 
+        x_1 = small_x - 5 - x_plus
+        x_2 = small_x + 5 - x_plus
 
-                # sell_ready_now_low = text_check_get(x_1, y_1, x_2, y_2, cla)
+        for n in range(4):
+            # print("x_1", x_1)
+            # print("x_2", x_2)
 
-                for i in range(10):
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\" + str(i) + ".PNG"
+            for i in range(10):
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\" + str(i) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
+                if imgs_ is not None and imgs_ != False:
+                    print(str(i), imgs_)
+
+                    sell_ready_now_low = sell_ready_now_low + str(i)
+
+                    x_1 = imgs_.x - x_plus
+                    x_2 = x_1 + 13
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
                     if imgs_ is not None and imgs_ != False:
-                        # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
-                        # print(data, imgs_)
+                        print("현재 최저 금액 : point", imgs_)
+                        sell_ready_now_low = sell_ready_now_low + "."
+
+                        x_1 = imgs_.x - x_plus
+                        x_2 = x_1 + 13
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\1000.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
+                        if imgs_ is not None and imgs_ != False:
+                            print("현재 최저 금액 : 1000", imgs_)
+
+                            x_1 = imgs_.x - x_plus
+                            x_2 = x_1 + 13
 
 
-                        if k != 0:
-                            # 첫번째 소수점 x = 379, 378
-                            # 두번째 소수점 x = 387, 386
-                            # 세번째 소수점 x = 395, 394
-                            if k == 1:
-                                if x1_reg_point != 0 and (375 + x_plus < x1_reg_point < 380 + x_plus):
-                                    sell_ready_now_low += "."
-                            if k == 2:
-                                if x1_reg_point != 0 and (384 + x_plus < x1_reg_point < 390 + x_plus):
-                                    sell_ready_now_low += "."
-                            if k == 3:
-                                if x1_reg_point != 0 and (390 + x_plus < x1_reg_point < 400 + x_plus):
-                                    sell_ready_now_low += "."
-                            sell_ready_now_low += str(i)
-                        else:
-                            sell_ready_now_low += str(i)
+                    break
 
-                        break
+        # 마지막 거래 금액
 
-            # sell_ready_last
+        small_x = 410 + x_plus
 
-            if x2_plus == True:
-                if k != 0:
-                    if x2_reg_point != 0 or x2_reg_1000 != 0:
-                        if 375 + x_plus < x2_reg_point < 380 + x_plus or 375 + x_plus < x2_reg_1000 < 380 + x_plus:
-                            if k > 0:
-                                x_3 = x_3 + 3
-                                x_4 = x_4 + 3
-                        if 384 + x_plus < x2_reg_point < 390 + x_plus or 384 + x_plus < x2_reg_1000 < 390 + x_plus:
-                            if k > 1:
-                                x_3 = x_3 + 3
-                                x_4 = x_4 + 3
-                        if 390 + x_plus < x2_reg_point < 400 + x_plus or 390 + x_plus < x2_reg_1000 < 400 + x_plus:
-                            if k > 2:
-                                x_3 = x_3 + 3
-                                x_4 = x_4 + 3
-
-
-            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\vacant.PNG"
+        for i in range(10):
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\" + str(i) + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_num(x_3, y_3, x_4, y_4, cla, img, 0.99)
+            imgs_ = imgs_set_num(360, y_3, 410, y_4, cla, img, 0.99)
             if imgs_ is not None and imgs_ != False:
-                print("숫자 없다")
+                data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
+                print(data, imgs_)
+                if small_x > imgs_.x:
+                    small_x = imgs_.x
 
-            else:
+        # print("small_x", small_x)
 
 
-                # sell_ready_last = text_check_get(x_3, y_3, x_4, y_4, cla)
-                for i in range(10):
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\" + str(i) + ".PNG"
+        x_1 = small_x - 5 - x_plus
+        x_2 = small_x + 5 - x_plus
+
+        for n in range(4):
+            # print("x_1", x_1)
+            # print("x_2", x_2)
+
+            for i in range(10):
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\" + str(i) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_num(x_1, y_3, x_2, y_4, cla, img, 0.99)
+                if imgs_ is not None and imgs_ != False:
+                    print(str(i), imgs_)
+
+                    sell_ready_last = sell_ready_last + str(i)
+
+                    x_1 = imgs_.x - x_plus
+                    x_2 = x_1 + 13
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_3, y_3, x_4, y_4, cla, img, 0.99)
+                    imgs_ = imgs_set_num(x_1, y_3, x_2, y_4, cla, img, 0.99)
                     if imgs_ is not None and imgs_ != False:
-                        # data = "마지막 거래 금액 : 숫자 " + str(i) + " 보여"
-                        # print(data, imgs_)
+                        print("현재 최저 금액 : point", imgs_)
+                        sell_ready_last = sell_ready_last + "."
 
-                        if k != 0:
-                            # 첫번째 소수점 x = 379, 378
-                            # 두번째 소수점 x = 387, 386
-                            # 세번째 소수점 x = 395, 394
-                            if k == 1:
-                                if x2_reg_point != 0 and (375 + x_plus < x2_reg_point < 380 + x_plus):
-                                    sell_ready_last += "."
-                            if k == 2:
-                                if x2_reg_point != 0 and (384 + x_plus < x2_reg_point < 390 + x_plus):
-                                    sell_ready_last += "."
-                            if k == 3:
-                                if x2_reg_point != 0 and (390 + x_plus < x2_reg_point < 400 + x_plus):
-                                    sell_ready_last += "."
-                            sell_ready_last += str(i)
-                        else:
-                            sell_ready_last += str(i)
+                        x_1 = imgs_.x - x_plus
+                        x_2 = x_1 + 13
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\num\\1000.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_num(x_1, y_3, x_2, y_4, cla, img, 0.99)
+                        if imgs_ is not None and imgs_ != False:
+                            print("현재 최저 금액 : 1000", imgs_)
 
-                        break
+                            x_1 = imgs_.x - x_plus
+                            x_2 = x_1 + 13
 
-            print("3 되면 끝 : ", k)
+                    break
 
 
 
@@ -959,151 +877,84 @@ def auction_start(cla):
         return 0
 
 def auction_start2(cla):
-    from function import imgs_set_num, text_check_get
+    from function import imgs_set_num
     import numpy as np
     import cv2
     try:
 
+        if cla == "one":
+            x_plus = 0
+        elif cla == "two":
+            x_plus = 960
+        elif cla == "three":
+            x_plus = 960 * 2
+        elif cla == "four":
+            x_plus = 960 * 3
+
+
         # 결과값
         sell_ready = ""
-        # 쉼표 여부부터 파악
 
-        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\1000.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(590, 500, 620, 520, cla, img, 0.99)
-        if imgs_ is not None and imgs_ != False:
-            print("1000", imgs_)
-            for k in range(4):
-                if k == 0:
-                    # 첫째자리
-                    x_1 = 590
-                    x_2 = 607
-                if k == 1:
-                    # 둘째자리
-                    x_1 = 607
-                    x_2 = 625
-                if k == 2:
-                    # 셋째자리
-                    x_1 = 617
-                    x_2 = 634
-                if k == 3:
-                    # 셋째자리
-                    x_1 = 630
-                    x_2 = 645
+        y_1 = 490
+        y_2 = 520
 
-                y_1 = 492
-                y_2 = 515
+        # 현재 최저 금액
 
-                print("k", k)
-                text_check_get(617, 493, 634, 520, cla)
-                for i in range(10):
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\" + str(i) + ".PNG"
+        small_x = 660 + x_plus
+
+        for i in range(10):
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\" + str(i) + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_num(590, 490, 660, 520, cla, img, 0.99)
+            if imgs_ is not None and imgs_ != False:
+                data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
+                print(data, imgs_)
+                if small_x > imgs_.x:
+                    small_x = imgs_.x
+
+        # print("small_x", small_x)
+
+        x_1 = small_x - 8 - x_plus
+        x_2 = small_x + 8 - x_plus
+
+        for n in range(4):
+            print("x_1", x_1)
+            print("x_2", x_2)
+
+            for i in range(10):
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\" + str(i) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
+                if imgs_ is not None and imgs_ != False:
+                    print(str(i), imgs_)
+
+                    sell_ready = sell_ready + str(i)
+
+                    x_1 = imgs_.x - x_plus
+                    x_2 = x_1 + 16
+
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\1000.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
                     if imgs_ is not None and imgs_ != False:
-                        data = "현재 네자리 : 숫자 " + str(i) + " 보여"
-                        print(data, imgs_)
+                        print("1000", imgs_)
 
-                        sell_ready += str(i)
-
-                        break
-
-        else:
-            print("1000 안보여")
-            sell_ready_last = text_check_get(600, 493, 615, 513, cla)
-
-            # 값 구하기
-            for k in range(3):
-                if k == 0:
-                    # 첫째자리
-                    x_1 = 600
-                    x_2 = 615
-                    # x_2 = 620
-                if k == 1:
-                    # 둘째자리
-                    x_1 = 613
-                    x_2 = 625
-                    # x_2 = 630
-                if k == 2:
-                    # 셋째자리
-                    x_1 = 623
-                    x_2 = 635
-
-                y_1 = 492
-                y_2 = 515
+                        x_1 = imgs_.x - x_plus
+                        x_2 = x_1 + 16
 
 
 
-                for i in range(10):
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\" + str(i) + ".PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
-                    if imgs_ is not None and imgs_ != False:
-                        data = "현재 세자리 : 숫자 " + str(i) + " 보여"
-                        print(data, imgs_)
+                    break
 
-
-
-
-                        sell_ready += str(i)
-
-
-                        break
-            if sell_ready == "" or len(sell_ready) != 3:
-                sell_ready = ""
-                # 값 구하기
-                for k in range(2):
-                    if k == 0:
-                        # 첫째자리
-                        x_1 = 605
-                        x_2 = 618
-                    if k == 1:
-                        # 둘째자리
-                        x_1 = 618
-                        x_2 = 632
-
-                    y_1 = 492
-                    y_2 = 515
-
-                    for i in range(10):
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\" + str(i) + ".PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
-                        if imgs_ is not None and imgs_ != False:
-                            data = "현재 두자리 : 숫자 " + str(i) + " 보여"
-                            print(data, imgs_)
-
-                            sell_ready += str(i)
-
-                            break
-            if sell_ready == "" or (len(sell_ready) != 3 and len(sell_ready) != 2):
-                sell_ready = ""
-                # 값 구하기
-                x_1 = 610
-                x_2 = 625
-                y_1 = 492
-                y_2 = 515
-
-                for i in range(10):
-                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\" + str(i) + ".PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.99)
-                    if imgs_ is not None and imgs_ != False:
-                        data = "현재 한자리 : 숫자 " + str(i) + " 보여"
-                        print(data, imgs_)
-
-                        sell_ready += str(i)
-
-                        break
 
 
         return sell_ready
     except Exception as e:
         print(e)
         return 0
+
+
 

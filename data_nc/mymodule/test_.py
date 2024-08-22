@@ -31,7 +31,7 @@ def go_test():
     import random
     from one_event import daily_one
     from schedule import myQuest_play_check
-    from auction_nc import auction_start, jaelyo_out, auction_ready, auction_open
+    from auction_nc import auction_start, jaelyo_out, auction_ready, auction_open, auction_start2
     from gyucjunji import scan_jungye_setting
     from property_nc import my_property_upload
     from get_item import get_sangjum_gyohwan
@@ -66,41 +66,22 @@ def go_test():
     # elif dungeon_[1] == "유적":
     #     dungeon_name = "youjuk_1"
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\gold_g.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 870, 840, 920, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("gold_g", imgs_)
+    # for i in range(10):
+    #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\auction\\many\\" + str(i) + ".PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_num(590, 490, 660, 520, cla, img, 0.99)
+    #     if imgs_ is not None and imgs_ != False:
+    #         data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
+    #         print(data, imgs_)
 
-        # 가방 골드
-        if cla == "one":
-            x_reg = imgs_.x + 10
-        if cla == "two":
-            x_reg = imgs_.x + 10 - 960
-        if cla == "three":
-            x_reg = imgs_.x + 10 - 960 - 960
-        if cla == "four":
-            x_reg = imgs_.x + 10 - 960 - 960 - 960
+    get_sangjum_gyohwan(cla)
 
-        my_money = text_check_get(x_reg, 880, 892, 900, cla)
-        # my_money = text_check_get(830, 880, 892, 900, cla)
-
-        print("내 골드?", my_money)
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\chango\\boonhae_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(480, 80, 540, 160, cla, img, 0.83)
-    if imgs_ is not None and imgs_ != False:
-        print("분해화면")
-
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\y_.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(450, 660, 650, 730, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("y_", imgs_)
+    # result1 = auction_start("three")
+    # print("result1", result1)
+    #
+    # result2 = auction_start2("three")
+    # print("result2", result2)
 
 
     # full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\juljun_potion_2.PNG"
