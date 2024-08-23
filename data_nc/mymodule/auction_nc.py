@@ -40,7 +40,7 @@ def auction_ready(cla):
         # 그리고 다시 창고에 넣는다
         jaelyo_in(cla)
         # 다 넣고 마무리는 스케쥴 완료
-        # myQuest_play_add(cla, "거래소등록")
+        myQuest_play_add(cla, "거래소등록")
 
         # 분해까지 마무리
         boonhae_(cla)
