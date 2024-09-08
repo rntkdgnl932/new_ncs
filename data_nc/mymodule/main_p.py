@@ -1253,6 +1253,9 @@ class FirstTab(QWidget):
         chalano = dir_path + "\\data_nc\\jadong\\chalano.txt"
 
         jadong_list = v_.onForceGoldSpot
+
+        print("spot 18")
+
         with open(abilius, "r", encoding='utf-8-sig') as file:
             abilius_list = file.read()
             abilius_list_ = abilius_list.split(":")
