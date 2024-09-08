@@ -1254,7 +1254,9 @@ class FirstTab(QWidget):
 
         jadong_list = v_.onForceGoldSpot
 
-        print("spot 18")
+        spot_ = "start"
+
+        print("spot 18", spot_)
 
         with open(abilius, "r", encoding='utf-8-sig') as file:
             abilius_list = file.read()
