@@ -75,7 +75,7 @@ def go_test():
     #         data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
     #         print(data, imgs_)
 
-    get_sangjum_gyohwan(cla)
+    available_potion(cla)
 
     # result1 = auction_start("three")
     # print("result1", result1)
