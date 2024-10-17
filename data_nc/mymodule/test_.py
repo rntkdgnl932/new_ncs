@@ -75,12 +75,12 @@ def go_test():
     #         data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
     #         print(data, imgs_)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_1_ex.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_zero.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+    imgs_ = imgs_set_(450, 360, 495, 415, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("진입완료")
+        print("sinnyum_zero", imgs_)
 
     # result1 = auction_start("three")
     # print("result1", result1)

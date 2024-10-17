@@ -1002,12 +1002,12 @@ def sinnyum_junseong(cla):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(500, 340, 550, 380, cla, img, 0.8)
+            imgs_ = imgs_set_(490, 330, 550, 380, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_zero.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(460, 380, 495, 415, cla, img, 0.8)
+                imgs_ = imgs_set_(450, 360, 495, 415, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     get_trust = True
                 else:
@@ -1020,7 +1020,7 @@ def sinnyum_junseong(cla):
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_right.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(380, 530, 430, 590, cla, img, 0.8)
+                        imgs_ = imgs_set_(360, 520, 430, 590, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("sinnyum_right", imgs_)
                             right_ = True
@@ -1034,15 +1034,15 @@ def sinnyum_junseong(cla):
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_zero.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(460, 380, 495, 415, cla, img, 0.8)
+                                imgs_ = imgs_set_(450, 360, 495, 415, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(520, 725, cla)
+                                    click_pos_2(510, 710, cla)
                                     time.sleep(0.1)
-                                    click_pos_2(520, 725, cla)
+                                    click_pos_2(510, 710, cla)
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(500, 340, 550, 380, cla, img, 0.8)
+                                    imgs_ = imgs_set_(490, 330, 550, 380, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_2(930, 60, cla)
                                     else:
@@ -1052,13 +1052,14 @@ def sinnyum_junseong(cla):
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_right.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(380, 530, 430, 590, cla, img, 0.8)
+                                    imgs_ = imgs_set_(360, 520, 430, 590, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
+                                        print("sinnyum_right", imgs_)
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
                         else:
                             # 활쟁이
-                            click_pos_2(365, 565, cla)
+                            click_pos_2(350, 555, cla)
                             time.sleep(0.5)
 
 
