@@ -3400,8 +3400,8 @@ class game_Playing(QThread):
                                                         myQuest_play_add(v_.now_cla, result_schedule_)
 
                                                     elif dungeon_[1] == "동굴":
-                                                        # result = dungeon_play_event(v_.now_cla, result_schedule_)
-                                                        myQuest_play_add(v_.now_cla, result_schedule_)
+                                                        result = dungeon_play(v_.now_cla, result_schedule_)
+                                                        # myQuest_play_add(v_.now_cla, result_schedule_)
                                                     else:
 
                                                         result = dungeon_play(v_.now_cla, result_schedule_)

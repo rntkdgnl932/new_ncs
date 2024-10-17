@@ -419,7 +419,7 @@ def dungeon_play(cla, result_schedule_):
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_clear.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(30, 260, 120, 300, cla, img, 0.8)
+                                        imgs_ = imgs_set_(30, 210, 120, 300, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             dungeon_clear = True
                                         else:
@@ -558,7 +558,7 @@ def dungeon_play(cla, result_schedule_):
                             print("step_ready", step_ready)
                             # 기암 등 업뎃 이전까지 동굴은 일단 2층만...
                             if dungeon_[1] == "동굴":
-                                click_pos_2(800, 220, cla)
+                                click_pos_2(800, 160, cla)
                             else:
                                 step = 115 + (step_ready * 50)
                                 click_pos_2(800, step, cla)
@@ -1271,22 +1271,38 @@ def dongool_move(cla, nowstep):
                                                         complete_ = True
                         else:
                             # 동굴 지도 찍는 위치
-                            if int(nowstep) == 1:
-                                result_x = random.randint(350, 600)
-                                result_y = random.randint(510, 690)
-                                click_pos_2(result_x, result_y, cla)
-                            if int(nowstep) == 2:
-                                result_x = random.randint(410, 555)
-                                result_y = random.randint(370, 640)
-                                click_pos_2(result_x, result_y, cla)
-                            if int(nowstep) == 3:
-                                result_x = random.randint(330, 600)
-                                result_y = random.randint(460, 680)
-                                click_pos_2(result_x, result_y, cla)
-                            if int(nowstep) == 4:
-                                result_x = random.randint(365, 630)
-                                result_y = random.randint(435, 620)
-                                click_pos_2(result_x, result_y, cla)
+
+                            for i in range(5):
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dungeon_move_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(260, 260, 670, 870, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                else:
+
+                                    result_x = random.randint(330, 640)
+                                    result_y = random.randint(400, 700)
+                                    click_pos_2(result_x, result_y, cla)
+                                time.sleep(1)
+
+
+                            # if int(nowstep) == 1:
+                            #     result_x = random.randint(350, 600)
+                            #     result_y = random.randint(510, 690)
+                            #     click_pos_2(result_x, result_y, cla)
+                            # if int(nowstep) == 2:
+                            #     result_x = random.randint(410, 555)
+                            #     result_y = random.randint(370, 640)
+                            #     click_pos_2(result_x, result_y, cla)
+                            # if int(nowstep) == 3:
+                            #     result_x = random.randint(330, 600)
+                            #     result_y = random.randint(460, 680)
+                            #     click_pos_2(result_x, result_y, cla)
+                            # if int(nowstep) == 4:
+                            #     result_x = random.randint(365, 630)
+                            #     result_y = random.randint(435, 620)
+                            #     click_pos_2(result_x, result_y, cla)
                         time.sleep(0.2)
                     else:
                         # 여기에 눈알 표시 있도록 하기
