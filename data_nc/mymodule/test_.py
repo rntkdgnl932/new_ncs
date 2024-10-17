@@ -75,12 +75,24 @@ def go_test():
     #         data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
     #         print(data, imgs_)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\get_item\\sinnyum_zero.PNG"
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_5.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(450, 360, 495, 415, cla, img, 0.8)
+    imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("sinnyum_zero", imgs_)
+        print("반복사용 체크 완료")
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("반복사용 체크 중")
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_22.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("반복사용 체크 중2")
 
     # result1 = auction_start("three")
     # print("result1", result1)
