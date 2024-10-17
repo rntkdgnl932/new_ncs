@@ -14,7 +14,7 @@ def dungeon_play(cla, result_schedule_):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg, drag_pos
-        from action import menu_open, clean_screen, in_maul_check, out_check
+        from action import menu_open, clean_screen, in_maul_check, out_check, game_loading
         from massenger import line_to_me
         from potion import maul_potion_only, potion_check, juljun_maul_potion
         from get_item import guild_jilyung_get
@@ -644,6 +644,14 @@ def dungeon_play(cla, result_schedule_):
                                 loop_y_count += 1
                                 if loop_y_count > 10:
                                     loop_y = True
+
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\action\\loading.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(150, 850, 750, 1050, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    loop_y = True
+                                    game_loading(cla)
                                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
