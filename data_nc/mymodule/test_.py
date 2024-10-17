@@ -75,6 +75,8 @@ def go_test():
     #         data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
     #         print(data, imgs_)
 
+    dead_die_before(cla)
+
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_5.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

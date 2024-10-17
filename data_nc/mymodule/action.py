@@ -142,6 +142,7 @@ def dead_die_before(cla):
                     if die_count > 5:
                         dead_die_ = True
                         die_count = 0
+
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\exp_.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -152,19 +153,32 @@ def dead_die_before(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(55, 120, 120, 180, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-
+                            # 다이아 0인지 확인
                             for i in range(5):
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dia_zero.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(50, 870, 270, 910, cla, img, 0.75)
+                                imgs_ = imgs_set_(50, 850, 120, 890, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_2(170, 940, cla)
-                                    print("dead_gold 떳다.", imgs_)
+                                    print("dia_zero 떳다.", imgs_)
                                     break
                                 else:
-                                    click_pos_2(95, 895, cla)
+                                    click_pos_2(230, 895, cla)
                                 time.sleep(0.5)
+
+                            # for i in range(5):
+                            #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"
+                            #     img_array = np.fromfile(full_path, np.uint8)
+                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #     imgs_ = imgs_set_(50, 870, 270, 910, cla, img, 0.75)
+                            #     if imgs_ is not None and imgs_ != False:
+                            #         click_pos_2(170, 940, cla)
+                            #         print("dead_gold 떳다.", imgs_)
+                            #         break
+                            #     else:
+                            #         click_pos_2(95, 895, cla)
+                            #     time.sleep(0.5)
 
 
 
@@ -214,18 +228,32 @@ def dead_die_before(cla):
                         imgs_ = imgs_set_(55, 120, 120, 180, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
 
+                            # 다이아 0인지 확인
                             for i in range(5):
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dia_zero.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(50, 870, 270, 910, cla, img, 0.75)
+                                imgs_ = imgs_set_(50, 850, 120, 890, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_2(170, 940, cla)
-                                    print("dead_gold 떳다.", imgs_)
+                                    print("dia_zero 떳다.", imgs_)
                                     break
                                 else:
-                                    click_pos_2(95, 895, cla)
+                                    click_pos_2(230, 895, cla)
                                 time.sleep(0.5)
+
+                            # for i in range(5):
+                            #     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\dead_gold.PNG"
+                            #     img_array = np.fromfile(full_path, np.uint8)
+                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #     imgs_ = imgs_set_(50, 870, 270, 910, cla, img, 0.75)
+                            #     if imgs_ is not None and imgs_ != False:
+                            #         click_pos_2(170, 940, cla)
+                            #         print("dead_gold 떳다.", imgs_)
+                            #         break
+                            #     else:
+                            #         click_pos_2(95, 895, cla)
+                            #     time.sleep(0.5)
 
                             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dead_die\\not_enough_gold.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
