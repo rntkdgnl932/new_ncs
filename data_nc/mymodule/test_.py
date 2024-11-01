@@ -54,7 +54,26 @@ def go_test():
 
     v_.what_cla = "one클라"
 
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\auto_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(900, 820, 945, 860, cla, img, 0.95)
+    if imgs_ is not None and imgs_ != False:
+        print("auto_1", imgs_)
 
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\auto_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(900, 820, 945, 860, cla, img, 0.95)
+    if imgs_ is not None and imgs_ != False:
+        print("auto_2", imgs_)
+
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\quest_ing_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(900, 820, 945, 860, cla, img, 0.9)
+    if imgs_ is not None and imgs_ != False:
+        print("quest_ing_1", imgs_)
 
     #333
     # if dungeon_[1] == "번영":
@@ -75,26 +94,7 @@ def go_test():
     #         data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
     #         print(data, imgs_)
 
-    dead_die_before(cla)
 
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_5.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("반복사용 체크 완료")
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("반복사용 체크 중")
-    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\skill_22.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("반복사용 체크 중2")
 
     # result1 = auction_start("three")
     # print("result1", result1)
