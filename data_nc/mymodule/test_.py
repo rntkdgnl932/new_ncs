@@ -75,6 +75,13 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("quest_ing_1", imgs_)
 
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("nightcrow_title", imgs_)
+
     #333
     # if dungeon_[1] == "번영":
     #     dungeon_name = "bunyuong_1"
