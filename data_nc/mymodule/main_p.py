@@ -168,7 +168,7 @@ class MyApp(QDialog):
             last_monitor_number = idx
 
         if last_monitor_number == 1 or line_[0] == "coob":
-            self.setGeometry(1000, 300, 900, 600)
+            self.setGeometry(1000, 200, 900, 800)
         elif last_monitor_number == 2:
             self.setGeometry(1000 + 960, 300, 900, 600)
         elif last_monitor_number == 3:
