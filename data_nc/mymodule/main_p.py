@@ -142,12 +142,32 @@ class MyApp(QDialog):
         # 업데이트버젼
         # pyinstaller --hidden-import screeninfo --hidden-import PyQt5 --hidden-import requests --hidden-import chardet -i="nightcrow.ico" --add-data="nightcrow.ico;./" --icon="nightcrow.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
 
+        dir_path = "C:\\my_games"
+        file_path = dir_path + "\\line\\line.txt"
+
+        if os.path.isdir(dir_path) == False:
+            os.makedirs(dir_path)
+        isFile = False
+        while isFile is False:
+            if os.path.isfile(file_path) == True:
+                isFile = True
+                # 파일 읽기
+                with open(file_path, "r", encoding='utf-8-sig') as file:
+                    line = file.read()
+                    line_ = line.split(":")
+                    print('line', line)
+            else:
+                print('line 파일 없당')
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    file.write("ccocco:메롱")
+
+
         monitors = get_monitors()
         last_monitor_number = 0
         for idx, monitor in enumerate(monitors, start=1):
             last_monitor_number = idx
 
-        if last_monitor_number == 1:
+        if last_monitor_number == 1 or line_[0] == "coob":
             self.setGeometry(1000, 300, 900, 600)
         elif last_monitor_number == 2:
             self.setGeometry(1000 + 960, 300, 900, 600)
