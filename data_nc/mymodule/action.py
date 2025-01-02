@@ -1698,6 +1698,125 @@ def jangsigan_check(cla):
     except Exception as e:
         print(e)
 
+
+def update_check(cla):
+    import cv2
+    import os
+    import numpy as np
+    from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos, imgs_set
+    from schedule import myQuest_play_add, myQuest_play_check
+    from massenger import line_to_me
+    try:
+        # 대기자 명단
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\ready_cancle.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 600, 560, 660, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+
+            ready_ = False
+            while ready_ is False:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\ready_cancle.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 600, 560, 660, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    just_ready = text_check_get(390, 470, 570, 495, cla)
+                    print("대기자?", just_ready)
+                    time.sleep(10)
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(20, 990, 150, 1040, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        ready_ = True
+                        time.sleep(1)
+        else:
+            # 업데이트 여부
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\update_need.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(300, 420, 700, 570, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                for i in range(10):
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\update_need.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(300, 420, 700, 570, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(550, 625, cla)
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(300, 900, 700, 1040, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\data_loading.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 900, 700, 1040, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                    time.sleep(1)
+
+            # 대기자 명단
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(300, 900, 700, 1040, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                down = True
+                down_count = 0
+                while down is True:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(300, 900, 700, 1040, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        down_count += 1
+                        print("다운로드 중", down_count, "초")
+                    else:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            down = False
+
+                    time.sleep(1)
+            else:
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\data_loading.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(300, 900, 700, 1040, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    down = True
+                    down_count = 0
+                    while down is True:
+                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\data_loading.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(300, 900, 700, 1040, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            down_count += 1
+                            print("데이터 로딩 중", down_count, "초")
+                        else:
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 500, 330, 570, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                down = False
+
+                        time.sleep(1)
+
+
+    except Exception as e:
+        print(e)
+
 def clean_screen(cla):
     import cv2
     import os
@@ -1709,6 +1828,8 @@ def clean_screen(cla):
 
 
         print("<< clean_screen >>")
+
+        update_check(cla)
 
         # 튕겼는지 확인
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\nightcrow_title.PNG"

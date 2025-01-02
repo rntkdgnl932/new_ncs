@@ -52,7 +52,7 @@ from jadong_crow import jadong_play
 from gyucjunji import gyucjunji_play
 from get_item import get_items, get_item_checking, guild_jilyung, get_post
 from potion import maul_potion, maul_potion_only
-from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check, dead_die_before, clean_screen
+from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check, dead_die_before, clean_screen, update_check
 from server import game_start
 from auction_nc import auction_ready
 from boss_attack import boss_attack_start
@@ -3220,111 +3220,8 @@ class game_Playing(QThread):
                                     os.execl(sys.executable, sys.executable, *sys.argv)
 
                                 else:
-                                    # 대기자 명단
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\ready_cancle.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 600, 560, 660, v_.now_cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-
-                                        ready_ = False
-                                        while ready_ is False:
-                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\ready_cancle.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(400, 600, 560, 660, v_.now_cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                just_ready = text_check_get(390, 470, 570, 495, v_.now_cla)
-                                                print("대기자?", just_ready)
-                                                time.sleep(10)
-                                            else:
-                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\character_start\\delete_character.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(20, 990, 150, 1040, v_.now_cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    ready_ = True
-                                                    time.sleep(1)
-                                    else:
-                                        # 업데이트 여부
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\update_need.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(300, 420, 700, 570, v_.now_cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            for i in range(10):
-                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\update_need.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(300, 420, 700, 570, v_.now_cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    click_pos_2(550, 625, v_.now_cla)
-                                                else:
-                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
-                                                    img_array = np.fromfile(full_path, np.uint8)
-                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
-                                                    if imgs_ is not None and imgs_ != False:
-
-                                                    else:
-                                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\data_loading.PNG"
-                                                        img_array = np.fromfile(full_path, np.uint8)
-                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                        imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
-                                                        if imgs_ is not None and imgs_ != False:
-                                                            break
-                                                time.sleep(1)
-
-                                        # 대기자 명단
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            down = True
-                                            down_count = 0
-                                            while down is True:
-                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    down_count += 1
-                                                    print("다운로드 중", down_count, "초")
-                                                else:
-                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
-                                                    img_array = np.fromfile(full_path, np.uint8)
-                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(300, 500, 330, 570, v_.now_cla, img, 0.85)
-                                                    if imgs_ is not None and imgs_ != False:
-                                                        down = False
-
-                                                time.sleep(1)
-                                        else:
-                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\data_loading.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                down = True
-                                                down_count = 0
-                                                while down is True:
-                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\data_loading.PNG"
-                                                    img_array = np.fromfile(full_path, np.uint8)
-                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
-                                                    if imgs_ is not None and imgs_ != False:
-                                                        down_count += 1
-                                                        print("데이터 로딩 중", down_count, "초")
-                                                    else:
-                                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\nightcrow_i.PNG"
-                                                        img_array = np.fromfile(full_path, np.uint8)
-                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                        imgs_ = imgs_set_(300, 500, 330, 570, v_.now_cla, img, 0.85)
-                                                        if imgs_ is not None and imgs_ != False:
-                                                            down = False
-
-                                                    time.sleep(1)
+                                    # 업데이트 체크하기
+                                    update_check(v_.now_cla)
 
                                     # 팝업창과 보스창 없애기
                                     fuckyou_popup(v_.now_cla)
