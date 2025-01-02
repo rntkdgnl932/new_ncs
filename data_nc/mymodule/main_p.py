@@ -3246,6 +3246,35 @@ class game_Playing(QThread):
                                                     ready_ = True
                                                     time.sleep(1)
                                     else:
+                                        # 업데이트 여부
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\update_need.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(300, 420, 700, 570, v_.now_cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            for i in range(10):
+                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\update_need.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(300, 420, 700, 570, v_.now_cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_2(550, 625, v_.now_cla)
+                                                else:
+                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+
+                                                    else:
+                                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\data_loading.PNG"
+                                                        img_array = np.fromfile(full_path, np.uint8)
+                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                        imgs_ = imgs_set_(300, 900, 700, 1040, v_.now_cla, img, 0.8)
+                                                        if imgs_ is not None and imgs_ != False:
+                                                            break
+                                                time.sleep(1)
+
                                         # 대기자 명단
                                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\downloading.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
