@@ -57,21 +57,21 @@ def go_test():
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\auto_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(900, 820, 945, 860, cla, img, 0.95)
+    imgs_ = imgs_set_(900, 760, 950, 860, cla, img, 0.9)
     if imgs_ is not None and imgs_ != False:
         print("auto_1", imgs_)
 
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\auto_2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(900, 820, 945, 860, cla, img, 0.95)
+    imgs_ = imgs_set_(900, 760, 950, 860, cla, img, 0.9)
     if imgs_ is not None and imgs_ != False:
         print("auto_2", imgs_)
 
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\quest_ing_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(900, 820, 945, 860, cla, img, 0.9)
+    imgs_ = imgs_set_(900, 760, 950, 860, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
         print("quest_ing_1", imgs_)
 
