@@ -123,88 +123,89 @@ def dungeon_play(cla, result_schedule_):
                         spot_arrive = True
 
                     else:
-                        if dungeon_[1] == "신전":
-                            print("신전")
-                            my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\temple"
-                            spot = "temple"
-                            file_list = os.listdir(my_spot)
+                        if dungeon_[1] == "신전" or dungeon_[1] == "유적":
+                            if dungeon_[1] == "신전":
+                                print("신전")
+                                my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\temple"
+                                spot = "temple"
+                                file_list = os.listdir(my_spot)
 
-                        elif dungeon_[1] == "유적":
-                            print("유적")
-                            my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\youjuk"
-                            spot = "youjuk"
-                            file_list = os.listdir(my_spot)
+                            elif dungeon_[1] == "유적":
+                                print("유적")
+                                my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\youjuk"
+                                spot = "youjuk"
+                                file_list = os.listdir(my_spot)
 
-                        for i in range(len(file_list)):
-                            result_file_list = file_list[i].split(".")
-                            read_data = result_file_list[0]
+                            for i in range(len(file_list)):
+                                result_file_list = file_list[i].split(".")
+                                read_data = result_file_list[0]
 
-                            # 종류 쭈욱 시작
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\" + str(spot) + "\\" + str(
-                                read_data) + ".PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                print("spot...", str(read_data), imgs_)
-                                spot_arrive = True
-                        if spot_arrive == True:
-                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
-                            if imgs_ is not None and imgs_ != False:
-                                for i in range(6):
-                                    result_juljun = juljun_check(cla)
-                                    if result_juljun == True:
-                                        print("드래그 중...")
-                                        drag_pos(360, 550, 600, 550, cla)
-                                        time.sleep(0.3)
-                                    else:
-                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                            else:
-                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
+                                # 종류 쭈욱 시작
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\" + str(spot) + "\\" + str(
+                                    read_data) + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("spot...", str(read_data), imgs_)
+                                    spot_arrive = True
+                            if spot_arrive == True:
+                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\gujum.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("던전 중", dungeon_name)
-                                    need_count = 0
-                                    potion_check(cla)
+                                    for i in range(6):
+                                        result_juljun = juljun_check(cla)
+                                        if result_juljun == True:
+                                            print("드래그 중...")
+                                            drag_pos(360, 550, 600, 550, cla)
+                                            time.sleep(0.3)
+                                        else:
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
                                 else:
-                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
+                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_hunting.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
                                     if imgs_ is not None and imgs_ != False:
+                                        print("던전 중", dungeon_name)
+                                        need_count = 0
+                                        potion_check(cla)
+                                    else:
+                                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\ready.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(400, 880, 560, 960, cla, img, 0.9)
+                                        if imgs_ is not None and imgs_ != False:
 
-                                        for i in range(6):
-                                            result_juljun = juljun_check(cla)
-                                            if result_juljun == True:
-                                                print("드래그 중...")
-                                                drag_pos(360, 550, 600, 550, cla)
-                                                time.sleep(0.3)
-                                            else:
-                                                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                            time.sleep(0.5)
-                                        for i in range(10):
-                                            result_out = out_check(cla)
-                                            if result_out == True:
-                                                click_pos_2(930, 850, cla)
-                                                break
-                                            else:
-                                                clean_screen(cla)
+                                            for i in range(6):
+                                                result_juljun = juljun_check(cla)
+                                                if result_juljun == True:
+                                                    print("드래그 중...")
+                                                    drag_pos(360, 550, 600, 550, cla)
+                                                    time.sleep(0.3)
+                                                else:
+                                                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(300, 400, 800, 800, cla, img, 0.9)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                time.sleep(0.5)
+                                            for i in range(10):
+                                                result_out = out_check(cla)
+                                                if result_out == True:
+                                                    click_pos_2(930, 850, cla)
+                                                    break
+                                                else:
+                                                    clean_screen(cla)
 
 
                         else:
@@ -242,37 +243,39 @@ def dungeon_play(cla, result_schedule_):
                     complete_ = now_playing(cla, dungeon_[1], dungeon_[2])
                 else:
 
-                    if dungeon_[1] == "신전":
-                        print("신전")
-                        my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\temple"
-                        spot = "temple"
-                        file_list = os.listdir(my_spot)
-
-                    elif dungeon_[1] == "유적":
-                        print("유적")
-                        my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\youjuk"
-                        spot = "youjuk"
-                        file_list = os.listdir(my_spot)
-
                     is_spot = False
+                    if dungeon_[1] == "신전" or dungeon_[1] == "유적":
+                        if dungeon_[1] == "신전":
+                            print("신전")
+                            my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\temple"
+                            spot = "temple"
+                            file_list = os.listdir(my_spot)
 
-                    for i in range(len(file_list)):
-                        result_file_list = file_list[i].split(".")
-                        read_data = result_file_list[0]
+                        elif dungeon_[1] == "유적":
+                            print("유적")
+                            my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\youjuk"
+                            spot = "youjuk"
+                            file_list = os.listdir(my_spot)
 
-                        # 종류 쭈욱 시작
-                        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + str(spot) + "\\" + str(
-                            read_data) + ".PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
-                        if imgs_ is not None and imgs_ != False:
-                            print("spot...", str(read_data), imgs_)
-                            is_spot = True
-                    if is_spot == True:
-                        in_dungeon__ = True
 
-                        complete_ = now_playing(cla, dungeon_[1], dungeon_[2])
+
+                        for i in range(len(file_list)):
+                            result_file_list = file_list[i].split(".")
+                            read_data = result_file_list[0]
+
+                            # 종류 쭈욱 시작
+                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + str(spot) + "\\" + str(
+                                read_data) + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+                            if imgs_ is not None and imgs_ != False:
+                                print("spot...", str(read_data), imgs_)
+                                is_spot = True
+                        if is_spot == True:
+                            in_dungeon__ = True
+
+                            complete_ = now_playing(cla, dungeon_[1], dungeon_[2])
                     else:
                         # 던전 끝났을때
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
