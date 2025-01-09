@@ -3348,6 +3348,10 @@ class game_Playing(QThread):
                                                     elif dungeon_[1] == "동굴":
                                                         result = dungeon_play(v_.now_cla, result_schedule_)
                                                         # myQuest_play_add(v_.now_cla, result_schedule_)
+
+                                                    elif dungeon_[1] == "번영":
+                                                        # result = dungeon_play(v_.now_cla, result_schedule_)
+                                                        myQuest_play_add(v_.now_cla, result_schedule_)
                                                     else:
 
                                                         result = dungeon_play(v_.now_cla, result_schedule_)
