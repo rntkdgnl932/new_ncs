@@ -1235,13 +1235,46 @@ def now_playing(cla, dun_, nowstep):
                                     time.sleep(0.1)
                                 else:
                                     # 던전중일때만
+
+                                    is_dun = False
+
                                     print("동굴 말고 다른 던전 공격중...던전이름 : ", dungeon_name)
                                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                                     if imgs_ is not None and imgs_ != False:
+                                        is_dun = True
+                                    # 신전신전
+                                    else:
+                                        if dun_ == "신전":
+                                            print("신전")
+                                            my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\temple"
+                                            spot = "temple"
+                                            file_list = os.listdir(my_spot)
 
+                                        elif dun_ == "유적":
+                                            print("유적")
+                                            my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\youjuk"
+                                            spot = "youjuk"
+                                            file_list = os.listdir(my_spot)
+
+                                        for p in range(len(file_list)):
+                                            result_file_list = file_list[p].split(".")
+                                            read_data = result_file_list[0]
+
+                                            # 종류 쭈욱 시작
+                                            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\" + str(
+                                                spot) + "\\" + str(
+                                                read_data) + ".PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("spot...", str(read_data), imgs_)
+                                                is_dun = True
+                                                break
+                                    if is_dun == True:
                                         print("정상적으로 사냥중...총 10초 딜레이중")
                                         # 이동서 체크
 
