@@ -856,7 +856,7 @@ def scan_jungye_setting(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\monster.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(660, 265, 730, 300, cla, img, 0.8)
+                    imgs_ = imgs_set_(660, 290, 730, 330, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
@@ -920,42 +920,42 @@ def scan_jungye_setting(cla):
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\not_clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(665, 280, 705, 325, cla, img, 0.8)
+                    imgs_ = imgs_set_(665, 310, 705, 350, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\not_clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(735, 280, 775, 325, cla, img, 0.8)
+                    imgs_ = imgs_set_(735, 310, 775, 350, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\not_clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(805, 280, 850, 325, cla, img, 0.8)
+                    imgs_ = imgs_set_(805, 310, 850, 350, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(665, 310, 705, 360, cla, img, 0.8)
+                    imgs_ = imgs_set_(665, 345, 705, 380, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(735, 310, 775, 360, cla, img, 0.8)
+                    imgs_ = imgs_set_(735, 345, 775, 380, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
                     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\gyucjunji\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(805, 310, 850, 360, cla, img, 0.8)
+                    imgs_ = imgs_set_(805, 345, 850, 380, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
