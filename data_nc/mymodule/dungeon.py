@@ -123,6 +123,7 @@ def dungeon_play(cla, result_schedule_):
                         spot_arrive = True
 
                     else:
+                        print("절전 신전 유적 체크")
                         if dungeon_[1] == "신전" or dungeon_[1] == "유적":
                             if dungeon_[1] == "신전":
                                 print("신전")
@@ -276,7 +277,9 @@ def dungeon_play(cla, result_schedule_):
                             in_dungeon__ = True
 
                             complete_ = now_playing(cla, dungeon_[1], dungeon_[2])
-                    else:
+
+                    # else:
+                    if in_dungeon__ != True:
                         # 던전 끝났을때
                         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\y_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -824,13 +827,13 @@ def dungeon_play(cla, result_schedule_):
     except Exception as e:
         print(e)
 
-def dungeon_1(cla):
+def dungeon_in_start(cla):
     try:
         import cv2
         import numpy as np
 
 
-        print("hi")
+        print("dungeon_in_start")
 
 
     except Exception as e:
