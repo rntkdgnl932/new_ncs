@@ -3340,7 +3340,7 @@ class game_Playing(QThread):
                                                 dungeon_ = result_schedule_.split("_")
 
                                                 if dungeon_[0] == "던전":
-
+                                                    result = False
                                                     if dungeon_[1] == "이벤트":
                                                         # result = dungeon_play_event(v_.now_cla, result_schedule_)
                                                         myQuest_play_add(v_.now_cla, result_schedule_)
