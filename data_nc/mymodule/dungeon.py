@@ -836,7 +836,7 @@ def dungeon_1(cla):
 def now_playing(cla, dun_, nowstep):
     import cv2
     import numpy as np
-    import random
+    import os
     from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
     from potion import potion_check, maul_potion_only, maul_potion
     from action import move_check
@@ -871,20 +871,20 @@ def now_playing(cla, dun_, nowstep):
             if imgs_ is not None and imgs_ != False:
                 print("사냥중인듯")
 
-            if dungeon_[1] == "신전":
+            if dun_ == "신전":
                 print("신전")
                 my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\temple"
                 spot = "temple"
                 file_list = os.listdir(my_spot)
 
-            elif dungeon_[1] == "유적":
+            elif dun_ == "유적":
                 print("유적")
                 my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun\\youjuk"
                 spot = "youjuk"
                 file_list = os.listdir(my_spot)
 
             for p in range(len(file_list)):
-                result_file_list = file_list[i].split(".")
+                result_file_list = file_list[p].split(".")
                 read_data = result_file_list[0]
 
                 # 종류 쭈욱 시작
@@ -920,20 +920,20 @@ def now_playing(cla, dun_, nowstep):
                     if imgs_ is not None and imgs_ != False:
                         arrive = True
                     else:
-                        if dungeon_[1] == "신전":
+                        if dun_ == "신전":
                             print("신전")
                             my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\temple"
                             spot = "temple"
                             file_list = os.listdir(my_spot)
 
-                        elif dungeon_[1] == "유적":
+                        elif dun_ == "유적":
                             print("유적")
                             my_spot = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\youjuk"
                             spot = "youjuk"
                             file_list = os.listdir(my_spot)
 
                         for p in range(len(file_list)):
-                            result_file_list = file_list[i].split(".")
+                            result_file_list = file_list[p].split(".")
                             read_data = result_file_list[0]
 
                             # 종류 쭈욱 시작
