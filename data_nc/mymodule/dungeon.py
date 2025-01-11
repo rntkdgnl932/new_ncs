@@ -1795,7 +1795,7 @@ def dun_move(cla, nowstep, spot):
                                             result_x = random.randint(470, 500)
                                             result_y = random.randint(535, 570)
                                             click_pos_2(result_x, result_y, cla)
-                                        if int(nowstep) == 2:
+                                        elif int(nowstep) == 2:
                                             result_x = random.randint(525, 570)
                                             result_y = random.randint(505, 530)
                                             click_pos_2(result_x, result_y, cla)
