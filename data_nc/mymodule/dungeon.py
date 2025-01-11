@@ -1594,7 +1594,7 @@ def dun_move(cla, nowstep, spot):
     file_list = os.listdir(my_spot)
 
     try:
-        print("dun_move")
+        print("dun_move", nowstep, spot)
 
         complete_ = False
 
@@ -1767,6 +1767,8 @@ def dun_move(cla, nowstep, spot):
                                     # result_x = random.randint(330, 640)
                                     # result_y = random.randint(400, 700)
                                     # click_pos_2(result_x, result_y, cla)
+
+                                    print("어디?", int(nowstep), spot)
 
                                     if spot == "temple":
                                         # 신전
