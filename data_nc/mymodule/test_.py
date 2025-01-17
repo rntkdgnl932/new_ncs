@@ -54,6 +54,12 @@ def go_test():
 
     v_.what_cla = "one클라"
 
+    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\attack_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("attack_1", imgs_)
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\auto_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
