@@ -1117,6 +1117,14 @@ def go_to_spot(cla, data):
                                 attack_ready = True
                                 myQuest_play_add(cla, "서브퀘스트")
                                 clean_screen(cla)
+                else:
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[
+                        0] + "\\" + hunter_spot + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        attack_ready_count += 2
             else:
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\attack_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
