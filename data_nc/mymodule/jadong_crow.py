@@ -151,12 +151,24 @@ def jadong_play(cla, result_schedule_):
                 print("도착한 상태")
                 now_playing(cla)
             else:
+
                 print("사냥터 진입하러 가자", hunter_spot)
                 # 자동사냥 진입
                 clean_screen(cla)
-                in_world(cla)
-                in_spot(cla, result_schedule_)
-                go_to_spot(cla, "jadong")
+                time.sleep(1)
+
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\" + read_ready[
+                    0] + "\\" + hunter_spot + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("도착한 상태")
+                    now_playing(cla)
+                else:
+                    in_world(cla)
+                    in_spot(cla, result_schedule_)
+                    go_to_spot(cla, "jadong")
 
         return complete_
     except Exception as e:
@@ -1140,6 +1152,7 @@ def go_to_spot(cla, data):
 
                             guild_jilyung_get(cla, "jadong")
                             time.sleep(0.1)
+                            clean_screen(cla)
                         if data == "sub":
                             click_pos_2(800, 150, cla)
             time.sleep(0.3)
