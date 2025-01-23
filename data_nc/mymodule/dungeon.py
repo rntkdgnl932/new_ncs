@@ -1774,21 +1774,21 @@ def dun_move(cla, nowstep, spot):
                                         # 신전
                                         # nowstep: 1 = > 30, 2 = > 40, 3 = > 50...
                                         if int(nowstep) == 1:
-                                            result_x = random.randint(450, 490)
-                                            result_y = random.randint(510, 545)
+                                            result_x = random.randint(360, 415)
+                                            result_y = random.randint(470, 495)
                                             click_pos_2(result_x, result_y, cla)
                                         elif int(nowstep) == 2:
                                             result_x = random.randint(535, 560)
                                             result_y = random.randint(460, 495)
                                             click_pos_2(result_x, result_y, cla)
                                         elif int(nowstep) == 3:
-                                            result_x = random.randint(600, 625)
-                                            result_y = random.randint(550, 580)
+                                            result_x = random.randint(390, 425)
+                                            result_y = random.randint(580, 625)
                                             click_pos_2(result_x, result_y, cla)
                                         else:
                                             # if int(nowstep) == 4:
-                                            result_x = random.randint(450, 490)
-                                            result_y = random.randint(645, 680)
+                                            result_x = random.randint(520, 555)
+                                            result_y = random.randint(690, 735)
                                             click_pos_2(result_x, result_y, cla)
                                     elif spot == "youjuk":
                                         if int(nowstep) == 1:
