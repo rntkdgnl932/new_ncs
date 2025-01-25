@@ -54,6 +54,8 @@ def go_test():
 
     v_.what_cla = "one클라"
 
+    potion_check(cla)
+
     full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\jadong\\attack_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
