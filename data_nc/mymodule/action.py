@@ -2013,6 +2013,12 @@ def clean_screen(cla):
                     imgs_ = imgs_set(430, 520, 560, 560, cla, img)
                     if imgs_ is not None and imgs_ != False:
                         out_nc = True
+                    full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\monitor\\out_nc3.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set(370, 500, 600, 560, cla, img)
+                    if imgs_ is not None and imgs_ != False:
+                        out_nc = True
 
                     if out_nc == True:
                         ms_ = str("나크 ") + str("구글 로그인 화면이다. 꺼진것 같다")
@@ -2348,7 +2354,7 @@ def go_quest_ing_(cla):
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\quest_ing_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(900, 760, 950, 860, cla, img, 0.8)
+        imgs_ = imgs_set_(900, 760, 950, 860, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
             print("quest_ing_1", imgs_)
             go_ = True
@@ -2375,6 +2381,15 @@ def go_auto_ing_(cla):
         if imgs_ is not None and imgs_ != False:
             print("auto_1", imgs_)
             go_ = True
+
+        full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\auto_5.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(900, 760, 950, 860, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("auto_5", imgs_)
+            go_ = True
+
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\auto_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
