@@ -1595,7 +1595,7 @@ def juljun_check(cla):
     import numpy as np
     from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos, imgs_set
     from schedule import myQuest_play_add, myQuest_play_check
-    from massenger import line_to_me
+    from realtime import boonhae_
     try:
         is_juljun = False
         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\juljun_mode.PNG"
@@ -1609,6 +1609,25 @@ def juljun_check(cla):
             imgs_ = imgs_set_(0, 70, 60, 130, cla, img, 0.88)
             if imgs_ is not None and imgs_ != False:
                 is_juljun = True
+
+        if is_juljun == True:
+            full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\juljun_full_bag_4.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(20, 190, 120, 240, cla, img, 0.88)
+            if imgs_ is not None and imgs_ != False:
+                juljun_off(cla)
+                boonhae_(cla)
+                full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\clean_screen\\gabang_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("clean screen 가방 닫자")
+                    click_pos_2(935, 100, cla)
+                    time.sleep(0.5)
+                click_pos_2(25, 970, cla)
+
 
         return is_juljun
 
@@ -3035,7 +3054,7 @@ def juljun_fullbag_check(cla):
             full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\check\\juljun_full_bag_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(40, 200, 100, 240, cla, img, 0.75)
+            imgs_ = imgs_set_(40, 200, 120, 240, cla, img, 0.75)
             if imgs_ is not None and imgs_ != False:
                 print("juljun_full_bag_1", imgs_)
                 is_full = True

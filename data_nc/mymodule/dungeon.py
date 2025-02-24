@@ -79,6 +79,9 @@ def dungeon_play(cla, result_schedule_):
             result_juljun = juljun_check(cla)
             if result_juljun == True:
                 print("juljun_dungeon")
+
+
+
                 full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\dungeon\\dongool_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
